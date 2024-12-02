@@ -1,4 +1,4 @@
-﻿<div class="z-40 shadow-sm" [ngClass]="{ 'dark text-white-dark': store.semidark && store.menu === 'horizontal'}">
+<div class="z-40 shadow-sm" [ngClass]="{ 'dark text-white-dark': store.semidark && store.menu === 'horizontal'}">
     <div class="relative flex w-full items-center bg-white px-5 py-2.5 dark:bg-[#0e1726]">
         <div class="horizontal-logo flex items-center justify-between lg:hidden ltr:mr-2 rtl:ml-2">
             <a routerLink="/" class="main-logo flex shrink-0 items-center">
@@ -168,7 +168,7 @@
                     <ul
                         *hlMenuItems
                         @toggleAnimation
-                        class="top-11 w-[230px] !py-0 font-semibold text-dark dark:text-white-dark dark:text-white-light/90 ltr:right-0 rtl:left-0"
+                        class="top-11 w-fit !py-0 font-semibold text-dark dark:text-white-dark dark:text-white-light/90 ltr:right-0 rtl:left-0"
                     >
                         <li>
                             <div class="flex items-center px-4 py-4">
@@ -177,11 +177,12 @@
                                 </div>
                                 <div class="truncate ltr:pl-4 rtl:pr-4">
                                     <h4 class="text-base">
-                                        Juan Pérez<span class="rounded bg-success-light px-1 text-xs text-success ltr:ml-2 rtl:ml-2">Pro</span>
+                                        {{ userData?.Nombre }}<span class="rounded bg-success-light px-1 text-xs text-success ltr:ml-2 rtl:ml-2">Pro</span>
                                     </h4>
                                     <a class="text-black/60 hover:text-teal-300 dark:text-dark-light/60 dark:hover:text-white" href="javascript:;">
-                                        {{"juanperez@gmail.com"}}
+                                        {{ userData?.CorreoElectronico }}
                                     </a>
+                                    <p>Región: {{ userData?.region?.NombreRegion }}</p>
                                 </div>
                             </div>
                         </li>
