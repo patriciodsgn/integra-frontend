@@ -2,28 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, tap, catchError } from 'rxjs';
 import { environmentdb } from 'src/environments/environment';
-import {
+import { 
     NecesidadesResponse,
     NecesidadesPorComunaResponse,
     PorcentajePermanenteResponse,
     ResumenNecesidades,
     CantidadTotalResponse
-
+    
 } from '../models/educacion-data.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class EducacionService {
-    public baseUrl = `${environmentdb.apidb}/educacion`;
+    private baseUrl = `${environmentdb.apidb}/educacion`;
 
-    constructor(public http: HttpClient) {
+    constructor(private http: HttpClient) {
         console.log('EducacionService inicializado con URL:', this.baseUrl);
     }
 
     getResumenNecesidades(ano: number, codigoRegion: number = 0): Observable<ResumenNecesidades> {
         const url = `${this.baseUrl}/necesidades`;
-
+        
         return this.http.get<NecesidadesResponse>(url, {
             params: {
                 ano: ano.toString(),
@@ -37,7 +37,7 @@ export class EducacionService {
                 // Extraemos los valores directamente del objeto categorías
                 const categorias = response.summary.necesidadesPorCategoria;
                 const total = response.summary.cantidadTotal;
-
+                
                 // Accedemos directamente a los valores numéricos
                 const permanente = Number(categorias['1. Permanente']) || 0;
                 const transitoria = Number(categorias['2. Transitoria']) || 0;
@@ -69,7 +69,7 @@ export class EducacionService {
 
     getNecesidadesPorComuna(ano: number, codigoRegion: number = 0): Observable<NecesidadesPorComunaResponse> {
         const url = `${this.baseUrl}/necesidades/comuna`;
-
+        
         return this.http.get<NecesidadesPorComunaResponse>(url, {
             params: {
                 ano: ano.toString(),
@@ -82,7 +82,7 @@ export class EducacionService {
 
     getPorcentajePermanente(ano: number, codigoRegion: number = 0): Observable<PorcentajePermanenteResponse> {
         const url = `${this.baseUrl}/porcentajePermanente`;
-
+        
         return this.http.get<PorcentajePermanenteResponse>(url, {
             params: {
                 ano: ano.toString(),
@@ -102,7 +102,7 @@ export class EducacionService {
 
     getGraficoNEE(ano: number, codigoRegion: number = 0): Observable<any> {
         const url = `${this.baseUrl}/graficoNEE`;
-
+    
         return this.http.get<any>(url, {
             params: {
                 ano: ano.toString(),
@@ -116,10 +116,10 @@ export class EducacionService {
             })
         );
     }
-
+    
     getPorcentajeRezago(ano: number, codigoRegion: number = 0): Observable<any> {
         const url = `${this.baseUrl}/porcentajeRezago`;
-
+    
         return this.http.get<any>(url, {
             params: {
                 ano: ano.toString(),
@@ -133,71 +133,71 @@ export class EducacionService {
             })
         );
     }
+    
+// Nuevo método para consumir el endpoint porcentajeATET
+getPorcentajeATET(ano: number, codigoRegion: number = 0): Observable<any> {
+    const url = `${this.baseUrl}/porcentajeATET`;
 
-    // Nuevo método para consumir el endpoint porcentajeATET
-    getPorcentajeATET(ano: number, codigoRegion: number = 0): Observable<any> {
-        const url = `${this.baseUrl}/porcentajeATET`;
+    return this.http.get<any>(url, {
+        params: {
+            ano: ano.toString(),
+            codigoRegion: codigoRegion.toString()
+        }
+    }).pipe(
+        tap(response => console.log('Respuesta porcentaje ATET:', response)),
+        catchError(error => {
+            console.error('Error en getPorcentajeATET:', error);
+            throw error;
+        })
+    );
+}
+getPromedioSatisfaccionATET(ano: number, codigoRegion: number = 0): Observable<any> {
+    const url = `${this.baseUrl}/promedioSatisfaccion`;
 
-        return this.http.get<any>(url, {
-            params: {
-                ano: ano.toString(),
-                codigoRegion: codigoRegion.toString()
-            }
-        }).pipe(
-            tap(response => console.log('Respuesta porcentaje ATET:', response)),
-            catchError(error => {
-                console.error('Error en getPorcentajeATET:', error);
-                throw error;
-            })
-        );
-    }
-    getPromedioSatisfaccionATET(ano: number, codigoRegion: number = 0): Observable<any> {
-        const url = `${this.baseUrl}/promedioSatisfaccion`;
+    return this.http.get<any>(url, {
+        params: {
+            ano: ano.toString(),
+            codigoRegion: codigoRegion.toString()
+        }
+    }).pipe(
+        tap(response => console.log('Respuesta promedio satisfacción ATET:', response)),
+        catchError(error => {
+            console.error('Error en getPromedioSatisfaccionATET:', error);
+            throw error;
+        })
+    );
+}
 
-        return this.http.get<any>(url, {
-            params: {
-                ano: ano.toString(),
-                codigoRegion: codigoRegion.toString()
-            }
-        }).pipe(
-            tap(response => console.log('Respuesta promedio satisfacción ATET:', response)),
-            catchError(error => {
-                console.error('Error en getPromedioSatisfaccionATET:', error);
-                throw error;
-            })
-        );
-    }
+getSatisfaccionGeografica(ano: number, codigoRegion: number = 0): Observable<any> {
+    const url = `${this.baseUrl}/satisfaccionGeografica`;
 
-    getSatisfaccionGeografica(ano: number, codigoRegion: number = 0): Observable<any> {
-        const url = `${this.baseUrl}/satisfaccionGeografica`;
+    return this.http.get<any>(url, {
+        params: {
+            ano: ano.toString(),
+            codigoRegion: codigoRegion.toString()
+        }
+    }).pipe(
+        tap(response => console.log('Respuesta satisfacción geográfica:', response)),
+        catchError(error => {
+            console.error('Error en getSatisfaccionGeografica:', error);
+            throw error;
+        })
+    );
+}
+getCantidadTotal(ano: number, codigoRegion: number = 0): Observable<CantidadTotalResponse> {
+    const url = `${this.baseUrl}/cantidadTotal`;
 
-        return this.http.get<any>(url, {
-            params: {
-                ano: ano.toString(),
-                codigoRegion: codigoRegion.toString()
-            }
-        }).pipe(
-            tap(response => console.log('Respuesta satisfacción geográfica:', response)),
-            catchError(error => {
-                console.error('Error en getSatisfaccionGeografica:', error);
-                throw error;
-            })
-        );
-    }
-    getCantidadTotal(ano: number, codigoRegion: number = 0): Observable<CantidadTotalResponse> {
-        const url = `${this.baseUrl}/cantidadTotal`;
-
-        return this.http.get<CantidadTotalResponse>(url, {
-            params: {
-                ano: ano.toString(),
-                codigoRegion: codigoRegion.toString()
-            }
-        }).pipe(
-            tap(response => console.log('Respuesta cantidad total:', response)),
-            catchError(error => {
-                console.error('Error en getCantidadTotal:', error);
-                throw error;
-            })
-        );
-    }
+    return this.http.get<CantidadTotalResponse>(url, {
+        params: {
+            ano: ano.toString(),
+            codigoRegion: codigoRegion.toString()
+        }
+    }).pipe(
+        tap(response => console.log('Respuesta cantidad total:', response)),
+        catchError(error => {
+            console.error('Error en getCantidadTotal:', error);
+            throw error;
+        })
+    );
+}
 }

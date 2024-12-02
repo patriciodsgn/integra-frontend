@@ -3,6 +3,31 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { environmentdb } from 'src/environments/environment';
+interface UsuarioData {
+  datosUsuario: {
+    CodigoUsuario: number;
+    Nombre: string;
+    CorreoElectronico: string;
+    CodigoRol: number;
+    nivelAcceso: String; // Nuevo campo agregado
+  };
+  permisos: Array<{
+    CodigoPermiso: number;
+    NombrePermiso: string;
+    TipoCategoria: string;
+    ValorCategoria: string;
+  }>;
+  region: {
+    CodigoRegion: number;
+    NombreRegion: string;
+  };
+}
+
+interface UsuarioResponse {
+  success: boolean;
+  data: UsuarioData;
+  message?: string;
+}
 
 interface LoginResponse {
   success: boolean;
@@ -10,14 +35,15 @@ interface LoginResponse {
   message?: string;
 }
 
-interface UsuarioResponse {
-  success: boolean;
-  data: any;
-}
+//interface UsuarioResponse {
+//  success: boolean;
+//  data: any;
+//}
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class AuthService {
   private apiUrl = `${environmentdb.apidb}/login`;
   private isAuthenticated = false; // Estado local de autenticación
@@ -45,24 +71,43 @@ export class AuthService {
   getUsuario(correo: string): Observable<UsuarioResponse> {
     return this.http.post<UsuarioResponse>(`${this.apiUrl}/usuario`, { correo }).pipe(
       map((response: any) => {
+        console.log('Respuesta del servidor:', response);
+  
         if (response.success) {
-          const userData = {
-            datosUsuario: response.data.datosUsuario,
-            permisos: response.data.permisos,
-            region: response.data.region,
+          const userData: UsuarioData = {
+            datosUsuario: {
+              CodigoUsuario: response.data.datosUsuario.CodigoUsuario,
+              Nombre: response.data.datosUsuario.Nombre,
+              CorreoElectronico: response.data.datosUsuario.CorreoElectronico,
+              CodigoRol: response.data.datosUsuario.CodigoRol,
+              nivelAcceso: response.data.datosUsuario.nivelAcceso,
+            },
+            permisos: response.data.permisos || [],
+            region: {
+              CodigoRegion: response.data.region?.CodigoRegion || null,
+              NombreRegion: response.data.region?.NombreRegion || null
+            }
           };
-          this.setUsuario(userData); // Almacenar el usuario
+          
+          // Almacenar en localStorage y en el BehaviorSubject
+          localStorage.setItem('userData', JSON.stringify(userData));
+          this.usuarioSubject.next(userData);
+          console.log('Datos almacenados en localStorage:', userData);
+          
           return {
-            success: response.success,
+            success: true,
             data: userData,
-          } as UsuarioResponse;
+          };
         } else {
+          console.error('Error en la respuesta del servidor:', response.message);
           throw new Error(response.message || 'Error al obtener el usuario');
         }
       }),
       catchError((error) => {
         console.error('Error en getUsuario:', error);
-        return throwError(() => new Error('Error al obtener los datos del usuario'));
+        localStorage.removeItem('userData'); // Limpiar datos en caso de error
+        this.usuarioSubject.next(null);
+        return throwError(() => new Error(error.message || 'Error al obtener los datos del usuario'));
       })
     );
   }

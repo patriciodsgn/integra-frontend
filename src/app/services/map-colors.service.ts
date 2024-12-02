@@ -7,365 +7,364 @@ import { Injectable } from '@angular/core';
 })
 export class MapColorsService {
     regionColors: { [key: string]: { [key: string]: string } } = {
-      'Ñuble': {
-        'Chillán': '#38BDF8', // Tailwind sky-400
-        'Chillán Viejo': '#D1FAE5', // Tailwind green-200
-        'San Ignacio': '#FECACA', // Tailwind red-200
-        'El Carmen': '#134E4A', // Tailwind teal-900
-        'Yungay': '#7DD3FC', // Tailwind sky-300
-        'Pemuco': '#E0F2FE', // Tailwind sky-100
-        'Bulnes': '#FDE68A', // Tailwind orange-100
-        'Quillón': '#075985', // Tailwind sky-800
-        'San Carlos': '#22D3EE', // Tailwind cyan-300
-        'Ñiquén': '#0F766E', // Tailwind teal-800
-        'San Fabián': '#3B82F6', // Tailwind blue-500
-        'Coihueco': '#C4B5FD', // Tailwind indigo-200
-        'San Nicolás': '#0284C7', // Tailwind sky-700
-        'Ranquil': '#06B6D4', // Tailwind cyan-600
-        'Portezuelo': '#F97316', // Tailwind orange-500
-        'Coelemu': '#6EE7B7', // Tailwind green-300
-        'Treguaco': '#86EFAC', // Tailwind green-400
-        'Cobquecura': '#075985', // Tailwind sky-800
-        'Quirihue': '#BAE6FD', // Tailwind sky-200
-        'Ninhue': '#6D28D9', // Tailwind purple-800
-        'Pinto': '#2DD4BF' // Tailwind teal-500
-      },
-      'Arica y Parinacota': {
-        'Arica': '#E0E7FF', // Tailwind indigo-100
-        'Putre': '#FEF9C3', // Tailwind yellow-100
-        'General Lagos': '#FCA5A5', // Tailwind red-300
-        'Camarones': '#F9A8D4' // Tailwind pink-300
-      },
-      'Magallanes': {
-        'Natales': '#5EEAD4', // Tailwind teal-300
-        'Punta Arenas': '#14532D', // Tailwind green-800
-        'Porvenir': '#86EFAC', // Tailwind green-300
-        'Torres del Paine': '#FACC15' // Tailwind yellow-400
-      },
-      'Aysén': {
-        'Coyhaique': '#5FD1DB', // Tailwind teal-200
-        'Lago Verde': '#134E4A', // Tailwind teal-900
-        'Aysén': '#86EFAC', // Tailwind green-300
-        'Cisnes': '#14532D', // Tailwind green-800
-        'Guaitecas': '#FACC15', // Tailwind yellow-400
-        'Río Ibañez': '#FFE4E6', // Tailwind rose-100
-        'Cochrane': '#65A30D', // Tailwind green-600
-        'O\'Higgins': '#14532D' // Tailwind green-800
-      },
-      'Los Lagos': {
-        'Osorno': '#BAE6FD', // Tailwind sky-200
-        'San Pablo': '#166534', // Tailwind green-900
-        'Puyehue': '#D1FAE5', // Tailwind green-200
-        'Purranque': '#FACC15', // Tailwind yellow-400
-        'Río Negro': '#FACC15', // Tailwind yellow-400
-        'Puerto Montt': '#166534', // Tailwind green-900
-        'Puerto Varas': '#14532D', // Tailwind green-800
-        'Cochamó': '#DBEAFE', // Tailwind blue-100
-        'Calbuco': '#86EFAC', // Tailwind green-300
-        'Maullín': '#FACC15', // Tailwind yellow-400
-        'Los Muermos': '#155E75', // Tailwind cyan-700
-        'Fresia': '#166534', // Tailwind green-800
-        'Llanquihue': '#BBF7D0', // Tailwind green-200
-        'Frutillar': '#86EFAC', // Tailwind green-300
-        'Castro': '#6EE7B7', // Tailwind green-300
-        'Ancud': '#D1FAE5', // Tailwind green-200
-        'Quemchi': '#166534', // Tailwind green-900
-        'Dalcahue': '#166534', // Tailwind green-800
-        'Curaco de Vélez': '#86EFAC', // Tailwind green-300
-        'Quinchao': '#6EE7B7', // Tailwind green-300
-        'Puqueldón': '#86EFAC', // Tailwind green-300
-        'Chonchi': '#D1FAE5', // Tailwind green-200
-        'Queilén': '#6EE7B7', // Tailwind green-300
-        'Quellón': '#166534', // Tailwind green-800
-        'Hualaihué': '#FACC15', // Tailwind yellow-400
-        'Futaleufú': '#166534', // Tailwind green-900
-        'Palena': '#155E75' // Tailwind cyan-700
-      },
-      'Los Ríos': {
-        'Valdivia': '#86EFAC', // Tailwind green-300
-        'Corral': '#166534', // Tailwind green-900
-        'Lanco': '#14532D', // Tailwind green-800
-        'Los Lagos': '#FFE4E6', // Tailwind rose-100
-        'Máfil': '#BBF7D0', // Tailwind green-200
-        'Mariquina': '#FACC15', // Tailwind yellow-400
-        'Paillaco': '#155E75', // Tailwind cyan-700
-        'Panguipulli': '#86EFAC', // Tailwind green-300
-        'La Unión': '#6EE7B7', // Tailwind green-300
-        'Futrono': '#D1FAE5', // Tailwind green-200
-        'Lago Ranco': '#14532D', // Tailwind green-800
-        'Río Bueno': '#4CAF50' // Tailwind green-500
-      },
-      'Araucania': {
-        'Angol': '#86EFAC', // Tailwind green-300
-        'Renaico': '#FFE4E6', // Tailwind rose-100
-        'Collipulli': '#D1FAE5', // Tailwind green-200
-        'Lonquimay': '#14532D', // Tailwind green-800
-        'Curacautín': '#6EE7B7', // Tailwind green-300
-        'Ercilla': '#D1FAE5', // Tailwind green-200
-        'Victoria': '#A7F3D0', // Tailwind green-200
-        'Traiguén': '#D1FAE5', // Tailwind green-200
-        'Lumaco': '#064E3B', // Tailwind emerald-900
-        'Purén': '#FDE047', // Tailwind yellow-300
-        'Los Sauces': '#FDE047', // Tailwind yellow-300
-        'Temuco': '#A3F2E4', // Tailwind teal-200
-        'Lautaro': '#FFE4E6', // Tailwind rose-100
-        'Perquenco': '#86EFAC', // Tailwind green-300
-        'Vilcún': '#155E75', // Tailwind cyan-700
-        'Cunco': '#FDE047', // Tailwind yellow-300
-        'Melipeuco': '#6EE7B7', // Tailwind green-300
-        'Curarrehue': '#FFE4E6', // Tailwind rose-100
-        'Pucón': '#FFE4E6', // Tailwind rose-100
-        'Villarrica': '#DBEAFE', // Tailwind blue-100
-        'Freire': '#D1FAE5', // Tailwind green-200
-        'Pitrufquén': '#14532D', // Tailwind green-800
-        'Gorbea': '#FDE047', // Tailwind yellow-300
-        'Loncoche': '#D1FAE5', // Tailwind green-200
-        'Toltén': '#6EE7B7', // Tailwind green-300
-        'Teodoro Schmidt': '#14532D', // Tailwind green-800
-        'Puerto Saavedra': '#86EFAC', // Tailwind green-300
-        'Carahue': '#D1FAE5', // Tailwind green-200
-        'Nueva Imperial': '#A7F3D0', // Tailwind green-200
-        'Galvarino': '#FDE047', // Tailwind yellow-300
-        'Padre Las Casas': '#1E293B', // Tailwind slate-900
-        'Cholchol': '#DBEAFE' // Tailwind blue-100
-      },
-      'Biobio': {
-        'Los Ángeles': '#0284C7', // Tailwind sky-600
-        'Cabrero': '#1E40AF', // Tailwind blue-900
-        'Tucapel': '#FDE68A', // Tailwind amber-200
-        'Antuco': '#FDE68A', // Tailwind amber-200
-        'Quilleco': '#22D3EE', // Tailwind cyan-300
-        'Santa Bárbara': '#D8B4FE', // Tailwind purple-300
-        'Quilaco': '#60A5FA', // Tailwind blue-400
-        'Mulchén': '#38BDF8', // Tailwind sky-400
-        'Negrete': '#075985', // Tailwind sky-800
-        'Nacimiento': '#86EFAC', // Tailwind green-300
-        'Laja': '#BAE6FD', // Tailwind sky-200
-        'San Rosendo': '#67E8F9', // Tailwind cyan-200
-        'Yumbel': '#0284C7', // Tailwind sky-600
-        'Concepción': '#D1FAE5', // Tailwind green-200
-        'Talcahuano': '#D97706', // Tailwind amber-600
-        'Penco': '#FDE68A', // Tailwind amber-200
-        'Tomé': '#075985', // Tailwind sky-800
-        'Florida': '#FDE68A', // Tailwind amber-200
-        'Hualqui': '#0284C7', // Tailwind sky-600
-        'Santa Juana': '#BAE6FD', // Tailwind sky-200
-        'Lota': '#38BDF8', // Tailwind sky-400
-        'Coronel': '#BAE6FD', // Tailwind sky-200
-        'San Pedro de la Paz': '#67E8F9', // Tailwind cyan-200
-        'Chiguayante': '#38BDF8', // Tailwind sky-400
-        'Lebu': '#9333EA', // Tailwind purple-600
-        'Arauco': '#075985', // Tailwind sky-800
-        'Curanilahue': '#38BDF8', // Tailwind sky-400
-        'Los Álamos': '#D8B4FE', // Tailwind purple-300
-        'Cañete': '#FDE68A', // Tailwind amber-200
-        'Contulmo': '#2563EB', // Tailwind blue-500
-        'Tirúa': '#38BDF8' // Tailwind sky-400
-      },
-    
+        'Ñuble': {
+          'Chillán': '#66B3CC',
+          'Chillán Viejo': '#B8E6B8',
+          'San Ignacio': '#E6B8B8',
+          'El Carmen': '#006666',
+          'Yungay': '#99CCFF',
+          'Pemuco': '#B3E6FF',
+          'Bulnes': '#F5E6D3',
+          'Quillón': '#006699',
+          'San Carlos': '#80D4E6',
+          'Ñiquén': '#006E7F',
+          'San Fabián': '#4D88FF',
+          'Coihueco': '#D4D4F5',
+          'San Nicolás': '#0077BE',
+          'Ranquil': '#00A3CC',
+          'Portezuelo': '#FFA500',
+          'Coelemu': '#98FB98',
+          'Treguaco': '#90EE90',
+          'Cobquecura': '#006699',
+          'Quirihue': '#B3E6FF',
+          'Ninhue': '#663399',
+          'Pinto': '#00CED1'
+        },
+        'Arica y Parinacota': {
+          'Arica': '#E6E6FA',
+          'Putre': '#FFF3D4',
+          'General Lagos': '#E8B89B',
+          'Camarones': '#F5B7B1'
+        },
+        'Magallanes': {
+          'Natales': '#6AACB8',
+          'Punta Arenas': '#4A7B3F',
+          'Porvenir': '#90EE90',
+          'Torres del Paine': '#F4D03F'
+        },
+        'Aysén': {
+          'Coyhaique': '#A5C7D3',
+          'Lago Verde': '#2D5A4A',
+          'Aysén': '#90EE90',
+          'Cisnes': '#4A7B3F',
+          'Guaitecas': '#F4D03F',
+          'Río Ibañez': '#FFE4D6',
+          'Cochrane': '#68A568',
+          'O\'Higgins': '#1D4B2C'
+        },
+        'Los Lagos': {
+          'Osorno': '#B2D8E6',
+          'San Pablo': '#2D5A27',
+          'Puyehue': '#B8E6B8',
+          'Purranque': '#F4D03F',
+          'Río Negro': '#F4D03F',
+          'Puerto Montt': '#2D5A27',
+          'Puerto Varas': '#1D4B2C',
+          'Cochamó': '#D6EAF8',
+          'Calbuco': '#90EE90',
+          'Maullín': '#F4D03F',
+          'Los Muermos': '#5F9EA0',
+          'Fresia': '#4A7B4A',
+          'Llanquihue': '#A8D5AA',
+          'Frutillar': '#90EE90',
+          'Castro': '#98FB98',
+          'Ancud': '#B8E6B8',
+          'Quemchi': '#2D5A27',
+          'Dalcahue': '#4A7B4A',
+          'Curaco de Vélez': '#90EE90',
+          'Quinchao': '#98FB98',
+          'Puqueldón': '#90EE90',
+          'Chonchi': '#B8E6B8',
+          'Queilén': '#98FB98',
+          'Quellón': '#4A7B4A',
+          'Hualaihué': '#F4D03F',
+          'Futaleufú': '#2D5A27',
+          'Palena': '#5F9EA0'
+        },
+        'Los Ríos': {
+          'Valdivia': '#9FD4A1',
+          'Corral': '#2D5A27',
+          'Lanco': '#1D4B2C',
+          'Los Lagos': '#FFE4D6',
+          'Máfil': '#A8D5AA',
+          'Mariquina': '#F4D03F',
+          'Paillaco': '#5F9EA0',
+          'Panguipulli': '#90EE90',
+          'La Unión': '#98FB98',
+          'Futrono': '#B8E6B8',
+          'Lago Ranco': '#1D4B2C',
+          'Río Bueno': '#8FBC8F'
+        },
+        'Araucania': {
+          'Angol': '#90CE90',
+          'Renaico': '#FFE4D6',
+          'Collipulli': '#B8E6B8',
+          'Lonquimay': '#2E8B57',
+          'Curacautín': '#98FB98',
+          'Ercilla': '#B8E6B8',
+          'Victoria': '#C1E6C1',
+          'Traiguén': '#B8E6B8',
+          'Lumaco': '#0B5345',
+          'Purén': '#F7DC6F',
+          'Los Sauces': '#F7DC6F',
+          'Temuco': '#A3E4D7',
+          'Lautaro': '#FFE4D6',
+          'Perquenco': '#90CE90',
+          'Vilcún': '#5F9EA0',
+          'Cunco': '#F7DC6F',
+          'Melipeuco': '#98FB98',
+          'Curarrehue': '#FFE4D6',
+          'Pucón': '#FFE4D6',
+          'Villarrica': '#AED6F1',
+          'Freire': '#B8E6B8',
+          'Pitrufquén': '#2E8B57',
+          'Gorbea': '#F7DC6F',
+          'Loncoche': '#B8E6B8',
+          'Toltén': '#98FB98',
+          'Teodoro Schmidt': '#2E8B57',
+          'Puerto Saavedra': '#90CE90',
+          'Carahue': '#B8E6B8',
+          'Nueva Imperial': '#C1E6C1',
+          'Galvarino': '#F7DC6F',
+          'Padre Las Casas': '#2F4F4F',
+          'Cholchol': '#AED6F1'
+        },
+        'Biobio': {
+          'Los Ángeles': '#0088CC',
+          'Cabrero': '#003366',
+          'Tucapel': '#E6D5A7',
+          'Antuco': '#E6D5A7',
+          'Quilleco': '#A8E6F4',
+          'Santa Bárbara': '#C4B7D7',
+          'Quilaco': '#6699CC',
+          'Mulchén': '#99CCDD',
+          'Negrete': '#006699',
+          'Nacimiento': '#CCE6CC',
+          'Laja': '#B3D9E6',
+          'San Rosendo': '#80CCEE',
+          'Yumbel': '#0099CC',
+          'Concepción': '#D5E6D5',
+          'Talcahuano': '#CC9966',
+          'Penco': '#E6D5A7',
+          'Tomé': '#006699',
+          'Florida': '#E6D5A7',
+          'Hualqui': '#0088CC',
+          'Santa Juana': '#B3D9E6',
+          'Lota': '#99CCDD',
+          'Coronel': '#CCE6F2',
+          'San Pedro de la Paz': '#80CCEE',
+          'Chiguayante': '#99CCDD',
+          'Lebu': '#9966CC',
+          'Arauco': '#006699',
+          'Curanilahue': '#99CCDD',
+          'Los Álamos': '#C4B7D7',
+          'Cañete': '#E6D5A7',
+          'Contulmo': '#0066CC',
+          'Tirúa': '#99CCDD'
+        },
         'Maule': {
-    'Curicó': '#BAE6FD', // Tailwind sky-200
-    'Teno': '#BBF7D0', // Tailwind green-200
-    'Romeral': '#D1FAE5', // Tailwind green-200
-    'Molina': '#7DD3FC', // Tailwind sky-300
-    'Sagrada Familia': '#C7D2FE', // Tailwind indigo-200
-    'Licantén': '#FFFFFF', // Tailwind white
-    'Vichuquén': '#38BDF8', // Tailwind sky-400
-    'Rauco': '#67E8F9', // Tailwind cyan-200
-    'Talca': '#38BDF8', // Tailwind sky-400
-    'Pelarco': '#67E8F9', // Tailwind cyan-200
-    'Río Claro': '#7DD3FC', // Tailwind sky-300
-    'San Clemente': '#BAE6FD', // Tailwind sky-200
-    'Maule': '#7DD3FC', // Tailwind sky-300
-    'Empedrado': '#67E8F9', // Tailwind cyan-200
-    'Pencahue': '#38BDF8', // Tailwind sky-400
-    'Constitución': '#38BDF8', // Tailwind sky-400
-    'Curepto': '#2563EB', // Tailwind blue-500
-    'Linares': '#BAE6FD', // Tailwind sky-200
-    'Yerbas Buenas': '#67E8F9', // Tailwind cyan-200
-    'Colbún': '#BAE6FD', // Tailwind sky-200
-    'Longaví': '#67E8F9', // Tailwind cyan-200
-    'Parral': '#67E8F9', // Tailwind cyan-200
-    'Retiro': '#C7D2FE', // Tailwind indigo-200
-    'Villa Alegre': '#F9A8D4', // Tailwind pink-300
-    'San Javier': '#7DD3FC', // Tailwind sky-300
-    'Cauquenes': '#BAE6FD', // Tailwind sky-200
-    'Pelluhue': '#FFE4E6', // Tailwind rose-100
-    'Chanco': '#FFE4E6' // Tailwind rose-100
-  },
-  'ohiggins': {
-    'Rancagua': '#7DD3FC', // Tailwind sky-300
-    'Graneros': '#4ADE80', // Tailwind green-400
-    'Mostazal': '#2DD4BF', // Tailwind teal-500
-    'Codegua': '#22D3EE', // Tailwind cyan-300
-    'Machalí': '#0284C7', // Tailwind sky-600
-    'Olivar': '#A5B4FC', // Tailwind indigo-300
-    'Requínoa': '#22C55E', // Tailwind green-500
-    'Rengo': '#4ADE80', // Tailwind green-400
-    'Malloa': '#BAE6FD', // Tailwind sky-200
-    'Quinta de Tilcoco': '#D1FAE5', // Tailwind green-200
-    'San Vicente': '#7DD3FC', // Tailwind sky-300
-    'Pichidegua': '#2DD4BF', // Tailwind teal-500
-    'Peumo': '#A7F3D0', // Tailwind emerald-200
-    'Doñihue': '#7DD3FC', // Tailwind sky-300
-    'Las Cabras': '#86EFAC', // Tailwind green-300
-    'San Fernando': '#0284C7', // Tailwind sky-600
-    'Chimbarongo': '#7DD3FC', // Tailwind sky-300
-    'Nancagua': '#22D3EE', // Tailwind cyan-300
-    'Chépica': '#0284C7', // Tailwind sky-600
-    'Santa Cruz': '#38BDF8', // Tailwind sky-400
-    'Palmilla': '#BAE6FD', // Tailwind sky-200
-    'Peralillo': '#2DD4BF', // Tailwind teal-500
-    'Pichilemu': '#4ADE80', // Tailwind green-400
-    'Navidad': '#A3E635', // Tailwind lime-400
-    'Litueche': '#A3E635', // Tailwind lime-400
-    'La Estrella': '#84CC16', // Tailwind lime-500
-    'Marchihue': '#84CC16', // Tailwind lime-500
-    'Paredones': '#65A30D' // Tailwind green-600
-  },
-'Valparaíso': {
-    'Petorca': '#FBBF24', // Tailwind amber-400
-    'La Ligua': '#7DD3FC', // Tailwind sky-300
-    'Cabildo': '#60A5FA', // Tailwind blue-400
-    'Zapallar': '#FCA5A5', // Tailwind red-300
-    'Papudo': '#FCD34D', // Tailwind yellow-300
-    'Los Andes': '#166534', // Tailwind green-900
-    'San Esteban': '#0EA5E9', // Tailwind sky-500
-    'Rinconada': '#BAE6FD', // Tailwind sky-200
-    'Calle Larga': '#DBEAFE', // Tailwind blue-100
-    'Santa María': '#C7D2FE', // Tailwind indigo-200
-    'San Felipe': '#60A5FA', // Tailwind blue-400
-    'Putaendo': '#E0E7FF', // Tailwind indigo-100
-    'Panquehue': '#A5B4FC', // Tailwind indigo-300
-    'Catemu': '#C4B5FD', // Tailwind purple-300
-    'Llaillay': '#67E8F9', // Tailwind cyan-200
-    'Quillota': '#A3E635', // Tailwind lime-400
-    'La Cruz': '#60A5FA', // Tailwind blue-400
-    'Nogales': '#818CF8', // Tailwind indigo-500
-    'Hijuelas': '#0284C7', // Tailwind sky-600
-    'Calera': '#1E3A8A', // Tailwind blue-800
-    'Limache': '#1E40AF', // Tailwind blue-900
-    'Olmué': '#3B82F6', // Tailwind blue-500
-    'Villa Alemana': '#818CF8', // Tailwind indigo-500
-    'Quilpué': '#67E8F9', // Tailwind cyan-200
-    'Concón': '#7DD3FC', // Tailwind sky-300
-    'Valparaíso': '#2563EB', // Tailwind blue-500
-    'Viña del Mar': '#1D4ED8', // Tailwind blue-700
-    'Puchuncaví': '#1E3A8A', // Tailwind blue-800
-    'Quintero': '#0C4A6E', // Tailwind cyan-900
-    'Casablanca': '#0F172A', // Tailwind slate-900
-    'San Antonio': '#1D4ED8', // Tailwind blue-700
-    'Cartagena': '#BAE6FD', // Tailwind sky-200
-    'El Quisco': '#38BDF8', // Tailwind sky-400
-    'El Tabo': '#7DD3FC', // Tailwind sky-300
-    'Algarrobo': '#0284C7', // Tailwind sky-600
-    'Santo Domingo': '#86EFAC' // Tailwind green-300
-  },
-  'Coquimbo': {
-    'La Serena': '#FDE68A', // Tailwind amber-200
-    'Coquimbo': '#FB923C', // Tailwind orange-400
-    'Andacollo': '#FBCFE8', // Tailwind pink-200
-    'La Higuera': '#FCD34D', // Tailwind yellow-300
-    'Vicuña': '#FCA5A5', // Tailwind red-300
-    'Paihuano': '#F87171', // Tailwind red-400
-    'Monte Patria': '#FDA4AF', // Tailwind pink-300
-    'Combarbalá': '#F87171', // Tailwind red-400
-    'Ovalle': '#FB7185', // Tailwind rose-400
-    'Punitaqui': '#FCA5A5', // Tailwind red-300
-    'Río Hurtado': '#2DD4BF', // Tailwind teal-500
-    'Salamanca': '#F87171', // Tailwind red-400
-    'Illapel': '#FB7185', // Tailwind rose-400
-    'Los Vilos': '#FCD34D', // Tailwind yellow-300
-    'Canela': '#FBCFE8' // Tailwind pink-200
-  },
-  'Atacama': {
-    'Copiapó': '#FCA5A5', // Tailwind red-300
-    'Caldera': '#86EFAC', // Tailwind green-300
-    'Chañaral': '#F87171', // Tailwind red-400
-    'Diego de Almagro': '#FCD34D', // Tailwind yellow-300
-    'Vallenar': '#FDE68A', // Tailwind amber-200
-    'Huasco': '#FDE68A', // Tailwind amber-200
-    'Freirina': '#67E8F9', // Tailwind cyan-200
-    'Tierra Amarilla': '#FCA5A5', // Tailwind red-300
-    'Alto del Carmen': '#FECACA' // Tailwind red-200
-  },
-  'Antofagasta': {
-    'Antofagasta': '#FCD34D', // Tailwind yellow-300
-    'María Elena': '#FB923C', // Tailwind orange-400
-    'Mejillones': '#FECACA', // Tailwind red-200
-    'Sierra Gorda': '#C084FC', // Tailwind purple-400
-    'Taltal': '#C4B5FD', // Tailwind purple-300
-    'Tocopilla': '#2DD4BF', // Tailwind teal-500
-    'Calama': '#F87171', // Tailwind red-400
-    'San Pedro de Atacama': '#FDE68A', // Tailwind amber-200
-    'Ollagüe': '#A5F3FC' // Tailwind cyan-200
-  },
-  'Tarapacá': {
-    'Iquique': '#fecaca', // Tailwind red-200
-    'Alto Hospicio': '#fde68a', // Tailwind yellow-200
-    'Pozo Almonte': '#fda4af', // Tailwind rose-300
-    'Pica': '#C4B5FD', // Tailwind purple-300
-    'Camiña': '#BAE6FD', // Tailwind sky-200
-    'Colchane': '#FDE68A' // Tailwind amber-200
-  },
-'NorPoniente': {
-    'Independencia': '#FECACA', // Tailwind red-200
-    'Conchalí': '#A5B4FC', // Tailwind indigo-300
-    'Huechuraba': '#FED7AA', // Tailwind orange-200
-    'Recoleta': '#7DD3FC', // Tailwind sky-300
-    'Estación Central': '#FCA5A5', // Tailwind red-300
-    'Cerrillos': '#86EFAC', // Tailwind green-300
-    'Maipú': '#C4B5FD', // Tailwind purple-300
-    'Quinta Normal': '#FECACA', // Tailwind red-200
-    'Lo Prado': '#BAE6FD', // Tailwind sky-200
-    'Pudahuel': '#FED7AA', // Tailwind orange-200
-    'Cerro Navia': '#A3E635', // Tailwind lime-400
-    'Renca': '#FCA5A5', // Tailwind red-300
-    'Quilicura': '#C4B5FD', // Tailwind purple-300
-    'Santiago': '#FDE68A' // Tailwind amber-200
-  },
-  'Sur Oriente': {
-    'Santiago': '#FECACA', // Tailwind red-200
-    'Providencia': '#A5B4FC', // Tailwind indigo-300
-    'Lo Barnechea': '#FED7AA', // Tailwind orange-200
-    'Las Condes': '#7DD3FC', // Tailwind sky-300
-    'Ñuñoa': '#FCA5A5', // Tailwind red-300
-    'La Reina': '#86EFAC', // Tailwind green-300
-    'Macul': '#C4B5FD', // Tailwind purple-300
-    'La Florida': '#FECACA', // Tailwind red-200
-    'Peñalolén': '#BAE6FD', // Tailwind sky-200
-    'San Joaquín': '#FED7AA', // Tailwind orange-200
-    'La Granja': '#A3E635', // Tailwind lime-400
-    'La Pintana': '#FCA5A5', // Tailwind red-300
-    'San Ramón': '#C4B5FD', // Tailwind purple-300
-    'San Miguel': '#FDE68A', // Tailwind amber-200
-    'La Cisterna': '#F9A8D4', // Tailwind pink-300
-    'El Bosque': '#FDE68A', // Tailwind amber-200
-    'Pedro Aguirre Cerda': '#DDD6FE', // Tailwind indigo-100
-    'Lo Espejo': '#DBEAFE', // Tailwind blue-100
-    'Puente Alto': '#C4B5FD', // Tailwind purple-300
-    'Pirque': '#FED7AA', // Tailwind orange-200
-    'San José de Maipo': '#F9A8D4' // Tailwind pink-300
-  },
-  'Rural Norponiente': {
-    'Alhué': '#F9A8D4', // Tailwind pink-300
-    'Buin': '#FDE68A', // Tailwind amber-200
-    'Calera de Tango': '#DDD6FE', // Tailwind indigo-100
-    'Colina': '#DBEAFE', // Tailwind blue-100
-    'Curacaví': '#C4B5FD', // Tailwind purple-300
-    'El Monte': '#FED7AA', // Tailwind orange-200
-    'Isla de Maipo': '#F9A8D4', // Tailwind pink-300
-    'Lampa': '#BBF7D0', // Tailwind green-200
-    'María Pinto': '#D9F99D', // Tailwind lime-200
-    'Melipilla': '#FEF08A', // Tailwind yellow-200
-    'Padre Hurtado': '#FED7AA', // Tailwind orange-200
-    'Paine': '#D9F99D', // Tailwind lime-200
-    'Peñaflor': '#FECACA', // Tailwind red-200
-    'San Pedro': '#E9D5FF', // Tailwind purple-200
-    'Talagante': '#CBD5E1', // Tailwind slate-300
-    'Til Til': '#FDE047', // Tailwind yellow-300
-    'San Bernardo': '#BBF7D0' // Tailwind green-200
-  }
+          'Curicó': '#9FE5F0',
+          'Teno': '#BFF0D4',
+          'Romeral': '#E0F7E7',
+          'Molina': '#AEE1F9',
+          'Sagrada Familia': '#B8C8E7',
+          'Licantén': '#FFFFFF',
+          'Vichuquén': '#5CB3D0',
+          'Rauco': '#71C5E7',
+          'Talca': '#8ED7F2',
+          'Pelarco': '#7CCBE8',
+          'Río Claro': '#69BDE1',
+          'San Clemente': '#A5DEF4',
+          'Maule': '#88D1ED',
+          'Empedrado': '#7EC9E6',
+          'Pencahue': '#6CBFE3',
+          'Constitución': '#5BB2D0',
+          'Curepto': '#4DA6C8',
+          'Linares': '#9DE4EF',
+          'Yerbas Buenas': '#8AD8EA',
+          'Colbún': '#B1EBF6',
+          'Longaví': '#93DBED',
+          'Parral': '#7BCCE7',
+          'Retiro': '#B4C4E5',
+          'Villa Alegre': '#EBC5D5',
+          'San Javier': '#8ED7F2',
+          'Cauquenes': '#A7E0F5',
+          'Pelluhue': '#E8D0D8',
+          'Chanco': '#EECDD6'
+        },
+        'ohiggins': {
+          'Rancagua': '#7fc4d4',
+          'Graneros': '#80b0a8',
+          'Mostazal': '#7aa2b2',
+          'Codegua': '#99c7d6',
+          'Machalí': '#5e97a3',
+          'Olivar': '#98b9d1',
+          'Requínoa': '#6cbec1',
+          'Rengo': '#7cabc1',
+          'Malloa': '#91c7cf',
+          'Quinta de Tilcoco': '#aacdc0',
+          'San Vicente': '#86b0c2',
+          'Pichidegua': '#75d2d8',
+          'Peumo': '#99a3b6',
+          'Doñihue': '#7aa8bd',
+          'Las Cabras': '#88bccb',
+          'San Fernando': '#648ea8',
+          'Chimbarongo': '#7b8fb2',
+          'Nancagua': '#61a0ad',
+          'Chépica': '#78a7b0',
+          'Santa Cruz': '#6eb8c2',
+          'Palmilla': '#95b6b7',
+          'Peralillo': '#68b4c2',
+          'Pichilemu': '#7cbba6',
+          'Navidad': '#b3a585',
+          'Litueche': '#a69d78',
+          'La Estrella': '#9f8f72',
+          'Marchihue': '#9a846f',
+          'Paredones': '#9e6c52'
+        },
+        'Valparaíso': {
+          'Petorca': '#d2a976',
+          'La Ligua': '#a3c9de',
+          'Cabildo': '#6b8ab6',
+          'Zapallar': '#d3a2a0',
+          'Papudo': '#e0c392',
+          'Los Andes': '#0f6c5f',
+          'San Esteban': '#219ebc',
+          'Rinconada': '#b2d9e6',
+          'Calle Larga': '#d3e7ef',
+          'Santa María': '#b1b6d1',
+          'San Felipe': '#7fb4d9',
+          'Putaendo': '#ccddee',
+          'Panquehue': '#99c0d1',
+          'Catemu': '#c2a3d9',
+          'Llaillay': '#88aab8',
+          'Quillota': '#96c7b3',
+          'La Cruz': '#8a9eb5',
+          'Nogales': '#a1a2c3',
+          'Hijuelas': '#5a87a8',
+          'Calera': '#2e4972',
+          'Limache': '#486b92',
+          'Olmué': '#769db4',
+          'Villa Alemana': '#9fadc3',
+          'Quilpué': '#80a3c1',
+          'Concón': '#66b9d4',
+          'Valparaíso': '#669fd9',
+          'Viña del Mar': '#4d7ec7',
+          'Puchuncaví': '#3060c7',
+          'Quintero': '#1e5ea0',
+          'Casablanca': '#1a4068',
+          'San Antonio': '#4179aa',
+          'Cartagena': '#b3d4e4',
+          'El Quisco': '#7ea8c0',
+          'El Tabo': '#a1c4d4',
+          'Algarrobo': '#5d91b6',
+          'Santo Domingo': '#a9d3a7'
+        },
+        'Coquimbo': {
+          'La Serena': '#d9a789',
+          'Coquimbo': '#b68578',
+          'Andacollo': '#d1a7cb',
+          'La Higuera': '#c8b39e',
+          'Vicuña': '#d4a6a5',
+          'Paihuano': '#e3b7af',
+          'Monte Patria': '#d8b1a4',
+          'Combarbalá': '#b98b85',
+          'Ovalle': '#bf7265',
+          'Punitaqui': '#d09c93',
+          'Río Hurtado': '#a2b9b4',
+          'Salamanca': '#e28f8f',
+          'Illapel': '#cf7474',
+          'Los Vilos': '#b9a99d',
+          'Canela': '#e6b9a4'
+        },
+        'Atacama': {
+          'Copiapó': '#d1a3a4',
+          'Caldera': '#a4c4b5',
+          'Chañaral': '#f2b6b6',
+          'Diego de Almagro': '#f4c7a1',
+          'Vallenar': '#f3e2c6',
+          'Huasco': '#e8d3b9',
+          'Freirina': '#c6e2e8',
+          'Tierra Amarilla': '#e1b0a2',
+          'Alto del Carmen': '#f4a4b5'
+        },
+        'Antofagasta': {
+          'Antofagasta': '#E8D0C1',
+          'María Elena': '#F2A594',
+          'Mejillones': '#FFC4AD',
+          'Sierra Gorda': '#E6DCEF',
+          'Taltal': '#D5A4CC',
+          'Tocopilla': '#7EBCB6',
+          'Calama': '#E88B83',
+          'San Pedro de Atacama': '#F2B998',
+          'Ollagüe': '#A9DEF9'
+        },
+        'Tarapacá': {
+          'Iquique': '#F4A2A2',
+          'Alto Hospicio': '#F9C285',
+          'Pozo Almonte': '#E38E8E',
+          'Pica': '#C8A4D8',
+          'Camiña': '#8AD4E4',
+          'Colchane': '#F8DDA0'
+        },
+        'NorPoniente': {
+          'Independencia': '#f4b6c2',
+          'Conchalí': '#c1c8e4',
+          'Huechuraba': '#ffdecc',
+          'Recoleta': '#a1d3e2',
+          'Estación Central': '#d4a5a5',
+          'Cerrillos': '#b5e7a0',
+          'Maipú': '#c39bd3',
+          'Quinta Normal': '#ffcccb',
+          'Lo Prado': '#b2d8d8',
+          'Pudahuel': '#ffd3b6',
+          'Cerro Navia': '#98d7c2',
+          'Renca': '#f7cac9',
+          'Quilicura': '#d5a6bd',
+          'Santiago': '#ffe5b4'
+        },
+        'Sur Oriente': {
+          'Santiago': '#ffb6c1',
+          'Providencia': '#c1c8e4',
+          'Lo Barnechea': '#ffab91',
+          'Las Condes': '#a1d3e2',
+          'Ñuñoa': '#d4a5a5',
+          'La Reina': '#b5e7a0',
+          'Macul': '#c39bd3',
+          'La Florida': '#ffcccb',
+          'Peñalolén': '#b2d8d8',
+          'San Joaquín': '#ffd3b6',
+          'La Granja': '#98d7c2',
+          'La Pintana': '#f7cac9',
+          'San Ramón': '#d5a6bd',
+          'San Miguel': '#ffe5b4',
+          'La Cisterna': '#f8b6d1',
+          'El Bosque': '#f9dda0',
+          'Pedro Aguirre Cerda': '#d1c4e9',
+          'Lo Espejo': '#bbdefb',
+          'Puente Alto': '#b39ddb',
+          'Pirque': '#ffcc80',
+          'San José de Maipo': '#ffab91'
+        },
+        'Rural Norponiente': {
+          'Alhué': '#f8b6d1',
+          'Buin': '#f9dda0',
+          'Calera de Tango': '#d1c4e9',
+          'Colina': '#bbdefb',
+          'Curacaví': '#b39ddb',
+          'El Monte': '#ffcc80',
+          'Isla de Maipo': '#ffab91',
+          'Lampa': '#c8e6c9',
+          'María Pinto': '#e6ee9c',
+          'Melipilla': '#fff59d',
+          'Padre Hurtado': '#ffccbc',
+          'Paine': '#dcedc8',
+          'Peñaflor': '#f48fb1',
+          'San Pedro': '#ce93d8',
+          'Talagante': '#b0bec5',
+          'Til Til': '#ffe082',
+          'San Bernardo': '#c5e1a5'
+        }
       };
 
   // Método para obtener el color claro para el encabezado de una región

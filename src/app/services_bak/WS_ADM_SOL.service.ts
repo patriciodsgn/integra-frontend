@@ -18,7 +18,7 @@ export class WS_ADM_SOLService {
         <soapenv:Body>
           <ws:ws_adm_sol>
             <arg0>
-              <SOLACC>W_JAR_TOD3</SOLACC>
+              <SOLACC>W_JAR_TOD2</SOLACC>
               <SOLINP>${region}||\\</SOLINP>
               <SOLMAS>${offset}</SOLMAS>
             </arg0>
