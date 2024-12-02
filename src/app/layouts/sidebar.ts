@@ -1,116 +1,126 @@
-﻿import { Component } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { TranslateService } from '@ngx-translate/core';
-import { slideDownUp } from '../shared/animations';
-import { faBriefcase, faClipboard, faGavel, faLaptopCode, faCogs, faFileAlt, faCircle, faBook, faUsers, faSchool, faBuilding } from '@fortawesome/free-solid-svg-icons';
-import { RegionService } from '../services/region.service'; // Importar el servicio
-import { Region } from '../models/region-data.model';
+import { AuthService } from '../services/login.services';
+import {
+  faClipboard, faGavel, faLaptopCode, faCogs, faFileAlt,
+  faCircle, faBook, faUsers, faSchool, 
+} from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt, faUniversity, faBuilding, faBriefcase, faIndustry, faFile,faChartBar } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-    selector: 'sidebar',
-    templateUrl: './sidebar.html',
-    animations: [slideDownUp],
+  selector: 'sidebar',
+  templateUrl: './sidebar.html',
 })
-export class SidebarComponent {
-    active = false;
-    store: any;
-    activeDropdown: string[] = [];
-    parentDropdown: string = '';
-    faBriefcase = faBriefcase;
-    faClipboard = faClipboard;
-    faBook = faBook;
-    faUsers = faUsers;
-    faGavel = faGavel;
-    faLaptopCode = faLaptopCode;
-    faCogs = faCogs;
-    faFileAlt = faFileAlt;
-    faBuilding = faBuilding;
-    faCircle = faCircle;
-    faSchool = faSchool;    
-    regions: Region[] = [];
+export class SidebarComponent implements OnInit {
+  [x: string]: any;
+  toggleSidebar() {
+    throw new Error('Method not implemented.');
+  }
 
-    constructor(
-        public translate: TranslateService,
-        public storeData: Store<any>,
-        public router: Router,
-        private regionService: RegionService // Inyectar el servicio de regiones
-    ) {
-        this.initStore();
-    }
+  activeDropdown: string[] = [];
+  store: any = {}; // Asegurar inicialización
+  isUserDataLoaded: boolean = false; // Bandera para verificar si los datos del usuario están cargados
+  regions: any[] = [];
+  directions: any[] = [];
 
-    async initStore() {
-        this.storeData
-            .select((d) => d.index)
-            .subscribe((d) => {
-                this.store = d;
-            });
-    }
+  // Íconos
+  icons = [
+    faMapMarkerAlt, // Icono para la primera dirección
+    faUniversity,   // Icono para la segunda dirección
+    faBuilding,     // Icono para la tercera dirección
+    faBriefcase,    // Icono para la cuarta dirección
+    faIndustry      // Icono para la quinta dirección, y así sucesivamente...
+  ];
 
-    ngOnInit() {
-        this.setActiveDropdown();
-        this.loadRegions();
-    }
+  faBriefcase = faBriefcase;
+  faClipboard = faClipboard;
+  faBook = faBook;
+  faUsers = faUsers;
+  faGavel = faGavel;
+  faLaptopCode = faLaptopCode;
+  faCogs = faCogs;
+  faFileAlt = faFileAlt;
+  faBuilding = faBuilding;
+  faCircle = faCircle;
+  faSchool = faSchool;
+  faMapMarkerAlt = faMapMarkerAlt;
+  faFile=faFile;
+  faChartBar=faChartBar;
 
-    setActiveDropdown() {
-        const selector = document.querySelector('.sidebar ul a[routerLink="' + window.location.pathname + '"]');
-        if (selector) {
-            selector.classList.add('active');
-            const ul: any = selector.closest('ul.sub-menu');
-            if (ul) {
-                let ele: any = ul.closest('li.menu').querySelectorAll('.nav-link') || [];
-                if (ele.length) {
-                    ele = ele[0];
-                    setTimeout(() => {
-                        ele.click();
-                    });
-                }
-            }
-        }
-    }
+  constructor(
+    private authService: AuthService,
+    public storeData: Store<any>,
+    private router: Router
+  ) {}
 
-    loadRegions() {
-        this.regionService.getRegions().subscribe({
-            next: (response: any) => {
-                console.log('Respuesta completa de la API:', response);
-    
-                // Verifica si existe el campo `data` en la respuesta
-                if (response && response.data) {
-                    this.regions = response.data.map((region: any) => ({
-                        nombreRegion: region.NombreRegion, // Cambia según el nombre correcto de las propiedades
-                        codigoRegion: region.CodigoRegion
-                    }));
-                } else {
-                    console.error('El campo "data" no está presente en la respuesta.');
-                    this.regions = []; // Inicializar vacío en caso de error
-                }
-    
-                console.log('Regiones procesadas:', this.regions);
-            },
-            error: (err) => {
-                console.error('Error al obtener regiones:', err);
-            }
-        });
-    }
-    
-    
-    toggleMobileMenu() {
-        if (window.innerWidth < 1024) {
-            this.storeData.dispatch({ type: 'toggleSidebar' });
-        }
-    }
+  ngOnInit() {
+    this.initStore();
+    this.loadSidebarData();
+  }
 
-    toggleAccordion(name: string, parent?: string) {
-        if (this.activeDropdown.includes(name)) {
-            this.activeDropdown = this.activeDropdown.filter((d) => d !== name);
-        } else {
-            this.activeDropdown.push(name);
-        }
-    }
+  async initStore() {
+    this.storeData
+      .select((d) => d.index)
+      .subscribe((d) => {
+        this.store = d || {};
+      });
+  }
 
-    updateMap(regionId: number) {
-        // Aquí debes implementar la lógica para actualizar el mapa según la región seleccionada.
-        this.regionService.setRegion(regionId);
-        console.log(`Mapa actualizado para la región: ${regionId}`);
+  /**
+   * Cargar los datos del usuario (regiones y direcciones) para el sidebar.
+   */
+  loadSidebarData() {
+    this.authService.usuario$.subscribe((usuario) => {
+      if (usuario && usuario.permisos) {
+        // Filtrar las regiones
+        this.regions = usuario.permisos
+          .filter((permiso: any) => permiso.TipoCategoria === 'REGION')
+          .map((region: any) => ({
+            nombre: region.NombrePermiso || 'Región sin nombre',
+            codigo: region.ValorCategoria || '',
+          }));
+
+        // Filtrar las direcciones
+        this.directions = usuario.permisos
+          .filter((permiso: any) => permiso.TipoCategoria === 'DIRECCION')
+          .map((direccion: any, index: number) => ({
+            nombre: direccion.NombrePermiso || 'Dirección sin nombre',
+            codigo: direccion.ValorCategoria || '',
+            icon: this.icons[index % this.icons.length] // Asignar un ícono distinto a cada dirección
+          }));
+
+        this.isUserDataLoaded = true; // Indicar que los datos están cargados
+        console.log('Regiones procesadas:', this.regions);
+        console.log('Direcciones procesadas:', this.directions);
+      } else {
+        console.error('No se encontraron permisos para regiones o direcciones.');
+        this.regions = [];
+        this.directions = [];
+        this.isUserDataLoaded = true; // Incluso si no hay datos, marcamos como cargado
+      }
+    });
+  }
+
+  toggleAccordion(name: string) {
+    if (this.activeDropdown.includes(name)) {
+      this.activeDropdown = this.activeDropdown.filter((d) => d !== name);
+    } else {
+      this.activeDropdown.push(name);
     }
+  }
+  getDirectionLink(direccion: any): string {
+    const category = direccion.codigo?.toLowerCase();
+    const routeMap: { [key: string]: string } = {
+      'educacion': '/educacion',
+      'ejecutiva': '/ejecutiva',
+      'dppi': '/dppi',
+      'dpgr': '/dpgr',
+      'daft': '/daft',
+      'personas': '/personas',
+      'costos': '/costos',
+    };
+  
+    return routeMap[category] || `/direccion/${direccion.codigo}`;
+  }
 }

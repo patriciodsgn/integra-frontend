@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environmentdb } from 'src/environments/environment';
-import { ConteoResponse, TotalNinosResponse } from '../models/dpgr-data.model';
+import { ConteoResponse, EstadisticasROResponse, FrecuenciaPueblosOriginariosResponse, TotalNinosResponse } from '../models/dpgr-data.model';
 
 @Injectable({
     providedIn: 'root'
@@ -101,14 +101,39 @@ export class DpgrService {
 
         return this.http.get<any>(url, { params });
     }
+
+    getFrecuenciaPueblosOriginarios(
+        ano?: number,
+        codigoRegion: number = 0,
+        codigoJardin: number = 0
+    ): Observable<FrecuenciaPueblosOriginariosResponse> {
+        const url = `${this.baseUrl}/frecuenciaPueblosOriginarios`;
+        const params: any = {
+            codigoRegion: codigoRegion.toString()
+        };
+
+        if (ano) {
+            params.ano = ano.toString();
+        }
+
+        if (codigoJardin) {
+            params.codigoJardin = codigoJardin.toString();
+        }
+
+        return this.http.get<FrecuenciaPueblosOriginariosResponse>(url, { params });
+    }
+    getEstadisticasRO(
+        anoRO: number, 
+        codigoRegion: number = 0, 
+        codigoJardin: number = 0
+    ): Observable<EstadisticasROResponse> {
+        const url = `${this.baseUrl}/estadisticasRO`;
+        const params = {
+            anoRO: anoRO.toString(),
+            codigoRegion: codigoRegion.toString(),
+            codigoJardin: codigoJardin.toString()
+        };
+    
+        return this.http.get<EstadisticasROResponse>(url, { params });
+    }
 }
-
-
-
-
-
-
-
-
-
-
