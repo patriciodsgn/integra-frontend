@@ -147,6 +147,7 @@ export class CustomDashboardComponent implements OnInit, OnDestroy {
 getRegionTextColor(arg0: string) {
 throw new Error('Method not implemented.');
 }
+  private storageListener: any;
   @ViewChild('mapContainer', { static: false }) mapContainer!: ElementRef;
   public backgroundColor: string = '#F5F5F5'; // Color predeterminado
   public cardColor: string = '#9E9E9E';       // Color predeterminado para las tarjetas
@@ -230,7 +231,9 @@ establecimientosColor: any;
     public mapColorsService: MapColorsService,  // Agregar esta línea
     private wsAdmSolService: WS_ADM_SOLService,  // Agregar el nuevo servicio
     private dashboardState: DashboardStateService
-  ) {}
+  ) {
+    this.setupStorageListener();
+  }
 
   private isLoading = false;
 
@@ -249,21 +252,49 @@ establecimientosColor: any;
     //console.log('Estado limpiado');
   }
   
+  private setupStorageListener(): void {
+    this.storageListener = (event: StorageEvent) => {
+      if (event.key === 'regionSeleccionada' || event.key === 'nivelAcceso') {
+        console.log('Cambio detectado en localStorage:', event.key);
+        
+        const regionData = localStorage.getItem('regionSeleccionada');
+        const nivelAcceso = localStorage.getItem('nivelAcceso');
 
+        if (nivelAcceso === 'nacional') {
+          console.log('Acceso Nacional detectado');
+          this.loadRegionDataFromSidebar(0);
+        } else if (regionData) {
+          const region = JSON.parse(regionData);
+          console.log('Nueva región seleccionada:', region);
+          this.loadRegionDataFromSidebar(Number(region.CodigoRegion));
+        }
+      }
+    };
+
+    window.addEventListener('storage', this.storageListener);
+  }
 
   ngOnInit(): void {
-    // Limpiamos el estado inicial
+    // Código existente del ngOnInit...
     this.updateRegionColors();
     this.setRegionColors();
     this.clearState();
 
-    // Logging inicial
-    //console.log('Iniciando componente Dashboard');
+    // Inicialización con datos del localStorage
+    const regionData = localStorage.getItem('regionSeleccionada');
+    const nivelAcceso = localStorage.getItem('nivelAcceso');
 
-    // Suscribirse a los cambios de navegación
+    if (nivelAcceso === 'nacional') {
+      this.loadRegionDataFromSidebar(0);
+    } else if (regionData) {
+      const region = JSON.parse(regionData);
+      this.loadRegionDataFromSidebar(Number(region.CodigoRegion));
+    }
+
+    // Resto del código existente del ngOnInit...
     this.router.events.pipe(
-        filter(event => event instanceof NavigationEnd),
-        takeUntil(this.destroy$)
+      filter(event => event instanceof NavigationEnd),
+      takeUntil(this.destroy$)
     ).subscribe(() => {
         const regionId = Number(this.route.snapshot.paramMap.get('regionId'));
         
