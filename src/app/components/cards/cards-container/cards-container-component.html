@@ -1,0 +1,18 @@
+<div [ngClass]="containerClass" [ngStyle]="{'background-color': containerBackgroundColor}">
+    <div class="mb-2">
+        <h4 class="text-xl font-medium flex items-center gap-2">
+            {{ headerTitle }}
+        </h4>
+        <h6 class="text-sm text-gray-600">{{ headerSubtitle }}</h6>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 p-2">
+        <app-info-card
+            *ngFor="let card of cards"
+            [icon]="card.icon"
+            [title]="card.titulo"
+            [value]="card.valor"
+            [backgroundColor]="card.backgroundColor || defaultCardColor">
+        </app-info-card>
+    </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="w-full max-w-screen-2xl mx-auto p-6 bg-gradient-to-br from-purple-50 to-indigo-100 rounded-xl shadow-2xl">
+    <!-- Título Principal -->
+    <h1 class="text-4xl font-bold text-purple-700 text-center">Dashboard - Vínculo con la Familia Encuestas Familias</h1>
+    <p class="text-sm text-gray-700 text-center mb-4">Correspondiente a medición 2023, Encuesta familias no tiene representación a nivel de jardín</p>
+
+    <!-- Descripción -->
+    <div class="bg-gradient-to-r from-blue-300 to-teal-200 rounded-xl p-6 text-center mb-6 shadow-lg">
+        <p class="text-md text-gray-800">
+            La Encuesta Familias 2023 de la Fundación Integra muestra un alto nivel de satisfacción y compromiso por parte de las familias,
+            reflejando la importancia de su participación activa en la educación y bienestar integral de los niños y niñas.
+        </p>
+    </div>
+
+    <!-- Sección de Gráficos -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+        <!-- Gráfico de Información Recibida (Gráfico de Pastel) -->
+        <div class="bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <h3 class="text-xl font-semibold text-center text-purple-700">Información Recibida</h3>
+            <h4 class="text-purple-600 text-center mb-4">Porcentaje de encuestados que responde haber recibido información oportuna y clara</h4>
+            <highcharts-chart
+                [Highcharts]="Highcharts"
+                [options]="informationReceivedChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+
+        <!-- Gráfico de Información Geográfica (Gráfico de Columnas) -->
+        <div class="bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <h3 class="text-xl font-semibold text-center text-purple-700">Información Geográfica</h3>
+            <h4 class="text-purple-600 text-center mb-4">Encuestado que responde haber recibido información oportuna y clara</h4>
+            <highcharts-chart
+                [Highcharts]="Highcharts"
+                [options]="informationGeographicChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+
+        <!-- Gráfico de Participación Encuestados (Gráfico de Pastel) -->
+        <div class="bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <h3 class="text-xl font-semibold text-center text-purple-700">Participación Encuestados</h3>
+            <h4 class="text-purple-600 text-center mb-4">El encuestado señala haber participado en 3 o más instancias en el Jardín Infantil o Sala Cuna</h4>
+            <highcharts-chart
+                [Highcharts]="Highcharts"
+                [options]="participationSurveyChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+
+        <!-- Gráfico de Participación Geográfica (Gráfico de Columnas) -->
+        <div class="bg-gradient-to-br from-white to-gray-100 rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300 ease-in-out">
+            <h3 class="text-xl font-semibold text-center text-purple-700">Participación Geográfica</h3>
+            <h4 class="text-purple-600 text-center mb-4">Participación en más de 3 instancias por División Geográfica</h4>
+            <highcharts-chart
+                [Highcharts]="Highcharts"
+                [options]="participationGeographicChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+    </div>
+</div>

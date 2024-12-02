@@ -1,0 +1,123 @@
+<div class="w-full max-w-screen-2xl mx-auto p-6">
+    <!-- Header -->
+    <div class="mb-8">
+      <h1 class="text-2xl font-bold text-gray-800 mb-2">DPPI</h1>
+      <p class="text-sm text-gray-600">Gestión de Datos Estratégicos / Casa Central</p>
+    </div>
+  
+    <!-- Indicadores Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-6 gap-4 mb-6">
+      <div class="bg-pink-50 p-4 rounded-lg shadow-md text-center">
+        <div class="text-3xl font-bold text-gray-800">{{indicators.accidentes | number}}</div>
+        <div class="text-sm text-gray-600"># Accidentes a nivel Nacional</div>
+      </div>
+      <div class="bg-pink-50 p-4 rounded-lg shadow-md text-center">
+        <div class="text-3xl font-bold text-gray-800">{{indicators.diagnosticoNormal | number:'1.2-2'}}</div>
+        <div class="text-sm text-gray-600">Niños con diagnóstico nutricional normal</div>
+      </div>
+      <div class="bg-pink-50 p-4 rounded-lg shadow-md text-center">
+        <div class="text-3xl font-bold text-gray-800">{{indicators.indicator3 | number:'1.3-3'}}</div>
+        <div class="text-sm text-gray-600">Indicador 3</div>
+      </div>
+      <div class="bg-pink-50 p-4 rounded-lg shadow-md text-center">
+        <div class="text-3xl font-bold text-gray-800">{{indicators.indicator4 | number:'1.2-2'}}</div>
+        <div class="text-sm text-gray-600">Indicador 4</div>
+      </div>
+      <div class="bg-pink-50 p-4 rounded-lg shadow-md text-center">
+        <div class="text-3xl font-bold text-gray-800">{{indicators.indicator5 | number:'1.2-2'}}</div>
+        <div class="text-sm text-gray-600">Indicador 5</div>
+      </div>
+      <div class="bg-pink-50 p-4 rounded-lg shadow-md text-center">
+        <div class="text-3xl font-bold text-gray-800">{{indicators.indicator6 | number:'1.2-2'}}</div>
+        <div class="text-sm text-gray-600">Indicador 6</div>
+      </div>
+    </div>
+  
+    <!-- Filtros -->
+    <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+      <div class="flex flex-wrap gap-4 items-center">
+        <!-- Años -->
+        <div class="flex gap-2">
+          <button *ngFor="let y of [2022, 2023, 2024]" 
+                  class="px-4 py-2 rounded-lg transition-colors"
+                  [class.bg-gray-200]="year !== y"
+                  [class.bg-blue-500]="year === y"
+                  [class.text-white]="year === y">
+            {{y}}
+          </button>
+        </div>
+        
+        <!-- Selectores -->
+        <div class="flex gap-4">
+          <select class="px-4 py-2 border rounded-lg" [(ngModel)]="selectedRegion">
+            <option value="">Regiones</option>
+            <option *ngFor="let region of regions" [value]="region">{{region}}</option>
+          </select>
+          
+          <select class="px-4 py-2 border rounded-lg" [(ngModel)]="selectedJardin">
+            <option value="">Jardines</option>
+            <option *ngFor="let jardin of jardines" [value]="jardin">{{jardin}}</option>
+          </select>
+        </div>
+  
+        <!-- Botones -->
+        <div class="flex gap-4">
+          <button class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">
+            FILTRAR
+          </button>
+          
+          <button class="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600" 
+                  (click)="exportPDF()">
+            PDF
+          </button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Gráficos Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <!-- Mapa y Histograma (Primera fila) -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-4">{{RegionSeleccionada}}</h3>
+        <div id="map-container" class="h-[400px] w-full relative border border-gray-200 rounded-lg overflow-hidden">
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [options]="mapChart"
+            [(update)]="updateFlag"
+            style="width: 100%; height: 100%; display: block;">
+          </highcharts-chart>
+        </div>
+      </div>
+  
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-4">Histograma</h3>
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [options]="histogramChart"
+          [(update)]="updateFlag"
+          style="width: 100%; height: 400px; display: block;">
+        </highcharts-chart>
+      </div>
+  
+      <!-- Gráficos Power BI (Segunda fila) -->
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-4">Establecimientos con sello verde</h3>
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [options]="barChart"
+          [(update)]="updateFlag"
+          style="width: 100%; height: 400px; display: block;">
+        </highcharts-chart>
+      </div>
+  
+      <div class="bg-white p-4 rounded-lg shadow-md">
+        <h3 class="text-lg font-semibold mb-4">Distribución por tipo</h3>
+        <highcharts-chart
+          [Highcharts]="Highcharts"
+          [options]="pieChart"
+          [(update)]="updateFlag"
+          style="width: 100%; height: 400px; display: block;">
+        </highcharts-chart>
+      </div>
+    </div>
+  </div>
