@@ -43,7 +43,7 @@ export class ViewDppiComponent {
   
   buttons: ButtonData[] = [
     { eb_icon: 'local_hospital', eb_title: 'Accidentes', eb_subtitle: '', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dppi/accidentes' },
-    { eb_icon: 'restaurant', eb_title: 'Situación Nutricional', eb_subtitle: '', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dppi/situacion-nutricional' },
+    { eb_icon: 'restaurant', eb_title: 'Situación Nutricional', eb_subtitle: '', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dppi/situacion_nutricional' },
     { eb_icon: 'child_care', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
     { eb_icon: 'emergency', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
     { eb_icon: 'groups', eb_title: 'Indicador', eb_subtitle: 'Gobierno de Datos - En desarrollo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },

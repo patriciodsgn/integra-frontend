@@ -84,8 +84,51 @@ export class PanelEducacionNeeComponent implements OnInit {
     // getNecesidadesPorComuna
     // getGraficoNEE
 
-      // getPorcentajeATET
-      // getPromedioSatisfaccionATET
+
+
+    
+    this.educacionService.getPorcentajeATET(ano, codigoRegion).subscribe({
+      next: (res) => {
+        console.log('\x1b[36m%s\x1b[0m', '-----------------');
+        console.log('\x1b[36m%s\x1b[0m', 'Porcentaje ATET')
+        console.log(res)
+      },
+      error: (err) => {
+        console.error('Error al cargar:', err);
+      },
+    });
+/*
+  [
+    {
+      Categoria: 'Asesor/a Técnico/a',
+      Cantidad: 286,
+      Porcentaje: 27.24
+    },{
+      Categoria: 'Profesional de Inclusión',
+      Cantidad: 277,
+      Porcentaje: 26.38
+    },{
+      Categoria: 'Profesional de Desarrollo de Personas y Equipos',
+      Cantidad: 269,
+      Porcentaje: 25.62
+    },{
+      Categoria: 'Profesional de Familia y Cobertura',
+      Cantidad: 218,
+      Porcentaje: 20.76
+    }
+  ]
+*/
+    this.educacionService.getPromedioSatisfaccionATET(ano, codigoRegion).subscribe({
+      next: (res) => {
+        console.log('\x1b[32m%s\x1b[0m', '-----------------');
+        console.log('\x1b[32m%s\x1b[0m', 'Promedio Satisfaccion ATET')
+        console.log('\x1b[32m%s\x1b[0m', res.data.promedioSatisfaccion)
+      },
+      error: (err) => {
+        console.error('Error al cargar:', err);
+      },
+    });
+    /* un numero */
     
 
 
@@ -123,8 +166,17 @@ export class PanelEducacionNeeComponent implements OnInit {
 
     this.educacionService.getResumenNecesidades(ano, codigoRegion).subscribe({
       next: (res) => {
-        // console.log('\x1b[34m%s\x1b[0m', 'Texto en azul:', res);
+        console.log('ok---getResumenNecesidades->',res)        
+      },
+      error: (err) => {
+        console.error('Error al cargar el resumen de necesidades:', err);
+      },
+    });
 
+
+
+    this.educacionService.getResumenNecesidades(ano, codigoRegion).subscribe({
+      next: (res) => {
         this.chart5Value1 = res.permanente;
         this.chart5Value2 = res.transitoria;
         this.chart5Value3 = res.rezago;

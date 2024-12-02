@@ -43,8 +43,8 @@ export class ViewDpgrComponent {
   
   buttons: ButtonData[] = [
     { eb_icon: 'favorite', eb_title: 'RO', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/ro' },
-    { eb_icon: 'eco', eb_title: 'Sello Verde', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/sello-verde' },
-    { eb_icon: 'groups', eb_title: 'Pueblos Originarios', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/pueblos-originarios' },
+    { eb_icon: 'eco', eb_title: 'Sello Verde', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/sello_verde' },
+    { eb_icon: 'groups', eb_title: 'Pueblos Originarios', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/pueblos_originarios' },
     { eb_icon: 'public', eb_title: 'Nacionalidad', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/nacionalidad' },
     { eb_icon: 'assignment', eb_title: 'Asistencia', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
     { eb_icon: 'access_time', eb_title: 'Permanencia', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
@@ -64,3 +64,14 @@ export class ViewDpgrComponent {
     this.buttonStateService.setActiveButton(index);
   }
 }
+
+
+
+// getConteoJardines
+// getTotalNinosOriginarios
+// getTotalNinosMigrantes
+// getTotalJardinesRO
+// getEstadisticasDpgr
+// getConteoJardinesIntegra
+// getTotalNinosOriginariosIntegra
+// getTotalJardinesSelloVerde

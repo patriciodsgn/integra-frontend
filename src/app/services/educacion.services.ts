@@ -15,9 +15,9 @@ import {
     providedIn: 'root'
 })
 export class EducacionService {
-    private baseUrl = `${environmentdb.apidb}/educacion`;
+    public baseUrl = `${environmentdb.apidb}/educacion`;
 
-    constructor(private http: HttpClient) {
+    constructor(public http: HttpClient) {
         console.log('EducacionService inicializado con URL:', this.baseUrl);
     }
 
