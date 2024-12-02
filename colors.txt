@@ -1,0 +1,48 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---Slate    #e2e8f0    #cbd5e1    #94a3b8
+---Gray     #e5e7eb    #d1d5db    #9ca3af
+---Zinc     #e4e4e7    #d4d4d8    #a1a1aa
+---Neutral  #e5e5e5    #d4d4d4    #a3a3a3
+---Stone    #e7e5e4    #d6d3d1    #a8a29e
+---Red      #fecaca    #fca5a5    #f87171
+---Orange   #fed7aa    #fdba74    #fb923c
+---Amber    #fde68a    #fcd34d    #fbbf24
+---Yellow   #fef08a    #fde047    #facc15
+---Lime     #d9f99d    #bef264    #a3e635
+---Green    #bbf7d0    #86efac    #4ade80
+---Emerald  #a7f3d0    #6ee7b7    #34d399
+---Teal     #99f6e4    #5eead4    #2dd4bf
+---Cyan     #a5f3fc    #67e8f9    #22d3ee
+---Sky      #bae6fd    #7dd3fc    #38bdf8
+---Blue     #bfdbfe    #93c5fd    #60a5fa
+---Indigo   #c7d2fe    #a5b4fc    #818cf8
+---Violet   #ddd6fe    #c4b5fd    #a78bfa
+---Purple   #e9d5ff    #d8b4fe    #c084fc
+---Fuchsia  #f5d0fe    #f0abfc    #e879f9
+---Pink     #fbcfe8    #f9a8d4    #f472b6
+---Rose     #fecdd3    #fda4af    #fb7185

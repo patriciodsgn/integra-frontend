@@ -1,0 +1,43 @@
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 8px;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.card {
+    background-color: #F8F8F8;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    padding: 8px;
+}
+
+.title-card {
+    background-color: #E2E2E2;
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    padding: 4px;
+    grid-column: span 1;
+}
+
+.chart-card {
+    padding: 4px;
+}
+
+.small-chart {
+    height: 150px;
+}
+
+.satisfaction-card {
+    background-color: #D0E8FF;
+    text-align: center;
+    font-size: 14px;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

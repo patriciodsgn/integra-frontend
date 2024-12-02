@@ -1,0 +1,13 @@
+<button
+  class="p-2 rounded-lg flex items-center justify-center w-full"
+  [disabled]="eb_disable"
+  [style.backgroundColor]="eb_bg_color"
+  [style.color]="eb_text_color"
+  (click)="navigateTo()"
+>
+  <div class="text-center">
+    <span class="material-icons text-1xl">{{ eb_icon }}</span>
+    <p class="text-sm font-semibold">{{ eb_title }}</p>
+    <p class="text-xs">{{ eb_subtitle }}</p>
+  </div>
+</button>

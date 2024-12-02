@@ -1,0 +1,56 @@
+
+<div  class="w-full max-w-screen-2xl mx-auto p-6 bg-purple-50 rounded-lg shadow-lg">
+    <!-- Título Principal -->
+    <h1 class="text-3xl font-bold text-teal-600 text-center">Dashboard - Equidad e Inclusión: Migrantes</h1>
+    <p class="text-sm text-gray-600 text-center mb-4">*Correspondiente a medición 2023</p>
+
+    
+
+    <!-- Contenedor Principal en Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <!-- Sección de Nacionalidad Extranjera -->
+        <div class="bg-blue-200 rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
+            <h2 class="text-xl font-semibold">% Nacionalidad Extranjera</h2>
+            <div class="text-5xl font-bold my-4">6,5 %</div>
+            <p>% Niños y niñas con Nacionalidad Extranjera</p>
+        </div>
+
+        <!-- Imagen o gráfico centrado -->
+        <div class="flex justify-center items-center">
+            <img src="assets/images/Integra-Palmundo-21.png" alt="Imagen de niños jugando" class="w-2/3 h-auto">
+        </div>
+
+        <!-- Sección de Total de Extranjeros -->
+        <div class="bg-blue-200 rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
+            <h2 class="text-xl font-semibold">Total Extranjeros</h2>
+            <div class="text-5xl font-bold my-4">5,297</div>
+            <p>Cantidad niñas y niños con nacionalidad extranjera</p>
+        </div>
+    </div>
+
+    <!-- Sección de Gráficos en la Parte Inferior -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
+        
+        <!-- Gráfico de Nacionalidades (Gráfico de Pastel) -->
+        <div class="bg-white rounded-lg shadow-lg p-4">
+            <h3 class="text-lg font-semibold text-center">% Nacionalidades</h3>
+            <h4 class="text-teal-600 text-center mb-2">% de niñas y niños con nacionalidad extranjera</h4>
+            <highcharts-chart
+                [Highcharts]="Highcharts"
+                [options]="nationalityChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+
+        <!-- Gráfico de División Geográfica (Gráfico de Columnas) -->
+        <div class="bg-white rounded-lg shadow-lg p-4">
+            <h3 class="text-lg font-semibold text-center">División Geográfica</h3>
+            <h4 class="text-teal-600 text-center mb-2">Niñas y niños con nacionalidad extranjera por división geográfica</h4>
+            <highcharts-chart
+                [Highcharts]="Highcharts"
+                [options]="geographicDivisionChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+    </div>
+</div>

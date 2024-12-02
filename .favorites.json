@@ -1,0 +1,82 @@
+[
+    {
+        "type": "File",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/src/app/services/educacion.services.ts",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "src/app/services/educacion.services.ts",
+        "id": "t5GbXfrwJzj8iRTl"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/src/app/components/panel-educacion-nee",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "src/app/components/panel-educacion-nee",
+        "id": "AjGy6WEerPVlgL5o"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/src/app/components/panel-educacion-atet",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "src/app/components/panel-educacion-atet",
+        "id": "tayS2YFOeskn5dNA"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/src/app/components/elem-draw-05",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "src/app/components/elem-draw-05",
+        "id": "PM4ydILkEX53cNe8"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/src/app/components/elem-draw-04",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "src/app/components/elem-draw-04",
+        "id": "6e7kSAKhsBjxDRFu"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/src/app/components/elem-draw-03",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "src/app/components/elem-draw-03",
+        "id": "unCpxSazsZq3cgwv"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/src/app/components/elem-draw-02",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "src/app/components/elem-draw-02",
+        "id": "KWMQVkNc0adYD9qm"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/src/app/components/elem-draw-01",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "src/app/components/elem-draw-01",
+        "id": "jeh14m9ED3yuKYIV"
+    },
+    {
+        "type": "Directory",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/src/app/components/ds-nivel-regional",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "src/app/components/ds-nivel-regional",
+        "id": "gnkN7RAsI1VbKLCi"
+    },
+    {
+        "type": "File",
+        "name": "/Users/icaro/Dashboard-Gestion-Integra/back end/my-express-api/src/routes/educacion.js",
+        "parent_id": null,
+        "workspaceRoot": "/Users/icaro/Dashboard-Gestion-Integra",
+        "workspacePath": "back end/my-express-api/src/routes/educacion.js",
+        "id": "vDIa6zO5HwV43JbA"
+    }
+]

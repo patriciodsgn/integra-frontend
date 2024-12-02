@@ -1,0 +1,50 @@
+{
+    "getePHomeNacional1": [
+        {
+            "total_ejecutado": 0,
+            "total_Vigente": 0,
+            "DireccionGestora": "DIRECCIÓN JURÍDICA"
+        },
+        {
+            "total_ejecutado": 147364809,
+            "total_Vigente": 9180173,
+            "DireccionGestora": "DIRECCIÓN_ADM_Y_FINANZAS"
+        },
+        {
+            "total_ejecutado": 0,
+            "total_Vigente": 0,
+            "DireccionGestora": "DIRECCIÓN_ASUNTOS_INST_Y_COMUNIC"
+        },
+        {
+            "total_ejecutado": 0,
+            "total_Vigente": 0,
+            "DireccionGestora": "DIRECCIÓN_DE_EDUCACIÓN"
+        },
+        {
+            "total_ejecutado": 0,
+            "total_Vigente": 154367149,
+            "DireccionGestora": "DIRECCIÓN_DE_PLANEAMIENTO_Y_GESTIÓN_DE_LA_CALIDAD"
+        },
+        {
+            "total_ejecutado": 0,
+            "total_Vigente": 0,
+            "DireccionGestora": "DIRECCIÓN_DE_PROMOCIÓN_Y_PROTECCIÓN_DE_LA_INFANCIA"
+        },
+        {
+            "total_ejecutado": 3123751214,
+            "total_Vigente": 1848038633,
+            "DireccionGestora": "DIRECCIÓN_DE_TECNOLOGÍA"
+        },
+        {
+            "total_ejecutado": 28446825,
+            "total_Vigente": 271270484,
+            "DireccionGestora": "PROYECTO REGIONAL"
+        }
+    ],
+    "getePHomeNacional2": [
+        {
+            "gastos_ejecutados": 3299562848,
+            "saldo_por_gastar": 191974989
+        }
+    ]
+}

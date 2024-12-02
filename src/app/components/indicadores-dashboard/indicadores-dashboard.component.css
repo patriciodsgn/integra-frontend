@@ -1,0 +1,44 @@
+/* indicadores-dashboard.component.css */
+:host {
+    display: block;
+}
+
+.panel {
+    @apply relative rounded-md bg-white p-5 shadow dark:bg-black;
+}
+
+.progress-bar {
+    @apply h-2 rounded-full bg-primary;
+}
+
+.progress-bg {
+    @apply h-2 rounded-full bg-[#ebedf2] dark:bg-[#1b2e4b];
+}
+
+.chart-container {
+    min-height: 200px;
+}
+
+.indicator-card {
+    @apply rounded-md bg-white p-4 shadow-md dark:bg-black;
+}
+
+.indicator-title {
+    @apply mb-2 text-sm font-semibold text-gray-700 dark:text-gray-300;
+}
+
+.indicator-value {
+    @apply text-lg font-bold text-gray-900 dark:text-white;
+}
+
+.indicator-subtitle {
+    @apply text-xs text-gray-500 dark:text-gray-400;
+}
+.header-container {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: #F8ECFE;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.5rem;
+  }

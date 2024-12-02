@@ -1,0 +1,62 @@
+<div class="w-full max-w-screen-2xl mx-auto p-6 bg-purple-50 rounded-lg shadow-lg">
+    <!-- Título Principal -->
+    <h1 class="text-3xl font-bold text-teal-600 text-center">Dashboard - Equidad e Inclusión: Necesidades Educativas Especiales (NEE)</h1>
+    <p class="text-sm text-gray-600 text-center mb-4">*Correspondiente a medición 2023</p>
+
+    <!-- Contenedor Principal en Grid para las Tarjetas de Métricas -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+    <!-- Tarjeta % NEE Permanente -->
+    <div class="bg-blue-200 rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
+        <h2 class="text-xl font-semibold">% NEE Permanente</h2>
+        <div class="text-5xl font-bold my-4">
+            {{ resumenNecesidades.permanente }}%
+        </div>
+        <p class="text-center">% Niños y niñas con Necesidad Educativa Especial Permanente</p>
+    </div>
+
+    <!-- Tarjeta Total NEE -->
+    <div class="bg-blue-200 rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
+        <h2 class="text-xl font-semibold">Total NEE</h2>
+        <div class="text-5xl font-bold my-4">
+            {{ resumenNecesidades.transitoria }}%
+        </div>
+        <p class="text-center">% Niños y niñas con Necesidad Educativa Especial Transitoria</p>
+    </div>
+
+    <!-- Tarjeta NEE por Año -->
+    <div class="bg-blue-200 rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
+        <h2 class="text-xl font-semibold">NEE por Año</h2>
+        <div class="text-5xl font-bold my-4">
+            {{ resumenNecesidades.rezago }}%
+        </div>
+        <p class="text-center">% Niños y niñas con Necesidad Educativa Especial de Rezago</p>
+    </div>
+</div>
+
+<!-- Resto de tu template para los gráficos -->
+
+    <!-- Contenedor para los Gráficos -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Gráfico de Tipos de NEE (Gráfico de Pastel) -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-lg font-semibold text-center">% Tipos NEE</h3>
+            <h4 class="text-teal-600 text-center mb-4">Porcentaje de niños y niñas con Necesidades Educativas Especiales (NEE)</h4>
+            <highcharts-chart
+                [Highcharts]="Highcharts"
+                [options]="neeTypesChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+
+        <!-- Gráfico de NEE Geográfica (Gráfico de Columnas Apiladas) -->
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <h3 class="text-lg font-semibold text-center">NEE Geográfica</h3>
+            <h4 class="text-teal-600 text-center mb-4">Casos de Necesidades Educativas Especiales por División Geográfica</h4>
+            <highcharts-chart
+                [Highcharts]="Highcharts"
+                [options]="neeGeographicChartOptions"
+                style="width: 100%; height: 400px; display: block;">
+            </highcharts-chart>
+        </div>
+    </div>
+</div>

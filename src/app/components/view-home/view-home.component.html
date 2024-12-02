@@ -1,0 +1,40 @@
+<app-elem-header
+  [eh_title]="'Home'"
+  [eh_subtitle]="'Gestión de Datos Estratégicos'"
+  [eh_bg_color]="'#aac1bb'"
+  [eh_text_color]="'#27272a'"
+></app-elem-header>
+
+<div class="grid grid-cols-3 justify-center gap-4 py-6 m-4">
+
+  <app-elem-button 
+  [eb_icon]="'person'"
+  [eb_title]="'DATOS ESTRATÉGICOS'"
+  [eb_subtitle]="'...'"
+  [eb_disable]=false
+  [eb_bg_color]="'#5ed5c8'"
+  [eb_text_color]="'#0a3b35'"
+  [eb_link]="'/custom-dashboard-inicial'"
+  ></app-elem-button>
+  
+  <app-elem-button 
+  [eb_icon]="'person'"
+  [eb_title]="'DATOS OPERATIVOS'"
+  [eb_subtitle]="'...'"
+  [eb_disable]=true
+  [eb_bg_color]="'#5ed5c8'"
+  [eb_text_color]="'#0a3b35'"
+  [eb_link]="'/'"
+  ></app-elem-button>
+
+  <app-elem-button 
+  [eb_icon]="'person'"
+  [eb_title]="'DATOS TÉCNICOS'"
+  [eb_subtitle]="'...'"
+  [eb_disable]=true
+  [eb_bg_color]="'#5eead4'"
+  [eb_text_color]="'#115e59'"
+  [eb_link]="'/'"
+  ></app-elem-button>
+
+</div>

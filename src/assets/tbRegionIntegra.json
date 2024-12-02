@@ -1,0 +1,71 @@
+{
+"select * from tbRegionIntegra tri ": [
+	{
+		"CodigoRegionIntegra" : 1,
+		"NombreRegionIntegra" : "TARAPACÁ"
+	},
+	{
+		"CodigoRegionIntegra" : 2,
+		"NombreRegionIntegra" : "ANTOFAGASTA"
+	},
+	{
+		"CodigoRegionIntegra" : 3,
+		"NombreRegionIntegra" : "ATACAMA"
+	},
+	{
+		"CodigoRegionIntegra" : 4,
+		"NombreRegionIntegra" : "COQUIMBO"
+	},
+	{
+		"CodigoRegionIntegra" : 5,
+		"NombreRegionIntegra" : "VALPARAÍSO"
+	},
+	{
+		"CodigoRegionIntegra" : 6,
+		"NombreRegionIntegra" : "O'HIGGINS"
+	},
+	{
+		"CodigoRegionIntegra" : 7,
+		"NombreRegionIntegra" : "MAULE"
+	},
+	{
+		"CodigoRegionIntegra" : 8,
+		"NombreRegionIntegra" : "BIOBÍO"
+	},
+	{
+		"CodigoRegionIntegra" : 9,
+		"NombreRegionIntegra" : "ARAUCANÍA"
+	},
+	{
+		"CodigoRegionIntegra" : 10,
+		"NombreRegionIntegra" : "LOS LAGOS"
+	},
+	{
+		"CodigoRegionIntegra" : 11,
+		"NombreRegionIntegra" : "AYSÉN"
+	},
+	{
+		"CodigoRegionIntegra" : 12,
+		"NombreRegionIntegra" : "MAGALLANES"
+	},
+	{
+		"CodigoRegionIntegra" : 13,
+		"NombreRegionIntegra" : "SURORIENTE"
+	},
+	{
+		"CodigoRegionIntegra" : 14,
+		"NombreRegionIntegra" : "NORPONIENTE"
+	},
+	{
+		"CodigoRegionIntegra" : 15,
+		"NombreRegionIntegra" : "ARICA"
+	},
+	{
+		"CodigoRegionIntegra" : 16,
+		"NombreRegionIntegra" : "LOS RÍOS"
+	},
+	{
+		"CodigoRegionIntegra" : 17,
+		"NombreRegionIntegra" : "ÑUBLE"
+	}
+]}

@@ -1,0 +1,50 @@
+<div class="w-full max-w-screen-2xl mx-auto p-6 bg-gradient-to-br from-purple-50 to-indigo-100 rounded-xl shadow-2xl">
+    <!-- Contenido Principal del Dashboard -->
+    <div class="w-full p-4">
+      <!-- Título Principal -->
+      <div class="mb-5">
+        <h1 class="text-3xl font-bold text-teal-800">Dashboard - Infraestructura: Reconocimiento Oficial</h1>
+        <p class="text-sm text-gray-600">*Correspondiente a medición 2022-2023</p>
+      </div>
+  
+      <!-- Tarjetas de Métricas -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-5">
+        <div class="bg-indigo-200 p-6 rounded-xl shadow-md text-center">
+          <h2 class="text-3xl font-semibold">53,6 %</h2>
+          <p class="text-sm mt-2">Reconocimiento Oficial 2022</p>
+        </div>
+        <div class="bg-indigo-200 p-6 rounded-xl shadow-md text-center">
+          <h2 class="text-3xl font-semibold">57,7 %</h2>
+          <p class="text-sm mt-2">Reconocimiento Oficial 2023</p>
+        </div>
+        <div class="bg-indigo-200 p-6 rounded-xl shadow-md text-center">
+          <h2 class="text-3xl font-semibold">4,1 %</h2>
+          <p class="text-sm mt-2">Tasa Variación 2022-2023</p>
+        </div>
+      </div>
+  
+      <!-- Gráficos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Gráfico de Año de Reconocimiento -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-center font-semibold text-teal-800 mb-4">Año de obtención del Reconocimiento Oficial</h3>
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [options]="pieChartOptions"
+            style="width: 100%; height: 400px; display: block;">
+          </highcharts-chart>
+        </div>
+  
+        <!-- Gráfico de Reconocimiento Geográfico -->
+        <div class="bg-white p-6 rounded-xl shadow-lg">
+          <h3 class="text-center font-semibold text-teal-800 mb-4">Reconocimiento Oficial por División Geográfica</h3>
+          <highcharts-chart
+            [Highcharts]="Highcharts"
+            [options]="barChartOptions"
+            style="width: 100%; height: 400px; display: block;">
+          </highcharts-chart>
+        </div>
+      </div>
+    </div>
+  </div>
+  
