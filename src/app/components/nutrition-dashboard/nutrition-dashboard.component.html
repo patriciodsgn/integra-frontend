@@ -1,0 +1,48 @@
+<div *ngIf="isVisible" class="w-full max-w-screen-2xl mx-auto p-6 bg-purple-50 rounded-lg shadow-lg">
+    
+    <div class="relative flex items-center justify-center py-4">
+        <div class="absolute inset-0 border-t border-gray-300"></div>
+        <h1 class="relative px-4 bg-purple-50 text-3xl font-bold text-teal-600">Alimentación y Salud: Situación Nutricional</h1>
+    </div>
+
+    <!-- Subtítulo bajo el separador -->
+    <p class="text-sm text-gray-600 text-center mb-4">*Corresponde a medición 2023</p>
+    <!-- Contenedor principal con dos columnas (adaptable en pantallas pequeñas) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Columna Izquierda: Diagnóstico Normal y Distribución Nutricional -->
+        <div class="lg:col-span-1 space-y-6">
+            <!-- Diagnóstico Normal -->
+            <div class="bg-blue-200 rounded-lg shadow-lg p-6 flex flex-col justify-center items-center text-center">
+                <h2 class="text-xl font-semibold">Diagnóstico Normal</h2>
+                <div class="text-4xl font-bold my-4">21 mil</div>
+                <p>Niños y niñas con diagnóstico nutricional normal</p>
+            </div>
+
+            <!-- Distribución Nutricional (Gráfico de Pastel) -->
+            <div class="bg-white rounded-lg shadow-lg p-4 flex flex-col items-center text-center">
+                <h2 class="text-lg font-semibold">Distribución Nutricional</h2>
+                <h3 class="text-teal-600 mb-2"> % Diagnóstico Nutricional </h3>
+                <highcharts-chart
+                    [Highcharts]="Highcharts"
+                    [options]="distributionChartOptions"
+                    class="w-full"
+                    style="height: 300px; display: block;">
+                </highcharts-chart>
+            </div>
+        </div>  
+
+        <!-- Columna Derecha: Diagnóstico Geográfico (Gráfico de Columnas) -->
+        <div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-4 text-center overflow-x-auto">
+            <h2 class="text-lg font-semibold">Diagnóstico Geográfico</h2>
+            <h3 class="text-teal-600 mb-2">Nº niños y niñas por diagnóstico nutricional - División Geográfica</h3>
+            <highcharts-chart
+                [Highcharts]="Highcharts"
+                [options]="geographicChartOptions"
+                class="w-full"
+                style="height: 500px; display: block;">
+            </highcharts-chart>
+        </div>
+    </div>
+
+    
+</div>

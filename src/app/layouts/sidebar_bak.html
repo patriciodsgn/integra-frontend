@@ -1,0 +1,258 @@
+﻿<div [ngClass]="{ 'dark text-white-dark': store.semidark }">
+    <nav class="sidebar fixed bottom-0 top-0 z-50 h-full min-h-screen w-[60px] md:w-[80px] lg:w-[260px] shadow-[5px_0_25px_0_rgba(94,92,154,0.1)] transition-all duration-300 left-0">
+        <div class="h-full bg-white dark:bg-[#0e1726]">
+            <div class="flex items-center justify-between px-4 py-2">
+                <a routerLink="/" class="main-logo flex shrink-0 items-center">
+                    <img class="ml-0 w-[50px] md:w-[70px] lg:w-[150px] h-auto flex-none" src="/assets/images/logo.svg" alt="Logo Integra" />
+                    <span class="align-middle text-xl md:text-2xl font-semibold dark:text-white-light lg:inline ltr:ml-1.5 rtl:mr-1.5 hidden lg:block"></span>
+                </a>
+                <a
+                    href="javascript:;"
+                    class="collapse-icon flex h-8 w-8 items-center rounded-full transition duration-300 hover:bg-gray-500/10 hover:text-primary dark:text-white-light dark:hover:bg-dark-light/10 rtl:rotate-180"
+                    (click)="storeData.dispatch({ type: 'toggleSidebar'})"
+                >
+                    <icon-carets-down class="m-auto rotate-90" />
+                </a>
+            </div>
+            <ng-scrollbar class="relative !h-[calc(100vh-80px)]" appearance="compact">
+                <ul class="relative space-y-1 p-4 py-0 font-semibold list-none">
+<!-- Menú de Regiones -->
+<li class="accordion menu nav-item">
+    <button type="button" class="nav-link group w-full"
+        [ngClass]="{ active: activeDropdown.includes('regiones') }" (click)="toggleAccordion('regiones')">
+        <div class="flex items-center">
+            <icon-menu-dashboard class="shrink-0 group-hover:!text-primary" />
+            <span
+                class="text-black dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3 hidden lg:block">
+                {{ 'Regiones' | translate }}
+            </span>
+        </div>
+        <div [ngClass]="{ 'rtl:rotate-90 -rotate-90': !activeDropdown.includes('regiones') }">
+            <icon-caret-down />
+        </div>
+    </button>
+    <div *ngIf="activeDropdown.includes('regiones')" class="accordion-content">
+        <ul class="sub-menu text-gray-500 space-y-1 list-none pl-0" style="border-left: none;">
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/1" routerLinkActive="active" (click)="updateMap(1); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (I) Tarapacá
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/2" routerLinkActive="active" (click)="updateMap(2); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (II) Antofagasta
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/3" routerLinkActive="active" (click)="updateMap(3); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (III) Atacama
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/4" routerLinkActive="active" (click)="updateMap(4); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (IV) Coquimbo
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/5" routerLinkActive="active" (click)="updateMap(5); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (V) Valparaíso
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/6" routerLinkActive="active" (click)="toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (RM) Metropolitana
+                </a>
+            </li>            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/601" routerLinkActive="active"
+                    (click)="updateMap(601); toggleMobileMenu()" style="padding-left: 0; border-left: none;">
+                    Nor Poniente
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/602" routerLinkActive="active"
+                    (click)="updateMap(602); toggleMobileMenu()" style="padding-left: 0; border-left: none;">
+                    Rural Nor Poniente
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/603" routerLinkActive="active"
+                    (click)="updateMap(603); toggleMobileMenu()" style="padding-left: 0; border-left: none;">
+                    Sur Oriente
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/7" routerLinkActive="active" (click)="updateMap(7); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (VI) O'Higgins
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/8" routerLinkActive="active" (click)="updateMap(8); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (VII) Maule
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/9" routerLinkActive="active" (click)="updateMap(9); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (VIII) Biobio
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/10" routerLinkActive="active" (click)="updateMap(10); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (IX) Araucania
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/11" routerLinkActive="active" (click)="updateMap(11); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (X) Los Lagos
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/12" routerLinkActive="active" (click)="updateMap(12); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (XI) Aysen
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/13" routerLinkActive="active" (click)="updateMap(13); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (XII) Magallanes
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block !important;line-height: 30px">
+                <a routerLink="/region/14" routerLinkActive="active" (click)="updateMap(14); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (XIV) Los Ríos
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block!important;line-height: 30px">
+                <a routerLink="/region/15" routerLinkActive="active" (click)="updateMap(15); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (XV) Arica y Parinacota
+                </a>
+            </li>
+            <li style="padding-left: 0; display: block!important;line-height: 30px">
+                <a routerLink="/region/16" routerLinkActive="active" (click)="updateMap(16); toggleMobileMenu()"
+                    style="padding-left: 0; border-left: none;">
+                    (XVI) Ñuble
+                </a>
+            </li>
+        </ul>
+    </div>
+ </li>
+                    <!-- Menú de Direcciones -->
+<li class="accordion menu nav-item">
+    <button
+        type="button"
+        class="nav-link group w-full"
+        [ngClass]="{ active: activeDropdown.includes('direcciones') }"
+        (click)="toggleAccordion('direcciones')"
+    >
+        <div class="flex items-center">
+            <fa-icon [icon]="faBuilding" class="shrink-0 group-hover:!text-primary" />
+            <span class="text-black dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3 hidden lg:block">Direcciones</span>
+        </div>
+        <div [ngClass]="{ 'rtl:rotate-90 -rotate-90': !activeDropdown.includes('direcciones') }">
+            <icon-caret-down />
+        </div>
+    </button>
+        <div *ngIf="activeDropdown.includes('direcciones')" class="accordion-content">
+            <ul class="sub-menu text-gray-500 space-y-1 list-none pl-0 border-l-0 ">
+            <li>
+                <a routerLink="/direccion/daft" routerLinkActive="active" (click)="toggleMobileMenu()">
+                    <fa-icon [icon]="faBriefcase" class="shrink-0 group-hover:!text-primary" /> DAFT
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/indicadores-dashboard', 'DPGR']" routerLinkActive="active" (click)="toggleMobileMenu()">DPGR</a>
+                    <fa-icon [icon]="faFileAlt" class="shrink-0 group-hover:!text-primary" /> DPGR                
+                <fa-icon [icon]="faCircle" class="text-purple-500 shrink-0 group-hover:!text-primary" /> Dirección Ejecutiva
+            </li>
+            <li>
+                <a routerLink="/direccion/dppi" routerLinkActive="active" (click)="toggleMobileMenu()">
+                <fa-icon [icon]="faClipboard" class="shrink-0 group-hover:!text-primary" /> DPPI
+            </a>
+            </li>
+            <li>
+                <a routerLink="/direccion/educacion" routerLinkActive="active" (click)="toggleMobileMenu()">
+                    <fa-icon [icon]="faSchool" class="shrink-0 group-hover:!text-primary" /> D. Educación
+                </a>
+            </li>
+            <li>
+                <a routerLink="/direccion/personas" routerLinkActive="active" (click)="toggleMobileMenu()">
+                    <fa-icon [icon]="faUsers" class="shrink-0 group-hover:!text-primary" /> D. Personas
+                </a>
+            </li>
+            <li>
+                <a routerLink="/direccion/juridico" routerLinkActive="active" (click)="toggleMobileMenu()">
+                    <fa-icon [icon]="faGavel" class="shrink-0 group-hover:!text-primary" /> D. Jurídico
+                </a>
+            </li>
+            <li>
+                <a routerLink="/direccion/subdireccion-ti" routerLinkActive="active" (click)="toggleMobileMenu()">
+                    <fa-icon [icon]="faLaptopCode" class="shrink-0 group-hover:!text-primary" /> D. Subdirección TI
+                </a>
+            </li>
+            <li>
+                <a [routerLink]="['/indicadores-dashboard', 'DIRECCION EJECUTIVA']" routerLinkActive="active" (click)="toggleMobileMenu()">Dirección Ejecutiva</a>
+                    <fa-icon [icon]="faCircle" class="text-purple-500 shrink-0 group-hover:!text-primary" /> Dirección Ejecutiva
+                
+            </li>            <li>
+                <a routerLink="/direccion/contraloria" routerLinkActive="active" (click)="toggleMobileMenu()">
+                    <fa-icon [icon]="faCircle" class="text-purple-500 shrink-0 group-hover:!text-primary" /> Contraloría
+                </a>
+            </li>
+            <li>
+                <a routerLink="/direccion/comunicaciones" routerLinkActive="active" (click)="toggleMobileMenu()">
+                    <fa-icon [icon]="faCircle" class="text-purple-500 shrink-0 group-hover:!text-primary" /> Comunicaciones
+                </a>
+            </li>
+    </ul>
+</div>
+</li>
+
+                    <!-- Menú de Reportes (comportamiento de acordeón) -->
+                    <li class="accordion menu nav-item">
+                        <button
+                            type="button"
+                            class="nav-link group w-full"
+                            [ngClass]="{ active: activeDropdown.includes('reportes') }"
+                            (click)="toggleAccordion('reportes')"
+                        >
+                            <div class="flex items-center">
+                                <fa-icon [icon]="faFileAlt" class="shrink-0 group-hover:!text-primary" />
+                                <span class="text-black dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3 hidden lg:block">Reportes</span>
+                            </div>
+                            <div [ngClass]="{ 'rtl:rotate-90 -rotate-90': !activeDropdown.includes('reportes') }">
+                                <icon-caret-down />
+                            </div>
+                        </button>
+                        <div *ngIf="activeDropdown.includes('reportes')" class="accordion-content">
+                            <ul class="sub-menu text-gray-500 space-y-1 list-none pl-0 border-l-0">
+                                <li>
+                                    <a routerLink="/reporte/1" routerLinkActive="active" (click)="toggleMobileMenu()">Reporte 1</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/reporte/2" routerLinkActive="active" (click)="toggleMobileMenu()">Reporte 2</a>
+                                </li>
+                                <li>
+                                    <a routerLink="/reporte/3" routerLinkActive="active" (click)="toggleMobileMenu()">Reporte 3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </ng-scrollbar>
+        </div>
+    </nav>
+</div>
+

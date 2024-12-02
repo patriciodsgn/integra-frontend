@@ -1,0 +1,15 @@
+.panel {
+    background-color: #ffffff; /* Fondo blanco para verificar */
+    color: #000000; /* Texto negro */
+  }
+  #info-box {
+    max-height: 700px; /* Altura original */
+  }
+  
+  #info-box.expanded {
+    max-height: 500%; /* Altura completa cuando está expandido */
+  }
+
+  .highcharts-point:hover {
+    cursor: pointer !important;
+}

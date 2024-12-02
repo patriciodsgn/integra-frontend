@@ -1,0 +1,14 @@
+<app-elem-header
+  [eh_title]="title"
+  [eh_subtitle]="subtitle"
+  [eh_bg_color]="headerBgColor"
+  [eh_text_color]="headerTextColor"
+></app-elem-header>
+
+<router-outlet></router-outlet>
+
+<app-elem-button-grid
+  [button_data]="buttons"
+  [activeIndex]="activeButtonIndex"
+  (selectButton)="selectButton($event)"
+></app-elem-button-grid>
