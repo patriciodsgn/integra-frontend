@@ -70,27 +70,44 @@ export const routes: Routes = [
                 path: 'educacion',
                 component: ViewEducacionComponent,
                 children: [
-                    {
-                        path: 'nee',
-                        loadComponent: () =>
-                            import('./components/panel-educacion-nee/panel-educacion-nee.component').then(
-                                (m) => m.PanelEducacionNeeComponent
-                            ),
-                    },{
-                        path: 'atet',
-                        loadComponent: () =>
-                            import('./components/panel-educacion-atet/panel-educacion-atet.component').then(
-                                (m) => m.PanelEducacionAtetComponent
-                            ),
-                    },
+                    {path: 'nee', loadComponent: () => import('./components/panel-educacion-nee/panel-educacion-nee.component').then( (m) => m.PanelEducacionNeeComponent),},
+                    {path: 'atet', loadComponent: () =>import('./components/panel-educacion-atet/panel-educacion-atet.component').then( (m) => m.PanelEducacionAtetComponent),},
+                ],
+            },{
+                path: 'personas',
+                component: ViewPersonasComponent,
+                children: [
+                    {path: 'rotacion', loadComponent: () => import('./components/panel-personas-rotacion/panel-personas-rotacion.component').then( (m) => m.PanelPersonasRotacionComponent),},
+                    {path: 'permanencia', loadComponent: () =>import('./components/panel-personas-permanencia/panel-personas-permanencia.component').then( (m) => m.PanelPersonasPermanenciaComponent),},
+                    {path: 'ausentismo', loadComponent: () =>import('./components/panel-personas-ausentismo/panel-personas-ausentismo.component').then( (m) => m.PanelPersonasAusentismoComponent),},
+                    {path: 'planta_contratada', loadComponent: () =>import('./components/panel-personas-planta_contratada/panel-personas-planta_contratada.component').then( (m) => m.PanelPersonasPlanta_contratadaComponent),},
+                ],
+            },{
+                path: 'daft',
+                component: ViewDaftComponent,
+                children: [
+                    {path: 'ejecucion_presupuestaria', loadComponent: () => import('./components/panel-daft-ejecucion_presupuestaria/panel-daft-ejecucion_presupuestaria.component').then( (m) => m.PanelDaftEjecucion_presupuestariaComponent),},
+                    {path: 'saldo_por_ejecutar', loadComponent: () =>import('./components/panel-daft-saldo_por_ejecutar/panel-daft-saldo_por_ejecutar.component').then( (m) => m.PanelDaftSaldo_por_ejecutarComponent),},
+                ],
+            },{
+                path: 'dppi',
+                component: ViewDppiComponent,
+                children: [
+                    {path: 'accidentes', loadComponent: () => import('./components/panel-dppi-accidentes/panel-dppi-accidentes.component').then( (m) => m.PanelDppiAccidentesComponent),},
+                    {path: 'situacion_nutricional', loadComponent: () => import('./components/panel-dppi-situacion_nutricional/panel-dppi-situacion_nutricional.component').then( (m) => m.PanelDppiSituacion_nutricionalComponent),},
+                ],
+            },{
+                path: 'dpgr',
+                component: ViewDpgrComponent,
+                children: [
+                    {path: 'ro', loadComponent: () => import('./components/panel-dpgr-ro/panel-dpgr-ro.component').then( (m) => m.PanelDpgrRoComponent),},
+                    {path: 'sello_verde', loadComponent: () =>import('./components/panel-dpgr-sello_verde/panel-dpgr-sello_verde.component').then( (m) => m.PanelDpgrSello_verdeComponent),},
+                    {path: 'pueblos_originarios', loadComponent: () => import('./components/panel-dpgr-pueblos_originarios/panel-dpgr-pueblos_originarios.component').then( (m) => m.PanelDpgrPueblos_originariosComponent),},
+                    {path: 'nacionalidad', loadComponent: () =>import('./components/panel-dpgr-nacionalidad/panel-dpgr-nacionalidad.component').then( (m) => m.PanelDpgrNacionalidadComponent),},
                 ],
             },
             
             { path: 'ejecutiva', component: ViewEjecutivaComponent },
-            { path: 'dppi', component: ViewDppiComponent },
-            { path: 'dpgr', component: ViewDpgrComponent },
-            { path: 'daft', component: ViewDaftComponent },
-            { path: 'personas', component: ViewPersonasComponent },
             { path: 'costos', component: ViewCostosComponent },
 
             // widgets

@@ -7,17 +7,17 @@ export interface Necesidad {
 }
 
 export interface NecesidadPorComuna {
-    descripcionNEE: string;
-    categoriaNEE: string;
+    DescripcionNEE: string;
+    CategoriaNEE: string;
     descripcionRegion: string;
-    comuna: string;
-    cantidad: number;
+    Comuna: string;
+    Cantidad: number;
 }
 
 export interface PorcentajePermanente {
     descripcionRegion: string;
-    comuna: string;
-    porcentajePermanente: number;
+    Comuna: string;
+    PorcentajePermanente: number;
     cantidadPermanente: number;
     cantidadTotal: number;
 }

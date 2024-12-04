@@ -1,9 +1,35 @@
-<app-elem-header
-  [eh_title]="title"
-  [eh_subtitle]="subtitle"
-  [eh_bg_color]="headerBgColor"
-  [eh_text_color]="headerTextColor"
-></app-elem-header>
+<div class="flex flex-col items-start p-6 dev1 bg-blue-300">
+  <h1 class="text-2xl font-bold text-slate-900">Dashboard DAFT</h1>
+  <p class="text-slate-900 text-sm">Datos Estratégicos / Dirección Central</p>
+</div>
+
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 p-4 bg-blue-300">
+  <div class="p-6 rounded-lg shadow-md text-center bg-blue-500 text-white">
+    <h2 class="text-2xl font-bold">C090000000</h2>
+    <p class="font-semibold mt-2">CEGE</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-blue-500 text-white">
+    <h2 class="text-2xl font-bold">$43.300.000</h2>
+    <p class="font-semibold mt-2">Presupuesto Vigente</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-blue-400 text-white">
+    <h2 class="text-2xl font-bold">$11.821.650</h2>
+    <p class="font-semibold mt-2">Presupuesto Comprometido</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-cyan-400 text-white">
+    <h2 class="text-2xl font-bold">$30.474.984</h2>
+    <p class="font-semibold mt-2">Gastos Ejecutados</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-orange-500 text-white">
+    <h2 class="text-2xl font-bold">$1.003.366</h2>
+    <p class="font-semibold mt-2">Saldo por Gastar</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-green-500 text-white">
+    <h2 class="text-2xl font-bold">%70</h2>
+    <p class="font-semibold mt-2">Ejecución</p>
+  </div>
+</div>
+
 
 <router-outlet></router-outlet>
 
@@ -13,25 +39,3 @@
   (selectButton)="selectButton($event)"
 ></app-elem-button-grid>
 
-<!-- <app-elem-header
-  [htitle]="'Dirección DAFT'"
-  [hsubtitle]="'SUB Titulo header'">
-</app-elem-header>
-
-
-<app-elem-note1
-  [note]="'Las siguientes tarjetas se irán habilitando
-  progresivamente a medida que se implemente
-  el gobierno de datos de la dirección.
-  Por ahora, solo están disponibles las tarjetas de NEE y ATET.'">
-</app-elem-note1>
-
-
-<app-elem-bar1 
-  [title]="'Dashboard de Datos'" 
-  [subtitle]="'Gestión de Datos Estratégicos / Casa Central'">
-</app-elem-bar1>
-
-
-<app-elem-button-grid [buttons]="buttons"></app-elem-button-grid>
- -->

@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { EducacionService } from '../../services/educacion.services';
+
 import { RouterModule } from '@angular/router';
-
 import { ButtonStateService } from '../../button-state.service';
-
-import { ElemHeaderComponent } from '../elem-header/elem-header.component';
 import { ElemButtonGridComponent } from '../elem-button-grid/elem-button-grid.component';
-
 
 interface ButtonData {
   eb_icon: string;
@@ -22,7 +22,6 @@ interface ButtonData {
   standalone: true,
   imports: [
     RouterModule,
-    ElemHeaderComponent,
     ElemButtonGridComponent,
   ],
   templateUrl: './view-educacion.component.html',
@@ -30,13 +29,8 @@ interface ButtonData {
 })
 
 export class ViewEducacionComponent {
+
   public buttonStateService = inject(ButtonStateService);
-
-  title: string = 'Dashboard de Educación';
-  subtitle: string = 'Datos Estratégicos / Dirección Central';
-  headerBgColor: string = '#fdba74'; // Color de fondo del header
-  headerTextColor: string = '#27272a'; // Color del texto del header
-
 
   buttons: ButtonData[] = [
     { eb_icon: 'school', eb_title: 'NEE', eb_subtitle: 'Ejemplo', eb_disable: true , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/educacion/nee'},
@@ -57,5 +51,33 @@ export class ViewEducacionComponent {
   selectButton(index: number): void {
     this.buttonStateService.setActiveButton(index);
   }
+
+
+
+
+
+  constructor(private educacionService: EducacionService) {}
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  cardValue1: string = '';
+
+  public loadData(): void {
+    const ano = 2023;
+    const codigoRegion = 0;
+
+    this.educacionService.getCantidadTotal(ano, codigoRegion).subscribe({
+      next: (res) => {
+        this.cardValue1 = `${res.data.cantidadTotal}`;
+      },
+      error: (err) => {
+        console.error('Error al cargar el resumen de necesidades:', err);
+      },
+    });
+    
+  }
+
 }
 
