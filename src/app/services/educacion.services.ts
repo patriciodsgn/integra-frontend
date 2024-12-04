@@ -14,7 +14,6 @@ import {
 @Injectable({
     providedIn: 'root'
 })
-
 export class EducacionService {
     private baseUrl = `${environmentdb.apidb}/educacion`;
 

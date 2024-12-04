@@ -140,6 +140,7 @@ export interface EstadisticasROResponse {
         codigoJardin: number;
     };
 }
+
 export interface SelloVerdeGraficoResponse {
     success: boolean;
     data: {

@@ -16,8 +16,10 @@ export interface NecesidadPorComuna {
 
 export interface PorcentajePermanente {
     descripcionRegion: string;
+
     Comuna: string;
     PorcentajePermanente: number;
+
     cantidadPermanente: number;
     cantidadTotal: number;
 }

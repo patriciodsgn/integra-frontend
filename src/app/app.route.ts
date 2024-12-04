@@ -70,6 +70,7 @@ export const routes: Routes = [
                 path: 'educacion',
                 component: ViewEducacionComponent,
                 children: [
+
                     {path: 'nee', loadComponent: () => import('./components/panel-educacion-nee/panel-educacion-nee.component').then( (m) => m.PanelEducacionNeeComponent),},
                     {path: 'atet', loadComponent: () =>import('./components/panel-educacion-atet/panel-educacion-atet.component').then( (m) => m.PanelEducacionAtetComponent),},
                 ],
@@ -104,10 +105,12 @@ export const routes: Routes = [
                     {path: 'sello_verde', loadComponent: () =>import('./components/panel-dpgr-sello_verde/panel-dpgr-sello_verde.component').then( (m) => m.PanelDpgrSello_verdeComponent),},
                     {path: 'pueblos_originarios', loadComponent: () => import('./components/panel-dpgr-pueblos_originarios/panel-dpgr-pueblos_originarios.component').then( (m) => m.PanelDpgrPueblos_originariosComponent),},
                     {path: 'nacionalidad', loadComponent: () =>import('./components/panel-dpgr-nacionalidad/panel-dpgr-nacionalidad.component').then( (m) => m.PanelDpgrNacionalidadComponent),},
+
                 ],
             },
             
             { path: 'ejecutiva', component: ViewEjecutivaComponent },
+
             { path: 'costos', component: ViewCostosComponent },
 
             // widgets
