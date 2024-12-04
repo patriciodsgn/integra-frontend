@@ -1,0 +1,44 @@
+{
+  "favorites.resources": [
+    {
+      "filePath": "src/app/services/educacion.services.ts",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/app/components/panel-educacion-nee",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/app/components/elem-draw-01",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/app/components/elem-draw-02",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/app/components/elem-draw-03",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/app/components/elem-draw-04",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/app/components/elem-draw-05",
+      "group": "Default"
+    },
+    {
+      "filePath": "back end/my-express-api/src/routes",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/app/app.route.ts",
+      "group": "Default"
+    },
+    {
+      "filePath": "src/app/components/view-home",
+      "group": "Default"
+    }
+  ]
+}

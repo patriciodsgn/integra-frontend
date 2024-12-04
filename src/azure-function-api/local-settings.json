@@ -1,0 +1,12 @@
+{
+    "IsEncrypted": false,
+    "Values": {
+      "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+      "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+      "SqlConnectionString": "Server=azsql-sgi-integra.database.windows.net;Database=azsql-sgi-integra-bd;User Id=sistemagestionintegral@integra;Password=K33.Z3Uz88;Encrypt=true"
+    },
+    "Host": {
+      "CORS": "*"
+    }
+  }
+  
