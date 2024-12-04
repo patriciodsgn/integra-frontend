@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+// import { DaftService } from '../../services/daft.services';
+
 import { RouterModule } from '@angular/router';
-
 import { ButtonStateService } from '../../button-state.service';
-
-import { ElemHeaderComponent } from '../elem-header/elem-header.component';
 import { ElemButtonGridComponent } from '../elem-button-grid/elem-button-grid.component';
-
 
 interface ButtonData {
   eb_icon: string;
@@ -22,26 +22,14 @@ interface ButtonData {
   standalone: true,
   imports: [
     RouterModule,
-    ElemHeaderComponent,
     ElemButtonGridComponent,
   ],
   templateUrl: './view-daft.component.html',
   styleUrls: ['./view-daft.component.css'],
 })
+
 export class ViewDaftComponent {
   public buttonStateService = inject(ButtonStateService);
-
-  
-  title: string = 'Dashboard DAFT';
-  subtitle: string = 'Datos Estratégicos / Dirección Central';
-  headerBgColor: string = '#93c5fd';
-  headerTextColor: string = '#27272a';
-  
-  
-  
-  htitle: string = 'Dashboard de Datos';
-  hsubtitle: string = 'Gestión de Datos Estratégicos / Casa Central';
-  
 
   buttons: ButtonData[] = [
     { eb_icon: 'bar_chart', eb_title: 'Ejecución Presupuestaria', eb_subtitle: 'Presupuesto Total', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/daft/ejecucion_presupuestaria' },
@@ -57,12 +45,37 @@ export class ViewDaftComponent {
     { eb_icon: 'assessment', eb_title: 'Rendición y Costos CMM', eb_subtitle: '', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' }
   ];
   
-
   get activeButtonIndex(): number | null {
     return this.buttonStateService.activeButton();
   }
 
   selectButton(index: number): void {
     this.buttonStateService.setActiveButton(index);
+  }
+
+
+
+
+
+  // constructor(private daftService: DaftService) {}
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  cardValue1: string = '';
+
+  public loadData(): void {
+    const ano = 2023;
+    const codigoRegion = 0;
+
+    // this.daftService.getCantidadTotal(ano, codigoRegion).subscribe({
+    //   next: (res) => {
+    //     this.cardValue1 = `${res.data.cantidadTotal}`;
+    //   },
+    //   error: (err) => {
+    //     console.error('Error al cargar el resumen de necesidades:', err);
+    //   },
+    // });
   }
 }

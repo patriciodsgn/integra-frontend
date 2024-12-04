@@ -1,14 +1,39 @@
-<app-elem-header
-  [eh_title]="title"
-  [eh_subtitle]="subtitle"
-  [eh_bg_color]="headerBgColor"
-  [eh_text_color]="headerTextColor"
-></app-elem-header>
+<div class="flex flex-col items-start p-6 dev1 bg-orange-300">
+  <h1 class="text-2xl font-bold text-slate-900">Dashboard Educación</h1>
+  <p class="text-slate-900 text-sm">Datos Estratégicos / Dirección Central</p>
+</div>
+
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 p-4 dev1 bg-orange-300">
+  <div class="p-6 rounded-lg shadow-md text-center bg-white">
+    <h2 class="text-2xl font-bold">{{cardValue1}}</h2>
+    <p class="font-semibold mt-2">NEE</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-white opacity-40">
+    <h2 class="text-2xl font-bold"> - </h2>
+    <p class="font-semibold mt-2">PLAEP Reporte de aprendizajes esperados para la edad</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-white opacity-40">
+    <h2 class="text-2xl font-bold"> - </h2>
+    <p class="font-semibold mt-2">Análisis de Prácticas pedagógicas de calidad</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-white opacity-40">
+    <h2 class="text-2xl font-bold"> - </h2>
+    <p class="font-semibold mt-2">Personas Matriculadas en cursos de formación</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-white opacity-40">
+    <h2 class="text-2xl font-bold"> - </h2>
+    <p class="font-semibold mt-2">ATET número de visitas</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-white opacity-40">
+    <h2 class="text-2xl font-bold"> - </h2>
+    <p class="font-semibold mt-2">Establecimientos con Sellos Verdes</p>
+  </div>
+</div>
 
 <router-outlet></router-outlet>
 
 <app-elem-button-grid
   [button_data]="buttons"
   [activeIndex]="activeButtonIndex"
-  (selectButton)="selectButton($event)"
-></app-elem-button-grid>
+  (selectButton)="selectButton($event)">
+</app-elem-button-grid>

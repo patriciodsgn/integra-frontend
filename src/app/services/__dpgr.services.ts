@@ -8,7 +8,7 @@ import { ConteoResponse, EstadisticasROResponse, FrecuenciaPueblosOriginariosRes
     providedIn: 'root'
 })
 export class DpgrService {
-    private baseUrl = `${environmentdb.apidb}/dpgr`;
+    private baseUrl = `${environmentdb.apidb}/educacion`;
 
     constructor(private http: HttpClient) {
         console.log('DpgrService inicializado con URL:', this.baseUrl);

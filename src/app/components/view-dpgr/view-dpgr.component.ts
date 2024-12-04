@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+// import { DpgrService } from '../../services/dpgr.services';
+
 import { RouterModule } from '@angular/router';
-
 import { ButtonStateService } from '../../button-state.service';
-
-import { ElemHeaderComponent } from '../elem-header/elem-header.component';
 import { ElemButtonGridComponent } from '../elem-button-grid/elem-button-grid.component';
-
 
 interface ButtonData {
   eb_icon: string;
@@ -22,7 +22,6 @@ interface ButtonData {
   standalone: true,
   imports: [
     RouterModule,
-    ElemHeaderComponent,
     ElemButtonGridComponent,
   ],
   templateUrl: './view-dpgr.component.html',
@@ -32,15 +31,6 @@ interface ButtonData {
 export class ViewDpgrComponent {
   public buttonStateService = inject(ButtonStateService);
 
-  title: string = 'Dashboard DPGR';
-  subtitle: string = 'Datos Estratégicos / Dirección Central';
-  headerBgColor: string = '#67e8f9';
-  headerTextColor: string = '#27272a';
-
-  htitle: string = 'Dashboard de Datos';
-  hsubtitle: string = 'Gestión de Datos Estratégicos / Casa Central';
-  
-  
   buttons: ButtonData[] = [
     { eb_icon: 'favorite', eb_title: 'RO', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/ro' },
     { eb_icon: 'eco', eb_title: 'Sello Verde', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/sello_verde' },
@@ -63,15 +53,30 @@ export class ViewDpgrComponent {
   selectButton(index: number): void {
     this.buttonStateService.setActiveButton(index);
   }
+
+
+  // constructor(private dpgrService: DpgrService) {}
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  cardValue1: string = '';
+
+  public loadData(): void {
+    const ano = 2023;
+    const codigoRegion = 0;
+
+    // this.dpgrService.getCantidadTotal(ano, codigoRegion).subscribe({
+    //   next: (res) => {
+    //     this.cardValue1 = `${res.data.cantidadTotal}`;
+    //   },
+    //   error: (err) => {
+    //     console.error('Error al cargar el resumen de necesidades:', err);
+    //   },
+    // });
+  }
+
+
 }
 
-
-
-// getConteoJardines
-// getTotalNinosOriginarios
-// getTotalNinosMigrantes
-// getTotalJardinesRO
-// getEstadisticasDpgr
-// getConteoJardinesIntegra
-// getTotalNinosOriginariosIntegra
-// getTotalJardinesSelloVerde

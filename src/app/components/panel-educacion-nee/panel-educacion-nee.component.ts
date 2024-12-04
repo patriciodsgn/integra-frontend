@@ -1,192 +1,188 @@
 import { Component, OnInit } from '@angular/core';
+import * as Highcharts from 'highcharts';
 import { EducacionService } from '../../services/educacion.services';
-
-import { ElemDraw01Component } from '../elem-draw-01/elem-draw-01.component';
-import { ElemDraw02Component } from '../elem-draw-02/elem-draw-02.component';
-import { ElemDraw03Component } from '../elem-draw-03/elem-draw-03.component';
-import { ElemDraw04Component } from '../elem-draw-04/elem-draw-04.component';
-import { ElemDraw05Component } from '../elem-draw-05/elem-draw-05.component';
-import { ElemCardGrid1Component } from '../elem-card-grid1/elem-card-grid1.component';
 
 @Component({
   selector: 'app-panel-educacion-nee',
   standalone: true,
-  imports: [
-    ElemDraw01Component,
-    ElemDraw02Component,
-    ElemDraw03Component,
-    ElemDraw04Component,
-    ElemDraw05Component,
-    ElemCardGrid1Component,
-  ],
   templateUrl: './panel-educacion-nee.component.html',
   styleUrls: ['./panel-educacion-nee.component.css'],
 })
+
 export class PanelEducacionNeeComponent implements OnInit {
-  cardGridBgColor: string = '#fdba74';
-  cardBgColor: string = '#ffffff';
-  cardTextColor1: string = '#431407';
-  cardTextColor2: string = '#431407';
-
-  // Propiedades para las tarjetas
-  cardValue1: string = '-';
-  cardLabel1: string = 'NEE';
-  cardValue2: string = '-';
-  cardLabel2: string = 'PLAEP Reporte de aprendizajes esperados para la edad';
-  cardValue3: string = '-';
-  cardLabel3: string = 'Análisis de Prácticas pedagógicas de calidad';
-  cardValue4: string = '-';
-  cardLabel4: string = 'Personas Matriculadas en cursos de formación';
-  cardValue5: string = '-';
-  cardLabel5: string = 'ATET número de visitas';
-  cardValue6: string = '-';
-  cardLabel6: string = 'Establecimientos con Sellos Verdes';
-
-  // Valores para el gráfico circular
-  chart5Value1: number = 0;
-  chart5Value2: number = 0;
-  chart5Value3: number = 0;
-
   constructor(private educacionService: EducacionService) {}
 
   ngOnInit(): void {
     this.loadData();
   }
 
-  public loadData(): void {
+  private loadData(): void {
     const ano = 2023;
     const codigoRegion = 0;
 
-
-    // cards
-    this.educacionService.getCantidadTotal(ano, codigoRegion).subscribe({
-      next: (res) => {
-        this.cardValue1 = `${res.data.cantidadTotal}`;
-      },
-      error: (err) => {
-        console.error('Error al cargar el resumen de necesidades:', err);
-      },
+    // Gráfico 1: Porcentaje NEE (getGraficoNEE)
+    this.educacionService.getGraficoNEE(ano, codigoRegion).subscribe({
+      next: (res) => this.renderPieChart('chart1', 'Distribución NEE', res.data),
+      error: (err) => console.error('Error en getGraficoNEE:', err),
     });
 
-    // map
-    
-    // triangle
-
-    // bar h
-
-
-    // bar v
-
-    
-    
-    
-    // getSatisfaccionGeografica      
-    // getNecesidadesPorComuna
-    // getGraficoNEE
-
-
-
-    
-    this.educacionService.getPorcentajeATET(ano, codigoRegion).subscribe({
-      next: (res) => {
-        console.log('\x1b[36m%s\x1b[0m', '-----------------');
-        console.log('\x1b[36m%s\x1b[0m', 'Porcentaje ATET')
-        console.log(res)
-      },
-      error: (err) => {
-        console.error('Error al cargar:', err);
-      },
-    });
-/*
-  [
-    {
-      Categoria: 'Asesor/a Técnico/a',
-      Cantidad: 286,
-      Porcentaje: 27.24
-    },{
-      Categoria: 'Profesional de Inclusión',
-      Cantidad: 277,
-      Porcentaje: 26.38
-    },{
-      Categoria: 'Profesional de Desarrollo de Personas y Equipos',
-      Cantidad: 269,
-      Porcentaje: 25.62
-    },{
-      Categoria: 'Profesional de Familia y Cobertura',
-      Cantidad: 218,
-      Porcentaje: 20.76
-    }
-  ]
-*/
-    this.educacionService.getPromedioSatisfaccionATET(ano, codigoRegion).subscribe({
-      next: (res) => {
-        console.log('\x1b[32m%s\x1b[0m', '-----------------');
-        console.log('\x1b[32m%s\x1b[0m', 'Promedio Satisfaccion ATET')
-        console.log('\x1b[32m%s\x1b[0m', res.data.promedioSatisfaccion)
-      },
-      error: (err) => {
-        console.error('Error al cargar:', err);
-      },
-    });
-    /* un numero */
-    
-
-
-
-
-    
-   
-    // pie
-    this.educacionService.getPorcentajeRezago(ano, codigoRegion).subscribe({
-      next: (res) => {
-        console.log('\x1b[34m%s\x1b[0m', '-------getPorcentajeRezago-----------');
-        console.log(res);
-        console.log('\x1b[34m%s\x1b[0m', '-----------');
-
-      },
-      error: (err) => {
-        console.error('Error al cargar el resumen de necesidades:', err);
-      },
-    });
-
-
-
-    
-    // pie
+    // Gráfico 2: Porcentaje Permanente por Región (getPorcentajePermanente)
     this.educacionService.getPorcentajePermanente(ano, codigoRegion).subscribe({
       next: (res) => {
-        console.log('VALOR:', res);
+        if (res.success && Array.isArray(res.data) && res.data.length > 0) {
+          console.log('Datos recibidos:', res.data); // Verifica la estructura en consola
+          const comunas = res.data.map((item) => item.Comuna || 'Sin Nombre');
+          const porcentajes = res.data.map((item) => item.PorcentajePermanente || 0);
+          this.renderHorizontalColumnChart('chart2', 'Porcentaje Permanente por Región', comunas, porcentajes);
+        } else {
+          console.error('Datos inválidos o vacíos para Porcentaje Permanente:', res);
+        }
       },
-      error: (err) => {
-        console.error('Error al cargar el resumen de necesidades:', err);
-      },
+      error: (err) => console.error('Error en getPorcentajePermanente:', err),
     });
 
+    // Gráfico 3: Necesidades por Comuna (getNecesidadesPorComuna)
+    this.educacionService.getNecesidadesPorComuna(ano, codigoRegion).subscribe({
+      next: (res) => {
+        console.log('----------------------------')
+        console.log(res)
+        if (res.success && res.data?.length > 0) {
+          const categorias = res.data.map((item) => `${item.Comuna} (${item.CategoriaNEE})`);
+          const cantidades = res.data.map((item) => item.Cantidad || 0);
+          this.renderBarChart('chart3', 'Necesidades por Comuna', categorias, cantidades);
+        } else {
+          console.error('Datos inválidos o vacíos para Necesidades por Comuna:', res);
+        }
+      },
+      error: (err) => console.error('Error en getNecesidadesPorComuna:', err),
+    });
 
-
+    // Gráfico 4: Resumen Necesidades (getResumenNecesidades)
     this.educacionService.getResumenNecesidades(ano, codigoRegion).subscribe({
       next: (res) => {
-        console.log('ok---getResumenNecesidades->',res)        
+        if (res.permanente || res.transitoria || res.rezago) {
+          this.renderPieChart('chart4', 'Resumen de Necesidades', [
+            { name: 'Permanente', y: res.permanente,  color: '#5ec5d5'},
+            { name: 'Transitoria', y: res.transitoria,  color: '#ec939c'},
+            { name: 'Rezago', y: res.rezago,  color: '#d7d755'},
+          ]);
+        } else {
+          console.error('Datos inválidos o vacíos para Resumen de Necesidades:', res);
+        }
       },
-      error: (err) => {
-        console.error('Error al cargar el resumen de necesidades:', err);
-      },
+      error: (err) => console.error('Error en getResumenNecesidades:', err),
     });
-
-
-
-    this.educacionService.getResumenNecesidades(ano, codigoRegion).subscribe({
-      next: (res) => {
-        this.chart5Value1 = res.permanente;
-        this.chart5Value2 = res.transitoria;
-        this.chart5Value3 = res.rezago;
-        
-      },
-      error: (err) => {
-        console.error('Error al cargar el resumen de necesidades:', err);
-      },
-    });
-
-
+    
   }
+
+  private renderPieChart(containerId: string, title: string, data: any[]): void {
+    if (!data || data.length === 0) {
+      console.error('Datos inválidos para el gráfico Pie:', data);
+      return;
+    }
+
+    Highcharts.chart(containerId, {
+      chart: { type: 'pie' },
+      title: { text: title },
+      tooltip: { pointFormat: '<b>{point.y:.2f}%</b>' },
+      series: [
+        {
+          name: 'Porcentaje',
+          data: data.map((item) => ({
+            name: item.Categoria || item.name,
+            y: item.Porcentaje || item.y,
+            color: item.color,
+          })),
+          type: 'pie',
+        },
+      ],
+    });
+  }
+
+  
+  private renderHorizontalColumnChart(containerId: string, title: string, categories: string[], data: number[]): void {
+    if (!categories.length || !data.length) {
+      console.error('No hay datos para el gráfico de columnas horizontales:', { categories, data });
+      return;
+    }
+  
+    Highcharts.chart(containerId, {
+      chart: {
+        type: 'bar', // Tipo bar para columnas horizontales
+        height: categories.length * 30 + 100, // Ajusta la altura según el número de categorías
+      },
+      title: { text: title },
+      xAxis: {
+        categories,
+        title: { text: 'Categorías' },
+        labels: {
+          style: { fontSize: '12px' }, // Ajusta tamaño para etiquetas largas
+        },
+      },
+      yAxis: {
+        min: 0,
+        title: { text: 'Porcentaje' },
+      },
+      tooltip: {
+        pointFormat: '<b>{point.y:.2f}%</b>',
+      },
+      series: [
+        {
+          name: 'Porcentaje',
+          data,
+          type: 'bar',
+        },
+      ],
+      credits: { enabled: false }, // Desactiva créditos de Highcharts
+      exporting: { enabled: false }, // Desactiva exportación
+    });
+  }
+  
+    
+  private renderBarChart(containerId: string, title: string, categories: string[], data: number[]): void {
+    if (!categories.length || !data.length) {
+      console.error('No hay datos para el gráfico de barras:', { categories, data });
+      return;
+    }
+  
+    Highcharts.chart(containerId, {
+      chart: {
+        type: 'bar',
+        height: categories.length * 30 + 100, // Ajusta altura según el número de categorías
+      },
+      title: {
+        text: title,
+        style: { fontSize: '20px', fontWeight: 'bold' }, // Mejora visual del título
+      },
+      xAxis: {
+        categories,
+        title: { text: 'Categorías' },
+        labels: {
+          style: { fontSize: '12px' }, // Ajuste para etiquetas largas
+        },
+      },
+      yAxis: {
+        min: 0,
+        title: { text: 'Cantidad' },
+        labels: {
+          formatter: function () {
+            return `${this.value}`; // Muestra valores numéricos
+          },
+        },
+      },
+      tooltip: {
+        pointFormat: '<b>{point.y} unidades</b>', // Tooltip personalizado
+      },
+      series: [
+        {
+          name: 'Cantidad',
+          data,
+          type: 'bar',
+        },
+      ],
+      credits: { enabled: false }, // Desactiva créditos
+      exporting: { enabled: false }, // Desactiva exportación
+    });
+  }
+  
 }
