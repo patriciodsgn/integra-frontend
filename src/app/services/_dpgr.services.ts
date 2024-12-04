@@ -2,17 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environmentdb } from 'src/environments/environment';
-
-import { ConteoResponse, EstadisticasROResponse, FrecuenciaPueblosOriginariosResponse, NacionalidadExranjeraResponse, NacionalidadGeograficaResponse, PueblosOriginariosResponse, SelloVerdeGraficoResponse, TotalNinosResponse } from '../models/dpgr-data.model';
-
+import { ConteoResponse, EstadisticasROResponse, FrecuenciaPueblosOriginariosResponse, TotalNinosResponse } from '../models/dpgr-data.model';
 
 @Injectable({
     providedIn: 'root'
 })
 export class DpgrService {
-
-    private baseUrl = `${environmentdb.apidb}/dpgr`;
-
+    private baseUrl = `${environmentdb.apidb}/educacion`;
 
     constructor(private http: HttpClient) {
         console.log('DpgrService inicializado con URL:', this.baseUrl);
@@ -140,61 +136,4 @@ export class DpgrService {
     
         return this.http.get<EstadisticasROResponse>(url, { params });
     }
-
-    getGraficoSelloVerde(
-        anoSV?: number,
-        codigoRegion: number = 0,
-        codigoJardin: number = 0
-    ): Observable<SelloVerdeGraficoResponse> {
-        const url = `${this.baseUrl}/graficoSelloVerde`;
-        const params: any = {};
-        
-        if (anoSV) params.anoSV = anoSV.toString();
-        if (codigoRegion) params.codigoRegion = codigoRegion.toString();
-        if (codigoJardin) params.codigoJardin = codigoJardin.toString();
-    
-        return this.http.get<SelloVerdeGraficoResponse>(url, { params });
-    }
-
-    getPorcentajeNacionalidadExtranjera(
-    ano?: number,
-    codigoRegion: number = 0,
-    codigoJardin: number = 0
-): Observable<NacionalidadExranjeraResponse> {
-    const url = `${this.baseUrl}/porcentajeNacionalidadExtranjera`;
-    const params: any = {};
-    
-    if (ano) params.ano = ano.toString();
-    if (codigoRegion) params.codigoRegion = codigoRegion.toString();
-    if (codigoJardin) params.codigoJardin = codigoJardin.toString();
-
-    return this.http.get<NacionalidadExranjeraResponse>(url, { params });
-}
-
-
-getPorcentajePueblosOriginarios(
-    ano?: number,
-    codigoRegion: number = 0
-): Observable<PueblosOriginariosResponse> {
-    const url = `${this.baseUrl}/porcentajePueblosOriginarios`;
-    const params: any = {};
-    
-    if (ano) params.ano = ano.toString();
-    if (codigoRegion) params.codigoRegion = codigoRegion.toString();
-
-    return this.http.get<PueblosOriginariosResponse>(url, { params });
-}
-getNacionalidadPorGeografia(
-    ano?: number,
-    codigoRegion: number = 0
-): Observable<NacionalidadGeograficaResponse> {
-    const url = `${this.baseUrl}/nacionalidadPorGeografia`;
-    const params: any = {};
-    
-    if (ano) params.ano = ano.toString();
-    if (codigoRegion) params.codigoRegion = codigoRegion.toString();
-
-    return this.http.get<NacionalidadGeograficaResponse>(url, { params });
-}
-
 }

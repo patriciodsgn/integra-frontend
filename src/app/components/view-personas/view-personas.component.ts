@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+// import { PersonasService } from '../../services/personas.services';
+
 import { RouterModule } from '@angular/router';
-
 import { ButtonStateService } from '../../button-state.service';
-
-import { ElemHeaderComponent } from '../elem-header/elem-header.component';
 import { ElemButtonGridComponent } from '../elem-button-grid/elem-button-grid.component';
-
 
 interface ButtonData {
   eb_icon: string;
@@ -17,31 +17,20 @@ interface ButtonData {
   eb_link: string;
 }
 
-
 @Component({
   selector: 'app-view-personas',
   standalone: true,
   imports: [
     RouterModule,
-    ElemHeaderComponent,
     ElemButtonGridComponent,
   ],
   templateUrl: './view-personas.component.html',
   styleUrls: ['./view-personas.component.css'],
 })
+
 export class ViewPersonasComponent {
+
   public buttonStateService = inject(ButtonStateService);
-
-  title: string = 'Dashboard de Personas';
-  subtitle: string = 'Datos Estratégicos / Dirección Central';
-  headerBgColor: string = '#a5b4fc';
-  headerTextColor: string = '#27272a';
-
-
-  htitle: string = 'Dashboard de Datos';
-  hsubtitle: string = 'Gestión de Datos Estratégicos / Casa Central';
-  
-
 
   buttons: ButtonData[] = [
     { eb_icon: 'sync_alt', eb_title: 'Rotación', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/rotacion' },
@@ -64,4 +53,30 @@ export class ViewPersonasComponent {
   selectButton(index: number): void {
     this.buttonStateService.setActiveButton(index);
   }
+
+
+
+  // constructor(private personasService: PersonasService) {}
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  cardValue1: string = '';
+
+  public loadData(): void {
+    const ano = 2023;
+    const codigoRegion = 0;
+
+    // this.personasService.getCantidadTotal(ano, codigoRegion).subscribe({
+    //   next: (res) => {
+    //     this.cardValue1 = `${res.data.cantidadTotal}`;
+    //   },
+    //   error: (err) => {
+    //     console.error('Error al cargar el resumen de necesidades:', err);
+    //   },
+    // });
+  }
+
+
 }
