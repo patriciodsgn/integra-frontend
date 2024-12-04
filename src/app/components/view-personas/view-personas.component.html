@@ -1,0 +1,58 @@
+<div class="flex flex-col items-start p-6 dev1 bg-emerald-200">
+  <h1 class="text-2xl font-bold text-slate-900">Dashboard Personas</h1>
+  <p class="text-slate-900 text-sm">Datos Estratégicos / Dirección Central</p>
+</div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-4 bg-emerald-200">
+  <div class="p-6 rounded-lg shadow-md text-center bg-white">
+    <h2 class="text-2xl font-bold text-gray-700">500</h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Ausentismo</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-white">
+    <h2 class="text-2xl font-bold text-gray-700">5.500</h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Rotación</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-white">
+    <h2 class="text-2xl font-bold text-gray-700">20.000</h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Permanencia</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-white">
+    <h2 class="text-2xl font-bold text-gray-700">27.0000</h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Trabajadores</p>
+  </div>
+  <div class="p-6 rounded-lg shadow-md text-center bg-white">
+    <h2 class="text-2xl font-bold text-gray-700">%70</h2>
+    <p class="font-semibold mt-2 text-gray-600">Otros</p>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<app-elem-button-grid
+  [button_data]="buttons"
+  [activeIndex]="activeButtonIndex"
+  (selectButton)="selectButton($event)"
+></app-elem-button-grid>
+
+<!-- <app-elem-header
+  [htitle]="'Dirección Personas'"
+  [hsubtitle]="'SUB Titulo header'">
+</app-elem-header>
+
+
+<app-elem-note1
+  [note]="'Las siguientes tarjetas se irán habilitando
+  progresivamente a medida que se implemente
+  el gobierno de datos de la dirección.
+  Por ahora, solo están disponibles las tarjetas de NEE y ATET.'">
+</app-elem-note1>
+
+
+<app-elem-bar1 
+  [title]="'Dashboard de Datos'" 
+  [subtitle]="'Gestión de Datos Estratégicos / Casa Central'">
+</app-elem-bar1>
+
+
+<app-elem-button-grid [buttons]="buttons"></app-elem-button-grid>
+ -->

@@ -1,0 +1,6530 @@
+[
+  {
+    "NOMBRE": "El Tambito",
+    "Lat": -20.230397,
+    "Long": -70.13428,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Calichito",
+    "Lat": -20.210574,
+    "Long": -70.134299,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Mar de Colores",
+    "Lat": -20.70203,
+    "Long": -70.18739,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Alto Playa Blanca",
+    "Lat": -20.352832,
+    "Long": -70.161339,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Los Pioneros",
+    "Lat": -20.262035,
+    "Long": -70.096395,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Chiapas Sur",
+    "Lat": -20.270064,
+    "Long": -70.105605,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "La Pampita",
+    "Lat": -20.288031,
+    "Long": -70.104746,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Estrellitas del Desierto",
+    "Lat": -20.279682,
+    "Long": -70.081744,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Manantial de Armonía",
+    "Lat": -20.293399,
+    "Long": -70.103165,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Semillitas del Futuro",
+    "Lat": -20.247133,
+    "Long": -70.098415,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Ecos de Esperanza",
+    "Lat": -20.249286,
+    "Long": -70.101425,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Los Tamaruguitos",
+    "Lat": -20.432078,
+    "Long": -69.557545,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Los Pampinitos",
+    "Lat": -20.258844,
+    "Long": -69.787173,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "La Chinita",
+    "Lat": -20.335986,
+    "Long": -69.654914,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "S.C. Almontina",
+    "Lat": -20.256279,
+    "Long": -69.786979,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Toñito",
+    "Lat": -20.514057,
+    "Long": -69.360831,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Girasol",
+    "Lat": -20.487558,
+    "Long": -69.331618,
+    "REGION": 1
+  },
+  {
+    "NOMBRE": "Javiera Carrera",
+    "Lat": -22.084133,
+    "Long": -70.18791,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Estrellita de Mar",
+    "Lat": -22.112171,
+    "Long": -70.210112,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Sol del Desierto",
+    "Lat": -22.342607,
+    "Long": -69.665943,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -22.466438,
+    "Long": -68.936295,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Semillita",
+    "Lat": -22.447132,
+    "Long": -68.934612,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Ckapin Panni",
+    "Lat": -22.433948,
+    "Long": -68.927291,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Esperanza de Niños",
+    "Lat": -22.438802,
+    "Long": -68.93346,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Inti Rai",
+    "Lat": -22.449913,
+    "Long": -68.941798,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Desierto de Colores",
+    "Lat": -22.468451,
+    "Long": -68.928295,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Sueñitos de Colores",
+    "Lat": -22.476347,
+    "Long": -68.925916,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Mi Banderita Chilena",
+    "Lat": -21.224228,
+    "Long": -68.254734,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Pauna Lickan",
+    "Lat": -22.912372,
+    "Long": -68.195358,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Parinitas",
+    "Lat": -23.682946,
+    "Long": -68.06565,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Lican Antay",
+    "Lat": -23.190942,
+    "Long": -68.005583,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Miscanti",
+    "Lat": -23.590756,
+    "Long": -67.891091,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Gabriela Mistral",
+    "Lat": -23.621419,
+    "Long": -70.379195,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Los Llamitos",
+    "Lat": -23.584086,
+    "Long": -70.380137,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Carnavalito",
+    "Lat": -23.637906,
+    "Long": -70.387729,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Granito de Arena",
+    "Lat": -23.574109,
+    "Long": -70.379827,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Pulpitos Regalones",
+    "Lat": -23.760715,
+    "Long": -70.461242,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Los Pequeños Navegantes",
+    "Lat": -23.61885,
+    "Long": -70.374591,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "María Enseña",
+    "Lat": -23.543318,
+    "Long": -70.385373,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Granito de Esperanza",
+    "Lat": -23.577537,
+    "Long": -70.376169,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Rayitos de Sol",
+    "Lat": -23.571545,
+    "Long": -70.376743,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Los Cariñositos",
+    "Lat": -23.586985,
+    "Long": -70.386203,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "S.C. Q'Isa Khuyay",
+    "Lat": -23.542556,
+    "Long": -70.385816,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Ayelén",
+    "Lat": -23.67416,
+    "Long": -70.402156,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Pampinitos",
+    "Lat": -23.587459,
+    "Long": -70.388471,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Los Chinitos del Salar",
+    "Lat": -23.629342,
+    "Long": -70.38687,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Jesús de Praga",
+    "Lat": -23.10208,
+    "Long": -70.444598,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Estación de Niños",
+    "Lat": -23.334112,
+    "Long": -69.843411,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Flor del Desierto",
+    "Lat": -22.891186,
+    "Long": -69.321039,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Los Duendecitos",
+    "Lat": -25.407125,
+    "Long": -70.477833,
+    "REGION": 2
+  },
+  {
+    "NOMBRE": "Los Enanitos",
+    "Lat": -26.340464,
+    "Long": -70.605017,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Cristo Rey",
+    "Lat": -26.350335,
+    "Long": -70.611752,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Pinocho",
+    "Lat": -26.756994,
+    "Long": -69.904214,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Papelucho",
+    "Lat": -26.390553,
+    "Long": -70.051421,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Remanso",
+    "Lat": -26.254857,
+    "Long": -69.625473,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Sonrisitas del Desierto",
+    "Lat": -26.399602,
+    "Long": -70.048051,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Las Abejitas",
+    "Lat": -27.374953,
+    "Long": -70.312067,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Corona del Inca",
+    "Lat": -27.359873,
+    "Long": -70.326002,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Las Campanitas",
+    "Lat": -27.379108,
+    "Long": -70.322258,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Pulgarcito",
+    "Lat": -27.413523,
+    "Long": -70.275198,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Copayapito",
+    "Lat": -27.372417,
+    "Long": -70.307173,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Universidad de Atacama",
+    "Lat": -27.360327,
+    "Long": -70.35016,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Palomita Blanca",
+    "Lat": -27.067813,
+    "Long": -70.819424,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Arenitas de Atacama",
+    "Lat": -27.072437,
+    "Long": -70.815182,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Rayito de Sol",
+    "Lat": -27.469736,
+    "Long": -70.266868,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Las Estrellitas",
+    "Lat": -27.466252,
+    "Long": -70.262841,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Auqui",
+    "Lat": -27.480033,
+    "Long": -70.264493,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Rafaelito",
+    "Lat": -28.591527,
+    "Long": -70.747432,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Los Arbolitos",
+    "Lat": -28.577135,
+    "Long": -70.750833,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "S.C. Villa Cordillera",
+    "Lat": -28.591189,
+    "Long": -70.74076,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Villa Edén",
+    "Lat": -28.563658,
+    "Long": -70.776123,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Villa Las Terrazas",
+    "Lat": -28.584471,
+    "Long": -70.763171,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Beagle",
+    "Lat": -28.582417,
+    "Long": -70.737639,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Semillita",
+    "Lat": -28.517335,
+    "Long": -71.0112,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Condell Sur",
+    "Lat": -28.466829,
+    "Long": -71.22773,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Las Palmas",
+    "Lat": -28.465582,
+    "Long": -71.208456,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Villa San Pedro",
+    "Lat": -28.47264,
+    "Long": -71.216498,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Los Grillitos",
+    "Lat": -28.931092,
+    "Long": -70.46373,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Chollay",
+    "Lat": -28.972629,
+    "Long": -70.215523,
+    "REGION": 3
+  },
+  {
+    "NOMBRE": "Botoncitos del Valle",
+    "Lat": -29.878758,
+    "Long": -71.245187,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "La Casita del Cerro",
+    "Lat": -29.884108,
+    "Long": -71.216911,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Sol Naciente",
+    "Lat": -29.879923,
+    "Long": -71.230303,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Melodía",
+    "Lat": -29.913355,
+    "Long": -71.221214,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -29.915368,
+    "Long": -71.148738,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Caminitos Encantados",
+    "Lat": -29.912518,
+    "Long": -71.223753,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Dulce Mirada",
+    "Lat": -29.878832,
+    "Long": -71.229133,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "S.C. Los Serenitos",
+    "Lat": -29.917378,
+    "Long": -71.247826,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Valle de La Luna",
+    "Lat": -29.976705,
+    "Long": -71.220478,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Tequirque",
+    "Lat": -29.868384,
+    "Long": -71.227069,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Ronda de Colores",
+    "Lat": -29.87789,
+    "Long": -71.251692,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Huerto Encantado",
+    "Lat": -29.927509,
+    "Long": -71.256083,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Campanitas al Viento",
+    "Lat": -29.352869,
+    "Long": -71.01723,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Los Tesoritos de Guayacán",
+    "Lat": -29.969195,
+    "Long": -71.344114,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Canteritos del Sol",
+    "Lat": -29.979209,
+    "Long": -71.287628,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Perlitas de Ostión",
+    "Lat": -30.265256,
+    "Long": -71.489131,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Alberto Hurtado",
+    "Lat": -29.96668,
+    "Long": -71.250923,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Rayito de Sol",
+    "Lat": -30.139112,
+    "Long": -71.21681,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Rinconcito",
+    "Lat": -30.07039,
+    "Long": -71.241745,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Los Grillitos de San Ramón",
+    "Lat": -29.960317,
+    "Long": -71.249008,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Burbujitas de San Juan",
+    "Lat": -29.976727,
+    "Long": -71.324759,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Pastorcitos y Pastorcitas",
+    "Lat": -30.280957,
+    "Long": -71.25392,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Mirada Infantil",
+    "Lat": -29.995906,
+    "Long": -71.32988,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Color Esperanza",
+    "Lat": -30.29526,
+    "Long": -71.609222,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Sonrisas de Niños",
+    "Lat": -29.954816,
+    "Long": -71.246273,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Carita de Luna",
+    "Lat": -29.99292,
+    "Long": -71.321209,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "El Canelo",
+    "Lat": -29.941914,
+    "Long": -71.344737,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Manitos de Colores",
+    "Lat": -29.97333,
+    "Long": -71.310912,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Pepitas de Oro",
+    "Lat": -30.230461,
+    "Long": -71.079139,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Sueño de Niño",
+    "Lat": -29.965576,
+    "Long": -70.973913,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Rayitos Tambinos",
+    "Lat": -30.031408,
+    "Long": -70.772426,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Flor del Valle",
+    "Lat": -29.998248,
+    "Long": -70.991641,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Dame La Mano",
+    "Lat": -30.025708,
+    "Long": -70.671757,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Piececitos de Niño",
+    "Lat": -30.182143,
+    "Long": -70.48486,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Limarí",
+    "Lat": -30.607622,
+    "Long": -71.200433,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Ojitos del Futuro",
+    "Lat": -30.591083,
+    "Long": -71.191071,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Sol del Valle",
+    "Lat": -30.633868,
+    "Long": -71.119816,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Los Olivos",
+    "Lat": -30.574252,
+    "Long": -71.443221,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Manzanito",
+    "Lat": -30.593173,
+    "Long": -71.202452,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "S.C. Los Pimientos",
+    "Lat": -30.610529,
+    "Long": -71.199768,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "El Molino de Los Sueños",
+    "Lat": -30.60721,
+    "Long": -71.195653,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Semillitas",
+    "Lat": -30.668642,
+    "Long": -71.078081,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Las Chicharritas",
+    "Lat": -30.382839,
+    "Long": -70.845561,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Sol de Oro",
+    "Lat": -30.393619,
+    "Long": -70.86971,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "San Martín de Porres",
+    "Lat": -30.692515,
+    "Long": -70.962977,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Copito de Nieve",
+    "Lat": -31.021351,
+    "Long": -70.57708,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Chispita de Lapislázuli",
+    "Lat": -30.969943,
+    "Long": -70.766193,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Pampanito",
+    "Lat": -30.78137,
+    "Long": -70.938513,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Bambi",
+    "Lat": -31.181737,
+    "Long": -71.003545,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Tesoros de La Tierra",
+    "Lat": -31.180585,
+    "Long": -70.99754,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "La Granjita",
+    "Lat": -30.759301,
+    "Long": -71.306832,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Molinos al Viento",
+    "Lat": -30.827745,
+    "Long": -71.256144,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Millapel",
+    "Lat": -31.6331,
+    "Long": -71.173485,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Sol del Choapa",
+    "Lat": -31.639598,
+    "Long": -71.189598,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Rayitos del Mirador",
+    "Lat": -31.636111,
+    "Long": -71.175647,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Vallecito Encantado",
+    "Lat": -31.76885,
+    "Long": -70.977635,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Brisas del Valle",
+    "Lat": -31.787746,
+    "Long": -70.957192,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Matilde Salamanca",
+    "Lat": -31.782394,
+    "Long": -70.966881,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Estrellita del Mar",
+    "Lat": -31.919376,
+    "Long": -71.509219,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Las Rocas",
+    "Lat": -32.154738,
+    "Long": -71.512269,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Semillas de Alegría",
+    "Lat": -31.587837,
+    "Long": -71.444089,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Tierras Lejanas",
+    "Lat": -31.234339,
+    "Long": -71.234672,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Oasis de Niños",
+    "Lat": -31.360672,
+    "Long": -71.251962,
+    "REGION": 4
+  },
+  {
+    "NOMBRE": "Tejedores de Ilusiones",
+    "Lat": -32.451844,
+    "Long": -71.228396,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Ovillito de Lana",
+    "Lat": -32.436654,
+    "Long": -71.209957,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Capullito",
+    "Lat": -32.320424,
+    "Long": -71.289895,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Abejitas Creadoras de Gotland",
+    "Lat": -32.448417,
+    "Long": -71.278589,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Jorge Sabal Rabi",
+    "Lat": -32.231605,
+    "Long": -70.853997,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Rayito de Luna",
+    "Lat": -32.284127,
+    "Long": -70.972561,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Trencito",
+    "Lat": -32.358414,
+    "Long": -71.067839,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Cariñositos",
+    "Lat": -32.433244,
+    "Long": -71.069354,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Dedalito de Oro",
+    "Lat": -32.393976,
+    "Long": -71.094511,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "S.C. Los Pingüinitos de Cachagua",
+    "Lat": -32.575641,
+    "Long": -71.448809,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Sueño Hermoso",
+    "Lat": -32.507091,
+    "Long": -71.435016,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Carrusel",
+    "Lat": -32.825517,
+    "Long": -70.608059,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Sol del Mediodía",
+    "Lat": -32.847779,
+    "Long": -70.595689,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Montañita",
+    "Lat": -32.834819,
+    "Long": -70.580805,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Gotita de Luna",
+    "Lat": -32.798821,
+    "Long": -70.58022,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Cristal",
+    "Lat": -32.788131,
+    "Long": -70.595807,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Lucerito",
+    "Lat": -32.744311,
+    "Long": -70.578604,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Kan-Uiqu",
+    "Lat": -32.800706,
+    "Long": -70.581065,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Pampanitos Alto del Puerto",
+    "Lat": -32.84369,
+    "Long": -70.630597,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Rinconcito",
+    "Lat": -32.833057869,
+    "Long": -70.688889125,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Renacer",
+    "Lat": -32.836896,
+    "Long": -70.683101,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Hormiguita de Aconcagua",
+    "Lat": -32.74173,
+    "Long": -70.726839,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Los Duendecitos",
+    "Lat": -32.716215,
+    "Long": -70.725796,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Uvadu",
+    "Lat": -32.808257,
+    "Long": -70.685825,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Las Piedrecitas",
+    "Lat": -32.625472,
+    "Long": -70.737022,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Las Mochilitas",
+    "Lat": -32.656805,
+    "Long": -70.702743,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Tikay",
+    "Lat": -32.630332,
+    "Long": -70.719292,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "La Higuera Danzarina",
+    "Lat": -32.716985,
+    "Long": -70.642283,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Nicanor Parra",
+    "Lat": -32.749472,
+    "Long": -70.653968,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Ramito de Uva",
+    "Lat": -32.797857,
+    "Long": -70.826136,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "La Pirca",
+    "Lat": -32.7924,
+    "Long": -70.872536,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "S.C. La Pirquita",
+    "Lat": -32.783875,
+    "Long": -70.852744,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Las Maquinitas",
+    "Lat": -32.780917,
+    "Long": -70.967995,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Los Lúcumos",
+    "Lat": -32.885109,
+    "Long": -71.241078,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Las Rosas",
+    "Lat": -32.886399,
+    "Long": -71.260571,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Cerro Mayaca",
+    "Lat": -32.875076,
+    "Long": -71.253082,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Anulén",
+    "Lat": -32.879298,
+    "Long": -71.263287,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "S.C. Nidito",
+    "Lat": -32.880057,
+    "Long": -71.262665,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "S.C. Antü Liwen",
+    "Lat": -32.875535,
+    "Long": -71.253135,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Awkantún",
+    "Lat": -32.882601,
+    "Long": -71.264419,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Heidi",
+    "Lat": -32.84118,
+    "Long": -71.226084,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Estrellita Luminosa",
+    "Lat": -32.786121,
+    "Long": -71.187943,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Nuestra Señora de Fátima",
+    "Lat": -32.783067,
+    "Long": -71.207885,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Rayito de Luz",
+    "Lat": -32.774499,
+    "Long": -71.186858,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Estrella Solitaria",
+    "Lat": -32.783902,
+    "Long": -71.201843,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Ayün",
+    "Lat": -32.77608,
+    "Long": -71.19335,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Cal y Sol",
+    "Lat": -32.797386,
+    "Long": -71.216414,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "El Calerito",
+    "Lat": -32.689768,
+    "Long": -71.213476,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Mágico Lugar de Sueños",
+    "Lat": -32.751137,
+    "Long": -71.162658,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Clavelito",
+    "Lat": -32.811636,
+    "Long": -71.140897,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Fresia",
+    "Lat": -33.079272,
+    "Long": -71.584463,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Guacolda",
+    "Lat": -33.062192,
+    "Long": -71.60841,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Rayén",
+    "Lat": -33.070775,
+    "Long": -71.593756,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Los Lagunitos",
+    "Lat": -33.101035,
+    "Long": -71.662498,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Las Tacitas",
+    "Lat": -33.111704,
+    "Long": -71.574383,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Alice Guy",
+    "Lat": -33.119653,
+    "Long": -71.564136,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Tokerau",
+    "Lat": -33.02771,
+    "Long": -71.641021,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "El Sol",
+    "Lat": -33.039198,
+    "Long": -71.544775,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Rinconcito de Luz*",
+    "Lat": -33.026089,
+    "Long": -71.522608,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "APRENDEMOS JUGANDO",
+    "Lat": -33.039748,
+    "Long": -71.566758,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Antü",
+    "Lat": -33.030464,
+    "Long": -71.483803,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Puerto Aysén",
+    "Lat": -33.051737,
+    "Long": -71.536956,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Las Lomitas",
+    "Lat": -33.012966,
+    "Long": -71.500715,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "S.C. Nuevo Amanecer",
+    "Lat": -33.007145,
+    "Long": -71.513829,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Amautta",
+    "Lat": -32.99913,
+    "Long": -71.475111,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Sol Naciente",
+    "Lat": -33.02141,
+    "Long": -71.506248,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Bambi",
+    "Lat": -32.797132,
+    "Long": -71.536886,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Martin Pescador",
+    "Lat": -32.780304,
+    "Long": -71.528887,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Arboleda",
+    "Lat": -32.729392,
+    "Long": -71.408626,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Graneritos de Casablanca",
+    "Lat": -33.32111,
+    "Long": -71.410993,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Valle de Cantores",
+    "Lat": -33.316988,
+    "Long": -71.40396,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "El Principito",
+    "Lat": -33.603712,
+    "Long": -71.610937,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "La Princesita",
+    "Lat": -33.594495,
+    "Long": -71.604249,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -33.611842,
+    "Long": -71.601635,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Creando Sonrisas",
+    "Lat": -33.596707,
+    "Long": -71.606625,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Pilpilén",
+    "Lat": -33.610273,
+    "Long": -71.606679,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Florencia",
+    "Lat": -33.590723,
+    "Long": -71.60099,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Pulgarcito",
+    "Lat": -33.54677,
+    "Long": -71.5991,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Bosquemar",
+    "Lat": -33.448567,
+    "Long": -71.669674,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Nuestra Señora de Las Mercedes",
+    "Lat": -33.398243,
+    "Long": -71.689439,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Santa Teresita",
+    "Lat": -33.373393,
+    "Long": -71.664228,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "El Marinerito",
+    "Lat": -33.642044,
+    "Long": -71.611124,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Umanga Riki Riki",
+    "Lat": -27.161293,
+    "Long": -109.438217,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Campanitas",
+    "Lat": -32.927799,
+    "Long": -71.513031,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Millaray",
+    "Lat": -33.054958,
+    "Long": -71.464506,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Gabriela Mistral",
+    "Lat": -33.061681,
+    "Long": -71.413704,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Inti Raymi",
+    "Lat": -33.059416,
+    "Long": -71.425246,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Violeta Parra",
+    "Lat": -33.035542,
+    "Long": -71.438458,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Kumiray",
+    "Lat": -33.044939,
+    "Long": -71.411329,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Poki Tane",
+    "Lat": -33.048541,
+    "Long": -71.431598,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Santa Cruz Limachito",
+    "Lat": -33.002359,
+    "Long": -71.275736,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Aguas Claras",
+    "Lat": -33.063298,
+    "Long": -71.220277,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "La Paloma",
+    "Lat": -32.99016,
+    "Long": -71.225334,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Creciendo En Mi Pueblo",
+    "Lat": -33.052499,
+    "Long": -71.105192,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Los Molinos",
+    "Lat": -33.05993,
+    "Long": -71.368496,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Los Gorriones",
+    "Lat": -33.0556,
+    "Long": -71.362426,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Semillitas",
+    "Lat": -33.0677,
+    "Long": -71.371017,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "S.C. Sonrisas de San José",
+    "Lat": -33.065279,
+    "Long": -71.37455,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Altamirano",
+    "Lat": -33.054405,
+    "Long": -71.374499,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Raimilla",
+    "Lat": -33.042722,
+    "Long": -71.360616,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Newen",
+    "Lat": -33.051568,
+    "Long": -71.377081,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "Quillay",
+    "Lat": -33.039447,
+    "Long": -71.353132,
+    "REGION": 5
+  },
+  {
+    "NOMBRE": "San José Obrero",
+    "Lat": -34.183953,
+    "Long": -70.731817,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Diego Portales",
+    "Lat": -34.158883,
+    "Long": -70.715294,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Villa Cordillera",
+    "Lat": -34.164784,
+    "Long": -70.704035,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Agua Luna",
+    "Lat": -34.136168,
+    "Long": -70.760072,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Mi Gran Tesoro",
+    "Lat": -34.151555,
+    "Long": -70.711827,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Florillitos",
+    "Lat": -34.177504,
+    "Long": -70.754762,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Sembrando Sueños",
+    "Lat": -34.185128,
+    "Long": -70.772638,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Pasitos de Colores",
+    "Lat": -34.182837,
+    "Long": -70.763281,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Sonrisas de Colores",
+    "Lat": -34.188024,
+    "Long": -70.72974,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Semillas del Mañana",
+    "Lat": -34.158776,
+    "Long": -70.746419,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "El Molino de Colores",
+    "Lat": -34.18199,
+    "Long": -70.75428,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Umuntu",
+    "Lat": -34.172021,
+    "Long": -70.736079,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Mis Primeras Huellas",
+    "Lat": -34.174367,
+    "Long": -70.78295,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Creadores de Sueños",
+    "Lat": -34.063528,
+    "Long": -70.728658,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Pequeños Artistas",
+    "Lat": -34.073753,
+    "Long": -70.737589,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Millantú",
+    "Lat": -34.062672,
+    "Long": -70.725728,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Mi Pequeña Locomotora",
+    "Lat": -34.063459,
+    "Long": -70.728503,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Bam - Bam",
+    "Lat": -33.973757,
+    "Long": -70.711416,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Picapiedras",
+    "Lat": -34.035565,
+    "Long": -70.657925,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Rayito de Luz",
+    "Lat": -34.04101,
+    "Long": -70.706808,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Mil Colores",
+    "Lat": -34.036968,
+    "Long": -70.656209,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Codegua Centro",
+    "Lat": -34.037778,
+    "Long": -70.666341,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Flor Naciente",
+    "Lat": -34.19497,
+    "Long": -70.647459,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Nuevo Horizonte",
+    "Lat": -34.169884,
+    "Long": -70.64281,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Sol del Valle",
+    "Lat": -34.17308,
+    "Long": -70.639151,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "La Reserva de Machali",
+    "Lat": -34.180172,
+    "Long": -70.685256,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Sueños Mágicos",
+    "Lat": -34.202232,
+    "Long": -70.753034,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "San Nicolás",
+    "Lat": -34.293141,
+    "Long": -70.821892,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Peumayen",
+    "Lat": -34.28651,
+    "Long": -70.81773,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Bello Horizonte",
+    "Lat": -34.407951,
+    "Long": -70.854284,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Nido de Sueños",
+    "Lat": -34.413989,
+    "Long": -70.847345,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Piececitos de Ángel",
+    "Lat": -34.34749,
+    "Long": -70.8623,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "La Casa del Arbol",
+    "Lat": -34.39755,
+    "Long": -70.851133,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Las Canteras de Pelequén",
+    "Lat": -34.469323,
+    "Long": -70.895105,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Frutillita",
+    "Lat": -34.35209,
+    "Long": -70.961452,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Las Abejitas",
+    "Lat": -34.376473,
+    "Long": -71.056313,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Enanitos",
+    "Lat": -34.352994,
+    "Long": -71.014058,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Cachorritos",
+    "Lat": -34.438642,
+    "Long": -71.080584,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Tañi Ruka",
+    "Lat": -34.429188,
+    "Long": -71.056461,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Rayito de Amor",
+    "Lat": -34.436549,
+    "Long": -71.098667,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Almendritos",
+    "Lat": -34.444558,
+    "Long": -71.089955,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Trencito de Sueños",
+    "Lat": -34.438452,
+    "Long": -71.069934,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Semillitas del Patagual",
+    "Lat": -34.31238,
+    "Long": -71.38336,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Arturo Prat",
+    "Lat": -34.386972,
+    "Long": -71.17546,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Manchitas de Colores",
+    "Lat": -34.210165,
+    "Long": -70.903956,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Eluney",
+    "Lat": -34.2296,
+    "Long": -70.96519,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Retoños",
+    "Lat": -34.295799,
+    "Long": -71.309007,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Las Palmitas",
+    "Lat": -34.207395,
+    "Long": -71.27739,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Peques",
+    "Lat": -34.575885,
+    "Long": -70.98926,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Las Uvitas",
+    "Lat": -34.533019,
+    "Long": -70.967201,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Mundo Nuevo",
+    "Lat": -34.574447,
+    "Long": -70.992855,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Nincurlauta",
+    "Lat": -34.563907,
+    "Long": -70.996189,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Manzanitas",
+    "Lat": -34.574672,
+    "Long": -71.002587,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Liceo Eduardo Charme",
+    "Lat": -34.581977,
+    "Long": -70.98947,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Pequeños Sueños",
+    "Lat": -34.591666,
+    "Long": -70.998456,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Manitos Traviesas",
+    "Lat": -34.581143,
+    "Long": -70.91021,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Sol de Rodeo",
+    "Lat": -34.566837,
+    "Long": -71.001131,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Corcelitos",
+    "Lat": -34.586683,
+    "Long": -71.002708,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Ayekantun",
+    "Lat": -34.591017,
+    "Long": -70.999362,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Mimbrecitos",
+    "Lat": -34.698301,
+    "Long": -71.032664,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Miraflores",
+    "Lat": -34.689811,
+    "Long": -71.026518,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Artesanitos",
+    "Lat": -34.707704,
+    "Long": -71.040743,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Naranjitos",
+    "Lat": -34.647683,
+    "Long": -71.201484,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Pequeñas Lumbreras",
+    "Lat": -34.652307,
+    "Long": -71.287706,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Zancudín",
+    "Lat": -34.727292,
+    "Long": -71.272551,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Alerce",
+    "Lat": -34.632702,
+    "Long": -71.360601,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Pablo Neruda",
+    "Lat": -34.632984,
+    "Long": -71.349956,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Valle de Luz",
+    "Lat": -34.636735,
+    "Long": -71.358723,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Sueños de Colores",
+    "Lat": -34.689154,
+    "Long": -71.324218,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Santa Ana",
+    "Lat": -34.595586,
+    "Long": -71.361755,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Mundo Feliz",
+    "Lat": -34.531688,
+    "Long": -71.358369,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "San Gerardo",
+    "Lat": -34.511372,
+    "Long": -71.435274,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Valle Ositos",
+    "Lat": -34.475598,
+    "Long": -71.481479,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Rinconcito de Amor",
+    "Lat": -34.480505,
+    "Long": -71.480884,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Amanecer",
+    "Lat": -34.392699,
+    "Long": -72.006632,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "S.C. Gotitas de Amor",
+    "Lat": -34.386139,
+    "Long": -72.013878,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Bosque Mágico",
+    "Lat": -34.397751,
+    "Long": -71.996008,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Semillita",
+    "Lat": -33.950906,
+    "Long": -71.833322,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Petalitos",
+    "Lat": -34.120509,
+    "Long": -71.729105,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "La Estrellita",
+    "Lat": -34.20751,
+    "Long": -71.655714,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Molinitos",
+    "Lat": -34.402279,
+    "Long": -71.617146,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Rayito de Sol",
+    "Lat": -34.644842,
+    "Long": -72.043909,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "El Aromito",
+    "Lat": -34.644766,
+    "Long": -71.899151,
+    "REGION": 99
+  },
+  {
+    "NOMBRE": "Los Duendecitos",
+    "Lat": -34.997491,
+    "Long": -71.249039,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Cadenita",
+    "Lat": -34.966221,
+    "Long": -71.243508,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Estrellitas",
+    "Lat": -35.056889,
+    "Long": -71.170481,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Integritos",
+    "Lat": -34.99591,
+    "Long": -71.255043,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Claro de Luna",
+    "Lat": -34.996182,
+    "Long": -71.261908,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Gotitas de Amor",
+    "Lat": -34.946538,
+    "Long": -71.200829,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Lautaro",
+    "Lat": -34.987687,
+    "Long": -71.253382,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Benny",
+    "Lat": -34.91173,
+    "Long": -71.045037,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Domingo Mansilla",
+    "Lat": -34.889362,
+    "Long": -71.138295,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Luxemburgo",
+    "Lat": -34.955869,
+    "Long": -71.12284,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Palomos",
+    "Lat": -34.999793,
+    "Long": -70.812163,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Ceci",
+    "Lat": -34.969544,
+    "Long": -71.013365,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Angelitos",
+    "Lat": -35.10692,
+    "Long": -71.298709,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Pepita de Uva",
+    "Lat": -35.059771,
+    "Long": -71.262401,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "S.C. Casa Blanca",
+    "Lat": -35.075225,
+    "Long": -71.255503,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "El Rinconcito",
+    "Lat": -35.094157,
+    "Long": -71.611845,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Sagrada Familia",
+    "Lat": -34.999262,
+    "Long": -71.384601,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Papelucho",
+    "Lat": -34.985097,
+    "Long": -71.983849,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "S.C. Capullito",
+    "Lat": -34.98732,
+    "Long": -71.982889,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Aquelarre",
+    "Lat": -34.851583,
+    "Long": -72.039819,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Enanitos",
+    "Lat": -34.923474,
+    "Long": -71.316849,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Rapuncel",
+    "Lat": -35.441602,
+    "Long": -71.658703,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Pelusita",
+    "Lat": -35.40598,
+    "Long": -71.653789,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Grillitos",
+    "Lat": -35.472317,
+    "Long": -71.558376,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Sueños de Niños",
+    "Lat": -35.423407,
+    "Long": -71.646537,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Pasitos A La Ilusión",
+    "Lat": -35.419353,
+    "Long": -71.638581,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Micaeliano",
+    "Lat": -35.432415,
+    "Long": -71.652641,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "San Luis",
+    "Lat": -35.439139,
+    "Long": -71.628763,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "San Antonio",
+    "Lat": -35.448844,
+    "Long": -71.625145,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Entre Peques",
+    "Lat": -35.405917,
+    "Long": -71.650495,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Mi Mundo Pequeño",
+    "Lat": -35.395245,
+    "Long": -71.645136,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "S.C. Manitos Pequeñas",
+    "Lat": -35.392771,
+    "Long": -71.643272,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Gotitas de Ternura",
+    "Lat": -35.401586,
+    "Long": -71.65523,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Centro Talca",
+    "Lat": -35.428997,
+    "Long": -71.659279,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Sonrisas de Niño",
+    "Lat": -35.397673,
+    "Long": -71.65254,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Cuentos Mágicos",
+    "Lat": -35.431513,
+    "Long": -71.634237,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Acuarela",
+    "Lat": -35.41963,
+    "Long": -71.660089,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Amanecer de Florida",
+    "Lat": -35.438472,
+    "Long": -71.683583,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Mundo de Colores",
+    "Lat": -35.434994,
+    "Long": -71.6167,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Mi Primer Horizonte",
+    "Lat": -35.39532,
+    "Long": -71.53149,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Casita de Los Sueños",
+    "Lat": -35.385659,
+    "Long": -71.439432,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Santa Rita",
+    "Lat": -35.389555,
+    "Long": -71.54421,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Cariñositos",
+    "Lat": -35.281018,
+    "Long": -71.253854,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Renacer",
+    "Lat": -35.222582,
+    "Long": -71.347865,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "San Gerardo",
+    "Lat": -35.207633,
+    "Long": -71.240554,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Esterito",
+    "Lat": -35.589439,
+    "Long": -71.429656,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Maitenes",
+    "Lat": -35.592677,
+    "Long": -71.370261,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Abejitas",
+    "Lat": -35.523043,
+    "Long": -71.511847,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Peter Pan",
+    "Lat": -35.545088,
+    "Long": -71.485586,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Mi Pequeña Tribu",
+    "Lat": -35.542882,
+    "Long": -71.480568,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Flor de Aromo",
+    "Lat": -35.523727,
+    "Long": -71.693892,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Las Manzanitas",
+    "Lat": -35.557143,
+    "Long": -71.589286,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Rinconcito de Sueños",
+    "Lat": -35.539579,
+    "Long": -71.700454,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Pequeñitos con Amor",
+    "Lat": -35.551677,
+    "Long": -71.636449,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Tiernos Corazones de Villa Francia",
+    "Lat": -35.453356,
+    "Long": -71.659475,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Lucerito",
+    "Lat": -35.590205,
+    "Long": -72.278122,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Rayito de Luna",
+    "Lat": -35.391744,
+    "Long": -71.80388,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Las Viñitas",
+    "Lat": -35.441543,
+    "Long": -71.864442,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Mi Pequeño Refugio",
+    "Lat": -35.414522,
+    "Long": -71.760001,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "S.C. Pencahue Plaza",
+    "Lat": -35.396017,
+    "Long": -71.79975,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Sol y Luna",
+    "Lat": -35.338109949,
+    "Long": -72.405534242,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Pantanitos",
+    "Lat": -35.213733,
+    "Long": -72.283337,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Pequeños Gigantes",
+    "Lat": -35.337736,
+    "Long": -72.415375,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Centinela",
+    "Lat": -35.34291,
+    "Long": -72.401274,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Blanca Nieves",
+    "Lat": -35.417865,
+    "Long": -72.337184,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Vista Hermosa",
+    "Lat": -35.341633,
+    "Long": -72.416782,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Campanita",
+    "Lat": -35.094649,
+    "Long": -72.021438,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Cuncunita",
+    "Lat": -35.02373,
+    "Long": -72.04248,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Mis Primeros Pasos",
+    "Lat": -35.115741,
+    "Long": -71.693954,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Niditos del Valle",
+    "Lat": -35.84442,
+    "Long": -71.576689,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Pinitos",
+    "Lat": -35.859526,
+    "Long": -71.586335,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "El Trencito",
+    "Lat": -35.837777,
+    "Long": -71.588872,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Pasitos de Ternura",
+    "Lat": -35.864435,
+    "Long": -71.589861,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Carlos Camus III",
+    "Lat": -35.830936,
+    "Long": -71.595135,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "S.C. El Bosque",
+    "Lat": -35.86506,
+    "Long": -71.587168,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Ayelén",
+    "Lat": -35.846935,
+    "Long": -71.603874,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Mawenko",
+    "Lat": -35.83602,
+    "Long": -71.618087,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Rayitos de Sol",
+    "Lat": -35.617535,
+    "Long": -71.540156,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Carita de Luna",
+    "Lat": -35.751448,
+    "Long": -71.588404,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Semilleros",
+    "Lat": -35.669149,
+    "Long": -71.46511,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Frambuesita",
+    "Lat": -35.650832,
+    "Long": -71.50617,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Huellitas del Campo",
+    "Lat": -35.623901,
+    "Long": -71.447778,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Burbujitas Termales",
+    "Lat": -35.758239,
+    "Long": -71.419011,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Patitos del Lago",
+    "Lat": -35.703371,
+    "Long": -71.408721,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Lirios",
+    "Lat": -35.637487,
+    "Long": -71.402479,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Bicentenario",
+    "Lat": -35.698677,
+    "Long": -71.397364,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Alborada",
+    "Lat": -35.96141,
+    "Long": -71.679975,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Miraflores",
+    "Lat": -35.918848,
+    "Long": -71.644798,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Cerrito Nevado",
+    "Lat": -36.014644,
+    "Long": -71.650626,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Triguitos",
+    "Lat": -36.140375,
+    "Long": -71.821643,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Pitufos",
+    "Lat": -36.143365,
+    "Long": -71.837728,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Gabriela Mistral",
+    "Lat": -36.05198,
+    "Long": -71.761346,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Girasol",
+    "Lat": -36.089091,
+    "Long": -71.800309,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Villaseca",
+    "Lat": -35.86457,
+    "Long": -71.842042,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Naranjitos",
+    "Lat": -35.694693,
+    "Long": -71.676033,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -35.62283,
+    "Long": -71.746692,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Pasito Seguro",
+    "Lat": -35.627176,
+    "Long": -71.673945,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Villalegría",
+    "Lat": -35.67394,
+    "Long": -71.735971,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Crecer",
+    "Lat": -35.598136,
+    "Long": -71.736477,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Piececitos de Niño",
+    "Lat": -35.597014,
+    "Long": -71.886098,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Alto del Río",
+    "Lat": -35.617881,
+    "Long": -71.777572,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Puesta de Sol",
+    "Lat": -35.595806,
+    "Long": -71.744144,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Palomitos",
+    "Lat": -35.960888,
+    "Long": -72.306324,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Tiernecitos",
+    "Lat": -35.981942,
+    "Long": -72.312725,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Semillita",
+    "Lat": -35.954401,
+    "Long": -72.342621,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Carrusel",
+    "Lat": -36.057176,
+    "Long": -72.094107,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "S.C. Los Conquistadores",
+    "Lat": -35.989954,
+    "Long": -72.313315,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Pingüinitos",
+    "Lat": -35.971728,
+    "Long": -72.315917,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Mi Casita",
+    "Lat": -35.811337,
+    "Long": -72.572704,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Las Dulzuras de Pulgarcito",
+    "Lat": -35.732245,
+    "Long": -72.535689,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Los Ruiles de Chanco",
+    "Lat": -35.741726,
+    "Long": -72.536437,
+    "REGION": 6
+  },
+  {
+    "NOMBRE": "Caracolito",
+    "Lat": -37.464887,
+    "Long": -72.366062,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Millantú",
+    "Lat": -37.396593,
+    "Long": -72.619221,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Pequeños Artistas",
+    "Lat": -37.477265,
+    "Long": -72.363364,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Piececitos de Niño",
+    "Lat": -37.485043,
+    "Long": -72.339135,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Mercadito de Sueños",
+    "Lat": -37.465244,
+    "Long": -72.344794,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Santa Fé",
+    "Lat": -37.466697,
+    "Long": -72.584801,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Chacayal Sur",
+    "Lat": -37.450411,
+    "Long": -72.140126,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Angelitos",
+    "Lat": -37.474658,
+    "Long": -72.353228,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "S.C. El Hogar",
+    "Lat": -37.4605,
+    "Long": -72.376595,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Galvarino",
+    "Lat": -37.465966,
+    "Long": -72.372614,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Carrera",
+    "Lat": -37.480052,
+    "Long": -72.348613,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Pulihuen",
+    "Lat": -37.084657566,
+    "Long": -72.437839577,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Javiera Carrera",
+    "Lat": -37.0376,
+    "Long": -72.39706,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Las Ardillitas",
+    "Lat": -37.294248,
+    "Long": -71.950728,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Chincolitos",
+    "Lat": -37.237299,
+    "Long": -71.936637,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Polcura",
+    "Lat": -37.287936,
+    "Long": -71.724415,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Trupán",
+    "Lat": -37.276204,
+    "Long": -71.835605,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Huepil",
+    "Lat": -37.238114,
+    "Long": -71.945167,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Isabel Riquelme",
+    "Lat": -37.327387873,
+    "Long": -71.67446115,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Pichi - Rayén",
+    "Lat": -37.406213,
+    "Long": -71.978826,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "El Progreso",
+    "Lat": -37.405596,
+    "Long": -71.980033,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Las Canteras",
+    "Lat": -37.398703,
+    "Long": -72.010935,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Alaska",
+    "Lat": -37.664851,
+    "Long": -72.024779,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Copihues",
+    "Lat": -37.682621,
+    "Long": -72.006667,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Bureo",
+    "Lat": -37.713159,
+    "Long": -72.236752,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Agua Cristalina",
+    "Lat": -37.722644,
+    "Long": -72.255449,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Las Dalias",
+    "Lat": -37.723218,
+    "Long": -72.23482,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Caperucita Roja",
+    "Lat": -37.584738,
+    "Long": -72.526842,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Capullitos",
+    "Lat": -37.503864,
+    "Long": -72.674085,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Mi Pequeño Hogar",
+    "Lat": -37.506728,
+    "Long": -72.660711,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Freire",
+    "Lat": -37.502071,
+    "Long": -72.672257,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Entre Ríos",
+    "Lat": -37.280256,
+    "Long": -72.703163,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Castaños",
+    "Lat": -37.263484,
+    "Long": -72.727172,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Inés de Suárez",
+    "Lat": -37.094519,
+    "Long": -72.568995,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "San Sebastián",
+    "Lat": -37.102207,
+    "Long": -72.555071,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "El Chañar",
+    "Lat": -36.810309,
+    "Long": -73.059331,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Pedro de Valdivia",
+    "Lat": -36.841742,
+    "Long": -73.055122,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Juan Pablo II",
+    "Lat": -36.829381,
+    "Long": -73.006779,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Palomares",
+    "Lat": -36.82385,
+    "Long": -72.993282,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Aromos",
+    "Lat": -36.81141,
+    "Long": -73.037334,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Pedro del Río",
+    "Lat": -36.827763,
+    "Long": -73.064449,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Sembrando Talentos",
+    "Lat": -36.814609,
+    "Long": -73.073421,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "S.C. Camilo Henriquez",
+    "Lat": -36.805612,
+    "Long": -73.031217,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Castellon",
+    "Lat": -36.818635,
+    "Long": -73.051713,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Diego Portales",
+    "Lat": -36.779104,
+    "Long": -73.09865,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Santa Cecilia",
+    "Lat": -36.74878,
+    "Long": -73.08828,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Leonor Mascayano",
+    "Lat": -36.737856,
+    "Long": -73.106212,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Lobos",
+    "Lat": -36.720431,
+    "Long": -73.141756,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Brisas del Mar",
+    "Lat": -36.707472,
+    "Long": -73.133737,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Balmaceda-Thompson",
+    "Lat": -36.723253,
+    "Long": -73.113855,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "La Vega",
+    "Lat": -36.780303,
+    "Long": -73.080749,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Rayito de Sol",
+    "Lat": -36.726924,
+    "Long": -72.985986,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Montahue",
+    "Lat": -36.750764,
+    "Long": -72.996613,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "San Germán",
+    "Lat": -36.623722,
+    "Long": -72.952213,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Las Ovejitas",
+    "Lat": -36.620802,
+    "Long": -72.9468,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Cocholgüe",
+    "Lat": -36.597549,
+    "Long": -72.969053,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Renacer",
+    "Lat": -36.550914,
+    "Long": -72.931201,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Ternura",
+    "Lat": -36.821661,
+    "Long": -72.663133,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Naranjos",
+    "Lat": -36.969127,
+    "Long": -72.93446,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Unihue",
+    "Lat": -37.11674,
+    "Long": -72.94312,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "S.C. Talcamávida",
+    "Lat": -37.156742,
+    "Long": -72.915588,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Fresia Hualqui",
+    "Lat": -36.96997,
+    "Long": -72.929974,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Rayo de Luz",
+    "Lat": -37.174014,
+    "Long": -72.945053,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "El Ángel",
+    "Lat": -37.170818,
+    "Long": -72.950942,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Villa El Esfuerzo",
+    "Lat": -37.073567,
+    "Long": -73.149939,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Gabriela Mistral",
+    "Lat": -37.094647,
+    "Long": -73.158096,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Loreto Cousiño",
+    "Lat": -37.083604,
+    "Long": -73.162697,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Doña Isidora",
+    "Lat": -37.084128,
+    "Long": -73.153416,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "La Lamparita",
+    "Lat": -37.086571,
+    "Long": -73.151571,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Divina Gabriela",
+    "Lat": -36.997611,
+    "Long": -73.159232,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Frutillita",
+    "Lat": -37.034455,
+    "Long": -73.142404,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Rayún",
+    "Lat": -36.99477,
+    "Long": -73.149391,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "El Faro",
+    "Lat": -36.976402,
+    "Long": -73.529203,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Génesis",
+    "Lat": -37.002272,
+    "Long": -73.166034,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Onas",
+    "Lat": -36.992446,
+    "Long": -73.171122,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Pehuén",
+    "Lat": -37.668056,
+    "Long": -73.541634,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Millaneco",
+    "Lat": -37.59382,
+    "Long": -73.639778,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "José Miguel Carrera",
+    "Lat": -37.611671,
+    "Long": -73.645905,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Santa Rosa",
+    "Lat": -37.642673,
+    "Long": -73.610781,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Agua de Las Niñas",
+    "Lat": -37.614259,
+    "Long": -73.646055,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "S.C. Los Héroes",
+    "Lat": -37.604558,
+    "Long": -73.660007,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Tubúl",
+    "Lat": -37.23111,
+    "Long": -73.442937,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "El Pinar",
+    "Lat": -37.180187,
+    "Long": -73.193003,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Semillitas de Llico",
+    "Lat": -37.199119,
+    "Long": -73.565132,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Esmeralda",
+    "Lat": -37.482142,
+    "Long": -73.340979,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Tucapel",
+    "Lat": -37.486343,
+    "Long": -73.328978,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Las Araucarias",
+    "Lat": -37.625605,
+    "Long": -73.459531,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Notros",
+    "Lat": -37.792605,
+    "Long": -73.388977,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Fresia",
+    "Lat": -37.805193,
+    "Long": -73.403149,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Huentelolén",
+    "Lat": -37.953159,
+    "Long": -73.405356,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Antiquina",
+    "Lat": -38.057219,
+    "Long": -73.401507,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Cardenal Silva Henríquez",
+    "Lat": -37.808862,
+    "Long": -73.410262,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Santa María",
+    "Lat": -38.017448,
+    "Long": -73.229489,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Calebu",
+    "Lat": -37.92793,
+    "Long": -73.21292,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Ayelén",
+    "Lat": -38.341709,
+    "Long": -73.494425,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Michaihue",
+    "Lat": -36.842373,
+    "Long": -73.141118,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Boca Sur",
+    "Lat": -36.828634,
+    "Long": -73.143573,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Candelaria",
+    "Lat": -36.831105,
+    "Long": -73.121018,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Lafkeen",
+    "Lat": -36.851502,
+    "Long": -73.145642,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Andalué",
+    "Lat": -36.853042,
+    "Long": -73.135041,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Antiyal",
+    "Lat": -36.846559,
+    "Long": -73.146591,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "S.C. Aitué",
+    "Lat": -36.846927,
+    "Long": -73.149363,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Escuela Michaihue",
+    "Lat": -36.843353,
+    "Long": -73.141396,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Raimapu",
+    "Lat": -36.853261,
+    "Long": -73.137833,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Lomas Coloradas",
+    "Lat": -36.881313,
+    "Long": -73.135076,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Los Pinos",
+    "Lat": -36.953181,
+    "Long": -73.01615,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "El Porvenir",
+    "Lat": -36.950614,
+    "Long": -73.018987,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "O'Higgins 3395",
+    "Lat": -36.920391,
+    "Long": -73.025107,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Moreira",
+    "Lat": -36.943267,
+    "Long": -73.016504,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Esperanza",
+    "Lat": -36.948592,
+    "Long": -73.022767,
+    "REGION": 8
+  },
+  {
+    "NOMBRE": "Juan Pablo II",
+    "Lat": -37.809161,
+    "Long": -72.692735,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Belén",
+    "Lat": -37.817268,
+    "Long": -72.707652,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Teresita Domínguez",
+    "Lat": -37.794434,
+    "Long": -72.720859,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Ayelén",
+    "Lat": -37.81532,
+    "Long": -72.676735,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Tuti Fruti",
+    "Lat": -37.805636,
+    "Long": -72.697329,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Semillita",
+    "Lat": -37.670549,
+    "Long": -72.578223,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Las Abejitas",
+    "Lat": -37.730355,
+    "Long": -72.616696,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Miguel Zerene",
+    "Lat": -37.954722,
+    "Long": -72.424674,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Santa Cruz",
+    "Lat": -37.950368,
+    "Long": -72.444188,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Rayito de Sol",
+    "Lat": -37.795594,
+    "Long": -72.472313,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Maica",
+    "Lat": -37.894533,
+    "Long": -72.252365,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "S.C. Huepil",
+    "Lat": -37.958373,
+    "Long": -72.435994,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Caupolicán",
+    "Lat": -37.949134,
+    "Long": -72.436595,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "José María Caro",
+    "Lat": -38.45258,
+    "Long": -71.369818,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Mallín El Treile",
+    "Lat": -38.381857,
+    "Long": -71.457734,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "El Naranjito",
+    "Lat": -38.43396,
+    "Long": -71.366024,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Los Piñoncitos",
+    "Lat": -38.535916,
+    "Long": -71.256365,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Pehuencito",
+    "Lat": -38.434116,
+    "Long": -71.885089,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Tía Laura",
+    "Lat": -38.474933,
+    "Long": -71.582489,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Princesita",
+    "Lat": -38.438755,
+    "Long": -71.89863,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "S.C. Las Raíces",
+    "Lat": -38.438943,
+    "Long": -71.898328,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Padre Juan",
+    "Lat": -38.433101,
+    "Long": -71.881303,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Mundo de Colores",
+    "Lat": -38.063678,
+    "Long": -72.376402,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Primeros Pasos",
+    "Lat": -38.132852,
+    "Long": -72.318192,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Javiera Carrera",
+    "Lat": -38.240596,
+    "Long": -72.323728,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Marta Brunet",
+    "Lat": -38.222703,
+    "Long": -72.323461,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Piececitos de Niños",
+    "Lat": -38.24215,
+    "Long": -72.329294,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Renacer",
+    "Lat": -38.25524,
+    "Long": -72.677404,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Sonrisitas",
+    "Lat": -38.165857,
+    "Long": -72.902706,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Forestín",
+    "Lat": -38.190764,
+    "Long": -72.991233,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "La Tortuguita",
+    "Lat": -38.3237,
+    "Long": -72.997677,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Niño Feliz",
+    "Lat": -38.035879,
+    "Long": -73.069182,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Frutillita",
+    "Lat": -38.024988,
+    "Long": -73.068703,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Pin - Pon",
+    "Lat": -37.980776,
+    "Long": -72.83625,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Vista Hermosa",
+    "Lat": -38.725902,
+    "Long": -72.611078,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "La Ribera",
+    "Lat": -38.726569,
+    "Long": -72.559434,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Mamá Teresa Schmidt",
+    "Lat": -38.754965,
+    "Long": -72.614753,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Amanecer",
+    "Lat": -38.756344,
+    "Long": -72.623738,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Los Boldos",
+    "Lat": -38.740696,
+    "Long": -72.578803,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Sueños",
+    "Lat": -38.718622,
+    "Long": -72.619929,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Villa Austral",
+    "Lat": -38.759193,
+    "Long": -72.634674,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Frutillita",
+    "Lat": -38.719549,
+    "Long": -72.624544,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "S.C. Pasitos",
+    "Lat": -38.74243,
+    "Long": -72.577486,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "S.C. Duendes",
+    "Lat": -38.724482,
+    "Long": -72.613309,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Rincón Feliz",
+    "Lat": -38.730775,
+    "Long": -72.589175,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Carita de Luna",
+    "Lat": -38.745473,
+    "Long": -72.589266,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "S.C. Rayito de Luz",
+    "Lat": -38.754595,
+    "Long": -72.62174,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Trañi-Trañi",
+    "Lat": -38.740242,
+    "Long": -72.71391,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Villa El Salitre",
+    "Lat": -38.711837,
+    "Long": -72.62082,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Nuevo Mundo",
+    "Lat": -38.707704,
+    "Long": -72.546805,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Arcoíris del Lago",
+    "Lat": -38.766649,
+    "Long": -72.757897,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Sonrisa de Niños",
+    "Lat": -38.735285,
+    "Long": -72.600994,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "S.C. Tiritas de Papel",
+    "Lat": -38.758532,
+    "Long": -72.631028,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Crecer Jugando",
+    "Lat": -38.732401,
+    "Long": -72.579665,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Villa Italia",
+    "Lat": -38.756116,
+    "Long": -72.632803,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "UFRO",
+    "Lat": -38.749086,
+    "Long": -72.619034,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Bascuñan Santa María",
+    "Lat": -38.726267,
+    "Long": -72.573616,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Kimeltuwün",
+    "Lat": -38.73486,
+    "Long": -72.606734,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Santa Guadalupe",
+    "Lat": -38.535654,
+    "Long": -72.423296,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Girasol",
+    "Lat": -38.63541,
+    "Long": -72.44915,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Las Araucarias",
+    "Lat": -38.520059,
+    "Long": -72.431328,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Betania",
+    "Lat": -38.422973,
+    "Long": -72.375606,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Pequeños Artistas",
+    "Lat": -38.687059,
+    "Long": -72.004852,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Bellavista",
+    "Lat": -38.670983,
+    "Long": -72.225553,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Copito de Nieve",
+    "Lat": -38.660376,
+    "Long": -72.114798,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "O'Higgins",
+    "Lat": -38.668134,
+    "Long": -72.232201,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Ruca-Huenei",
+    "Lat": -38.927323,
+    "Long": -72.036952,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Las Estrellas",
+    "Lat": -38.98929,
+    "Long": -72.248322,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Los Peques",
+    "Lat": -38.854099,
+    "Long": -71.69938,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Carrusel",
+    "Lat": -39.358327,
+    "Long": -71.588606,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Cupulhue Che",
+    "Lat": -39.27766,
+    "Long": -71.966009,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Diego Portales",
+    "Lat": -39.29265,
+    "Long": -72.225606,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Villa Estación",
+    "Lat": -39.286191,
+    "Long": -72.234722,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Los Volcanes",
+    "Lat": -39.30633,
+    "Long": -72.223279,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "S.C. Rucalaf",
+    "Lat": -39.302724,
+    "Long": -72.225176,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Peumayen",
+    "Lat": -39.277148,
+    "Long": -72.237026,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Los Notros",
+    "Lat": -38.950926,
+    "Long": -72.624987,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Santa Anita",
+    "Lat": -38.985626,
+    "Long": -72.39273,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "S.C. Gotitas de Dulzura",
+    "Lat": -38.952144,
+    "Long": -72.625799,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "El Principito",
+    "Lat": -38.991224,
+    "Long": -72.640952,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Llampudken",
+    "Lat": -38.979541,
+    "Long": -72.644969,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Tierra de Niños",
+    "Lat": -38.99183,
+    "Long": -72.632089,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Gabriela Mistral",
+    "Lat": -39.097511,
+    "Long": -72.689352,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Los Ciervitos",
+    "Lat": -39.104043,
+    "Long": -72.675069,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "S.C. Manitos Creando",
+    "Lat": -39.107034,
+    "Long": -72.673883,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "O'Higgins",
+    "Lat": -39.09935,
+    "Long": -72.671779,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Los Copihues",
+    "Lat": -39.297087,
+    "Long": -72.40154,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Papelucho",
+    "Lat": -39.367296,
+    "Long": -72.623214,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Antu - Rayén",
+    "Lat": -39.411425,
+    "Long": -72.712713,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Alberto Pohl Karpp",
+    "Lat": -39.369594,
+    "Long": -72.616376,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Cariñositos",
+    "Lat": -39.177472,
+    "Long": -73.169276,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Armonía",
+    "Lat": -39.156817,
+    "Long": -73.099943,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "La Sirenita",
+    "Lat": -39.398496,
+    "Long": -73.212362,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Ardillitas",
+    "Lat": -39.394122,
+    "Long": -73.196603,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Rayito de Sol",
+    "Lat": -38.997991,
+    "Long": -73.092855,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Gabriela Mistral",
+    "Lat": -38.985851,
+    "Long": -72.920335,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Capullito",
+    "Lat": -39.089406,
+    "Long": -73.177644,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Los Enanitos",
+    "Lat": -38.802591,
+    "Long": -73.391846,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Calof",
+    "Lat": -38.730125,
+    "Long": -73.339464,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Las Colinas",
+    "Lat": -38.708604,
+    "Long": -73.154478,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Pablo Neruda",
+    "Lat": -38.711683,
+    "Long": -73.144127,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Las Lomas de Carahue",
+    "Lat": -38.70751,
+    "Long": -73.150288,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Despertar",
+    "Lat": -38.744872,
+    "Long": -72.946403,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Amor y Esperanza",
+    "Lat": -38.738403,
+    "Long": -72.950685,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Espiguita",
+    "Lat": -38.750812,
+    "Long": -72.939599,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Michelle Bachelet",
+    "Lat": -38.734168,
+    "Long": -72.943317,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Vallecito",
+    "Lat": -38.412588,
+    "Long": -72.785747,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Pasitos del Bosque",
+    "Lat": -38.415551,
+    "Long": -72.778482,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Ayenwe",
+    "Lat": -38.76292,
+    "Long": -72.603063,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Chispita",
+    "Lat": -38.758172,
+    "Long": -72.591687,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Pulmahue",
+    "Lat": -38.77568,
+    "Long": -72.597641,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Wenüy Mapu",
+    "Lat": -38.872004,
+    "Long": -72.389183,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Caracolito",
+    "Lat": -38.60432,
+    "Long": -72.844945,
+    "REGION": 9
+  },
+  {
+    "NOMBRE": "Campanita",
+    "Lat": -40.579047,
+    "Long": -73.151958,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Gotitas de Amor",
+    "Lat": -40.564239,
+    "Long": -73.152518,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Disneylandia",
+    "Lat": -40.565879,
+    "Long": -73.160216,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Nubeluz",
+    "Lat": -40.594069,
+    "Long": -73.173091,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Pequeños Soñadores",
+    "Lat": -40.589223,
+    "Long": -73.177845,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Antiyal",
+    "Lat": -40.560828,
+    "Long": -73.176406,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Ovejitas del Alto",
+    "Lat": -40.585548,
+    "Long": -73.143449,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Peumayén",
+    "Lat": -40.591804,
+    "Long": -73.173946,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Mágica Estación",
+    "Lat": -40.577694,
+    "Long": -73.13783,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Rucalaf",
+    "Lat": -40.586667,
+    "Long": -73.180278,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Las Estrellitas",
+    "Lat": -40.414761,
+    "Long": -73.013462,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "S.C. Los Brotecitos",
+    "Lat": -40.41588,
+    "Long": -73.005623,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Las Golondrinas",
+    "Lat": -40.691346,
+    "Long": -72.605528,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Pinina",
+    "Lat": -40.905139,
+    "Long": -73.157178,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Rapuncel",
+    "Lat": -40.917332,
+    "Long": -73.156423,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Bamby",
+    "Lat": -40.955255,
+    "Long": -73.161335,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "S.C. Dormilones",
+    "Lat": -40.914392,
+    "Long": -73.157046,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Espiguita",
+    "Lat": -40.806997,
+    "Long": -73.218517,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "La Colina",
+    "Lat": -41.464949,
+    "Long": -72.926366,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Capullito",
+    "Lat": -41.457915,
+    "Long": -72.9503,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Rayito de Sol",
+    "Lat": -41.477966,
+    "Long": -72.966997,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Pastorcitos",
+    "Lat": -41.454197,
+    "Long": -72.659116,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Cariñositos",
+    "Lat": -41.402896,
+    "Long": -72.914251,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Lobito Marinero",
+    "Lat": -41.508764,
+    "Long": -72.787584,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Mickey y sus Amigos",
+    "Lat": -41.452172,
+    "Long": -72.960185,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Mil Caritas",
+    "Lat": -41.391571,
+    "Long": -72.904626,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Sueños de Bebé",
+    "Lat": -41.390913,
+    "Long": -72.901991,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Girasoles",
+    "Lat": -41.384677,
+    "Long": -72.896823,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Alercitos",
+    "Lat": -41.398587,
+    "Long": -72.899545,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "S.C. Manitos Traviesas",
+    "Lat": -41.386276,
+    "Long": -72.895604,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Kimpelu",
+    "Lat": -41.381255,
+    "Long": -72.898161,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Pequeñas Sonrisas",
+    "Lat": -41.475452,
+    "Long": -72.981743,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Lemu Lahuen",
+    "Lat": -41.397748,
+    "Long": -72.918378,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Más Amigos",
+    "Lat": -41.472557,
+    "Long": -72.984222,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "S.C. Pichi Yampai",
+    "Lat": -41.471379,
+    "Long": -72.93792,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Rayén",
+    "Lat": -41.454077,
+    "Long": -72.932573,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Icalma",
+    "Lat": -41.458203,
+    "Long": -72.925507,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Eluney",
+    "Lat": -41.403445,
+    "Long": -72.907299,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Sonrisitas",
+    "Lat": -41.459296,
+    "Long": -72.987045,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Pasitos al Volcán",
+    "Lat": -41.38849,
+    "Long": -72.917088,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Luz de Luna",
+    "Lat": -41.37992,
+    "Long": -72.919979,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Nueva Cumbre",
+    "Lat": -41.449973,
+    "Long": -72.922143,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Sembrando Sueños",
+    "Lat": -41.467846,
+    "Long": -72.915608,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -41.471282,
+    "Long": -72.922651,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Sueños del Humedal",
+    "Lat": -41.445243,
+    "Long": -72.927041,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Atrapasueños",
+    "Lat": -41.411109,
+    "Long": -72.906609,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Brotecitos de Luz",
+    "Lat": -41.472408,
+    "Long": -72.984656,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Rinconcito Milenario",
+    "Lat": -41.389628,
+    "Long": -72.895263,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "S.C. Huellitas",
+    "Lat": -41.391726,
+    "Long": -72.893524,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Tremün",
+    "Lat": -41.48054,
+    "Long": -72.98438,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Burbujitas",
+    "Lat": -41.324868,
+    "Long": -72.987874,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Princesa del Lago",
+    "Lat": -41.329865,
+    "Long": -72.971741,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Alpinos",
+    "Lat": -41.331735,
+    "Long": -72.965296,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Mis Primeros Pasos",
+    "Lat": -41.325059,
+    "Long": -73.07277,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Mi Pequeño Mirador",
+    "Lat": -41.344234,
+    "Long": -72.947989,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Alevines",
+    "Lat": -41.493202,
+    "Long": -72.304219,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Sol Naciente",
+    "Lat": -41.495854,
+    "Long": -72.333353,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "San Miguel",
+    "Lat": -41.772867,
+    "Long": -73.133449,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Carrusel",
+    "Lat": -41.782534,
+    "Long": -73.138703,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Caracolito",
+    "Lat": -41.788842,
+    "Long": -73.459394,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Pececitos",
+    "Lat": -41.774157,
+    "Long": -73.234488,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "La Sirenita",
+    "Lat": -41.756364,
+    "Long": -73.148611,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "S.C. Lunita",
+    "Lat": -41.782867,
+    "Long": -73.140346,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Mi Refugio",
+    "Lat": -41.61795,
+    "Long": -73.601232,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Cachorritos",
+    "Lat": -41.398761,
+    "Long": -73.465507,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Mi Ruca",
+    "Lat": -41.148992,
+    "Long": -73.41821,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Pillín",
+    "Lat": -41.153378,
+    "Long": -73.430359,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "S.C. Angelitos",
+    "Lat": -41.154908,
+    "Long": -73.421956,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Mi Mundo Mágico",
+    "Lat": -41.158542,
+    "Long": -73.421343,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Ayelén",
+    "Lat": -41.253302,
+    "Long": -73.012018,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Blanca Nieves y Los Enanitos",
+    "Lat": -41.130079,
+    "Long": -73.05868,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Las Colmenitas",
+    "Lat": -41.006594,
+    "Long": -73.123748,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Gotitas de Lluvia",
+    "Lat": -42.472688,
+    "Long": -73.76591,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Chilotitos",
+    "Lat": -42.465995,
+    "Long": -73.791849,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Nubecitas",
+    "Lat": -41.876541,
+    "Long": -73.798238,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Paula",
+    "Lat": -41.860032,
+    "Long": -73.815644,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "S.C. El Trencito",
+    "Lat": -41.879365,
+    "Long": -73.798728,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Mirador de Sueños",
+    "Lat": -41.880256,
+    "Long": -73.799519,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Pulgarcito",
+    "Lat": -42.143292,
+    "Long": -73.475519,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Agualuna",
+    "Lat": -42.376254,
+    "Long": -73.646857,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Pulpitos",
+    "Lat": -42.331944,
+    "Long": -73.373084,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "S.C. Los Molinitos",
+    "Lat": -42.43994,
+    "Long": -73.59923,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Cisnecitos",
+    "Lat": -42.436979,
+    "Long": -73.60155,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Enanitos",
+    "Lat": -42.471064,
+    "Long": -73.487729,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Gabriela Mistral",
+    "Lat": -42.599555,
+    "Long": -73.676197,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Semillitas",
+    "Lat": -42.6187,
+    "Long": -73.626324,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Cahueles Juguetones",
+    "Lat": -42.649814,
+    "Long": -73.607388,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Ositos Juguetones",
+    "Lat": -42.620674,
+    "Long": -73.77556,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Ala Ala Hueñi",
+    "Lat": -42.675627,
+    "Long": -73.89749,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "El Chavito",
+    "Lat": -42.890928,
+    "Long": -73.474203,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Grillitos",
+    "Lat": -43.119273,
+    "Long": -73.615852,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Rayentu Relmu",
+    "Lat": -42.921355,
+    "Long": -73.685605,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Rayentú Wañilén",
+    "Lat": -42.871961,
+    "Long": -73.707159,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Santa Rosa",
+    "Lat": -43.052955,
+    "Long": -73.593105,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Pitufos",
+    "Lat": -41.800511,
+    "Long": -72.716637,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Copito de Nieve",
+    "Lat": -41.968978,
+    "Long": -72.475267,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Los Huemules",
+    "Lat": -43.18815,
+    "Long": -71.866675,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Las Tobas",
+    "Lat": -43.617741,
+    "Long": -71.807916,
+    "REGION": 10
+  },
+  {
+    "NOMBRE": "Alitas Voladoras",
+    "Lat": -45.909479,
+    "Long": -71.701437,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Las Araucarias",
+    "Lat": -45.583078,
+    "Long": -72.070524,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Nueva Esperanza",
+    "Lat": -45.583631,
+    "Long": -72.028636,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Mackay",
+    "Lat": -45.577394,
+    "Long": -72.063678,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Ayelén",
+    "Lat": -45.587164,
+    "Long": -72.050095,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "El Principito",
+    "Lat": -44.647349,
+    "Long": -71.672853,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Mi Pequeño Paraíso",
+    "Lat": -44.748296,
+    "Long": -72.210105,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Los Canelos",
+    "Lat": -45.150218,
+    "Long": -73.508101,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Los Cipreses",
+    "Lat": -45.163622,
+    "Long": -73.523263,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Los Chilcos",
+    "Lat": -45.408822,
+    "Long": -72.699148,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Gotita de Lluvia",
+    "Lat": -45.409084,
+    "Long": -72.68521,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Rayito de Sol",
+    "Lat": -43.971275,
+    "Long": -72.404719,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Tía Nora",
+    "Lat": -44.325102,
+    "Long": -72.556799,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Lobito Marino",
+    "Lat": -43.898415,
+    "Long": -73.745277,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Bambi",
+    "Lat": -46.296402,
+    "Long": -71.937494,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Las Murtitas",
+    "Lat": -46.456041,
+    "Long": -72.672354,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Caminito Austral",
+    "Lat": -46.623368,
+    "Long": -72.67662,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Los Pioneros",
+    "Lat": -47.251225,
+    "Long": -72.566912,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Hielito Azul",
+    "Lat": -48.469105,
+    "Long": -72.56043,
+    "REGION": 11
+  },
+  {
+    "NOMBRE": "Los Conejitos",
+    "Lat": -51.733806,
+    "Long": -72.479262,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Hielos Patagónicos",
+    "Lat": -51.740222,
+    "Long": -72.486807,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Josefina Braun Menéndez",
+    "Lat": -53.1668,
+    "Long": -70.926986,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Magallanes",
+    "Lat": -53.147064,
+    "Long": -70.935434,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Los Pioneros",
+    "Lat": -53.143486,
+    "Long": -70.913726,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Hipai Yefacel",
+    "Lat": -53.176382,
+    "Long": -70.936406,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Keola Kipa",
+    "Lat": -53.136733,
+    "Long": -70.924399,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Akar",
+    "Lat": -53.159908,
+    "Long": -70.944598,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Hitipán",
+    "Lat": -53.138073,
+    "Long": -70.929363,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Luna Creciente",
+    "Lat": -53.179356,
+    "Long": -70.947168,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Vientos del Sur",
+    "Lat": -53.132394,
+    "Long": -70.910183,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -53.29162,
+    "Long": -70.369984,
+    "REGION": 12
+  },
+  {
+    "NOMBRE": "Nuevo Horizonte",
+    "Lat": -33.467942,
+    "Long": -70.649627,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Coquimbo",
+    "Lat": -33.455885,
+    "Long": -70.644454,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Santa Rosa de Lo Barnechea",
+    "Lat": -33.356309,
+    "Long": -70.504308,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "El Aromito",
+    "Lat": -33.368825,
+    "Long": -70.514895,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Carmelita Carvajal",
+    "Lat": -33.415563,
+    "Long": -70.534397,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Leonor Solar",
+    "Lat": -33.423943,
+    "Long": -70.549483,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "San Francisco de Asís",
+    "Lat": -33.425699,
+    "Long": -70.541007,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Teresita de Jesús",
+    "Lat": -33.426573,
+    "Long": -70.548981,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Sol Naciente",
+    "Lat": -33.470484,
+    "Long": -70.613325,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Blest Gana",
+    "Lat": -33.455283,
+    "Long": -70.567996,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Railén",
+    "Lat": -33.487733,
+    "Long": -70.608016,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Santa Julia",
+    "Lat": -33.480159,
+    "Long": -70.593132,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Leonor Oyarzun de Aylwin",
+    "Lat": -33.503289,
+    "Long": -70.587065,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Las Tías",
+    "Lat": -33.477567,
+    "Long": -70.570949,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Enanitos",
+    "Lat": -33.505387,
+    "Long": -70.567436,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Virgen María",
+    "Lat": -33.47764,
+    "Long": -70.526795,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Peñalolén",
+    "Lat": -33.472335,
+    "Long": -70.562439,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Rosa O'Higgins",
+    "Lat": -33.473562,
+    "Long": -70.542284,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "S.C. Montahue",
+    "Lat": -33.473161,
+    "Long": -70.562034,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "El Canelo",
+    "Lat": -33.4989,
+    "Long": -70.5741,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Esperanza",
+    "Lat": -33.479061,
+    "Long": -70.53374,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "S.C. Andaluhué",
+    "Lat": -33.469905,
+    "Long": -70.532438,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Eluney",
+    "Lat": -33.468724,
+    "Long": -70.544802,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Agualuna",
+    "Lat": -33.480269,
+    "Long": -70.570438,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "S.C. Los Avellanos",
+    "Lat": -33.484974,
+    "Long": -70.525923,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Espinos",
+    "Lat": -33.483916,
+    "Long": -70.525695,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "San Luis de Macul",
+    "Lat": -33.505939,
+    "Long": -70.584908,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "S.C. Quebrada de San Pedro",
+    "Lat": -33.475771,
+    "Long": -70.527322,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Osito Panda",
+    "Lat": -33.530717,
+    "Long": -70.5994,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Casita de Juguete",
+    "Lat": -33.511516,
+    "Long": -70.564155,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -33.512998,
+    "Long": -70.583797,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Navíos",
+    "Lat": -33.569431,
+    "Long": -70.610628,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Santa Teresa de La Florida",
+    "Lat": -33.516577,
+    "Long": -70.551876,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Uruguay",
+    "Lat": -33.535298,
+    "Long": -70.583631,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "S.C. Portales II",
+    "Lat": -33.559904,
+    "Long": -70.561974,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Aurora de Chile",
+    "Lat": -33.55153,
+    "Long": -70.599271,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Alerces",
+    "Lat": -33.492985,
+    "Long": -70.631201,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Berlioz",
+    "Lat": -33.511408,
+    "Long": -70.634701,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Infanta Leonor de España",
+    "Lat": -33.498639,
+    "Long": -70.625032,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "El Pinar",
+    "Lat": -33.492492,
+    "Long": -70.624099,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Mariano Puga",
+    "Lat": -33.488852,
+    "Long": -70.635461,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Santa Rosa-Departamental",
+    "Lat": -33.505974,
+    "Long": -70.638376,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Santiago Bueras",
+    "Lat": -33.515203,
+    "Long": -70.619711,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "San Gregorio",
+    "Lat": -33.533825,
+    "Long": -70.6149,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Yungay",
+    "Lat": -33.519363,
+    "Long": -70.61883,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Maitil",
+    "Lat": -33.532398,
+    "Long": -70.62581,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Tomé",
+    "Lat": -33.531522,
+    "Long": -70.616641,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "S.C. Coronel",
+    "Lat": -33.531307,
+    "Long": -70.616509,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Hunneus",
+    "Lat": -33.554604,
+    "Long": -70.630542,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Sofía Eastman",
+    "Lat": -33.556857,
+    "Long": -70.627749,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Planeta de Niños",
+    "Lat": -33.591608,
+    "Long": -70.624995,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Pablo de Rokha",
+    "Lat": -33.579706,
+    "Long": -70.652742,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Rosario Chacón de Prat",
+    "Lat": -33.586152,
+    "Long": -70.646098,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Santiago Nueva Extremadura",
+    "Lat": -33.588122,
+    "Long": -70.612948,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Juan Pablo II",
+    "Lat": -33.558745,
+    "Long": -70.635345,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Santo Tomás",
+    "Lat": -33.557616,
+    "Long": -70.618337,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Madre Teresa de Calcuta",
+    "Lat": -33.559358,
+    "Long": -70.61126,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Millantú",
+    "Lat": -33.563221,
+    "Long": -70.62484,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Kumelén",
+    "Lat": -33.558437,
+    "Long": -70.621002,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "S.C. Violeta Parra",
+    "Lat": -33.561023,
+    "Long": -70.646725,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "S.C. Semillita de Esperanza",
+    "Lat": -33.560731,
+    "Long": -70.613795,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Crisol",
+    "Lat": -33.556269,
+    "Long": -70.632304,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Inés de Suárez",
+    "Lat": -33.547517,
+    "Long": -70.64558,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Barceló Lira",
+    "Lat": -33.543918,
+    "Long": -70.637774,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Boldos",
+    "Lat": -33.511882,
+    "Long": -70.641115,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "San Nicolás",
+    "Lat": -33.497018,
+    "Long": -70.661071,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Cardenal Silva Henríquez",
+    "Lat": -33.535275,
+    "Long": -70.672108,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "S.C. La Cisterna Gran Avenida",
+    "Lat": -33.536604,
+    "Long": -70.661203,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Suyai",
+    "Lat": -33.5432,
+    "Long": -70.674039,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Huellitas",
+    "Lat": -33.54074,
+    "Long": -70.667038,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "María Luisa Bombal",
+    "Lat": -33.565787,
+    "Long": -70.671888,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "El Almendro II",
+    "Lat": -33.576536,
+    "Long": -70.673205,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Volcanes",
+    "Lat": -33.581839,
+    "Long": -70.67585,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Las Palmas",
+    "Lat": -33.553368,
+    "Long": -70.660522,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Paraíso de Niños",
+    "Lat": -33.57262,
+    "Long": -70.670695,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Las Palmas II",
+    "Lat": -33.553603,
+    "Long": -70.659816,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Raulíes",
+    "Lat": -33.565113,
+    "Long": -70.665961,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Renacer del Bosque",
+    "Lat": -33.574339,
+    "Long": -70.662868,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Vecinal Norte 3",
+    "Lat": -33.57962,
+    "Long": -70.668204,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Maitenes",
+    "Lat": -33.503946,
+    "Long": -70.670116,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Robles",
+    "Lat": -33.483477,
+    "Long": -70.678634,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Rebeca Izquierdo",
+    "Lat": -33.49174,
+    "Long": -70.687738,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Nueva Esperanza",
+    "Lat": -33.527799,
+    "Long": -70.699335,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Marcela Paz",
+    "Lat": -33.519754,
+    "Long": -70.691426,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Rayito de Luz",
+    "Lat": -33.511831,
+    "Long": -70.68938,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Rincón de Mis Sueños",
+    "Lat": -33.532872,
+    "Long": -70.69212,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Cordillera",
+    "Lat": -33.620161,
+    "Long": -70.591566,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Las Vizcachitas",
+    "Lat": -33.58311,
+    "Long": -70.60514,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Copihues Rojos",
+    "Lat": -33.602902,
+    "Long": -70.563109,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Juanita",
+    "Lat": -33.629938,
+    "Long": -70.609566,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Nocedal III",
+    "Lat": -33.627077,
+    "Long": -70.595132,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Peumayen",
+    "Lat": -33.580229,
+    "Long": -70.609167,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Carlos Aguirre Luco",
+    "Lat": -33.587984,
+    "Long": -70.577034,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Mussa",
+    "Lat": -33.614649,
+    "Long": -70.626316,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Los Cerezos",
+    "Lat": -33.624958,
+    "Long": -70.584308,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Centro Cívico",
+    "Lat": -33.626615,
+    "Long": -70.613709,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Villa Cerro Morado",
+    "Lat": -33.628027,
+    "Long": -70.624094,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Paula Jaraquemada",
+    "Lat": -33.643291,
+    "Long": -70.354811,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "San Alfonso",
+    "Lat": -33.728898,
+    "Long": -70.317785,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Pirquén",
+    "Lat": -33.677004,
+    "Long": -70.583002,
+    "REGION": 13
+  },
+  {
+    "NOMBRE": "Doctora Eloísa Díaz",
+    "Lat": -33.409996,
+    "Long": -70.657251,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Pequeños Tesoros",
+    "Lat": -33.414327,
+    "Long": -70.67185,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Gabriela Mistral",
+    "Lat": -33.379105,
+    "Long": -70.660169,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Sargento Candelaria",
+    "Lat": -33.363405,
+    "Long": -70.630885,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Entre Cerros",
+    "Lat": -33.360849,
+    "Long": -70.629096,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Bettemburgo",
+    "Lat": -33.371248,
+    "Long": -70.631816,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Javiera Carrera",
+    "Lat": -33.384265,
+    "Long": -70.644529,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Marta Ross de Edwards",
+    "Lat": -33.391217,
+    "Long": -70.654099,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -33.410319,
+    "Long": -70.632191,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Millaray",
+    "Lat": -33.382694,
+    "Long": -70.656829,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Rinconcito Feliz",
+    "Lat": -33.395182,
+    "Long": -70.655585,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Estación Multicolor",
+    "Lat": -33.459231,
+    "Long": -70.685757,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Tai-Tai",
+    "Lat": -33.475171,
+    "Long": -70.684016,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Amulen",
+    "Lat": -33.465396,
+    "Long": -70.709651,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Mi Mundo Feliz",
+    "Lat": -33.474796,
+    "Long": -70.715904,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Carolita",
+    "Lat": -33.502686,
+    "Long": -70.721988,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Bernardo O'Higgins",
+    "Lat": -33.518517,
+    "Long": -70.751252,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Los Peques",
+    "Lat": -33.514489,
+    "Long": -70.796968,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Patrona de Chile",
+    "Lat": -33.504753,
+    "Long": -70.772999,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Los Llanos de Maipú",
+    "Lat": -33.54843,
+    "Long": -70.76074,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Mäilén",
+    "Lat": -33.499887,
+    "Long": -70.761216,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Agua Luna",
+    "Lat": -33.436988,
+    "Long": -70.702521,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Antü Kuyën",
+    "Lat": -33.411996,
+    "Long": -70.712761,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "S.C. Janequeo",
+    "Lat": -33.428737,
+    "Long": -70.719273,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Santa Anita",
+    "Lat": -33.43914,
+    "Long": -70.720365,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Rinconcito Mágico",
+    "Lat": -33.433119,
+    "Long": -70.741435,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Rayito de Luna",
+    "Lat": -33.443224,
+    "Long": -70.764065,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Sagrada Familia I",
+    "Lat": -33.458662,
+    "Long": -70.760322,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Estrellitas de Barrancas",
+    "Lat": -33.455339,
+    "Long": -70.75106,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Gotitas de Amor",
+    "Lat": -33.420201,
+    "Long": -70.7552,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Los Angelitos",
+    "Lat": -33.425482,
+    "Long": -70.7317,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "El Carrusel",
+    "Lat": -33.414369,
+    "Long": -70.760083,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "San Jorge",
+    "Lat": -33.415002,
+    "Long": -70.736955,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Lomas del Prado",
+    "Lat": -33.420643,
+    "Long": -70.760253,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Pablo Neruda",
+    "Lat": -33.403703,
+    "Long": -70.701834,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Papelucho",
+    "Lat": -33.393296,
+    "Long": -70.697798,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "María Flora Yánez",
+    "Lat": -33.40317,
+    "Long": -70.727279,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Sonrisa de Ángeles",
+    "Lat": -33.40904,
+    "Long": -70.744062,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Valle de Azapa",
+    "Lat": -33.411034,
+    "Long": -70.740768,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Vicuña Mackenna",
+    "Lat": -33.405351,
+    "Long": -70.747934,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Rayén Mawunko",
+    "Lat": -33.400289,
+    "Long": -70.737221,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Arturo Pérez Canto",
+    "Lat": -33.370664,
+    "Long": -70.744994,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Cajita de Sorpresas",
+    "Lat": -33.368893,
+    "Long": -70.719368,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Rayén",
+    "Lat": -33.209806,
+    "Long": -70.675385,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Esperanza",
+    "Lat": -33.240059,
+    "Long": -70.735525,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Los Tres Ositos",
+    "Lat": -33.181997,
+    "Long": -70.6514,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Los Cachorritos",
+    "Lat": -33.263799,
+    "Long": -70.678101,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Mi Campito",
+    "Lat": -33.074577,
+    "Long": -70.716093,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Amanecer",
+    "Lat": -33.190198,
+    "Long": -70.666098,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Claudio Arrau II",
+    "Lat": -33.192677,
+    "Long": -70.666188,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Sonrisa de Miel",
+    "Lat": -33.204458,
+    "Long": -70.669319,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Los Aromos",
+    "Lat": -33.222102,
+    "Long": -70.6818,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Tremün Kiñerun",
+    "Lat": -33.184704,
+    "Long": -70.674296,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Irene Morales",
+    "Lat": -33.285502,
+    "Long": -70.873705,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Runa Kay",
+    "Lat": -33.229403,
+    "Long": -70.808014,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Tiramisú",
+    "Lat": -33.280268,
+    "Long": -70.88612,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Ayun Ayen",
+    "Lat": -33.279932,
+    "Long": -70.8887,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "S.C. El Pellín",
+    "Lat": -33.291372,
+    "Long": -70.879764,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Cantares de Til Til",
+    "Lat": -33.084644,
+    "Long": -70.922897,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "La Sonrisa",
+    "Lat": -33.022876,
+    "Long": -70.975582,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Mi Huertito Travieso",
+    "Lat": -33.136616,
+    "Long": -70.799103,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "S.C. Mis Primeros Pasitos",
+    "Lat": -33.087168,
+    "Long": -70.919941,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Las Semillitas",
+    "Lat": -33.590114,
+    "Long": -70.682087,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Mujeres de Chile",
+    "Lat": -33.589191,
+    "Long": -70.688966,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Angelmó",
+    "Lat": -33.599024,
+    "Long": -70.684739,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Belén",
+    "Lat": -33.587493,
+    "Long": -70.669893,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Tierra de Niños y Niñas",
+    "Lat": -33.595766,
+    "Long": -70.673619,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Nuevo San Bernardo",
+    "Lat": -33.594979,
+    "Long": -70.670501,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Las Hortensias",
+    "Lat": -33.599655,
+    "Long": -70.670127,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Rucamanque",
+    "Lat": -33.618091,
+    "Long": -70.690499,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Peumayén",
+    "Lat": -33.60144,
+    "Long": -70.701224,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "La Casita Mágica",
+    "Lat": -33.76283,
+    "Long": -70.736405,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Papa Juan Pablo II",
+    "Lat": -33.811839,
+    "Long": -70.860158,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Ribera Sur",
+    "Lat": -33.663868,
+    "Long": -70.663711,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Las Palmas",
+    "Lat": -33.732711,
+    "Long": -70.735766,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Granitos de Arena",
+    "Lat": -33.712249,
+    "Long": -70.739033,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Los Ositos",
+    "Lat": -33.863404,
+    "Long": -70.747205,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Paula Jaraquemada",
+    "Lat": -33.809543,
+    "Long": -70.735026,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "El Maitén",
+    "Lat": -33.608573,
+    "Long": -70.791353,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "El Refugio",
+    "Lat": -33.63168,
+    "Long": -70.761614,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Los Lobitos",
+    "Lat": -33.694956,
+    "Long": -71.22385,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Teniente Luis Cruz Martínez",
+    "Lat": -33.689084,
+    "Long": -71.221973,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Manitos de Greda",
+    "Lat": -33.647964,
+    "Long": -71.149705,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Antupillán",
+    "Lat": -33.682486,
+    "Long": -71.202921,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Pasitos de Colores",
+    "Lat": -33.68209,
+    "Long": -71.222732,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "San Enrique",
+    "Lat": -33.470497,
+    "Long": -71.115303,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Valle Escondido",
+    "Lat": -33.456964,
+    "Long": -71.094717,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Zapallín",
+    "Lat": -33.516099,
+    "Long": -71.118405,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "El Remolino Verde",
+    "Lat": -33.391908,
+    "Long": -71.125007,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Albalalhue",
+    "Lat": -34.035999,
+    "Long": -71.097596,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Los Pelluquitos",
+    "Lat": -33.894502,
+    "Long": -71.456802,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Villa España",
+    "Lat": -33.662842,
+    "Long": -70.933143,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Manuel Rodriguez",
+    "Lat": -33.652196,
+    "Long": -70.92781,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "El Castillo Dorado",
+    "Lat": -33.608435,
+    "Long": -70.87067,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Girasol",
+    "Lat": -33.613146,
+    "Long": -70.902394,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Rayito de Sol",
+    "Lat": -33.741396,
+    "Long": -70.863104,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "San Francisco del Monte",
+    "Lat": -33.676895,
+    "Long": -70.998052,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Padre Hurtado",
+    "Lat": -33.574179,
+    "Long": -70.814256,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "S.C. Ülkantun",
+    "Lat": -33.444344,
+    "Long": -70.670985,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Libertad",
+    "Lat": -33.428058,
+    "Long": -70.675567,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Dieciocho",
+    "Lat": -33.447972,
+    "Long": -70.658271,
+    "REGION": 14
+  },
+  {
+    "NOMBRE": "Santa Rosa",
+    "Lat": -18.478997,
+    "Long": -70.280269,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "Alborada",
+    "Lat": -18.434982,
+    "Long": -70.292118,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "San Miguel de Azapa",
+    "Lat": -18.520096,
+    "Long": -70.175797,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "Nueva Esperanza",
+    "Lat": -18.447441,
+    "Long": -70.293858,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "Milagro de Amor",
+    "Lat": -18.496822,
+    "Long": -70.303321,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "Pocon",
+    "Lat": -18.452871,
+    "Long": -70.070723,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "Sombrerito",
+    "Lat": -18.512557,
+    "Long": -70.265666,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "Pachamama",
+    "Lat": -18.198708,
+    "Long": -69.558798,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "Tacora",
+    "Lat": -17.594324,
+    "Long": -69.481862,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "Payachata",
+    "Lat": -17.900466,
+    "Long": -69.348236,
+    "REGION": 15
+  },
+  {
+    "NOMBRE": "El Canelito",
+    "Lat": -39.842701,
+    "Long": -73.217008,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Cuncunita",
+    "Lat": -39.80373,
+    "Long": -73.208924,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Esperanza",
+    "Lat": -39.834968,
+    "Long": -73.256075,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Papelucho",
+    "Lat": -39.814466,
+    "Long": -73.225228,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Ensueño",
+    "Lat": -39.844,
+    "Long": -73.228315,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Los Pingüinitos",
+    "Lat": -39.809242,
+    "Long": -73.253529,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Amanecer del Sol",
+    "Lat": -39.850241,
+    "Long": -73.224364,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Más Amigos",
+    "Lat": -39.807797,
+    "Long": -73.222145,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "El Principito",
+    "Lat": -39.848935,
+    "Long": -73.247733,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Luz de Los Ríos",
+    "Lat": -39.806238,
+    "Long": -73.220439,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Pequeña Misión de Jesús",
+    "Lat": -39.853224,
+    "Long": -73.231521,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "S.C. Dulce Bebé",
+    "Lat": -39.843883,
+    "Long": -73.216929,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Rinconcito Feliz",
+    "Lat": -39.852488,
+    "Long": -73.230648,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Aneley",
+    "Lat": -39.844855,
+    "Long": -73.21675,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Estrellita de Los Rios",
+    "Lat": -39.849434,
+    "Long": -73.254087,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Nube de Algodón",
+    "Lat": -39.847802,
+    "Long": -73.245903,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Sueños de Colores",
+    "Lat": -39.83599,
+    "Long": -73.207548,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Sonrisas de Colores",
+    "Lat": -39.828387,
+    "Long": -73.247578,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Naguilán",
+    "Lat": -39.887656,
+    "Long": -73.431578,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Nuevos Pasitos",
+    "Lat": -39.451121,
+    "Long": -72.76133,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Caminito de Luna",
+    "Lat": -39.53967,
+    "Long": -72.506943,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Mi Mundo de Alegría",
+    "Lat": -39.449861,
+    "Long": -72.765464,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Alihuen",
+    "Lat": -39.451895,
+    "Long": -72.772998,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Girasol",
+    "Lat": -39.867231,
+    "Long": -72.80901,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Pasitos del Futuro",
+    "Lat": -39.868178,
+    "Long": -72.804542,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Gotitas del Rio",
+    "Lat": -39.86008,
+    "Long": -72.818248,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Palomitas",
+    "Lat": -39.658676,
+    "Long": -72.950888,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "San José",
+    "Lat": -39.53686,
+    "Long": -72.96251,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Trinidad",
+    "Lat": -39.536233,
+    "Long": -72.953046,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Suyai",
+    "Lat": -39.538698,
+    "Long": -72.972634,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Antü Küyen",
+    "Lat": -39.540806,
+    "Long": -72.965042,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Paillaquito",
+    "Lat": -40.070919,
+    "Long": -72.86683,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Eluney",
+    "Lat": -40.069472,
+    "Long": -72.876766,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Violeta Parra",
+    "Lat": -40.066812,
+    "Long": -72.86997,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Fuente de Luz",
+    "Lat": -39.64567,
+    "Long": -72.343525,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Blanca Nieves",
+    "Lat": -40.309049,
+    "Long": -73.086262,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Manitos Contentas",
+    "Lat": -40.28225,
+    "Long": -73.075376,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Acogida",
+    "Lat": -40.30473,
+    "Long": -73.073156,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Los Grillitos",
+    "Lat": -40.123204,
+    "Long": -72.386122,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Huellitas del Ranco",
+    "Lat": -40.129331,
+    "Long": -72.390729,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Rucantu",
+    "Lat": -40.322254,
+    "Long": -72.480123,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -40.334648,
+    "Long": -72.967056,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Roja Flor",
+    "Lat": -40.336346,
+    "Long": -72.94456,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Pulgarcito",
+    "Lat": -40.337475,
+    "Long": -72.94086,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "Pintitas de Ayelén",
+    "Lat": -40.3378,
+    "Long": -72.951778,
+    "REGION": 16
+  },
+  {
+    "NOMBRE": "El Osito",
+    "Lat": -36.626045,
+    "Long": -72.093418,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "El Caracol",
+    "Lat": -36.626522,
+    "Long": -72.101014,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Colibrí",
+    "Lat": -36.613567,
+    "Long": -72.128797,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Las Mariposas",
+    "Lat": -36.627718,
+    "Long": -72.085873,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Rosita O'Higgins",
+    "Lat": -36.622027,
+    "Long": -72.099235,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Mi Casita",
+    "Lat": -36.626318,
+    "Long": -72.103667,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Los Volcanes",
+    "Lat": -36.621201,
+    "Long": -72.081763,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Roland Koch",
+    "Lat": -36.606437,
+    "Long": -72.077364,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Martín Ruiz de Gamboa",
+    "Lat": -36.614421,
+    "Long": -72.128854,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Central Chillan",
+    "Lat": -36.631233,
+    "Long": -72.089683,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Zañartu",
+    "Lat": -36.607077,
+    "Long": -72.133633,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Santa Rita",
+    "Lat": -36.593052,
+    "Long": -72.120814,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "O'Higgins 1145",
+    "Lat": -36.612249,
+    "Long": -72.111275,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "La Hormiguita",
+    "Lat": -36.744778,
+    "Long": -72.298389,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Arcoíris",
+    "Lat": -36.829841,
+    "Long": -72.338578,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Acuarela",
+    "Lat": -36.81959,
+    "Long": -72.326901,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Mis Pasitos",
+    "Lat": -36.63031,
+    "Long": -72.141492,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Angorita",
+    "Lat": -37.021679,
+    "Long": -71.847406,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "San Miguel",
+    "Lat": -36.870969,
+    "Long": -72.331678,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Girasol",
+    "Lat": -36.720353,
+    "Long": -71.848146,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Los Conejitos",
+    "Lat": -36.747259,
+    "Long": -72.473537,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Santa Inés",
+    "Lat": -36.79835,
+    "Long": -72.02569,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "RAYO DE LUNA",
+    "Lat": -37.120769,
+    "Long": -72.019795,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "VERDE AMANECER",
+    "Lat": -37.120578,
+    "Long": -72.010651,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Los Cariñositos",
+    "Lat": -36.279177,
+    "Long": -72.537912,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Vientos Mágicos",
+    "Lat": -36.281902,
+    "Long": -72.552959,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Papayito",
+    "Lat": -36.134647,
+    "Long": -72.794904,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Copihuito",
+    "Lat": -36.488463,
+    "Long": -72.707837,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Coelemu",
+    "Lat": -36.493251,
+    "Long": -72.702873,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "El Trigal",
+    "Lat": -36.395048,
+    "Long": -72.397812,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Tierra y Sol",
+    "Lat": -36.528024,
+    "Long": -72.426207,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Los Pinitos",
+    "Lat": -36.431407,
+    "Long": -72.665804,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Los Gorrioncitos",
+    "Lat": -36.471314,
+    "Long": -72.611116,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Membrillito",
+    "Lat": -36.471504,
+    "Long": -72.687294,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Gasparín",
+    "Lat": -36.518622,
+    "Long": -72.053527,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Irene Cerda Díaz",
+    "Lat": -36.625189,
+    "Long": -71.830417,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Mi Cabaña",
+    "Lat": -36.724462,
+    "Long": -71.822494,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Semillita",
+    "Lat": -36.608168,
+    "Long": -71.927622,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Blanca Nieves y Los 7 Enanitos",
+    "Lat": -36.630327,
+    "Long": -71.895566,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Minas del Prado",
+    "Lat": -36.667357,
+    "Long": -71.706761,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "El Camaroncito",
+    "Lat": -36.282696,
+    "Long": -71.817511,
+    "REGION": 17
+  },
+  {
+    "NOMBRE": "Pulgarcito",
+    "Lat": -36.556109,
+    "Long": -71.550299,
+    "REGION": 17
+  }
+]
