@@ -40,5 +40,10 @@
       "filePath": "src/app/components/view-home",
       "group": "Default"
     }
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#052647",
+    "titleBar.activeBackground": "#052647",
+    "titleBar.activeForeground": "#fff"
+  }
 }
