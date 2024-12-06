@@ -1,0 +1,6 @@
+button:disabled {
+  background-color: #d1d5db; /* Gris claro */
+  color: #9ca3af; /* Gris más oscuro */
+  cursor: not-allowed; /* Cursor de prohibido */
+  opacity: 0.6; /* Reducir opacidad */
+}

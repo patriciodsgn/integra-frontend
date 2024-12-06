@@ -1,8 +1,34 @@
 [
-    { "tipo": "Salas Cuna y Jardines Infantiles", "cantidad": 80 },
-    { "tipo": "Jardines Infantiles", "cantidad": 28 },
-    { "tipo": "Sala Cuna", "cantidad": 12 },
-    { "tipo": "Modalidad No Convencional", "cantidad": 80 },
-    { "tipo": "Establecimientos", "cantidad": 116 },
-    { "tipo": "Jardín Sobre Ruedas", "cantidad": 20 }
-  ]
+  {
+    "tipo": "Salas Cuna y Jardines Infantiles",
+    "cantidad": 80,
+    "tt_id":"tt1",
+    "tt_text": "datos: Salasssss Cuna y Jardines Infantiles"
+  },{
+    "tipo": "Jardines Infantiles",
+    "cantidad": 28,
+    "tt_id":"tt1",
+    "tt_text": "datos: Jardines Infantiles"
+  },{
+    "tipo": "Salas Cuna",
+    "cantidad": 12,
+    "tt_id":"tt1",
+    "tt_text": "datos: Salas Cuna"
+  },{
+    "tipo": "Modalidad No Convencional",
+    "cantidad": 80,
+    "tt_id":"tt1",
+    "tt_text": "datos: Modalidad No Convencional"
+  },{
+    "tipo": "Establecimientos",
+    "cantidad": 116,
+    "tt_id":"tt1",
+    "tt_text": "datos: Establecimientos"
+  },{
+    "tipo": "Jardines Sobre Ruedas",
+    "cantidad": 2,
+    "tt_id":"tt1",
+    "tt_text": "datos Jardín Sobre Rueda"
+  }
+]
+

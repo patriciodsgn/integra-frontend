@@ -23,9 +23,9 @@ export class PanelDpgrRoComponent implements OnInit{
 
 
     // chart 2
-    this.dpgrService.getTotalJardinesRO(ano, codigoRegion).subscribe({
+    this.dpgrService.getGraficoSelloVerde(ano, codigoRegion).subscribe({
       next: (res) => {        
-        console.log('\x1b[36m%s\x1b[0m', '----------------- getEstadisticasRO')
+        console.log('\x1b[36m%s\x1b[0m', '----------------- ok')
         console.log(res)
       },
       error: (err) => {
@@ -33,16 +33,18 @@ export class PanelDpgrRoComponent implements OnInit{
       },
     });
 
-    // chart 4
-    this.dpgrService.getConteoJardinesIntegra(codigoRegion).subscribe({
-      next: (res) => {        
-        console.log('\x1b[36m%s\x1b[0m', '----------------- getConteoJardinesIntegra')
-        console.log(res)
-      },
-      error: (err) => {
-        console.error('Error al cargar:', err);
-      },
-    });
+
+    // // chart 4
+    // this.dpgrService.getConteoJardinesIntegra(codigoRegion).subscribe({
+    //   next: (res) => {        
+    //     console.log('\x1b[36m%s\x1b[0m', '----------------- getConteoJardinesIntegra')
+    //     console.log(res)
+    //   },
+    //   error: (err) => {
+    //     console.error('Error al cargar:', err);
+    //   },
+    // });
+
 
 
   }

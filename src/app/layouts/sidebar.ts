@@ -8,11 +8,15 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faMapMarkerAlt, faUniversity, faBuilding, faBriefcase, faIndustry, faFile,faChartBar } from '@fortawesome/free-solid-svg-icons';
 
+import { ButtonStateService } from '../button-state.service';
+
 @Component({
   selector: 'sidebar',
   templateUrl: './sidebar.html',
 })
 export class SidebarComponent implements OnInit {
+  
+
   [x: string]: any;
   toggleSidebar() {
     throw new Error('Method not implemented.');
@@ -51,9 +55,14 @@ export class SidebarComponent implements OnInit {
   constructor(
     private authService: AuthService,
     public storeData: Store<any>,
-    private router: Router
+    private router: Router,
+    public buttonStateService: ButtonStateService
   ) {}
-
+  
+  clearGlobalState(): void {
+    this.buttonStateService.setActiveButton(null); // Borrar el estado global
+  }
+  
   ngOnInit() {
     this.initStore();
     this.loadSidebarData();
@@ -81,18 +90,41 @@ export class SidebarComponent implements OnInit {
             codigo: region.ValorCategoria || '',
           }));
 
-        // Filtrar las direcciones
-        this.directions = usuario.permisos
-          .filter((permiso: any) => permiso.TipoCategoria === 'DIRECCION')
+          this.directions = usuario.permisos
+          .filter((permiso: any) => 
+            permiso.TipoCategoria === 'DIRECCION' && // Verificar que sea una dirección
+            permiso.ValorCategoria.toLowerCase() !== 'ejecutiva' // Excluir "Ejecutiva"
+          )
           .map((direccion: any, index: number) => ({
             nombre: direccion.NombrePermiso || 'Dirección sin nombre',
-            codigo: direccion.ValorCategoria || '',
+            codigo: direccion.ValorCategoria.toLowerCase() || '',
             icon: this.icons[index % this.icons.length] // Asignar un ícono distinto a cada dirección
-          }));
+          }))
+          .sort((a: any, b: any) => {
+            // Orden personalizado
+            const customOrder = ['daft', 'dpgr', 'dppi', 'educacion', 'personas', 'costos'];
+            const indexA = customOrder.indexOf(a.codigo);
+            const indexB = customOrder.indexOf(b.codigo);
+        
+            // Si ambos están en el orden personalizado, compararlos
+            if (indexA !== -1 && indexB !== -1) {
+              return indexA - indexB;
+            }
+        
+            // Si uno está en el orden y el otro no, el que está en el orden va primero
+            if (indexA !== -1) return -1;
+            if (indexB !== -1) return 1;
+        
+            // Si ninguno está en el orden personalizado, mantener su orden original
+            return 0;
+          });
+        
+
+      
 
         this.isUserDataLoaded = true; // Indicar que los datos están cargados
-        console.log('Regiones procesadas:', this.regions);
-        console.log('Direcciones procesadas:', this.directions);
+        // console.log('Regiones procesadas:', this.regions);
+        // console.log('Direcciones procesadas:', this.directions);
       } else {
         console.error('No se encontraron permisos para regiones o direcciones.');
         this.regions = [];
@@ -112,13 +144,13 @@ export class SidebarComponent implements OnInit {
   getDirectionLink(direccion: any): string {
     const category = direccion.codigo?.toLowerCase();
     const routeMap: { [key: string]: string } = {
-      'educacion': '/educacion',
-      'ejecutiva': '/ejecutiva',
-      'dppi': '/dppi',
-      'dpgr': '/dpgr',
       'daft': '/daft',
+      'dpgr': '/dpgr',
+      'dppi': '/dppi',
+      'educacion': '/educacion',
       'personas': '/personas',
       'costos': '/costos',
+      // 'ejecutiva': '/ejecutiva',
     };
   
     return routeMap[category] || `/direccion/${direccion.codigo}`;

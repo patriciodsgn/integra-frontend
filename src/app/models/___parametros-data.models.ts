@@ -34,38 +34,3 @@ export interface RespuestaAPI<T> {
     data?: T;               // Datos devueltos por el servidor
     count?: number;         // Número de registros devueltos
 }
-
-// models/parametros-data.model.ts
-
-export interface ApiResponse<T> {
-    success: boolean;
-    data?: T;
-    count?: number;
-    message?: string;
-    error?: string;
-}
-
-export interface DireccionParams {
-    CodigoDireccion?: number;
-    TipoDireccion?: string;
-}
-
-export interface SubRubroParams {
-    Rubro: string;
-}
-
-
-
-export interface SubRubro {
-    Codigo: string;
-    Nombre: string;
-    RubroPadre: string;
-    // Agrega más campos según tu SP
-}
-
-export interface Rubro {
-    Codigo: string;
-    Nombre: string;
-    SubRubros?: SubRubro[];
-    // Agrega más campos según tu SP
-}

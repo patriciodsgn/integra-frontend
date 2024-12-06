@@ -3,60 +3,55 @@
   <p class="text-slate-900 text-sm">Datos Estratégicos / Dirección Central</p>
 </div>
 
+
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-4 bg-cyan-100">
-  <div class="p-6 rounded-lg shadow-md text-center bg-white">
-    <h2 class="text-2xl font-bold">1.200</h2>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white group">
+    <h2 class="text-2xl font-bold"> {{ v1 }} </h2>
     <p class="font-semibold mt-2">Jardines</p>
+    <span id="tooltip1" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Total de jardines de infancia registrados.</span>
   </div>
-  <div class="p-6 rounded-lg shadow-md text-center bg-white">
-    <h2 class="text-2xl font-bold">80.000</h2>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white group">
+    <h2 class="text-2xl font-bold"> {{ v2 }} </h2>
     <p class="font-semibold mt-2">Matrícula Nacional</p>
+    <span id="tooltip2" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Total de niñas y niños matriculados a nivel nacional.</span>
   </div>
-  <div class="p-6 rounded-lg shadow-md text-center bg-white">
-    <h2 class="text-2xl font-bold">10.000</h2>
-    <p class="font-semibold mt-2"># de niñas y niños pertenecientes a pueblos originarios</p>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white group">
+    <h2 class="text-2xl font-bold"> {{ v3 }} </h2>
+    <p class="font-semibold mt-2">Nº de Niñas y Niños Pertenecientes a Pueblos Originarios</p>
+    <span id="tooltip3" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Número de niñas y niños con origen en pueblos indígenas.</span>
   </div>
-  <div class="p-6 rounded-lg shadow-md text-center bg-white">
-    <h2 class="text-2xl font-bold">5.297</h2>
-    <p class="font-semibold mt-2"># de niñas y niños con nacionalidad extranjera</p>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white group">
+    <h2 class="text-2xl font-bold"> {{ v4 }} </h2>
+    <p class="font-semibold mt-2">Nº de Niñas y Niños con Nacionalidad Extranjera</p>
+    <span id="tooltip4" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Número de niñas y niños con ciudadanía extranjera.</span>
   </div>
-  <div class="p-6 rounded-lg shadow-md text-center bg-white">
-    <h2 class="text-2xl font-bold">500</h2>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white group">
+    <h2 class="text-2xl font-bold"> {{ v5 }} </h2>
     <p class="font-semibold mt-2">Establecimientos con Reconocimiento Oficial</p>
+    <span id="tooltip5" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Total de establecimientos educativos con reconocimiento oficial.</span>
   </div>
-  <div class="p-6 rounded-lg shadow-md text-center bg-white">
-    <h2 class="text-2xl font-bold">400</h2>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white group">
+    <h2 class="text-2xl font-bold"> {{ v6 }} </h2>
     <p class="font-semibold mt-2">Establecimientos con Sellos Verdes</p>
+    <span id="tooltip6" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Total de establecimientos educativos con certificación Sello Verde.</span>
   </div>
 </div>
 
 
 <router-outlet></router-outlet>
 
-<app-elem-button-grid
-  [button_data]="buttons"
-  [activeIndex]="activeButtonIndex"
-  (selectButton)="selectButton($event)"
-></app-elem-button-grid>
-<!-- <app-elem-header
-  [htitle]="'Dirección DPGR'"
-  [hsubtitle]="'SUB Titulo header'">
-</app-elem-header>
-
-
-<app-elem-note1
-  [note]="'Las siguientes tarjetas se irán habilitando
-  progresivamente a medida que se implemente
-  el gobierno de datos de la dirección.
-  Por ahora, solo están disponibles las tarjetas de NEE y ATET.'">
-</app-elem-note1>
-
-
-<app-elem-bar1 
-  [title]="'Dashboard de Datos'" 
-  [subtitle]="'Gestión de Datos Estratégicos / Casa Central'">
-</app-elem-bar1>
-
-
-<app-elem-button-grid [buttons]="buttons"></app-elem-button-grid>
- -->
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 dev1">
+  <app-elem-button
+    *ngFor="let button of buttons; let i = index"
+    (click)="onButtonClick(i)"
+    [eb_icon]="button.eb_icon"
+    [eb_title]="button.eb_title"
+    [eb_subtitle]="button.eb_subtitle"
+    [eb_disable]="button.eb_disable"
+    [eb_bg_color]="button.eb_bg_color"
+    [eb_text_color]="button.eb_text_color"
+    [eb_link]="button.eb_link"
+    [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
+    [class.selected-button]="activeButtonIndex === i"
+  ></app-elem-button>
+</div>

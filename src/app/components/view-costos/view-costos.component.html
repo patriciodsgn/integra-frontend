@@ -1,30 +1,56 @@
-<!-- <app-elem-header
-  [eh_title]="title"
-  [eh_subtitle]="subtitle"
-  [eh_bg_color]="headerBgColor"
-  [eh_text_color]="headerTextColor"
-></app-elem-header>
- -->
-
-<!-- <app-elem-header
-  [htitle]="'Dirección de Costos'"
-  [hsubtitle]="'SUB Titulo header'">
-</app-elem-header>
+<div class="flex flex-col items-start p-6 dev1 bg-yellow-300">
+  <h1 class="text-2xl font-bold text-slate-900">Dashboard Costos</h1>
+  <p class="text-slate-900 text-sm">Datos Estratégicos / Dirección Central</p>
+</div>
 
 
-<app-elem-note1
-  [note]="'Las siguientes tarjetas se irán habilitando
-  progresivamente a medida que se implemente
-  el gobierno de datos de la dirección.
-  Por ahora, solo están disponibles las tarjetas de NEE y ATET.'">
-</app-elem-note1>
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 p-4 bg-yellow-300">
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white group">
+    <h2 class="text-2xl font-bold text-gray-700"> - </h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Costo Matrícula</p>
+    <span id="tooltip1" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Costo total asociado a matrículas</span>
+  </div>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white group">
+    <h2 class="text-2xl font-bold text-gray-700"> - </h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Rotación</p>
+    <span id="tooltip2" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Porcentaje de rotación en el último trimestre</span>
+  </div>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white opacity-40 group">
+    <h2 class="text-2xl font-bold text-gray-700"> - </h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Costo Jardines</p>
+    <!-- <span id="tooltip3" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Costo total asociado a jardines infantiles</span> -->
+  </div>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white opacity-40 group">
+    <h2 class="text-2xl font-bold text-gray-700"> - </h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Costo Transporte</p>
+    <!-- <span id="tooltip4" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Costo total relacionado con el transporte escolar</span> -->
+  </div>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white opacity-40 group">
+    <h2 class="text-2xl font-bold text-gray-700"> - </h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Costo Materiales</p>
+    <!-- <span id="tooltip5" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Gastos totales en materiales educativos</span> -->
+  </div>
+  <div class="relative p-6 rounded-lg shadow-md text-center bg-white opacity-40 group">
+    <h2 class="text-2xl font-bold text-gray-700"> - </h2>
+    <p class="font-semibold mt-2 text-gray-600">Total Costo Alimentación</p>
+    <!-- <span id="tooltip5" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Gastos totales en alimentación de los estudiantes</span> -->
+  </div>
+</div>
 
+<router-outlet></router-outlet>
 
-<app-elem-bar1 
-  [title]="'Dashboard de Datos'" 
-  [subtitle]="'Gestión de Datos Estratégicos / Casa Central'">
-</app-elem-bar1>
-
-
-<app-elem-button-grid [buttons]="buttons"></app-elem-button-grid>
- -->
+<div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 dev1">
+  <app-elem-button
+    *ngFor="let button of buttons; let i = index"
+    (click)="onButtonClick(i)"
+    [eb_icon]="button.eb_icon"
+    [eb_title]="button.eb_title"
+    [eb_subtitle]="button.eb_subtitle"
+    [eb_disable]="button.eb_disable"
+    [eb_bg_color]="button.eb_bg_color"
+    [eb_text_color]="button.eb_text_color"
+    [eb_link]="button.eb_link"
+    [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
+    [class.selected-button]="activeButtonIndex === i"
+  ></app-elem-button>
+</div>
