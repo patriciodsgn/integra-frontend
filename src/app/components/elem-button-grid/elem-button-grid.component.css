@@ -1,0 +1,7 @@
+.disabled-button {
+  pointer-events: none;
+  opacity: 0.5; 
+  filter: grayscale(100%);
+  background-color: #d3d3d3 !important;
+  color: #a9a9a9 !important;
+}

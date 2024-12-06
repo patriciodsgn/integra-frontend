@@ -1,19 +1,14 @@
 import { Injectable, signal } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable({ providedIn: 'root' })
 export class ButtonStateService {
-  // Signal para el índice del botón activo
-  activeButton = signal<number | null>(null);
+  private activeButtonIndex = signal<number | null>(null); // Usa signals de Angular 18
 
-  // Método para establecer el botón activo
-  setActiveButton(index: number) {
-    this.activeButton.set(index);
+  setActiveButton(index: number | null): void {
+    this.activeButtonIndex.set(index);
   }
 
-  // Método para resetear el botón activo
-  resetActiveButton() {
-    this.activeButton.set(null);
+  activeButton(): number | null {
+    return this.activeButtonIndex();
   }
 }

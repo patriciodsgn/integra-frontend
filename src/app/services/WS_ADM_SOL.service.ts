@@ -31,24 +31,24 @@ export class WS_ADM_SOLService {
       'SOAPAction': ''
     });
 
-console.log('SOAP Envelope:', soapEnvelope);
-console.log('Headers:', headers);
+// console.log('SOAP Envelope:', soapEnvelope);
+// console.log('Headers:', headers);
     return this.http.post(this.api, soapEnvelope, {
       headers,
       responseType: 'text'
     }).pipe(
       tap((response: string) => {
-        console.log('SOAP Response:', response);
+        // console.log('SOAP Response:', response);
         // Add additional logging to track SOLMAS values
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(response, 'text/xml');
         const solmasElement = xmlDoc.getElementsByTagName('SOLMAS')[0];
         if(solmasElement) {
-          console.log('SOLMAS value:', solmasElement.textContent);
+          // console.log('SOLMAS value:', solmasElement.textContent);
         }
       }),
       catchError((error) => {
-        console.error('SOAP Error:', error);
+        // console.error('SOAP Error:', error);
         return throwError(() => error);
       })
     );

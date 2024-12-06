@@ -27,4 +27,6 @@ export class ElemButtonComponent {
     }
     this.router.navigate([this.eb_link]);
   }
+
+  
 }

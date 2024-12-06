@@ -1,69 +1,64 @@
-// Modelo base para el presupuesto
-export interface PresupuestoData {
-    Ano: number; // Año obligatorio
-    NombreDireccion?: string; // Nombre de la Dirección (opcional)
-    Rubro?: string; // Rubro (opcional)
-    SubRubro?: string; // SubRubro (opcional)
-    CodigoCentroGestor?: string; // Código del Centro Gestor (opcional)
+// models/presupuesto-data.model.ts
+
+export interface PresupuestoParams {
+    ano: number;
+    nombreDireccion?: string;
+    rubro?: string;
+    subRubro?: string;
+    codigoCentroGestor?: string;
+    codigoDireccion?: string;
 }
 
-// Modelo para datos de las tarjetas
-export interface DatosTarjetas {
-    CodigoCentroGestor: string;
-    NombreCentroGestor: string;
-    Direccion: string;
-    PresupuestoVigente: number;
-    PresupuestoComprometido: number;
-    GastosEjecutados: number;
-    SaldoPorGastar: number;
-    PorcentajeEjecucion: number;
+export interface ApiResponse<T> {
+    success: boolean;
+    data?: T;
+    count?: number;
+    message?: string;
+    error?: string;
 }
 
-// Modelo para flujo de saldo
+export interface DatosTarjeta {
+    // Define los campos según la respuesta de tu SP
+    id: number;
+    nombre: string;
+    valor: number;
+}
+
 export interface FlujoSaldo {
-    SaldoPorEjecutar: number;
-    TotalEjecutado: number;
-    LimiteMaximo: number;
+    montoTotal: number;
+    saldoPendiente: number;
 }
 
-// Modelo para gastos ejecutados vs saldo por gastar
-export interface GastosVsSaldo {
-    Direccion: string;
-    GastosEjecutados: number;
-    SaldoPorGastar: number;
+export interface GastosSaldo {
+    gastosEjecutados: number;
+    saldoPorGastar: number;
 }
 
-// Modelo para porcentaje de ejecución vs saldo
-export interface PorcentajeEjecucionVsSaldo {
-    Direccion: string;
-    GastosEjecutados: number;
-    SaldoPorGastar: number;
-    PorcentajeEjecucion: number;
-    PorcentajeSaldo: number;
+export interface PorcentajeEjecucion {
+    porcentajeEjecutado: number;
+    porcentajeSaldo: number;
 }
 
-// Modelo para presupuesto comprometido vs ejecutado
-export interface PresupuestoComprometidoVsEjecutado {
-    Direccion: string;
-    PresupuestoComprometido: number;
-    GastosEjecutados: number;
+export interface PresupuestoComprometido {
+    presupuestoComprometido: number;
+    presupuestoEjecutado: number;
 }
 
-// Modelo para presupuesto vigente vs ejecutado
-export interface PresupuestoVsEjecutado {
-    Direccion: string;
-    PresupuestoVigente: number;
-    MontoEjecutado: number;
+export interface PresupuestoEjecutado {
+    presupuesto: number;
+    ejecutado: number;
 }
 
-// Modelo para presupuesto vs gastos
-export interface PresupuestoVsGastos {
-    Direccion: string;
-    PresupuestoVigente: number;
-    GastosEjecutados: number;
+export interface PresupuestoGastos {
+    presupuesto: number;
+    gastos: number;
 }
 
-// Modelo para obtener años de ejecución presupuestaria
+export interface PresupuestoVigente {
+    presupuestoVigente: number;
+    ejecutado: number;
+}
+
 export interface AnioEjecucion {
     Ano: number;
 }

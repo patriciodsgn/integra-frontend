@@ -8,8 +8,8 @@ export interface DetalleAccidente {
 }
 
 export interface ResumenAccidentes {
-    totalAccidentesNacional: number;
-    totalNinosAfectadosNacional: number;
+    TotalAccidentesNacional: number;
+    TotalNinosAfectadosNacional: number;
 }
 
 export interface AccidentesResponse {

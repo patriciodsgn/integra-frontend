@@ -74,7 +74,7 @@ export class ViewLoginComponent {
             region: region
           };
 
-          console.log('UserData a guardar:', userData);
+          // console.log('UserData a guardar:', userData);
           localStorage.setItem('userData', JSON.stringify(userData));
 
           this.navigateByAccessLevel(userData.nivelAcceso, userData.region);
@@ -89,36 +89,36 @@ export class ViewLoginComponent {
 }
 
 private navigateByAccessLevel(nivelAcceso: string, region: Region) {
-  console.log('NavigateByAccessLevel recibió:', {
-    nivelAcceso,
-    tipoNivelAcceso: typeof nivelAcceso,
-    region
-  });
+  // console.log('NavigateByAccessLevel recibió:', {
+  //   nivelAcceso,
+  //   tipoNivelAcceso: typeof nivelAcceso,
+  //   region
+  // });
 
   // Almacenar nivelAcceso y region en localStorage
   localStorage.setItem('nivelAcceso', nivelAcceso);
   localStorage.setItem('regionSeleccionada', JSON.stringify(region));
 
   // Mostrar datos almacenados
-  console.log('Datos guardados en localStorage:', {
-    nivelAcceso: localStorage.getItem('nivelAcceso'),
-    regionSeleccionada: JSON.parse(localStorage.getItem('regionSeleccionada') || '{}'),
-    datosCompletos: {
-      localStorage: {
-        nivelAcceso: localStorage.getItem('nivelAcceso'),
-        regionSeleccionada: JSON.parse(localStorage.getItem('regionSeleccionada') || '{}'),
-        userData: JSON.parse(localStorage.getItem('userData') || '{}')
-      }
-    }
-  });
+  // console.log('Datos guardados en localStorage:', {
+  //   nivelAcceso: localStorage.getItem('nivelAcceso'),
+  //   regionSeleccionada: JSON.parse(localStorage.getItem('regionSeleccionada') || '{}'),
+  //   datosCompletos: {
+  //     localStorage: {
+  //       nivelAcceso: localStorage.getItem('nivelAcceso'),
+  //       regionSeleccionada: JSON.parse(localStorage.getItem('regionSeleccionada') || '{}'),
+  //       userData: JSON.parse(localStorage.getItem('userData') || '{}')
+  //     }
+  //   }
+  // });
 
   switch (nivelAcceso.toLowerCase()) {
     case 'nacional': 
-      console.log('Caso Nacional - Navegando a dashboard inicial');
+      // console.log('Caso Nacional - Navegando a dashboard inicial');
       this.router.navigate(['/custom-dashboard-inicial']);
       break;
     case 'regional':
-      console.log('Caso Regional - Navegando a dashboard regional');
+      // console.log('Caso Regional - Navegando a dashboard regional');
       this.router.navigate(['/region', region.CodigoRegion], {
         queryParams: { 
           regionName: region.NombreRegion

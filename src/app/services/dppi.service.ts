@@ -13,11 +13,11 @@ import {
 @Injectable({
     providedIn: 'root'
 })
-export class DpgrService {
+export class DppiService {
     private baseUrl = `${environmentdb.apidb}/dppi`;
 
     constructor(private http: HttpClient) {
-        console.log('DpgrService inicializado con URL:', this.baseUrl);
+        console.log('DppiService inicializado con URL:', this.baseUrl);
     }
 
     // Service

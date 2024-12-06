@@ -1,3 +1,4 @@
+import { inject } from '@angular/core';
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import * as Highcharts from 'highcharts/highmaps';
 import MapModule from 'highcharts/modules/map';
@@ -21,16 +22,82 @@ import Highcharts3D from 'highcharts/highcharts-3d';
 import { DataService } from 'src/app/services/data.service';
 import { DashboardStateService } from '../../core/services/dashboard-state.service';
 import { SeriesOptionsType } from 'highcharts';
+
+import { ElemButtonComponent } from '../elem-button/elem-button.component';
+
+import { RouterModule } from '@angular/router';
+import { ButtonStateService } from '../../button-state.service';
+
 MapModule(Highcharts);
 HighchartsMore(Highcharts);
 Exporting(Highcharts);
 Highcharts3D(Highcharts);
+
+interface ButtonData {
+  eb_icon: string;
+  eb_title: string;
+  eb_subtitle: string;
+  eb_disable: boolean;
+  eb_bg_color: string;
+  eb_text_color: string;
+  eb_link: string;
+}
+
+
 @Component({
   selector: 'app-custom-dashboard-inicial',
   templateUrl: './custom-dashboard-inicial.component.html',
   styleUrls: ['./custom-dashboard-inicial.component.css']
 })
 export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
+
+  public buttonStateService = inject(ButtonStateService);
+
+  buttons1: ButtonData[] = [
+    { eb_icon: 'bar_chart', eb_title: 'Ejecución Presupuestaria', eb_subtitle: 'Presupuesto Total', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/daft/ejecucion_presupuestaria' },
+    { eb_icon: 'account_balance_wallet', eb_title: 'Saldo por Ejecutar', eb_subtitle: 'Presupuesto Restante', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/daft/saldo_por_ejecutar' },
+    { eb_icon: 'savings', eb_title: 'Presupuesto Comprometido', eb_subtitle: 'Fondos Reservados', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
+    { eb_icon: 'percent', eb_title: 'Porcentaje de Ejecución', eb_subtitle: 'Progreso Financiero', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
+  ];
+
+  buttons2: ButtonData[] = [
+    { eb_icon: 'favorite', eb_title: 'RO', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/ro' },
+    { eb_icon: 'eco', eb_title: 'Sello Verde', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/sello_verde' },
+    { eb_icon: 'groups', eb_title: 'Pueblos Originarios', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/pueblos_originarios' },
+    { eb_icon: 'public', eb_title: 'Nacionalidad', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/nacionalidad' },
+  ];
+
+
+
+  buttons3: ButtonData[] = [
+    { eb_icon: 'local_hospital', eb_title: 'Accidentes', eb_subtitle: '', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dppi/accidentes' },
+    { eb_icon: 'restaurant', eb_title: 'Situación Nutricional', eb_subtitle: '', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dppi/situacion_nutricional' },
+    { eb_icon: 'child_care', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
+    { eb_icon: 'emergency', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
+  ];
+
+  buttons4: ButtonData[] = [
+    { eb_icon: 'school', eb_title: 'NEE', eb_subtitle: 'Ejemplo', eb_disable: false , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/educacion/nee'},
+    { eb_icon: 'person', eb_title: 'ATET', eb_subtitle: 'Ejemplo', eb_disable: false , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/educacion/atet'},
+    { eb_icon: 'family_restroom', eb_title: 'Familias', eb_subtitle: 'Data disponible 2025', eb_disable: true , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/'},
+    { eb_icon: 'analytics', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/'},
+  ];
+
+
+  buttons5: ButtonData[] = [
+    { eb_icon: 'sync_alt', eb_title: 'Rotación', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/rotacion' },
+    { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/permanencia' },
+    { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/ausentismo' },
+    { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/planta_contratada' },
+  ];
+  
+  buttons6: ButtonData[] = [
+    { eb_icon: 'trending_up', eb_title: 'Evolución', eb_subtitle: 'Costos Matrícula', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/evolucion' },
+    // { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
+    // { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
+    // { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
+  ];
+
   @ViewChild('mapContainer', { static: true }) mapContainer!: ElementRef;
 
   // Propiedades Highcharts
@@ -132,12 +199,12 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
     }]
   };
   public tarjetasSuperiores = [
-    { titulo: 'Salas Cuna y Jardines Infantiles', valor: 0, icon: faChild, iconClass: 'class-name-1' },
-    { titulo: 'Jardines Infantiles', valor: 0, icon: faChild, iconClass: 'class-name-2' },
-    { titulo: 'Sala Cuna', valor: 0, icon: faBed, iconClass: 'class-name-3' },
-    { titulo: 'Modalidad No Convencional', valor: 0, icon: faBaby, iconClass: 'class-name-4' },
-    { titulo: 'Establecimientos', valor: 0, icon: faPeopleRoof, iconClass: 'class-name-5' },
-    { titulo: 'Jardín Sobre Ruedas', valor: 0, icon: faBus, iconClass: 'class-name-6' }
+    { titulo: 'Salasssss Cuna y Jardines Infantiles', valor: 0, icon: faChild, iconClass: 'class-name-1', tt_id:'tt1', tt_text: 'datos: Salasssss Cuna y Jardines Infantiles' },
+    { titulo: 'Jardines Infantiles', valor: 0, icon: faChild, iconClass: 'class-name-2', tt_id:'tt1', tt_text: 'datos: Jardines Infantiles' },
+    { titulo: 'Salas Cuna', valor: 0, icon: faBed, iconClass: 'class-name-3', tt_id:'tt1', tt_text: 'datos: Salas Cuna' },
+    { titulo: 'Modalidad No Convencional', valor: 0, icon: faBaby, iconClass: 'class-name-4', tt_id:'tt1', tt_text: 'datos: Modalidad No Convencional' },
+    { titulo: 'Establecimientos', valor: 0, icon: faPeopleRoof, iconClass: 'class-name-5', tt_id:'tt1', tt_text: 'datos: Establecimientos' },
+    { titulo: 'Jardín Sobre Ruedas', valor: 0, icon: faBus, iconClass: 'class-name-6', tt_id:'tt1', tt_text: 'datos Jardín Sobre Ruedas' }
   ];
   public tarjetasInferiores = [
     { titulo: 'Alimentación y Salud: Situación Nutricional', icon: faChild, valor: 50, iconClass: 'class-name-7' },
@@ -182,12 +249,23 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
     });
   }
 
+
+  get activeButtonIndex(): number | null {
+    return this.buttonStateService.activeButton();
+  }
+
+  onButtonClick(index: number): void {
+    this.buttonStateService.setActiveButton(index); // Cambia el botón activo
+    // console.log(`Botón seleccionado: ${this.buttons1[index].eb_title}`);
+  }
+
+
   ngOnInit(): void {
     this.dashboardState.initializeNationalView();
     // Mostrar valores iniciales
-    console.log('=== VALORES INICIALES ===');
-    console.log('Región:', this.dashboardState.selectedRegion);
-    console.log('Vista Nacional:', this.dashboardState.vistaNacional);
+    // console.log('=== VALORES INICIALES ===');
+    // console.log('Región:', this.dashboardState.selectedRegion);
+    // console.log('Vista Nacional:', this.dashboardState.vistaNacional);
 
     this.loadEjecucionPresupuestaria();
     this.loadPresupuestoResumen();
@@ -204,7 +282,7 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
   private loadEjecucionPresupuestaria(): void {
     this.dataSubscriptionEp = this.dataService.getEjecucionPresupuestaria().subscribe((response) => {
       this.ejecucionData = response["getePHomeNacional1"];
-      console.log("Datos de Ejecución Presupuestaria:", this.ejecucionData);
+      // console.log("Datos de Ejecución Presupuestaria:", this.ejecucionData);
 
       this.totalEjecutado = this.ejecucionData.reduce((sum: number, item: any) => sum + item.total_ejecutado, 0);
       this.totalVigente = this.ejecucionData.reduce((sum: number, item: any) => sum + item.total_Vigente, 0);
@@ -218,7 +296,7 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
       const resumenData = response["getePHomeNacional2"][0];
       this.gastosEjecutados = resumenData.gastos_ejecutados;
       this.saldoPorGastar = resumenData.saldo_por_gastar;
-      console.log("**this.dataSubscriptionEp ", this.dataSubscriptionEp )
+      // console.log("**this.dataSubscriptionEp ", this.dataSubscriptionEp )
       this.initializeCharts();
     });
   }
@@ -241,6 +319,8 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
   
   loadTarjetasSuperiores() {
     this.tarjetasSuperiores = tarjetasSuperioresData.map(item => ({
+      tt_id: item.tt_id,
+      tt_text: item.tt_text,
       titulo: item.tipo,
       valor: item.cantidad,
       icon: this.getIconForTipo(item.tipo),
@@ -253,7 +333,7 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
       case 'Salas Cuna y Jardines Infantiles':
       case 'Jardines Infantiles':
         return faChild;
-      case 'Sala Cuna':
+      case 'Salas Cuna':
         return faBed;
       case 'Modalidad No Convencional':
         return faBaby;
@@ -267,7 +347,7 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
   }
 
   private initializeCharts(): void {
-    console.log("Configurando gráficos con los datos:", this.ejecucionData);
+    // console.log("Configurando gráficos con los datos:", this.ejecucionData);
   
     const maxValue = Math.max(
       ...this.ejecucionData.map((item: any) => item.total_Vigente),
@@ -595,7 +675,7 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
         name: feature.properties['name']
       };
     });
-    console.table(regionTable);
+    // console.table(regionTable);
   }
 
   fetchAllData(initialPMASREG: string) {
@@ -634,7 +714,7 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
 
   // Método para actualizar el mapa cuando cambia la región
   updateMap(regionId: number) {
-    console.log('Actualizando región:', regionId);
+    // console.log('Actualizando región:', regionId);
     // Actualizar la región seleccionada en el servicio compartido
     const regionName = this.getRegionNameById(regionId);
     this.sharedDataService.updateRegionSeleccionada(regionName);
@@ -689,7 +769,13 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
 
 @NgModule({
   declarations: [CustomDashboardInicialComponent],
-  imports: [CommonModule, FontAwesomeModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    FontAwesomeModule,
+    HttpClientModule,
+    RouterModule,
+    ElemButtonComponent
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CustomDashboardInicialModule {}

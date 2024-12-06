@@ -105,10 +105,17 @@ export const routes: Routes = [
                     {path: 'pueblos_originarios', loadComponent: () => import('./components/panel-dpgr-pueblos_originarios/panel-dpgr-pueblos_originarios.component').then( (m) => m.PanelDpgrPueblos_originariosComponent),},
                     {path: 'nacionalidad', loadComponent: () =>import('./components/panel-dpgr-nacionalidad/panel-dpgr-nacionalidad.component').then( (m) => m.PanelDpgrNacionalidadComponent),},
                 ],
+            },{
+                path: 'costos',
+                component: ViewCostosComponent,
+                children: [
+                    {path: 'evolucion', loadComponent: () =>import('./components/panel-costos-evolucion/panel-costos-evolucion.component').then( (m) => m.PanelCostosEvolucionComponent),},
+                ]
             },
-            
+
+
+
             { path: 'ejecutiva', component: ViewEjecutivaComponent },
-            { path: 'costos', component: ViewCostosComponent },
 
             // widgets
             { path: 'widgets', component: WidgetsComponent, data: { title: 'Widgets' } },

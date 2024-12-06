@@ -103,8 +103,8 @@ export class SharedDataService {
           this.updateRawWsdlData(updatedRawData);
 
           // Mostrar en consola el resultado completo
-          console.log('Datos completos del servicio WSDL:', updatedRawData);
-          console.log('Cantidad de jardines por región y comuna:');
+          // console.log('Datos completos del servicio WSDL:', updatedRawData);
+          // console.log('Cantidad de jardines por región y comuna:');
           this.printResumenJardinesPorRegionYComuna();
         }
       } catch (error) {
@@ -192,7 +192,7 @@ export class SharedDataService {
       }
     }
 
-    console.table(resumen);
+    // console.table(resumen);
   }
 
   public normalizeRegionName(regionName: string): string {
