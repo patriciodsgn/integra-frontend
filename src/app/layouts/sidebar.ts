@@ -92,8 +92,9 @@ export class SidebarComponent implements OnInit {
 
           this.directions = usuario.permisos
           .filter((permiso: any) => 
-            permiso.TipoCategoria === 'DIRECCION' && // Verificar que sea una dirección
-            permiso.ValorCategoria.toLowerCase() !== 'ejecutiva' // Excluir "Ejecutiva"
+            permiso.TipoCategoria === 'DIRECCION'
+          // && // Verificar que sea una dirección
+          // permiso.ValorCategoria.toLowerCase() !== 'ejecutiva' // Excluir "Ejecutiva"
           )
           .map((direccion: any, index: number) => ({
             nombre: direccion.NombrePermiso || 'Dirección sin nombre',
@@ -102,7 +103,7 @@ export class SidebarComponent implements OnInit {
           }))
           .sort((a: any, b: any) => {
             // Orden personalizado
-            const customOrder = ['daft', 'dpgr', 'dppi', 'educacion', 'personas', 'costos'];
+            const customOrder = ['ejecutiva', 'daft', 'dpgr', 'dppi', 'educacion', 'personas', 'costos'];
             const indexA = customOrder.indexOf(a.codigo);
             const indexB = customOrder.indexOf(b.codigo);
         
@@ -144,13 +145,13 @@ export class SidebarComponent implements OnInit {
   getDirectionLink(direccion: any): string {
     const category = direccion.codigo?.toLowerCase();
     const routeMap: { [key: string]: string } = {
+      'ejecutiva': '/ejecutiva',
       'daft': '/daft',
       'dpgr': '/dpgr',
       'dppi': '/dppi',
       'educacion': '/educacion',
       'personas': '/personas',
       'costos': '/costos',
-      // 'ejecutiva': '/ejecutiva',
     };
   
     return routeMap[category] || `/direccion/${direccion.codigo}`;

@@ -56,11 +56,11 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
         type: 'pie',
         name: 'Diagnóstico Nutricional',
         data: [
-          { name: 'Normal', y: 55.0, color: '#2ECC71' },
-          { name: 'Sobrepeso', y: 26.0, color: '#F1C40F' },
-          { name: 'Obesidad', y: 11.0, color: '#E67E22' },
-          { name: 'Riesgo de Desnutrición', y: 6.0, color: '#E74C3C' },
-          { name: 'Desnutrición', y: 2.0, color: '#C0392B' },
+          { name: 'Normal', y: 55.0, color: '#82d68d' },
+          { name: 'Sobrepeso', y: 26.0, color: '#fcd86f' },
+          { name: 'Obesidad', y: 11.0, color: '#FFCC99' },
+          { name: 'Riesgo de Desnutrición', y: 6.0, color: '#FFB6C1' },
+          { name: 'Desnutrición', y: 2.0, color: '#FFDAB9' },
         ],
       },
     ],
@@ -96,8 +96,11 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
     series: [{
       type: 'column',
       data: [56.8, 20.5, 22.7],
-      colors: ['#2196F3', '#4CAF50', '#FFC107']
-    }]
+      colors: ['#FFCC99', '#90EE90', '#fcd86f']
+    }],
+    credits: {
+      enabled: false,
+    }
   };
 
   infraestructuraOptions: Highcharts.Options = {
@@ -114,8 +117,11 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
     series: [{
       type: 'column',
       data: [4.1, 46.0],
-      color: '#2196F3'
-    }]
+      color: '#FFCC99'
+    }],
+    credits: {
+      enabled: false,
+    }
   };
 
   seguridadOptions: Highcharts.Options = {
@@ -137,8 +143,11 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
     series: [{
       type: 'column',
       data: [27000, 30000],
-      color: '#0056b3'
-    }]
+      color: '#FFCC99'
+    }],
+    credits: {
+      enabled: false,
+    }
   };
 
   educacionOptions: Highcharts.Options = {
@@ -162,12 +171,15 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
     series: [{
       type: 'pie',
       data: [
-        { name: 'Prof. Desarrollo', y: 26.6, color: '#2196F3' },
-        { name: 'Asesor Técnico', y: 28.4, color: '#4CAF50' },
-        { name: 'Prof. Familia', y: 17.7, color: '#FFC107' },
-        { name: 'Prof. Inclusión', y: 27.2, color: '#9C27B0' }
+        { name: 'Prof. Desarrollo', y: 26.6, color: '#FFCC99' },
+        { name: 'Asesor Técnico', y: 28.4, color: '#90EE90' },
+        { name: 'Prof. Familia', y: 17.7, color: '#fcd86f' },
+        { name: 'Prof. Inclusión', y: 27.2, color: '#D8BFD8' }
       ]
-    }]
+    }],
+    credits: {
+      enabled: false,
+    }
   };
 
   ubicacionOptions: Highcharts.Options = {
@@ -184,9 +196,13 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
     series: [{
       type: 'column',
       data: [75, 25],
-      color: '#4CAF50'
-    }]
+      color: '#90EE90',
+    }],
+    credits: {
+      enabled: false,
+    }
   };
+  
   satisfactionGaugeOptions: Highcharts.Options = {
     chart: {
       type: 'solidgauge',
@@ -204,7 +220,8 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
       background: [{
         innerRadius: '60%', // Ajuste aquí
         outerRadius: '100%', // Ajuste aquí
-        shape: 'arc'
+        shape: 'arc',
+        backgroundColor: '#D8BFD800', // Color pastel para el área restante
       }]
     },
     tooltip: {
@@ -214,9 +231,9 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
       min: 0,
       max: 100,
       stops: [
-        [0.1, '#DF5353'], // Rojo para valores bajos
-        [0.5, '#DDDF0D'], // Amarillo para valores medios
-        [0.9, '#55BF3B']  // Verde para valores altos
+        [0.1, '#FFB6C1'], // Rojo para valores bajos
+        [0.5, '#fcd86f'], // Amarillo para valores medios
+        [0.9, '#82d68d']  // Verde para valores altos
       ],
       lineWidth: 0,
       tickWidth: 0,
@@ -234,7 +251,7 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
           y: -30,
           borderWidth: 0,
           useHTML: true,
-          format: '<div style="text-align:center"><span style="font-size:1.5em; color: #2ECC71">{y}%</span><br/><span style="font-size:0.75em; color: #666">Satisfacción</span></div>'
+          format: '<div style="text-align:center"><span style="font-size:1.5em; color: #82d68d">{y}%</span><br/><span style="font-size:0.75em; color: #666">Satisfacción</span></div>'
         }
       }
     },
@@ -243,10 +260,29 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
       name: 'Satisfacción',
       data: [93], // Valor actual de satisfacción
       dataLabels: {
-        format: '<div style="text-align:center"><span style="font-size:2em; color: #2ECC71">{y}%</span></div>'
+        format: '<div style="text-align:center"><span style="font-size:2em; color: #82d68d">{y}%</span></div>'
       }
-    }]
+    }],
+    credits: {
+      enabled: false,
+    }
   };
 
   ngOnInit(): void {}
 }
+
+
+
+
+
+
+
+
+
+
+
+// private pastelColors = [
+//   '#FFB6C1', '#FFCC99', '#FFDAB9', '#fcd86f', '#D8BFD8', '#E6E6FA',
+//   '#B0E0E6', '#ADD8E6', '#FFCC99', '#87CEEB', '#82d68d', '#90EE90',
+// ];
+// colors: this.pastelColors,
