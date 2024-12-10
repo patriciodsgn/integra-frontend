@@ -74,25 +74,3 @@ export interface InformacionGeograficaResponse {
         codigoRegion: number;
     };
 }
-
-export interface ParticipacionGeograficaResponse {
-    success: boolean;
-    data: ParticipacionGeograficaData[];
-    params: {
-        anio: number | null;
-        region: string | null;
-    };
-}
-
-export interface ParticipacionGeograficaData {
-    region: string;
-    participacion: {
-        si: number;
-        no: number;
-        total: number;
-    };
-    porcentajes: {
-        si: number;
-        no: number;
-    };
-}

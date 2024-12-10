@@ -7,8 +7,7 @@ import {
     DiagnosticoNutricionalResponse,
     InformacionClaraResponse,
     InformacionGeograficaResponse,
-    InformacionGeograficaData,
-    ParticipacionGeograficaResponse
+    InformacionGeograficaData
 } from '../models/dppi-data.models';
 
 @Injectable({
@@ -89,17 +88,5 @@ getParticipacionEncuestados(
     if (codigoRegion) params.codigoRegion = codigoRegion.toString();
 
     return this.http.get<InformacionGeograficaData>(url, { params });
-}
-getParticipacionGeografica(
-    anio?: number,
-    region?: string
-): Observable<ParticipacionGeograficaResponse> {
-    const url = `${this.baseUrl}/participacionGeografica`;
-    const params: any = {};
-    
-    if (anio) params.anio = anio.toString();
-    if (region) params.region = region;
-
-    return this.http.get<ParticipacionGeograficaResponse>(url, { params });
 }
 }
