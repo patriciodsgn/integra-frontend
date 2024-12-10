@@ -91,7 +91,7 @@ export class DpgrService {
     setRegionDpgrIntegra(regionId: number) {
         console.log('Región DPGR Integra seleccionada:', regionId);
     }
-    
+
     getTotalJardinesSelloVerde(anoSV: number, codigoRegion: number = 0): Observable<any> {
         const url = `${this.baseUrl}/totalJardinesSelloVerde`;
         const params = {
@@ -123,8 +123,8 @@ export class DpgrService {
         return this.http.get<FrecuenciaPueblosOriginariosResponse>(url, { params });
     }
     getEstadisticasRO(
-        ano: number, 
-        codigoRegion: number = 0, 
+        ano: number,
+        codigoRegion: number = 0,
         codigoJardin: number = 0
     ): Observable<EstadisticasROResponse> {
         const url = `${this.baseUrl}/estadisticasRO`;
@@ -133,7 +133,7 @@ export class DpgrService {
             codigoRegion: codigoRegion.toString(),
             codigoJardin: codigoJardin.toString()
         };
-    
+
         return this.http.get<EstadisticasROResponse>(url, { params });
     }
     getGraficoSelloVerde(
@@ -143,53 +143,53 @@ export class DpgrService {
     ): Observable<SelloVerdeGraficoResponse> {
         const url = `${this.baseUrl}/graficoSelloVerde`;
         const params: any = {};
-        
+
         if (anoSV) params.anoSV = anoSV.toString();
         if (codigoRegion) params.codigoRegion = codigoRegion.toString();
         if (codigoJardin) params.codigoJardin = codigoJardin.toString();
-    
+
         return this.http.get<SelloVerdeGraficoResponse>(url, { params });
     }
 
     getPorcentajeNacionalidadExtranjera(
-    ano?: number,
-    codigoRegion: number = 0,
-    codigoJardin: number = 0
-): Observable<NacionalidadExranjeraResponse> {
-    const url = `${this.baseUrl}/porcentajeNacionalidadExtranjera`;
-    const params: any = {};
-    
-    if (ano) params.ano = ano.toString();
-    if (codigoRegion) params.codigoRegion = codigoRegion.toString();
-    if (codigoJardin) params.codigoJardin = codigoJardin.toString();
+        ano?: number,
+        codigoRegion: number = 0,
+        codigoJardin: number = 0
+    ): Observable<NacionalidadExranjeraResponse> {
+        const url = `${this.baseUrl}/porcentajeNacionalidadExtranjera`;
+        const params: any = {};
 
-    return this.http.get<NacionalidadExranjeraResponse>(url, { params });
-}
+        if (ano) params.ano = ano.toString();
+        if (codigoRegion) params.codigoRegion = codigoRegion.toString();
+        if (codigoJardin) params.codigoJardin = codigoJardin.toString();
+
+        return this.http.get<NacionalidadExranjeraResponse>(url, { params });
+    }
 
 
-getPorcentajePueblosOriginarios(
-    ano?: number,
-    codigoRegion: number = 0
-): Observable<PueblosOriginariosResponse> {
-    const url = `${this.baseUrl}/porcentajePueblosOriginarios`;
-    const params: any = {};
-    
-    if (ano) params.ano = ano.toString();
-    if (codigoRegion) params.codigoRegion = codigoRegion.toString();
+    getPorcentajePueblosOriginarios(
+        ano?: number,
+        codigoRegion: number = 0
+    ): Observable<PueblosOriginariosResponse> {
+        const url = `${this.baseUrl}/porcentajePueblosOriginarios`;
+        const params: any = {};
 
-    return this.http.get<PueblosOriginariosResponse>(url, { params });
-}
-getNacionalidadPorGeografia(
-    ano?: number,
-    codigoRegion: number = 0
-): Observable<NacionalidadGeograficaResponse> {
-    const url = `${this.baseUrl}/nacionalidadPorGeografia`;
-    const params: any = {};
-    
-    if (ano) params.ano = ano.toString();
-    if (codigoRegion) params.codigoRegion = codigoRegion.toString();
+        if (ano) params.ano = ano.toString();
+        if (codigoRegion) params.codigoRegion = codigoRegion.toString();
 
-    return this.http.get<NacionalidadGeograficaResponse>(url, { params });
-}
+        return this.http.get<PueblosOriginariosResponse>(url, { params });
+    }
+    getNacionalidadPorGeografia(
+        ano?: number,
+        codigoRegion: number = 0
+    ): Observable<NacionalidadGeograficaResponse> {
+        const url = `${this.baseUrl}/nacionalidadPorGeografia`;
+        const params: any = {};
+
+        if (ano) params.ano = ano.toString();
+        if (codigoRegion) params.codigoRegion = codigoRegion.toString();
+
+        return this.http.get<NacionalidadGeograficaResponse>(url, { params });
+    }
 
 }

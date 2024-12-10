@@ -20,7 +20,7 @@ export class PanelCostosEvolucionComponent implements OnInit{
     }
   
     private loadData(): void {
-      const ano = 2023;
+      const ano = 2024;
       const codigoRegion = 0;
   
   
