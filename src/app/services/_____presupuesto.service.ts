@@ -1,9 +1,8 @@
 // services/presupuesto.service.ts
 
 import { Injectable } from '@angular/core';
-import { map} from 'rxjs/operators';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, Observable, tap, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 import { environmentdb } from 'src/environments/environment';
 import { 
     PresupuestoParams, 
@@ -51,56 +50,12 @@ export class PresupuestoService {
 
     obtenerPresupuestoComprometidoVsEjecutado(params: PresupuestoParams): Observable<ApiResponse<PresupuestoComprometido[]>> {
         const url = `${this.baseUrl}/obtenerPresupuestoComprometidoVsEjecutado`;
-        console.log('=== obtenerPresupuestoComprometidoVsEjecutado ===');
-        console.log('URL:', url);
-        console.log('Params:', params);
-
         return this.http.post<ApiResponse<PresupuestoComprometido[]>>(url, params);
     }
 
     obtenerPresupuestoVsEjecutado(params: PresupuestoParams): Observable<ApiResponse<PresupuestoEjecutado[]>> {
         const url = `${this.baseUrl}/obtenerPresupuestoVsEjecutado`;
-        
-        const queryParams = {
-            ano: params.ano?.toString() || new Date().getFullYear().toString(),
-            //nombredireccion: params.nombredireccion || null,
-            //rubro: params.rubro || null,
-            //subrubro: params.subrubro || null
-        };
-        
-        console.log('=== obtenerPresupuestoVsEjecutado ===');
-        console.log('URL:', url);
-        console.log('Query Params:', queryParams);
-        
-        return this.http.get<ApiResponse<PresupuestoEjecutado[]>>(url, {
-            params: queryParams as any
-        }).pipe(
-            map(response => ({
-                success: response.success,
-                data: response.data,
-                message: response.message
-            })),
-            tap(response => {
-                console.log('Response from obtenerPresupuestoVsEjecutado:', {
-                    success: response.success,
-                    dataLength: response.data?.length || 0,
-                    message: response.message
-                });
-            }),
-            catchError((error: HttpErrorResponse) => {
-                console.error('Error in obtenerPresupuestoVsEjecutado:', {
-                    status: error.status,
-                    message: error.message,
-                    error: error.error
-                });
-                
-                return throwError(() => ({
-                    success: false,
-                    message: error.error?.message || 'Error al obtener datos de presupuesto',
-                    error: error.error
-                }));
-            })
-        );
+        return this.http.post<ApiResponse<PresupuestoEjecutado[]>>(url, params);
     }
 
     obtenerPresupuestoVsGastos(params: PresupuestoParams): Observable<ApiResponse<PresupuestoGastos[]>> {

@@ -1,8 +1,5 @@
 import { inject } from '@angular/core';
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
-import * as Highcharts from 'highcharts/highmaps';
-import MapModule from 'highcharts/modules/map';
-import * as mapDataCL from '@highcharts/map-collection/countries/cl/cl-all.geo.json';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -10,28 +7,28 @@ import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faChild, faBus, faBed, faPeopleRoof, faCalendar, faBaby, faGlobe, faUsers, 
          faGraduationCap, faPeopleArrows, faShieldAlt, faBuilding, faTree, 
          faChalkboardTeacher, faDesktop } from '@fortawesome/free-solid-svg-icons';
-import HighchartsMore from 'highcharts/highcharts-more';
-import { WsJarlisService } from 'src/app/services/ws-jarlis.service';
+import { WS_ADM_SOLService } from 'src/app/services/WS_ADM_SOL.service';
 import { SharedDataService } from 'src/app/services/shared-data.service';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { catchError, EMPTY, Subscription, tap } from 'rxjs';
 import tarjetasSuperioresData from '../../../assets/tarjetas-superiores.json';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import Exporting from 'highcharts/modules/exporting';
-import Highcharts3D from 'highcharts/highcharts-3d';
 import { DataService } from 'src/app/services/data.service';
 import { DashboardStateService } from '../../core/services/dashboard-state.service';
+import { DpgrService } from '../../services/dpgr.services';
+import { RegionService } from '../../services/region.service';
+import { RegionMapModule } from '../mapa-chile/region-map.module';
+import * as Highcharts from 'highcharts';
+import { Options } from 'highcharts';
 import { SeriesOptionsType } from 'highcharts';
-
-import { ElemButtonComponent } from '../elem-button/elem-button.component';
-
-import { RouterModule } from '@angular/router';
+import { PresupuestoService } from '../../services/presupuesto.service';
+import { 
+  PresupuestoParams, 
+  ApiResponse, 
+  PresupuestoEjecutado 
+} from '../../models/presupuesto-data.model';
+import { log } from 'console';
 import { ButtonStateService } from '../../button-state.service';
-
-MapModule(Highcharts);
-HighchartsMore(Highcharts);
-Exporting(Highcharts);
-Highcharts3D(Highcharts);
 
 interface ButtonData {
   eb_icon: string;
@@ -42,7 +39,31 @@ interface ButtonData {
   eb_text_color: string;
   eb_link: string;
 }
-
+interface Jardin {
+  codReg: string;
+  region: string;
+  codCom: string;
+  comuna: string;
+  jardin: string;
+  nombreJardin: string;
+  estado: string;
+  codMod: string;
+  modalidad: string;
+  ubicacion: string;
+  latitud: string;
+  longitud: string;
+  calle: string;
+  rbd: string;
+  fono_1: string;
+  correo: string;
+  director: string;
+  cjor: string;
+  jor: string;
+  cniv: string;
+  niv: string;
+  gru: string;
+  cap: string;
+}
 
 @Component({
   selector: 'app-custom-dashboard-inicial',
@@ -50,9 +71,8 @@ interface ButtonData {
   styleUrls: ['./custom-dashboard-inicial.component.css']
 })
 export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
-
+  // Suscripciones
   public buttonStateService = inject(ButtonStateService);
-
   buttons1: ButtonData[] = [
     { eb_icon: 'bar_chart', eb_title: 'Ejecución Presupuestaria', eb_subtitle: 'Presupuesto Total', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/daft/ejecucion_presupuestaria' },
     { eb_icon: 'account_balance_wallet', eb_title: 'Saldo por Ejecutar', eb_subtitle: 'Presupuesto Restante', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/daft/saldo_por_ejecutar' },
@@ -97,33 +117,30 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
     // { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
     // { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
   ];
-
-  @ViewChild('mapContainer', { static: true }) mapContainer!: ElementRef;
-
-  // Propiedades Highcharts
-  Highcharts: typeof Highcharts = Highcharts;
-  chartOptions: Highcharts.Options = {};
-  ejecucionData: any[] = [];
-  // Suscripciones
+  presupuestoTotal: number = 0;
+  ejecutadoTotal: number = 0;
   private dataSubscription: Subscription | undefined;
-  private regionSubscription: Subscription | undefined;
-   // Suscripciones
   private dataSubscriptionEp: Subscription | undefined;
+  private presupuestoSubscription: Subscription | undefined;
+  presupuestoData: PresupuestoEjecutado[] = [];
+  
+  currentYear = new Date().getFullYear();
+  // Datos de jardines
+  JardinesporRegion: Jardin[] = [];
 
-   // Datos simulados
-   totalEjecutado = 0;
-   totalVigente = 0;
-   gastosEjecutados = 0;
-   saldoPorGastar = 0;
+  // Datos simulados
+  ejecucionData: any[] = [];
+  totalEjecutado = 0;
+  totalVigente = 0;
+  gastosEjecutados = 0;
+  saldoPorGastar = 0;
 
   // Estado y datos
   isExpanded = false;
   jardinData: { region: string; jardin: string }[] = [];
   public processedData: any[] = [];
-  public jardinesPorRegion: { [key: string]: number } = {};
   faCalendar = faCalendar;
   public fechaActual: string;
-  public RegionSeleccionada: string = 'Región Metropolitana';
 
   // Opciones de gráficos
   chartOptionsBar: Highcharts.Options = {
@@ -134,42 +151,7 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
       borderWidth: 0,
       backgroundColor: '#f9f9f9'
     },
-    title: {
-      text: 'Presupuesto Vigente vs Presupuesto Ejecutado',
-      style: {
-        fontSize: '12px',
-        color: '#333'
-      }
-    },
-    xAxis: {
-      categories: ['Educación', 'Salud', 'Infraestructura'],
-      labels: {
-        style: {
-          color: '#333',
-          fontSize: '12px'
-        }
-      }
-    },
-    yAxis: {
-      title: {
-        text: 'Cantidad',
-        style: {
-          color: '#333',
-          fontSize: '12px'
-        }
-      }
-    },
-    series: [{
-      type: 'bar',
-      name: 'Presupuesto Vigente',
-      data: [100, 200, 150],
-      color: '#007bff'
-    }, {
-      type: 'bar',
-      name: 'Presupuesto Ejecutado',
-      data: [80, 150, 120],
-      color: '#6c757d'
-    }]
+    // ... resto de la configuración del gráfico de barras
   };
 
   chartOptionsPie: Highcharts.Options = {
@@ -180,32 +162,18 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
       height: 350,
       width: 400
     },
-    credits: { enabled: false },
-    title: {
-      text: 'Gastos Ejecutados vs Saldo por Gastar',
-      style: {
-        fontSize: '11px',
-        color: '#333'
-      }
-    },
-    series: [{
-      type: 'pie',
-      data: [
-        { name: 'Gastos Ejecutados', y: 70, color: '#007bff' },
-        { name: 'Saldo por Gastar', y: 30, color: '#cce5ff' }
-      ],
-      borderColor: '#ffffff',
-      borderWidth: 1
-    }]
+    // ... resto de la configuración del gráfico de torta
   };
+
   public tarjetasSuperiores = [
-    { titulo: 'Salasssss Cuna y Jardines Infantiles', valor: 0, icon: faChild, iconClass: 'class-name-1', tt_id:'tt1', tt_text: 'datos: Salasssss Cuna y Jardines Infantiles' },
+    { titulo: 'Salas Cuna y Jardines Infantiles', valor: 0, icon: faChild, iconClass: 'class-name-1', tt_id:'tt1', tt_text: 'datos: Salas Cuna y Jardines Infantiles' },
     { titulo: 'Jardines Infantiles', valor: 0, icon: faChild, iconClass: 'class-name-2', tt_id:'tt1', tt_text: 'datos: Jardines Infantiles' },
     { titulo: 'Salas Cuna', valor: 0, icon: faBed, iconClass: 'class-name-3', tt_id:'tt1', tt_text: 'datos: Salas Cuna' },
     { titulo: 'Modalidad No Convencional', valor: 0, icon: faBaby, iconClass: 'class-name-4', tt_id:'tt1', tt_text: 'datos: Modalidad No Convencional' },
     { titulo: 'Establecimientos', valor: 0, icon: faPeopleRoof, iconClass: 'class-name-5', tt_id:'tt1', tt_text: 'datos: Establecimientos' },
-    { titulo: 'Jardín Sobre Ruedas', valor: 0, icon: faBus, iconClass: 'class-name-6', tt_id:'tt1', tt_text: 'datos Jardín Sobre Ruedas' }
+    { titulo: 'Jardín Sobre Ruedas', valor: 0, icon: faBus, iconClass: 'class-name-6', tt_id:'tt1', tt_text: 'datos: Jardín Sobre Ruedas' }
   ];
+
   public tarjetasInferiores = [
     { titulo: 'Alimentación y Salud: Situación Nutricional', icon: faChild, valor: 50, iconClass: 'class-name-7' },
     { titulo: 'Equidad e Inclusión: Pueblos Originarios', icon: faGlobe, valor: 20, iconClass: 'class-name-8' },
@@ -221,14 +189,22 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
     { titulo: 'Rendición y Costos', icon: faDesktop, valor: 33, iconClass: 'class-name-18' }
   ];
 
+  totalAccidentes: import("../../models/dpgr-data.model").ConteoResponse | undefined;
+  isLoading: boolean | undefined;
+  errorMessage: string | undefined;
+  presupuestoTotalDisplay: string | undefined;
+  ejecutadoTotalDisplay: string | undefined;
+  
   constructor(
     private http: HttpClient,
     private library: FaIconLibrary,
-    private wsJarlisService: WsJarlisService,
+    private wsAdmSolService: WS_ADM_SOLService,
     private sharedDataService: SharedDataService,
     private dataService: DataService,
     private router: Router,
-    private dashboardState: DashboardStateService
+    private dashboardState: DashboardStateService,
+    private accidenteService: DpgrService,
+    private presupuestoService: PresupuestoService
   ) {
     const today = new Date();
     this.fechaActual = `${today.getDate()} / ${today.getMonth() + 1} / ${today.getFullYear()}`;
@@ -238,18 +214,10 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
       faTree, faChalkboardTeacher, faDesktop
     );
 
-    // Suscripciones a los datos compartidos
     this.dataSubscription = this.sharedDataService.processedData$.subscribe(data => {
       this.processedData = data;
-      this.initializeMap();
-    });
-
-    this.regionSubscription = this.sharedDataService.jardinesPorRegion$.subscribe(data => {
-      this.jardinesPorRegion = data;
     });
   }
-
-
   get activeButtonIndex(): number | null {
     return this.buttonStateService.activeButton();
   }
@@ -259,36 +227,198 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
     // console.log(`Botón seleccionado: ${this.buttons1[index].eb_title}`);
   }
 
-
   ngOnInit(): void {
     this.dashboardState.initializeNationalView();
-    // Mostrar valores iniciales
-    // console.log('=== VALORES INICIALES ===');
-    // console.log('Región:', this.dashboardState.selectedRegion);
-    // console.log('Vista Nacional:', this.dashboardState.vistaNacional);
-
-    this.loadEjecucionPresupuestaria();
+    console.log('=== VALORES INICIALES ===');
+    console.log('Región:', this.dashboardState.selectedRegion);
+    console.log('Vista Nacional:', this.dashboardState.vistaNacional);
+    console.log('Buttons1:', this.buttons1);
+    console.log('Buttons2:', this.buttons2);
+    this.loadPresupuestoData();
     this.loadPresupuestoResumen();
-    Highcharts.setOptions({
-      accessibility: {
-        enabled: false
-      }
-    });
-
-    this.fetchAllData('');
-    this.generateRegionTable();
+    this.obtenerTotalAccidentes();
     this.loadTarjetasSuperiores();
+    this.validateButtons();
   }
-  private loadEjecucionPresupuestaria(): void {
-    this.dataSubscriptionEp = this.dataService.getEjecucionPresupuestaria().subscribe((response) => {
-      this.ejecucionData = response["getePHomeNacional1"];
-      // console.log("Datos de Ejecución Presupuestaria:", this.ejecucionData);
-
-      this.totalEjecutado = this.ejecucionData.reduce((sum: number, item: any) => sum + item.total_ejecutado, 0);
-      this.totalVigente = this.ejecucionData.reduce((sum: number, item: any) => sum + item.total_Vigente, 0);
-
-      this.initializeCharts();
+  validateButtons(): void {
+    if (!this.buttons1.length || !this.buttons2.length) {
+      console.error('Error: Las listas de botones están vacías.');
+    } else {
+      console.log('Botones cargados correctamente.');
+    }
+  }
+  obtenerTotalAccidentes(): void {
+    this.accidenteService.getConteoJardines().subscribe({
+      next: (data) => {
+        this.totalAccidentes = data;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        this.errorMessage = 'Error al cargar los datos: ' + error.message;
+        this.isLoading = false;
+      },
     });
+  }
+
+  private loadPresupuestoData(): void {
+    try {
+      const params: PresupuestoParams = {
+        ano: Number(this.currentYear)
+      };
+
+      console.log('=== Inicio de carga de datos presupuestarios ===');
+      console.log('Query Params:', {
+        ano: params.ano
+      });
+
+      this.presupuestoSubscription?.unsubscribe();
+      
+      this.presupuestoSubscription = this.presupuestoService
+        .obtenerPresupuestoVsEjecutado(params)
+        .pipe(
+          tap(response => {
+            console.log('Response completa:', response);
+          }),
+          catchError(error => {
+            if (error.status === 404) {
+              console.warn('No hay datos para el año:', this.currentYear);
+              this.presupuestoData = [];
+            } else {
+              console.error('Error de servicio:', error);
+              this.errorMessage = 'Error al cargar los datos de presupuesto';
+            }
+            this.updateCharts();
+            return EMPTY;
+          })
+        )
+        .subscribe({
+          next: (value) => {
+            if (value.success && value.data) {
+              this.presupuestoData = value.data;
+              this.updateCharts();
+              console.log('Datos cargados exitosamente:', {
+                total: value.data.length,
+                datos: value.data
+              });
+            } else {
+              this.presupuestoData = [];
+              this.errorMessage = value.message;
+              this.updateCharts();
+            }
+          },
+          error: (err) => {
+            console.error('Error en la suscripción:', err);
+            this.presupuestoData = [];
+            this.errorMessage = 'Error al procesar los datos';
+            this.updateCharts();
+          }
+        });
+
+    } catch (error) {
+      console.error('Error en loadPresupuestoData:', error);
+      this.presupuestoData = [];
+      this.errorMessage = 'Error al iniciar la carga de datos';
+      this.updateCharts();
+    }
+}
+
+  private updateCharts(): void {
+    try {
+      if (!this.presupuestoData?.length) return;
+  
+      const categories = this.presupuestoData.map(item => item.Direccion);
+      const presupuestoData = this.presupuestoData.map(item => 
+        Number(item.PresupuestoVigente) || 0
+      );
+      const ejecutadoData = this.presupuestoData.map(item => 
+        Number(item.MontoEjecutado) || 0
+      );
+  
+      // Calculate totals
+      this.presupuestoTotal = presupuestoData.reduce((total, val) => total + val, 0);
+      this.ejecutadoTotal = ejecutadoData.reduce((total, val) => total + val, 0);
+  
+      // Format for display
+
+      this.presupuestoTotalDisplay = Highcharts.numberFormat(this.presupuestoTotal, 0, ',', '.');
+      this.ejecutadoTotalDisplay = Highcharts.numberFormat(this.ejecutadoTotal, 0, ',', '.');
+  
+      console.log("ejecutadoTotalDisplay ", this.ejecutadoTotalDisplay);
+
+      this.chartOptionsBar = {
+        credits: { enabled: false },
+        chart: { 
+          type: 'bar',
+          height: Math.max(400, categories.length * 25)
+        },
+        title: { 
+          text: 'Presupuesto vs Ejecutado',
+          style: {
+            fontSize: '16px',
+            fontWeight: 'bold'
+          }
+        },
+        xAxis: { 
+          categories,
+          labels: { 
+            style: { fontSize: '11px' },
+            rotation: 0
+          }
+        },
+        yAxis: { 
+          title: { text: 'Monto (CLP)' },
+          labels: {
+            formatter: function() {
+              return Highcharts.numberFormat(this.value as number, 0, ',', '.');
+            }
+          }
+        },
+        tooltip: {
+          formatter: function() {
+            return `<b>${this.x}</b><br/>
+                    ${this.series.name}: ${Highcharts.numberFormat(this.y as number, 0, ',', '.')}`;
+          }
+        },
+		plotOptions: {
+          bar: {
+            dataLabels: {
+              enabled: false,
+              formatter: function() {
+                return Highcharts.numberFormat(this.y as number, 0, ',', '.');
+              },
+              style: {
+                fontSize: '10px'
+              }
+            },
+            pointPadding: 0.1,
+            groupPadding: 0.1
+          }
+        },
+        legend: {
+          align: 'center',
+          verticalAlign: 'bottom',
+          layout: 'horizontal'
+        },
+        series: [{
+          type: 'bar',
+          name: 'Presupuesto Vigente',
+          color: '#90CAF9',
+          data: presupuestoData
+        }, {
+          type: 'bar',
+          name: 'Ejecutado',
+          color: '#81C784',
+          data: ejecutadoData
+        }] as SeriesOptionsType[]
+      };
+  
+      setTimeout(() => {
+        this.initializeCharts();
+      }, 100);
+  
+    } catch (error) {
+      console.error('Error en la actualización de gráficos:', error);
+    }
   }
 
   private loadPresupuestoResumen(): void {
@@ -296,27 +426,22 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
       const resumenData = response["getePHomeNacional2"][0];
       this.gastosEjecutados = resumenData.gastos_ejecutados;
       this.saldoPorGastar = resumenData.saldo_por_gastar;
-      // console.log("**this.dataSubscriptionEp ", this.dataSubscriptionEp )
       this.initializeCharts();
     });
   }
-  ngAfterViewInit() {
-    setTimeout(() => {
-      this.initializeMap();
-      this.initializeCharts();
-    }, 0);
-  }
 
   ngOnDestroy() {
-    // Limpieza de suscripciones
     if (this.dataSubscription) {
       this.dataSubscription.unsubscribe();
     }
-    if (this.regionSubscription) {
-      this.regionSubscription.unsubscribe();
+    if (this.dataSubscriptionEp) {
+      this.dataSubscriptionEp.unsubscribe();
+    }
+    if (this.presupuestoSubscription) {
+      this.presupuestoSubscription.unsubscribe();
     }
   }
-  
+
   loadTarjetasSuperiores() {
     this.tarjetasSuperiores = tarjetasSuperioresData.map(item => ({
       tt_id: item.tt_id,
@@ -347,434 +472,45 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
   }
 
   private initializeCharts(): void {
-    // console.log("Configurando gráficos con los datos:", this.ejecucionData);
-  
-    const maxValue = Math.max(
-      ...this.ejecucionData.map((item: any) => item.total_Vigente),
-      ...this.ejecucionData.map((item: any) => item.total_ejecutado)
-    );
-  
-    // Configuración del gráfico de barras
-    this.chartOptionsBar = {
-      chart: {
-        type: 'bar',
-        height: 500,
-        backgroundColor: '#ffffff'
-      },
-      title: {
-        text: 'Presupuesto por Dirección',
-        style: { fontSize: '16px', fontWeight: 'bold' }
-      },
-      xAxis: {
-        title: { text: 'Monto en Millones ($)' },
-        labels: {
-          formatter: function(this: Highcharts.AxisLabelsFormatterContextObject): string {
-            const value = typeof this.value === 'number' ? this.value : 0;
-            return 'M$ ' + Highcharts.numberFormat(value, 0, ',', '.');
-          }
-        }
-      },
-      yAxis: {
-        categories: this.ejecucionData.map((item: any) => this.formatDireccion(item.DireccionGestora)),
-        title: { text: null },
-        labels: {
-          style: {
-            fontSize: '11px',
-            fontFamily: 'Arial'
-          },
-          reserveSpace: true,
-          align: 'right'
-        }
-      },
-      legend: {
-        align: 'center',
-        verticalAlign: 'bottom',
-        layout: 'horizontal'
-      },
-      plotOptions: {
-        bar: {
-          dataLabels: {
-            enabled: true,
-            formatter: function(this: Highcharts.PointLabelObject): string {
-              const value = typeof this.y === 'number' ? this.y : 0;
-              return 'M$ ' + Highcharts.numberFormat(value, 0, ',', '.');
-            },
-            style: { fontSize: '11px' }
-          },
-          groupPadding: 0.15,
-          pointPadding: 0.05
-        }
-      },
-      series: [
-        {
-          type: 'bar',
-          name: 'Presupuesto Vigente',
-          color: '#2196F3',
-          data: this.ejecucionData.map(item => ({
-            y: Number(item.total_Vigente),
-            name: this.formatDireccion(item.DireccionGestora)
-          }))
-        },
-        {
-          type: 'bar',
-          name: 'Presupuesto Ejecutado',
-          color: '#4CAF50',
-          data: this.ejecucionData.map(item => ({
-            y: Number(item.total_ejecutado),
-            name: this.formatDireccion(item.DireccionGestora)
-          }))
-        }
-      ] as Array<Highcharts.SeriesOptionsType>,
-      tooltip: {
-        shared: true,
-        formatter: function(this: Highcharts.TooltipFormatterContextObject): string {
-          if (!this.points) return '';
-          
-          let tooltip = `<b>${this.points[0].point.name}</b><br/>`;
-          this.points.forEach(point => {
-            if (point.y !== undefined) {
-              //tooltip += `${point.series.name}: M$ ${Highcharts.numberFormat(point.y, 0, ',', '.')}<br/>`;
-            }
-          });
-          return tooltip;
-        }
-      },
-      credits: { enabled: false }
-    } as Highcharts.Options;
+    console.log('Inicializando gráficos...');
     
-    
-    // Configuración del gráfico de torta
-    this.chartOptionsPie = {
-      chart: {
-        type: 'pie',
-        backgroundColor: '#ffffff',
-        height: 400
-      },
-      title: { 
-        text: 'Distribución de Gastos Ejecutados vs Saldo por Gastar',
-        style: {
-          fontSize: '16px',
-          fontWeight: 'bold'
-        }
-      },
-      series: [{
-        type: 'pie',
-        name: 'Presupuesto',
-        data: [
-          { name: 'Gastos Ejecutados', y: this.gastosEjecutados, color: '#2196F3' },
-          { name: 'Saldo por Gastar', y: this.saldoPorGastar, color: '#4CAF50' }
-        ],
-        dataLabels: {
-          enabled: true,
-          format: '{point.name}: {point.percentage:.1f}%',
-          style: {
-            fontSize: '12px',
-            textOutline: 'none',
-            color: '#333333'
-          }
-        }
-      }],
-      legend: {
-        enabled: true,
-        layout: 'horizontal',
-        align: 'center',
-        verticalAlign: 'bottom',
-        itemStyle: {
-          fontSize: '12px'
-        }
-      },
-      tooltip: {
-        pointFormat: '{series.name}: <b>${point.y:,.0f}</b>'
-      },
-      plotOptions: {
-        pie: {
-          allowPointSelect: true,
-          cursor: 'pointer',
-          depth: 35,
-          showInLegend: true
-        }
-      },
-      credits: { 
-        enabled: false 
-      }
-    };
+    try {
+      console.log('Creando gráfico de barras...');
+      const chartBar = Highcharts.chart('chart-bar-container', this.chartOptionsBar);
+      console.log('Gráfico de barras creado:', chartBar);
   
-    // Renderizar gráficos
-    Highcharts.chart('chart-bar-container', this.chartOptionsBar);
-    Highcharts.chart('chart-pie-container', this.chartOptionsPie);
+      console.log('Creando gráfico circular...');
+      const chartPie = Highcharts.chart('chart-pie-container', this.chartOptionsPie);
+      console.log('Gráfico circular creado:', chartPie);
+    } catch (error) {
+      console.error('Error al inicializar los gráficos:', error);
+    }
   }
-  
-  // Función helper para formatear nombres de direcciones
+
   private formatDireccion(direccion: string): string {
     if (!direccion) return '';
-    
     let formattedName = direccion.replace('DIRECCION_', '').replace(/_/g, ' ');
-    
     formattedName = formattedName.toLowerCase().split(' ')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
-    
     if (formattedName.length > 30) {
       formattedName = formattedName.substring(0, 27) + '...';
     }
-    
     return formattedName;
-  }
-    initializeMap() {
-    if (!this.mapContainer || !this.mapContainer.nativeElement) return;
-
-    if (Highcharts.charts[0]) {
-      Highcharts.charts[0].destroy();
-    }
-
-    const data = mapDataCL.features.map((feature: any) => {
-      const regionName = this.sharedDataService.normalizeRegionName(feature.properties['name']);
-      const regionCode = feature.properties['id'] || feature.id;
-      const groupedItem = Object.values(this.groupByCodRegAndRegion()).find(item => 
-        this.sharedDataService.normalizeRegionName(item.Region) === regionName);
-      const regionCount = groupedItem ? groupedItem.count : 0;
-      const codReg = groupedItem ? groupedItem.CodReg : 'N/A';
-      return {
-        'hc-key': feature.properties['hc-key'],
-        'region-code': regionCode,
-        value: regionCount,
-        name: regionName,
-        codReg: codReg
-      };
-    });
-
-    this.chartOptions = {
-      credits: { enabled: false },
-      chart: {
-          map: mapDataCL,
-          renderTo: this.mapContainer.nativeElement,
-          type: 'map'
-      },
-      title: {
-          text: 'Chile'
-      },
-      mapNavigation: {
-          enabled: true,
-          enableMouseWheelZoom: true,
-          buttonOptions: {
-              verticalAlign: 'bottom'
-          }
-      },
-      tooltip: {
-          enabled: true,
-          useHTML: true,
-          headerFormat: '',
-          pointFormat: `
-          <div style="text-align: center; padding: 8px;">
-              <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 8px;">
-                  <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" style="margin-right: 5px;">
-                      <rect x="3" y="1" width="6" height="6" fill="#FFD700"/>
-                      <rect x="8" y="4" width="15" height="5" fill="#FF0000" transform="rotate(15, 8, 4)"/>
-                      <rect x="6" y="9" width="5" height="11" fill="#0066CC"/>
-                      <rect x="13" y="9" width="5" height="11" fill="#4CAF50"/>
-                      <rect x="20" y="9" width="2" height="11" fill="#808080"/>
-                      <rect x="20" y="16" width="2" height="4" fill="#FFD700"/>
-                  </svg>
-                  <div style="font-size: 14px; font-weight: bold;">{point.name}</div>
-              </div>
-              <div style="display: flex; align-items: center; justify-content: center;">
-                  <div style="font-size: 12px;">Jardines: {point.value}</div>
-              </div>
-          </div>
-      `
-      },
-      colorAxis: {
-          min: 0,
-          minColor: '#f2eefc',
-          maxColor: '#004D40',
-          stops: [
-              [0, '#f2eefc'],
-              [0.2, '#B2DFDB'],
-              [0.4, '#4DB6AC'],
-              [0.6, '#00897B'],
-              [0.8, '#00796B'],
-              [1, '#004D40']
-          ]
-      },
-      series: [{
-          type: 'map',
-          name: 'Regiones de Chile',
-          data: data,
-          joinBy: ['hc-key', 'hc-key'],
-          states: {
-              hover: {
-                  color: '#80CBC4',
-                  brightness: 0.3
-              }
-          },
-          point: {
-              events: {
-                  click: (event) => {
-                      const nroReg = (event.point as any)['codReg'];
-                      this.router.navigate([`/region/${parseInt(nroReg, 10)}`]);
-                  },
-                  mouseOver: function() {
-                      if (this.graphic) {
-                          this.graphic.element.style.cursor = 'pointer';
-                      }
-                  },
-                  mouseOut: function() {
-                      if (this.graphic) {
-                          this.graphic.element.style.cursor = 'default';
-                      }
-                  }
-              }
-          },
-          borderColor: '#BBBBBB',
-          borderWidth: 0.5,
-          nullColor: '#E0E0E0',
-          dataLabels: {
-              enabled: false,
-              format: '{point.name}',
-              style: {
-                  fontSize: '10px',
-                  color: '#333'
-              }
-          }
-      }]
-  };
-
-    Highcharts.mapChart(this.chartOptions);
-  }
-
-  
-  groupByCodRegAndRegion() {
-    const groupedData = this.processedData.reduce((acc: { [key: string]: { CodReg: string; Region: string; count: number } }, item) => {
-      const key = `${item.CodReg}-${item.Region}`;
-      if (!acc[key]) {
-        acc[key] = { CodReg: item.CodReg, Region: item.Region, count: 0 };
-      }
-      acc[key].count += 1;
-      return acc;
-    }, {});
-
-    return groupedData;
-  }
-
-  calculateJardinesPorRegion() {
-    for (const item of this.processedData) {
-      if (!item.Region) {
-        continue;
-      }
-      const region = this.sharedDataService.normalizeRegionName(item.Region);
-      if (region) {
-        this.jardinesPorRegion[region] = (this.jardinesPorRegion[region] || 0) + 1;
-      }
-    }
-  }
-
-  generateRegionTable() {
-    const regionTable = mapDataCL.features.map((feature: any) => {
-      return {
-        id: feature.id,
-        name: feature.properties['name']
-      };
-    });
-    // console.table(regionTable);
-  }
-
-  fetchAllData(initialPMASREG: string) {
-    let currentPMASREG = initialPMASREG;
-    const fetchData = () => {
-      this.wsJarlisService.getData('', '', '', currentPMASREG).subscribe({
-        next: (response) => {
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(response, 'application/xml');
-          const pmasregNode = xmlDoc.getElementsByTagName('PMASREG')[0];
-          const returnNode = xmlDoc.getElementsByTagName('return')[0];
-
-          if (returnNode && returnNode.textContent) {
-            this.sharedDataService.parseXmlResponse(response);
-          }
-
-          if (pmasregNode && pmasregNode.textContent && pmasregNode.textContent.trim() !== '') {
-            currentPMASREG = pmasregNode.textContent.trim();
-            fetchData(); // Llamada recursiva para obtener más datos
-          }
-        },
-        error: (error) => {
-          console.error('Error al obtener los datos del servicio WSDL:', error);
-        }
-      });
-    };
-
-    fetchData();
   }
 
   toggleExpandInfoBox() {
     this.isExpanded = !this.isExpanded;
-  }
-  
-
-
-  // Método para actualizar el mapa cuando cambia la región
-  updateMap(regionId: number) {
-    // console.log('Actualizando región:', regionId);
-    // Actualizar la región seleccionada en el servicio compartido
-    const regionName = this.getRegionNameById(regionId);
-    this.sharedDataService.updateRegionSeleccionada(regionName);
-    
-    // Recargar los datos si es necesario
-    this.loadRegionData(regionId);
-  }
-
-  private loadRegionData(regionId: number) {
-    // Obtener datos específicos de la región si es necesario
-    this.wsJarlisService.getData('', '', '', regionId.toString()).subscribe({
-        next: (data) => {
-          try {
-            const parsedData = Array.isArray(data) ? data : [data];
-            this.sharedDataService.updateProcessedData(parsedData);
-        } catch (error) {
-            console.error('Error al procesar los datos:', error);
-        }
-        },
-        error: (error) => {
-            console.error('Error al cargar datos de la región:', error);
-        }
-    });
-}
-
-  private getRegionNameById(regionId: number): string {
-    const regionNames: { [key: number]: string } = {
-      1: 'Tarapacá',
-      2: 'Antofagasta',
-      3: 'Atacama',
-      4: 'Coquimbo',
-      5: 'Valparaíso',
-      6: 'Región Metropolitana',
-      601: 'RM - Nor Oriente',
-      602: 'RM - Nor Poniente',
-      603: 'RM - Sur Oriente',
-      7: 'O\'Higgins',
-      8: 'Maule',
-      9: 'Biobío',
-      10: 'Araucanía',
-      11: 'Los Lagos',
-      12: 'Aysén',
-      13: 'Magallanes',
-      14: 'Los Ríos',
-      15: 'Arica y Parinacota',
-      16: 'Ñuble'
-    };
-    
-    return regionNames[regionId] || 'Región Desconocida';
   }
 }
 
 @NgModule({
   declarations: [CustomDashboardInicialComponent],
   imports: [
-    CommonModule,
-    FontAwesomeModule,
+    CommonModule, 
+    FontAwesomeModule, 
     HttpClientModule,
-    RouterModule,
-    ElemButtonComponent
+    RegionMapModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

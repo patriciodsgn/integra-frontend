@@ -2,11 +2,11 @@
 
 export interface PresupuestoParams {
     ano: number;
-    NombreDireccion?: string;
-    Rubro?: string;
-    SubRubro?: string;
-    CodigoCentroGestor?: string;
-    CodigoDireccion?: string;
+    nombreDireccion?: string;
+    rubro?: string;
+    subRubro?: string;
+    codigoCentroGestor?: string;
+    codigoDireccion?: string;
 }
 
 export interface ApiResponse<T> {
@@ -45,9 +45,8 @@ export interface PresupuestoComprometido {
 }
 
 export interface PresupuestoEjecutado {
-    Direccion: string;
-    PresupuestoVigente: string;
-    MontoEjecutado: string;
+    presupuesto: number;
+    ejecutado: number;
 }
 
 export interface PresupuestoGastos {

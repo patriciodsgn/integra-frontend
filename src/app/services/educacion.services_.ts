@@ -1,5 +1,3 @@
-// CJB 20241210 se incopora nuevo servicio getPorcentajeTransitorio
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, map, tap, catchError } from 'rxjs';
@@ -9,10 +7,9 @@ import {
     NecesidadesPorComunaResponse,
     PorcentajePermanenteResponse,
     ResumenNecesidades,
-    CantidadTotalResponse,
-    PorcentajeTransitorioResponse
+    CantidadTotalResponse
     
-} from '../models/educacion-data.models';
+} from '../models/educacion-data.model';
 
 @Injectable({
     providedIn: 'root'
@@ -202,21 +199,5 @@ getCantidadTotal(ano: number, codigoRegion: number = 0): Observable<CantidadTota
             throw error;
         })
     );
-}
-
-getPorcentajeTransitorio(
-    ano: number,
-    codigoRegion?: number
-): Observable<PorcentajeTransitorioResponse> {
-    const url = `${this.baseUrl}/porcentajeTransitorio`;
-    const params: any = {
-        ano: ano.toString()
-    };
-    
-    if (codigoRegion) {
-        params.codigoRegion = codigoRegion.toString();
-    }
-
-    return this.http.get<PorcentajeTransitorioResponse>(url, { params });
 }
 }
