@@ -1,10 +1,6 @@
-import { inject } from '@angular/core';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
 import { Component, OnInit, ElementRef, ViewChild, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
-import { ElemButtonComponent } from '../elem-button/elem-button.component';
-import { RouterModule } from '@angular/router';
-import { ButtonStateService } from '../../button-state.service';
 import { faChild, faBed, faBaby, faPeopleRoof, 
     faCloudSun, faMapMarkedAlt, faBus, 
     faChartLine, faSchool, faUsers, faShieldAlt, 
@@ -21,7 +17,7 @@ import { faChild, faBed, faBaby, faPeopleRoof,
     faBook,
     faCalendarDays,
     faHome,
-    faShoppingCart,
+    faShoppingCart
 } from '@fortawesome/free-solid-svg-icons';
 import Highcharts from 'highcharts';
 import MapModule from 'highcharts/modules/map';
@@ -48,16 +44,6 @@ import { DashboardStateService } from '../../core/services/dashboard-state.servi
 ExportingModule(Highcharts);
 OfflineExportingModule(Highcharts);
 
-interface ButtonData {
-  eb_icon: string;
-  eb_title: string;
-  eb_subtitle: string;
-  eb_disable: boolean;
-  eb_bg_color: string;
-  eb_text_color: string;
-  eb_link: string;
-}
-
 interface ModalidadCount {
   modalidad: string;
   count: number;
@@ -72,7 +58,6 @@ interface MapFeatureData {
   color: string;
   properties: any;
 }
-
 interface ItemLista {
     tipo: 'comuna' | 'establecimiento';
     nombre: string;
@@ -155,51 +140,13 @@ FullScreenModule(Highcharts);
 @Component({
   selector: 'app-custom-dashboard',
   templateUrl: './custom-dashboard.component.html',
-  styleUrls: ['./custom-dashboard.component.css'],
-})
+  styleUrls: ['./custom-dashboard.component.css']
+})  
 export class CustomDashboardComponent implements OnInit, OnDestroy {
 
-  public buttonStateService = inject(ButtonStateService);
-  buttons1: ButtonData[] = [
-    { eb_icon: 'bar_chart', eb_title: 'Ejecución Presupuestaria', eb_subtitle: 'Presupuesto Total', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/daft/ejecucion_presupuestaria' },
-    { eb_icon: 'account_balance_wallet', eb_title: 'Saldo por Ejecutar', eb_subtitle: 'Presupuesto Restante', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/daft/saldo_por_ejecutar' },
-    { eb_icon: 'savings', eb_title: 'Presupuesto Comprometido', eb_subtitle: 'Fondos Reservados', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
-    { eb_icon: 'percent', eb_title: 'Porcentaje de Ejecución', eb_subtitle: 'Progreso Financiero', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
-  ];
-  buttons2: ButtonData[] = [
-    { eb_icon: 'favorite', eb_title: 'RO', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/ro' },
-    { eb_icon: 'eco', eb_title: 'Sello Verde', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/sello_verde' },
-    { eb_icon: 'groups', eb_title: 'Pueblos Originarios', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/pueblos_originarios' },
-    { eb_icon: 'public', eb_title: 'Nacionalidad', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/nacionalidad' },
-  ];
-  buttons3: ButtonData[] = [
-    { eb_icon: 'local_hospital', eb_title: 'Accidentes', eb_subtitle: '', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dppi/accidentes' },
-    { eb_icon: 'restaurant', eb_title: 'Situación Nutricional', eb_subtitle: '', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dppi/situacion_nutricional' },
-    { eb_icon: 'child_care', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
-    { eb_icon: 'emergency', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
-  ];
-  buttons4: ButtonData[] = [
-    { eb_icon: 'school', eb_title: 'NEE', eb_subtitle: 'Ejemplo', eb_disable: false , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/educacion/nee'},
-    { eb_icon: 'person', eb_title: 'ATET', eb_subtitle: 'Ejemplo', eb_disable: false , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/educacion/atet'},
-    { eb_icon: 'family_restroom', eb_title: 'Familias', eb_subtitle: 'Data disponible 2025', eb_disable: true , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/'},
-    { eb_icon: 'analytics', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/'},
-  ];
-  buttons5: ButtonData[] = [
-    { eb_icon: 'sync_alt', eb_title: 'Rotación', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/rotacion' },
-    { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/permanencia' },
-    { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/ausentismo' },
-    { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/planta_contratada' },
-  ];
-  buttons6: ButtonData[] = [
-    { eb_icon: 'sync_alt', eb_title: 'Rotación', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
-    { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
-    { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
-    { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
-  ];
-
-  getRegionTextColor(arg0: string) {
-    throw new Error('Method not implemented.');
-  }
+getRegionTextColor(arg0: string) {
+  throw new Error('Method not implemented.');
+}
   private storageListener: any;
   @ViewChild('mapContainer', { static: false }) mapContainer!: ElementRef;
   public backgroundColor: string = '#F5F5F5'; // Color predeterminado
@@ -253,9 +200,9 @@ export class CustomDashboardComponent implements OnInit, OnDestroy {
     { valor: 20, titulo: 'Establecimientos', icon: faHome },
     { valor: 14, titulo: 'Salas Cuna y Jardines Infantiles', icon: faBaby },
     { valor: 2, titulo: 'Jardines Infantiles', icon: faBed },
-    { valor: 2, titulo: 'Salas Cuna', icon: faShoppingCart },
+    { valor: 2, titulo: 'Sala Cuna', icon: faShoppingCart },
     { valor: 2, titulo: 'Modalidad No convencional', icon: faChild },
-    { valor: 4, titulo: 'Jardines Sobre Ruedas', icon: faBus },
+    { valor: 4, titulo: 'Jardín Sobre Ruedas', icon: faBus },
   ];
 
   tarjetasInferiores: TarjetaItem[] = [
@@ -308,34 +255,23 @@ establecimientosColor: any;
   private setupStorageListener(): void {
     this.storageListener = (event: StorageEvent) => {
       if (event.key === 'regionSeleccionada' || event.key === 'nivelAcceso') {
-        // console.log('Cambio detectado en localStorage:', event.key);
+        console.log('Cambio detectado en localStorage:', event.key);
         
         const regionData = localStorage.getItem('regionSeleccionada');
         const nivelAcceso = localStorage.getItem('nivelAcceso');
 
         if (nivelAcceso === 'nacional') {
-          // console.log('Acceso Nacional detectado');
+          console.log('Acceso Nacional detectado');
           this.loadRegionDataFromSidebar(0);
         } else if (regionData) {
           const region = JSON.parse(regionData);
-          // console.log('Nueva región seleccionada:', region);
+          console.log('Nueva región seleccionada:', region);
           this.loadRegionDataFromSidebar(Number(region.CodigoRegion));
         }
       }
     };
-
     window.addEventListener('storage', this.storageListener);
   }
-
-  get activeButtonIndex(): number | null {
-    return this.buttonStateService.activeButton();
-  }
-
-  onButtonClick(index: number): void {
-    this.buttonStateService.setActiveButton(index); // Cambia el botón activo
-    // console.log(`Botón seleccionado: ${this.buttons1[index].eb_title}`);
-  }
-
 
   ngOnInit(): void {
     // Código existente del ngOnInit...
@@ -347,31 +283,25 @@ establecimientosColor: any;
     const regionData = localStorage.getItem('regionSeleccionada');
     const nivelAcceso = localStorage.getItem('nivelAcceso');
 
-    if (nivelAcceso === 'nacional') {
-      this.loadRegionDataFromSidebar(0);
-    } else if (regionData) {
-      const region = JSON.parse(regionData);
-      this.loadRegionDataFromSidebar(Number(region.CodigoRegion));
-    }
-
+    
     // Resto del código existente del ngOnInit...
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       takeUntil(this.destroy$)
     ).subscribe(() => {
         const regionId = Number(this.route.snapshot.paramMap.get('regionId'));
-        
-        //console.group('Cambio de Navegación Detectado');
-        //console.log('Region ID:', regionId);
-        
+
+        console.group('Cambio de Navegación Detectado');
+        console.log('Region ID:', regionId);
+
         // Actualizar el estado con la región seleccionada y vista nacional en falso
         this.dashboardState.setRegionalView(regionId);
-        
-        // console.log('Estado del Dashboard:', {
-        //     region: this.dashboardState.selectedRegion,
-        //     vistaNacional: this.dashboardState.vistaNacional
-        // });
-        // console.groupEnd();
+
+        console.log('Estado del Dashboard:', {
+            region: this.dashboardState.selectedRegion,
+            vistaNacional: this.dashboardState.vistaNacional
+        });
+        console.groupEnd();
 
         // Cargar datos de la región
         this.loadRegionDataFromSidebar(regionId);
@@ -380,13 +310,13 @@ establecimientosColor: any;
     // Obtener región inicial
     const initialRegionId = Number(this.route.snapshot.paramMap.get('regionId'));
     if (!isNaN(initialRegionId)) {
-        //console.log('Carga inicial - región:', initialRegionId);
+        console.log('Carga inicial - región:', initialRegionId);
         this.loadRegionDataFromSidebar(initialRegionId);
-        
+
         // Establecer estado inicial
         this.dashboardState.setRegionalView(initialRegionId);
     }
-}
+  }
   // Método seguro para obtener datos del mapa
 private async fetchMapData(url: string): Promise<any> {
   try {
@@ -432,15 +362,15 @@ private setupJardinesObserver(): void {
   // Configurar un observador para los cambios en JardinesporRegion
   setInterval(() => {
     if (this.JardinesporRegion.length > 0) {
-      // console.log('Jardines cargados:', this.JardinesporRegion.length);
-      // console.log('Muestra de coordenadas:', 
-      //   this.JardinesporRegion.slice(0, 3).map(jardin => ({
-      //     nombre: jardin.nombreJardin,
-      //     lat: jardin.latitud,
-      //     lon: jardin.longitud,
-      //     comuna: jardin.comuna
-      //   }))
-      // );
+      console.log('Jardines cargados:', this.JardinesporRegion.length);
+      console.log('Muestra de coordenadas:', 
+        this.JardinesporRegion.slice(0, 3).map(jardin => ({
+          nombre: jardin.nombreJardin,
+          lat: jardin.latitud,
+          lon: jardin.longitud,
+          comuna: jardin.comuna
+        }))
+      );
     }
   }, 2000); // Revisar cada 2 segundos
 }
@@ -732,7 +662,7 @@ private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
     .filter(jardin => {
       const hasCoords = jardin.latitud && jardin.longitud;
       if (!hasCoords) {
-        // console.warn('Jardín sin coordenadas:', jardin.nombreJardin);
+        console.warn('Jardín sin coordenadas:', jardin.nombreJardin);
       }
       return hasCoords;
     })
@@ -741,17 +671,17 @@ private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
         const lat = this.parseCoordinate(jardin.latitud);
         const lon = this.parseCoordinate(jardin.longitud);
 
-        // console.log('Procesando jardín:', {
-        //   nombre: jardin.nombreJardin,
-        //   latitudOriginal: jardin.latitud,
-        //   longitudOriginal: jardin.longitud,
-        //   latitudProcesada: lat,
-        //   longitudProcesada: lon
-        // });
+        console.log('Procesando jardín:', {
+          nombre: jardin.nombreJardin,
+          latitudOriginal: jardin.latitud,
+          longitudOriginal: jardin.longitud,
+          latitudProcesada: lat,
+          longitudProcesada: lon
+        });
   
           // Verificar coordenadas válidas
           if (isNaN(lat) || isNaN(lon) || !this.isValidCoordinate(lat, lon)) {
-            // console.warn('Coordenadas inválidas para:', jardin.nombreJardin);
+            console.warn('Coordenadas inválidas para:', jardin.nombreJardin);
             return null;
           }
   
@@ -834,7 +764,7 @@ private async createMap(mapData: any, seriesData: any[]): Promise<void> {
 // Método seguro para manejar las series del chart
 private updateExistingMap(seriesData: any[]): void {
   if (!this.chart || !this.chart.series) {
-    // console.warn('Chart o series no disponibles para actualización');
+    console.warn('Chart o series no disponibles para actualización');
     return;
   }
 
@@ -878,7 +808,7 @@ private async updateMapData(seriesData: any[]): Promise<void> {
 }
 private async loadRegionDataFromSidebar(regionId: number) {
   if (this.updatePending) {
-    // console.log('Actualización pendiente, esperando...');
+    console.log('Actualización pendiente, esperando...');
     return;
   }
 
@@ -899,10 +829,10 @@ private async loadRegionDataFromSidebar(regionId: number) {
         this.loadData(regionId.toString());
         attempts++;
         
-        // console.log(`Intento ${attempts} de cargar datos:`, {
-        //   acumulados: this.jardinesAcumulados.length,
-        //   porRegion: this.JardinesporRegion.length
-        // });
+        console.log(`Intento ${attempts} de cargar datos:`, {
+          acumulados: this.jardinesAcumulados.length,
+          porRegion: this.JardinesporRegion.length
+        });
 
         if (this.JardinesporRegion.length > 0) {
           resolve();
@@ -916,14 +846,14 @@ private async loadRegionDataFromSidebar(regionId: number) {
       checkData();
     });
 
-    // console.log('Datos cargados:', {
-    //   totalJardines: this.JardinesporRegion.length,
-    //   primerosJardines: this.JardinesporRegion.slice(0, 3).map(j => ({
-    //     nombre: j.nombreJardin,
-    //     comuna: j.comuna,
-    //     coords: [j.latitud, j.longitud]
-    //   }))
-    // });
+    console.log('Datos cargados:', {
+      totalJardines: this.JardinesporRegion.length,
+      primerosJardines: this.JardinesporRegion.slice(0, 3).map(j => ({
+        nombre: j.nombreJardin,
+        comuna: j.comuna,
+        coords: [j.latitud, j.longitud]
+      }))
+    });
 
     // Cargar datos del mapa
     const mapDataUrl = this.getGeoJsonUrl(regionId);
@@ -959,12 +889,12 @@ private async loadRegionDataFromSidebar(regionId: number) {
 private applyColors(headerColor: string, cardColor: string): void {
   this.headerColor = headerColor;
   this.cardColor = cardColor;
-  // console.log('Colores aplicados:', { headerColor, cardColor });
+  console.log('Colores aplicados:', { headerColor, cardColor });
 }
 
 
 private loadData(region: string, offset: string = ''): void {
-  // console.log(`Cargando datos para región ${region}, offset: ${offset}`);
+  console.log(`Cargando datos para región ${region}, offset: ${offset}`);
   
   if (!offset) {
     this.jardinesAcumulados = [];
@@ -979,7 +909,7 @@ private loadData(region: string, offset: string = ''): void {
         const solmasElement = xmlDoc.getElementsByTagName('SOLMAS')[0];
         const solmas = solmasElement ? solmasElement.textContent?.trim() : '';
         
-        // console.log('SOLMAS:', solmas);
+        console.log('SOLMAS:', solmas);
 
         const soloutElement = xmlDoc.getElementsByTagName('SOLOUT')[0];
         if (!soloutElement) {
@@ -994,7 +924,7 @@ private loadData(region: string, offset: string = ''): void {
         const jsonData = JSON.parse(jsonContent);
         const dataArray = Array.isArray(jsonData) ? jsonData : [jsonData];
         
-        // console.log(`Procesando ${dataArray.length} jardines`);
+        console.log(`Procesando ${dataArray.length} jardines`);
 
         dataArray.forEach(item => {
           const primerJorNiv = item.Jor_Niv && item.Jor_Niv.length > 0 ? item.Jor_Niv[0] : null;
@@ -1055,7 +985,7 @@ private loadData(region: string, offset: string = ''): void {
 
 private async loadRegionData(regionId: number): Promise<void> {
   try {
-      // console.log(`Iniciando carga de datos para la región con ID: ${regionId}`);
+      console.log(`Iniciando carga de datos para la región con ID: ${regionId}`);
 
       // Cargar los datos de jardines y esperar hasta que `JardinesporRegion` se haya llenado
       await new Promise<void>((resolve, reject) => {
@@ -1063,7 +993,7 @@ private async loadRegionData(regionId: number): Promise<void> {
 
           const checkInterval = setInterval(() => {
               if (this.JardinesporRegion.length > 0) {
-                  // console.log(`✅ Datos de jardines cargados: ${this.JardinesporRegion.length} jardines en total.`);
+                  console.log(`✅ Datos de jardines cargados: ${this.JardinesporRegion.length} jardines en total.`);
                   clearInterval(checkInterval);
                   resolve();
               }
@@ -1082,7 +1012,7 @@ private async loadRegionData(regionId: number): Promise<void> {
 
       // Cargar y procesar los datos del mapa
       const mapDataUrl = this.getGeoJsonUrl(regionId);
-      // console.log(`Cargando datos del mapa desde: ${mapDataUrl}`);
+      console.log(`Cargando datos del mapa desde: ${mapDataUrl}`);
 
       const response = await fetch(mapDataUrl);
       if (!response.ok) {
@@ -1110,13 +1040,13 @@ private processMapData(mapData: any) {
     console.warn('Datos del mapa no válidos');
     return [];
   }
-  // console.log('Debug O\'Higgins:', {
-  //   regionSeleccionada: this.RegionSeleccionada,
-  //   normalizedRegion: this.RegionSeleccionada.normalize('NFD').replace(/[\u0300-\u036f]/g, ''),
-  //   totalFeatures: mapData.features.length,
-  //   primeraComuna: mapData.features[0]?.properties?.['Comuna']
-  // });
-  // console.log('Procesando región:', this.RegionSeleccionada);
+  console.log('Debug O\'Higgins:', {
+    regionSeleccionada: this.RegionSeleccionada,
+    normalizedRegion: this.RegionSeleccionada.normalize('NFD').replace(/[\u0300-\u036f]/g, ''),
+    totalFeatures: mapData.features.length,
+    primeraComuna: mapData.features[0]?.properties?.['Comuna']
+  });
+  console.log('Procesando región:', this.RegionSeleccionada);
   this.mapColorsService.logRegionInfo(this.RegionSeleccionada);
 
   return mapData.features.map((f: any) => {
@@ -1289,7 +1219,7 @@ private getTooltipConfig(): Highcharts.TooltipOptions {
     const isValidLon = lon >= -76 && lon <= -66; // Rango aproximado para Chile
   
     if (!isValidLat || !isValidLon) {
-      // console.warn('Coordenada fuera de rango:', { lat, lon });
+      console.warn('Coordenada fuera de rango:', { lat, lon });
     }
   
     return isValidLat && isValidLon;
@@ -1298,16 +1228,16 @@ private getTooltipConfig(): Highcharts.TooltipOptions {
   // Método para debugging
 private logCoordinateStatus(): void {
   const jardines = this.JardinesporRegion;
-  // console.log('Análisis de coordenadas:', {
-  //   total: jardines.length,
-  //   conLatitud: jardines.filter(j => j.latitud).length,
-  //   conLongitud: jardines.filter(j => j.longitud).length,
-  //   ejemplos: jardines.slice(0, 5).map(j => ({
-  //     nombre: j.nombreJardin,
-  //     latitud: j.latitud,
-  //     longitud: j.longitud
-  //   }))
-  // });
+  console.log('Análisis de coordenadas:', {
+    total: jardines.length,
+    conLatitud: jardines.filter(j => j.latitud).length,
+    conLongitud: jardines.filter(j => j.longitud).length,
+    ejemplos: jardines.slice(0, 5).map(j => ({
+      nombre: j.nombreJardin,
+      latitud: j.latitud,
+      longitud: j.longitud
+    }))
+  });
 }
   private parseCoordinate(coord: string): number {
     try {
@@ -1534,7 +1464,7 @@ private logCoordinateStatus(): void {
   }
 
   private async loadMapData(regionId: number): Promise<void> {
-    // console.log('Cargando datos del mapa para la región:', regionId);
+    console.log('Cargando datos del mapa para la región:', regionId);
     const mapDataUrl = this.getGeoJsonUrl(regionId);
 
     try {
@@ -2125,7 +2055,7 @@ private updateTarjetasSuperiores(): void {
     { valor: this.JardinesporRegion.length, titulo: 'Total Establecimientos', icon: faHome },
     { valor: modalidadCounts.find(m => m.modalidad.includes('SALA CUNA Y JARDÍN'))?.count || 0, titulo: 'Salas Cuna y Jardines Infantiles', icon: faBaby },
     { valor: modalidadCounts.find(m => m.modalidad === 'JARDÍN INFANTIL')?.count || 0, titulo: 'Jardines Infantiles', icon: faBed },
-    { valor: modalidadCounts.find(m => m.modalidad === 'SALA CUNA')?.count || 0, titulo: 'Salas Cuna', icon: faShoppingCart },
+    { valor: modalidadCounts.find(m => m.modalidad === 'SALA CUNA')?.count || 0, titulo: 'Sala Cuna', icon: faShoppingCart },
     { valor: modalidadCounts.filter(m => 
       m.modalidad.includes('ALTERNATIVO') || 
       m.modalidad.includes('FAMILIAR') || 
@@ -2135,7 +2065,7 @@ private updateTarjetasSuperiores(): void {
       titulo: 'Modalidad No convencional', 
       icon: faChild 
     },
-    { valor: modalidadCounts.find(m => m.modalidad.includes('SOBRE RUEDAS'))?.count || 0, titulo: 'Jardines Sobre Ruedas', icon: faBus }
+    { valor: modalidadCounts.find(m => m.modalidad.includes('SOBRE RUEDAS'))?.count || 0, titulo: 'Jardín Sobre Ruedas', icon: faBus }
   ];
 }
 
@@ -2159,12 +2089,7 @@ private updateTarjetasSuperiores(): void {
 
 @NgModule({
   declarations: [CustomDashboardComponent],
-  imports: [
-    CommonModule,
-    FontAwesomeModule,   
-    RouterModule,
-    ElemButtonComponent
-  ],
+  imports: [CommonModule, FontAwesomeModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 export class CustomDashboardModule {}
