@@ -39,7 +39,7 @@ export interface ObjetivoVsActual {
   providedIn: 'root',
 })
 export class IndicadoresService {
-  private baseUrl = `${environmentdb.apidb}`; // URL configurada en environment
+  private baseUrl = `${environmentdb.apidb}/persona`; // URL configurada en environment
 
   constructor(private http: HttpClient) {
     console.log('IndicadoresService inicializado con URL:', this.baseUrl);
