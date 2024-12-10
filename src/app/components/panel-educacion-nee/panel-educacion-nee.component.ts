@@ -57,21 +57,21 @@ export class PanelEducacionNeeComponent implements OnInit {
       error: (err) => console.error('Error en getNecesidadesPorComuna:', err),
     });
 
-    // Gráfico 4: Resumen Necesidades (getResumenNecesidades)
-    this.educacionService.getResumenNecesidades(ano, codigoRegion).subscribe({
-      next: (res) => {
-        if (res.permanente || res.transitoria || res.rezago) {
-          this.renderPieChart('chart4', 'Resumen de Necesidades', [
-            { name: 'Permanente', y: res.permanente,  color: '#5ec5d5'},
-            { name: 'Transitoria', y: res.transitoria,  color: '#ec939c'},
-            { name: 'Rezago', y: res.rezago,  color: '#d7d755'},
-          ]);
-        } else {
-          console.error('Datos inválidos o vacíos para Resumen de Necesidades:', res);
-        }
-      },
-      error: (err) => console.error('Error en getResumenNecesidades:', err),
-    });
+    // // Gráfico 4: Resumen Necesidades (getResumenNecesidades)
+    // this.educacionService.getResumenNecesidades(ano, codigoRegion).subscribe({
+    //   next: (res) => {
+    //     if (res.permanente || res.transitoria || res.rezago) {
+    //       this.renderPieChart('chart4', 'Resumen de Necesidades', [
+    //         { name: 'Permanente', y: res.permanente,},
+    //         { name: 'Transitoria', y: res.transitoria,},
+    //         { name: 'Rezago', y: res.rezago,},
+    //       ]);
+    //     } else {
+    //       console.error('Datos inválidos o vacíos para Resumen de Necesidades:', res);
+    //     }
+    //   },
+    //   error: (err) => console.error('Error en getResumenNecesidades:', err),
+    // });
     
   }
 
@@ -80,24 +80,69 @@ export class PanelEducacionNeeComponent implements OnInit {
       console.error('Datos inválidos para el gráfico Pie:', data);
       return;
     }
-
+  
+    Highcharts.setOptions({
+      lang: {
+        contextButtonTitle: 'Opciones del gráfico',
+        downloadJPEG: 'Descargar en formato JPEG',
+        downloadPDF: 'Descargar en formato PDF',
+        downloadPNG: 'Descargar en formato PNG',
+        downloadSVG: 'Descargar en formato SVG',
+        printChart: 'Imprimir gráfico',
+        viewFullscreen: 'Ver en pantalla completa',
+      },
+    });
+  
     Highcharts.chart(containerId, {
-      chart: { type: 'pie' },
-      title: { text: title },
-      tooltip: { pointFormat: '<b>{point.y:.2f}%</b>' },
+      chart: {
+        type: 'pie',
+      },
+      title: {
+        text: title,
+      },
+      tooltip: {
+        pointFormat: '<b>{point.y:.2f}%</b>',
+      },
+      plotOptions: {
+        pie: {
+          allowPointSelect: true,
+          cursor: 'pointer',
+          dataLabels: {
+            enabled: true,
+            format: '<b>{point.name}</b>: {point.y:.2f}%',
+          },
+          showInLegend: true,
+        },
+      },
+      colors: [
+        '#FFB6C1', '#FFCC99', '#FFDAB9', '#FFFACD', '#D8BFD8', '#E6E6FA',
+        '#B0E0E6', '#ADD8E6', '#87CEFA', '#87CEEB', '#98FB98', '#90EE90',
+      ],
+      exporting: {
+        enabled: true,
+        buttons: {
+          contextButton: {
+            menuItems: ['downloadPNG', 'downloadJPEG', 'downloadPDF', 'downloadSVG', 'viewFullscreen', 'printChart'],
+          },
+        },
+      },
+      credits: {
+        enabled: false, // Oculta el logo de Highcharts
+      },
       series: [
         {
           name: 'Porcentaje',
           data: data.map((item) => ({
             name: item.Categoria || item.name,
             y: item.Porcentaje || item.y,
-            color: item.color,
           })),
           type: 'pie',
         },
       ],
     });
   }
+  
+  
 
   
   private renderHorizontalColumnChart(containerId: string, title: string, categories: string[], data: number[]): void {

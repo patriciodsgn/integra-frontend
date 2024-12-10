@@ -32,8 +32,8 @@ interface UserData {
   styleUrls: ['./view-login.component.css'],
 })
 export class ViewLoginComponent {
-  emailInput: string = '';
-  passwordInput: string = '';
+  emailInput: string = 'carlos.jerez@w-ingenieros.cl';
+  passwordInput: string = '10977971';
   errorMessage: string = '';
   showError: boolean = false;
 

@@ -78,7 +78,23 @@ export class ViewEducacionComponent {
         console.error('Error al cargar el resumen de necesidades:', err);
       },
     });
+
+  //   this.educacionService.getResumenNecesidades(ano, codigoRegion).subscribe({
+  //     next: (res) => {
+  //       console.log(`OK---------->getResumenNecesidades`,);
+  //       console.log(res);
+  //     },
+  //     error: (err) => {
+  //       console.error('Error---------->getResumenNecesidades :', err);
+  //     },
+  //   });
     
+  //   {
+  //     "permanente": 60.9,
+  //     "transitoria": 19.2,
+  //     "rezago": 19.9
+  // }
+  
   }
 
 }

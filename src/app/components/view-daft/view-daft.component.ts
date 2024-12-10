@@ -73,13 +73,13 @@ export class ViewDaftComponent {
     const ano = 2023;
     const codigoRegion = 0;
 
-    this.presupuestoService.obtenerDatosTarjetas({ ano }).subscribe({
+    this.presupuestoService.obtenerPresupuestoVsEjecutado({ ano }).subscribe({
       next: (res) => {
-        console.log('-------------->', res);
+        console.log('ok obtenerPresupuestoVsEjecutado ------>', res);
         // this.cardValue1 = `${res}`; 
       },
       error: (err) => {
-        console.error('-----Error al cargar-----:', err);
+        console.error('Error obtenerPresupuestoVsEjecutado ------>:', err);
       },
     });
     
