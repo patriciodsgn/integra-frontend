@@ -15,7 +15,7 @@ import { IndicadoresDashboardComponent } from './components/indicadores-dashboar
 
 import { ViewLoginComponent } from './components/view-login/view-login.component';
 import { ViewHomeComponent } from './components/view-home/view-home.component';
-import { ViewEjecutivaComponent } from './components/view-ejecutiva/view-ejecutiva.component';
+import { DashboardPortadaIndicadoresComponent } from './components/dashboard-portada-indicadores/dashboard-portada-indicadores.component';
 import { ViewDppiComponent } from './components/view-dppi/view-dppi.component';
 import { ViewDpgrComponent } from './components/view-dpgr/view-dpgr.component';
 import { ViewDaftComponent } from './components/view-daft/view-daft.component';
@@ -111,11 +111,15 @@ export const routes: Routes = [
                 children: [
                     {path: 'evolucion', loadComponent: () =>import('./components/panel-costos-evolucion/panel-costos-evolucion.component').then( (m) => m.PanelCostosEvolucionComponent),},
                 ]
+            },{
+                path: 'ejecutiva',
+                component: DashboardPortadaIndicadoresComponent 
             },
 
 
 
-            { path: 'ejecutiva', component: ViewEjecutivaComponent },
+
+
 
             // widgets
             { path: 'widgets', component: WidgetsComponent, data: { title: 'Widgets' } },
