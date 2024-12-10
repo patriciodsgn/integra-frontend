@@ -111,15 +111,15 @@ export class ViewDppiComponent {
 
 
 
-    this.dppiService.getInformacionGeografica(ano, codigoRegion).subscribe({
-      next: (res) => {
-        console.error('---------- getInformacionGeografica:', res);
-        // this.v7 = `${res.data.totalEvaluados}`;
-    },
-      error: (err) => {
-        console.error('---------- Error getInformacionGeografica:', err);
-      },
-    });
+    // this.dppiService.getInformacionGeografica(ano, codigoRegion).subscribe({
+    //   next: (res) => {
+    //     console.error('---------- getInformacionGeografica:', res);
+    //     // this.v7 = `${res.data.totalEvaluados}`;
+    // },
+    //   error: (err) => {
+    //     console.error('---------- Error getInformacionGeografica:', err);
+    //   },
+    // });
 
 
     // this.dppiService.getInformacionGeografica(ano, codigoRegion).subscribe({
@@ -133,15 +133,15 @@ export class ViewDppiComponent {
     // });
 
 
-    // this.dppiService.getParticipacionEncuestados(ano, codigoRegion).subscribe({
-    //   next: (res) => {
-    //     console.error('---------- getParticipacionEncuestados:', res);
-    //     // this.v7 = `${res.data.totalEvaluados}`;
-    // },
-    //   error: (err) => {
-    //     console.error('---------- Error al cargar:', err);
-    //   },
-    // });
+    this.dppiService.getParticipacionEncuestados(ano, codigoRegion).subscribe({
+      next: (res) => {
+        console.error('---------- getParticipacionEncuestados:', res);
+        // this.v7 = `${res.data.totalEvaluados}`;
+    },
+      error: (err) => {
+        console.error('---------- Error al cargar:', err);
+      },
+    });
 
   
   }

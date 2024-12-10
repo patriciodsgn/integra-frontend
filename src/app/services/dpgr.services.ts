@@ -123,13 +123,13 @@ export class DpgrService {
         return this.http.get<FrecuenciaPueblosOriginariosResponse>(url, { params });
     }
     getEstadisticasRO(
-        anoRO: number, 
+        ano: number, 
         codigoRegion: number = 0, 
         codigoJardin: number = 0
     ): Observable<EstadisticasROResponse> {
         const url = `${this.baseUrl}/estadisticasRO`;
         const params = {
-            anoRO: anoRO.toString(),
+            ano: ano.toString(),
             codigoRegion: codigoRegion.toString(),
             codigoJardin: codigoJardin.toString()
         };

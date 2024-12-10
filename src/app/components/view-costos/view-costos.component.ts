@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 import { ElemButtonComponent } from '../elem-button/elem-button.component'; // Importa el botón
 
-import { DpgrService } from '../../services/costo.service';
+import { CostoService } from '../../services/costo.service';
 
 import { RouterModule } from '@angular/router';
 import { ButtonStateService } from '../../button-state.service';
@@ -58,7 +58,7 @@ export class ViewCostosComponent {
 
 
 
-  constructor(private dpgrService: DpgrService) {}
+  constructor(private costoService: CostoService) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -70,16 +70,17 @@ public loadData(): void {
   const year = 2023;
   const codigoRegion = 0;
 
-  this.dpgrService.getCostEvolution(year).subscribe({
-    next: (res) => {
-      console.log('Respuesta de evolución de costos:', res); // Mostrar la respuesta en consola
-      // Asigna la respuesta a tu variable si es necesario
-      this.cardValue1 = res.someKey || 'No disponible'; // Ajusta según la estructura de respuesta
-    },
-    error: (err) => {
-      console.error('Error al obtener evolución de costos:', err);
-    },
-  });
+  // this.dpgrService.getCostEvolution(year).subscribe({
+  //   next: (res) => {
+  //     console.log('Respuesta de evolución de costos:', res); // Mostrar la respuesta en consola
+  //     // Asigna la respuesta a tu variable si es necesario
+  //     this.cardValue1 = res.someKey || 'No disponible'; // Ajusta según la estructura de respuesta
+  //   },
+  //   error: (err) => {
+  //     console.error('Error al obtener evolución de costos:', err);
+  //   },
+  // });
+
 }
 
 

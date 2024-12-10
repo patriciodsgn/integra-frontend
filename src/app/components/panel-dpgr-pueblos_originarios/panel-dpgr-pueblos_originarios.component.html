@@ -1,16 +1,19 @@
 <div class="p-4">
-  
-  <h1 class="text-xl font-bold my-6">
-    DPGR:
-    Pueblos Originarios
-  </h1>
+  <h1 class="text-xl font-bold my-6">Frecuencia y Distribución de Pueblos Originarios</h1>
 
-  <div class="grid grid-cols-2 gap-4 h-auto">
-    <div id="chart1" class="border border-gray-500 rounded-md h-[250px]">panel 1</div>
-    <div id="chart2" class="border border-gray-500 rounded-md h-[250px]">panel 2</div>
-  </div>
-  <div class="grid grid-cols-1 gap-4 h-auto">
-    <div id="chart3" class="border border-gray-500 rounded-md h-[250px]">panel 3</div>
+  <!-- Selector de Año -->
+  <div class="mb-4">
+    <label for="year-select" class="block mb-2 font-medium">Selecciona un Año:</label>
+    <select
+      id="year-select"
+      class="border rounded-md px-3 py-2"
+      (change)="onYearChange($event)"
+    >
+      <option value="2023" selected>2023</option>
+    </select>
   </div>
 
+  <!-- Gráficos -->
+  <div id="chart1" class="border border-slate-500 bg-white rounded-md h-100"></div>
+  <div id="chart2" class="border border-slate-500 bg-white rounded-md h-100 mt-6"></div>
 </div>

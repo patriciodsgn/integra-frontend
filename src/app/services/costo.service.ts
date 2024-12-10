@@ -8,18 +8,19 @@ import { ConteoResponse, EstadisticasROResponse, FrecuenciaPueblosOriginariosRes
 @Injectable({
     providedIn: 'root'
 })
-export class DpgrService {
+export class CostoService {
     private baseUrl = `${environmentdb.apidb}/costos`;
+    
     
 
     constructor(private http: HttpClient) {
-        console.log('DpgrService inicializado con URL:', this.baseUrl);
+        console.log('CostoService inicializado con URL:', this.baseUrl);
     }
 
     getCostEvolution(year?: number) {
         const params = new HttpParams()
             .set('ano', year?.toString() || '');
 
-        return this.http.get<any>('/api/evolucionCostos', { params });
+        return this.http.get<any>('/api/costos/evolucionCostos', { params });
     }
 }

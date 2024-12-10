@@ -52,26 +52,26 @@ getTotalesDiagnosticoNutricional(
 }
 
 getInformacionClaraOportuna(
-    anio?: number,
+    ano?: number,
     codigoRegion: number = 0
 ): Observable<InformacionClaraResponse> {
     const url = `${this.baseUrl}/informacionClaraOportuna`;
     const params: any = {};
     
-    if (anio) params.anio = anio.toString();
+    if (ano) params.ano = ano.toString();
     if (codigoRegion) params.codigoRegion = codigoRegion.toString();
 
     return this.http.get<InformacionClaraResponse>(url, { params });
 }
 
 getInformacionGeografica(
-    anio?: number,
+    ano?: number,
     codigoRegion: number = 0
 ): Observable<InformacionGeograficaResponse> {
     const url = `${this.baseUrl}/informacionGeografica`;
     const params: any = {};
     
-    if (anio) params.anio = anio.toString();
+    if (ano) params.ano = ano.toString();
     if (codigoRegion) params.codigoRegion = codigoRegion.toString();
 
     return this.http.get<InformacionGeograficaResponse>(url, { params });
