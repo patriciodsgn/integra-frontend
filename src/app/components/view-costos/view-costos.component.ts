@@ -37,12 +37,12 @@ export class ViewCostosComponent {
   public buttonStateService = inject(ButtonStateService);
 
   buttons: ButtonData[] = [
-    { eb_icon: 'trending_up', eb_title: 'Evolución', eb_subtitle: 'Costos Matrícula', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/evolucion' },
-    { eb_icon: 'attach_money', eb_title: 'Costo Promedio', eb_subtitle: 'Matrícula Anual', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/promedio'  },
-    { eb_icon: 'trending_up', eb_title: 'Incremento Anual', eb_subtitle: 'Costos Matrícula', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/incremento'  },
-    { eb_icon: 'pie_chart', eb_title: 'Distribución', eb_subtitle: 'Gasto por Categoría', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/distribucion'  },
-    { eb_icon: 'school', eb_title: 'Matrículas Totales', eb_subtitle: 'Año Actual', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/matriculas'  },
-    { eb_icon: 'show_chart', eb_title: 'Tendencias', eb_subtitle: 'Histórico de Costos', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/tendencias'  }
+    { eb_icon: 'trending_up', eb_title: 'Evolución', eb_subtitle: 'Costos Matrícula', eb_disable: false, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/evolucion' },
+    { eb_icon: 'attach_money', eb_title: 'Costo Promedio', eb_subtitle: 'Matrícula Anual', eb_disable: true, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/promedio'  },
+    { eb_icon: 'trending_up', eb_title: 'Incremento Anual', eb_subtitle: 'Costos Matrícula', eb_disable: true, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/incremento'  },
+    { eb_icon: 'pie_chart', eb_title: 'Distribución', eb_subtitle: 'Gasto por Categoría', eb_disable: true, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/distribucion'  },
+    { eb_icon: 'school', eb_title: 'Matrículas Totales', eb_subtitle: 'Año Actual', eb_disable: true, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/matriculas'  },
+    { eb_icon: 'show_chart', eb_title: 'Tendencias', eb_subtitle: 'Histórico de Costos', eb_disable: true, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/tendencias'  }
   ]
 
 
