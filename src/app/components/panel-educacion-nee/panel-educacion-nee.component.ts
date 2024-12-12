@@ -226,7 +226,7 @@ export class PanelEducacionNeeComponent implements OnInit {
         },
       ],
       credits: { enabled: false }, // Desactiva créditos
-      exporting: { enabled: false }, // Desactiva exportación
+      // exporting: { enabled: false }, // Desactiva exportación
     });
   }
   
