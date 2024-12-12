@@ -30,6 +30,7 @@ interface ButtonData {
   styleUrls: ['./view-educacion.component.css'],
 })
 
+
 export class ViewEducacionComponent {
 
   public buttonStateService = inject(ButtonStateService);
