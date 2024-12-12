@@ -73,16 +73,6 @@ export class ViewDaftComponent {
     const ano = 2022;
     const codigoRegion = 0;
 
-    this.presupuestoService.obtenerDatosTarjetas({ ano }).subscribe({
-      next: (res) => {
-        console.log('ok obtenerDatosTarjetas ------>', res);
-        // this.cardValue1 = `${res}`; 
-      },
-      error: (err) => {
-        console.error('Error obtenerDatosTarjetas ------>:', err);
-      },
-    });
-
     // this.presupuestoService.obtenerPresupuestoVsEjecutado({ ano }).subscribe({
     //   next: (res) => {
     //     console.log('ok obtenerPresupuestoVsEjecutado ------>', res);
@@ -93,15 +83,15 @@ export class ViewDaftComponent {
     //   },
     // });
     
-                        // this.presupuestoService.obtenerGastosVsSaldo({ano}).subscribe({
-                        //   next: (res) => {
-                        //     console.log('-------------->', res);
-                        //     // this.cardValue1 = `${res}`; 
-                        //   },
-                        //   error: (err) => {
-                        //     console.error('-----Error al cargar-----:', err);
-                        //   },
-                        // });
+    this.presupuestoService.obtenerGastosVsSaldo({ano}).subscribe({
+      next: (res) => {
+        console.log('-------------->', res);
+        // this.cardValue1 = `${res}`; 
+      },
+      error: (err) => {
+        console.error('-----Error al cargar-----:', err);
+      },
+    });
 
 
     

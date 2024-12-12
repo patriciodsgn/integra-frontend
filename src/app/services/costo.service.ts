@@ -33,7 +33,7 @@ export class CostoService {
         console.log('CostoService inicializado con URL:', this.baseUrl);
     }
 
-    getCostEvolution(year?: number) {
+    getCostEvolution(year?: number): Observable<CostEvolutionData> {
         const params = new HttpParams().set('ano', year?.toString() || '');
         const url = `${this.baseUrl}/evolucionCostos`;
 

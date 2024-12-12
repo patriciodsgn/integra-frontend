@@ -76,8 +76,8 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
     ...this.baseChartConfig,
     chart: {
       ...this.baseChartConfig.chart,
-      type: 'column',
-      options3d: { enabled: true, alpha: 15, beta: 15, depth: 30 }
+      type: 'column', // Gráfico de columnas
+      options3d: undefined // Remueve la configuración 3D
     },
     xAxis: {
       categories: ['NEE Permanente', 'NEE Transitoria', 'NEE Rezago'],
@@ -89,82 +89,82 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
     },
     plotOptions: {
       column: {
-        depth: 25,
-        colorByPoint: true
+        colorByPoint: true // Colores personalizados para las columnas
       }
     },
     series: [{
       type: 'column',
-      data: [56.8, 20.5, 22.7],
-      colors: ['#FFCC99', '#90EE90', '#fcd86f']
+      data: [56.8, 20.5, 22.7], // Datos del gráfico
+      colors: ['#FFCC99', '#90EE90', '#fcd86f'] // Colores para las columnas
     }],
     credits: {
-      enabled: false,
+      enabled: false, // Desactiva los créditos
     }
   };
-
+  
   infraestructuraOptions: Highcharts.Options = {
     ...this.baseChartConfig,
     chart: {
       ...this.baseChartConfig.chart,
-      type: 'column',
-      options3d: { enabled: true, alpha: 10, beta: 10, depth: 20 }
+      type: 'column', // Gráfico de columnas plano
+      options3d: undefined // Desactivamos las opciones 3D
     },
     xAxis: {
-      categories: ['Reconocimiento Oficial', 'Sellos Verdes'],
-      labels: { style: { fontSize: '11px' } }
+      categories: ['Reconocimiento Oficial', 'Sellos Verdes'], // Categorías en el eje X
+      labels: { style: { fontSize: '11px' } } // Estilo de las etiquetas
     },
     series: [{
       type: 'column',
-      data: [4.1, 46.0],
-      color: '#FFCC99'
+      data: [4.1, 46.0], // Datos de las columnas
+      color: '#FFCC99' // Color uniforme para todas las columnas
     }],
     credits: {
-      enabled: false,
+      enabled: false, // Desactiva los créditos
     }
   };
+  
 
   seguridadOptions: Highcharts.Options = {
     ...this.baseChartConfig,
     chart: {
       ...this.baseChartConfig.chart,
-      type: 'column',
-      options3d: { enabled: true, alpha: 10, beta: 10, depth: 20 }
+      type: 'column', // Gráfico plano
+      options3d: undefined // Desactivar configuración 3D
     },
     xAxis: {
-      categories: ['2022', '2023'],
-      labels: { style: { fontSize: '11px' } }
+      categories: ['2022', '2023'], // Categorías para el eje X
+      labels: { style: { fontSize: '11px' } } // Estilo de las etiquetas
     },
     plotOptions: {
       column: {
-        depth: 25
+        // Configuración 2D para las columnas
+        borderWidth: 0 // Quitar bordes adicionales si los hubiera
       }
     },
     series: [{
       type: 'column',
-      data: [27000, 30000],
-      color: '#FFCC99'
+      data: [27000, 30000], // Datos de las columnas
+      color: '#FFCC99' // Color uniforme
     }],
     credits: {
-      enabled: false,
+      enabled: false // Desactivar créditos
     }
   };
-
+  
   educacionOptions: Highcharts.Options = {
     ...this.baseChartConfig,
     chart: {
       ...this.baseChartConfig.chart,
-      type: 'pie',
-      options3d: { enabled: true, alpha: 45 }
+      type: 'pie', // Gráfico de pastel plano
+      options3d: undefined // Desactivar configuración 3D
     },
     plotOptions: {
       pie: {
-        innerSize: '50%',
-        depth: 30,
+        innerSize: '50%', // Tamaño interno para el diseño de dona
         dataLabels: {
-          enabled: true,
-          format: '{point.name}: {point.percentage:.1f}%',
-          style: { fontSize: '11px' }
+          enabled: true, // Etiquetas activadas
+          format: '{point.name}: {point.percentage:.1f}%', // Formato de las etiquetas
+          style: { fontSize: '11px' } // Estilo de las etiquetas
         }
       }
     },
@@ -175,33 +175,34 @@ export class DashboardPortadaIndicadoresComponent implements OnInit {
         { name: 'Asesor Técnico', y: 28.4, color: '#90EE90' },
         { name: 'Prof. Familia', y: 17.7, color: '#fcd86f' },
         { name: 'Prof. Inclusión', y: 27.2, color: '#D8BFD8' }
-      ]
+      ] // Datos del gráfico
     }],
     credits: {
-      enabled: false,
+      enabled: false // Desactivar créditos
     }
   };
+  
 
   ubicacionOptions: Highcharts.Options = {
     ...this.baseChartConfig,
     chart: {
       ...this.baseChartConfig.chart,
-      type: 'column',
-      options3d: { enabled: true, alpha: 15, beta: 15, depth: 30 }
+      type: 'column', // Gráfico plano
+      options3d: undefined // Desactivar configuración 3D
     },
     xAxis: {
-      categories: ['Urbano', 'Rural'],
-      labels: { style: { fontSize: '11px' } }
+      categories: ['Urbano', 'Rural'], // Categorías en el eje X
+      labels: { style: { fontSize: '11px' } } // Estilo de las etiquetas
     },
     series: [{
       type: 'column',
-      data: [75, 25],
-      color: '#90EE90',
+      data: [75, 25], // Datos de las columnas
+      color: '#90EE90', // Color uniforme para las columnas
     }],
     credits: {
-      enabled: false,
+      enabled: false // Desactivar créditos
     }
-  };
+  };  
   
   satisfactionGaugeOptions: Highcharts.Options = {
     chart: {

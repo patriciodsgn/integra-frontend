@@ -1,12 +1,27 @@
 <div class="p-4">
-  
-  <h1 class="text-xl font-bold my-6">
-    Costos:
-    Evolución
-  </h1>
+  <h1 class="text-xl font-bold my-6">Costos: Evolución</h1>
 
-  <div class="grid grid-cols-1 gap-4 h-auto">
-    <div id="chart1" class="border border-gray-500 rounded-md h-[250px]">panel Costos 1</div>
+  <!-- Filtro de Año -->
+  <div class="mb-4">
+    <label for="year-select" class="block mb-2 font-medium">Selecciona un Año:</label>
+    <select
+      id="year-select"
+      class="border rounded-md px-3 py-2"
+      (change)="onYearChange($event)"
+    >
+      <option value="2024">2020</option>
+      <option value="2024">2021</option>
+      <option value="2024">2022</option>
+      <option value="2023">2023</option>
+      <option value="2024" selected>2024</option>
+      
+    </select>
   </div>
-  
+
+  <!-- Contenedor del Gráfico -->
+  <div class="grid grid-cols-1 gap-4 h-auto">
+    <div id="chart1" class="border border-gray-500 rounded-md h-[350px]">
+      <!-- El gráfico se renderiza aquí -->
+    </div>
+  </div>
 </div>
