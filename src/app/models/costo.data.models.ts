@@ -1,7 +1,9 @@
 // Interfaz para agrupar los datos de costos
 export interface CostEvolutionData {
-    costos: CostRecord[];         // Array de registros de costos
+    success: boolean;
+    data: CostRecord[];         // Array de registros de costos
     periodo: string;              // Período general de los datos
+    error?: string;  
 }
 
 // Interfaz para la respuesta completa del API

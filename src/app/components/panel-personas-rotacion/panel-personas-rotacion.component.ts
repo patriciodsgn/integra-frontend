@@ -27,57 +27,57 @@ export class PanelPersonasRotacionComponent implements OnInit {
   private loadData(): void {
     // const ano = this.selectedYear;
     const mes = 1;
-    const ano = 2023;
+    const ano = 2024;
     const codigoRegion = 1;
 
     
-    // this.indicadoresService.getSemaforoIndicadores(ano).subscribe({
-    //   next: (res) => {
-    //       console.log('ok-------------- getSemaforoIndicadores:')
-    //       console.log(res)
-    //       // const { porcentajes } = res.data;
-    //       // this.renderChartClaraOportuna('chart1', porcentajes);
-    //   },
-    //   error: (err) => {
-    //     console.error('Error al cargar ----------- getSemaforoIndicadores:', err);
-    //   },
-    // });
+    this.indicadoresService.getSemaforoIndicadores(ano).subscribe({
+      next: (res) => {
+          console.log('ok-------------- getSemaforoIndicadores:')
+          console.log(res)
+          // const { porcentajes } = res.data;
+          // this.renderChartClaraOportuna('chart1', porcentajes);
+      },
+      error: (err) => {
+        console.error('Error al cargar ----------- getSemaforoIndicadores:', err);
+      },
+    });
     
-    // this.indicadoresService.getCompararIndicadores(mes, ano).subscribe({
-    //   next: (res) => {
-    //       console.log('ok-------------- getCompararIndicadores:')
-    //       console.log(res)
-    //       // const { porcentajes } = res.data;
-    //       // this.renderChartClaraOportuna('chart1', porcentajes);
-    //   },
-    //   error: (err) => {
-    //     console.error('Error al cargar ----------- getCompararIndicadores:', err);
-    //   },
-    // });
+    this.indicadoresService.getCompararIndicadores(mes, ano).subscribe({
+      next: (res) => {
+          console.log('ok-------------- getCompararIndicadores:')
+          console.log(res)
+          // const { porcentajes } = res.data;
+          // this.renderChartClaraOportuna('chart1', porcentajes);
+      },
+      error: (err) => {
+        console.error('Error al cargar ----------- getCompararIndicadores:', err);
+      },
+    });
 
-    // this.indicadoresService.getTendenciaIndicadores(ano, codigoRegion).subscribe({
-    //   next: (res) => {
-    //       console.log('ok-------------- getTendenciaIndicadores:')
-    //       console.log(res)
-    //       // const { porcentajes } = res.data;
-    //       // this.renderChartClaraOportuna('chart1', porcentajes);
-    //   },
-    //   error: (err) => {
-    //     console.error('Error al cargar ----------- getTendenciaIndicadores:', err);
-    //   },
-    // });
+    this.indicadoresService.getTendenciaIndicadores(ano, codigoRegion).subscribe({
+      next: (res) => {
+          console.log('ok-------------- getTendenciaIndicadores:')
+          console.log(res)
+          // const { porcentajes } = res.data;
+          // this.renderChartClaraOportuna('chart1', porcentajes);
+      },
+      error: (err) => {
+        console.error('Error al cargar ----------- getTendenciaIndicadores:', err);
+      },
+    });
 
-    // this.indicadoresService.getObjetivoVsActual(ano, codigoRegion).subscribe({
-    //   next: (res) => {
-    //       console.log('ok-------------- getObjetivoVsActual:')
-    //       console.log(res)
-    //       // const { porcentajes } = res.data;
-    //       // this.renderChartClaraOportuna('chart1', porcentajes);
-    //   },
-    //   error: (err) => {
-    //     console.error('Error al cargar ----------- getObjetivoVsActual:', err);
-    //   },
-    // });
+    this.indicadoresService.getObjetivoVsActual(ano, codigoRegion).subscribe({
+      next: (res) => {
+          console.log('ok-------------- getObjetivoVsActual:')
+          console.log(res)
+          // const { porcentajes } = res.data;
+          // this.renderChartClaraOportuna('chart1', porcentajes);
+      },
+      error: (err) => {
+        console.error('Error al cargar ----------- getObjetivoVsActual:', err);
+      },
+    });
 
 
 
