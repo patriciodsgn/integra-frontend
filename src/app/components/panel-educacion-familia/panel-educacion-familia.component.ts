@@ -2,14 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { EducacionService } from '../../services/educacion.services';
 
-@Component({
-  selector: 'app-panel-educacion-nee',
-  standalone: true,
-  templateUrl: './panel-educacion-nee.component.html',
-  styleUrls: ['./panel-educacion-nee.component.css'],
-})
 
-export class PanelEducacionNeeComponent implements OnInit {
+@Component({
+  selector: 'app-panel-educacion-familia',
+  standalone: true,
+  imports: [],
+  templateUrl: './panel-educacion-familia.component.html',
+  styleUrl: './panel-educacion-familia.component.css'
+})
+export class PanelEducacionFamiliaComponent  implements OnInit {
   constructor(private educacionService: EducacionService) {}
 
   ngOnInit(): void {
@@ -230,4 +231,5 @@ export class PanelEducacionNeeComponent implements OnInit {
     });
   }
   
+
 }

@@ -72,6 +72,7 @@ export const routes: Routes = [
                 children: [
                     {path: 'nee', loadComponent: () => import('./components/panel-educacion-nee/panel-educacion-nee.component').then( (m) => m.PanelEducacionNeeComponent),},
                     {path: 'atet', loadComponent: () =>import('./components/panel-educacion-atet/panel-educacion-atet.component').then( (m) => m.PanelEducacionAtetComponent),},
+                    {path: 'familia', loadComponent: () =>import('./components/panel-educacion-familia/panel-educacion-familia.component').then( (m) => m.PanelEducacionFamiliaComponent),},
                 ],
             },{
                 path: 'personas',
