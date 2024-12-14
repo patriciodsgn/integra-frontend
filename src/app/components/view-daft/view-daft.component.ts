@@ -73,25 +73,117 @@ export class ViewDaftComponent {
     const ano = 2022;
     const codigoRegion = 0;
 
-    // this.presupuestoService.obtenerPresupuestoVsEjecutado({ ano }).subscribe({
+    // this.presupuestoService.obtenerDatosTarjetas({ ano }).subscribe({
     //   next: (res) => {
-    //     console.log('ok obtenerPresupuestoVsEjecutado ------>', res);
+    //     console.log('obtenerDatosTarjetas--------------ok', res);
     //     // this.cardValue1 = `${res}`; 
     //   },
     //   error: (err) => {
-    //     console.error('Error obtenerPresupuestoVsEjecutado ------>:', err);
+    //     console.error('obtenerDatosTarjetas--------------error', err);
     //   },
     // });
     
-    this.presupuestoService.obtenerGastosVsSaldo({ano}).subscribe({
-      next: (res) => {
-        console.log('-------------->', res);
-        // this.cardValue1 = `${res}`; 
-      },
-      error: (err) => {
-        console.error('-----Error al cargar-----:', err);
-      },
-    });
+    // this.presupuestoService.obtenerFlujoSaldo({ ano }).subscribe({
+    //   next: (res) => {
+    //     console.log('obtenerFlujoSaldo--------------ok', res);
+    //     // this.cardValue1 = `${res}`; 
+    //   },
+    //   error: (err) => {
+    //     console.error('obtenerFlujoSaldo--------------error', err);
+    //   },
+    // });
+    
+    // this.presupuestoService.obtenerGastosVsSaldo({ ano }).subscribe({
+    //   next: (res) => {
+    //     console.log('obtenerGastosVsSaldo--------------ok', res);
+    //     // this.cardValue1 = `${res}`; 
+    //   },
+    //   error: (err) => {
+    //     console.error('obtenerGastosVsSaldo--------------error', err);
+    //   },
+    // });
+
+
+
+
+
+
+
+
+    // this.presupuestoService.obtenerPorcentajeEjecucionVsSaldo({ ano }).subscribe({
+    //   next: (res) => {
+    //     console.log('obtenerPorcentajeEjecucionVsSaldo--------------ok', res);
+    //     // this.cardValue1 = `${res}`; 
+    //   },
+    //   error: (err) => {
+    //     console.error('obtenerPorcentajeEjecucionVsSaldo--------------error', err);
+    //   },
+    // });
+    
+
+    // this.presupuestoService.obtenerPresupuestoComprometidoVsEjecutado({ ano }).subscribe({
+    //   next: (res) => {
+    //     console.log('obtenerPresupuestoComprometidoVsEjecutado--------------ok', res);
+    //     // this.cardValue1 = `${res}`; 
+    //   },
+    //   error: (err) => {
+    //     console.error('obtenerPresupuestoComprometidoVsEjecutado--------------error', err);
+    //   },
+    // });
+    
+
+
+
+
+
+
+
+
+    // this.presupuestoService.obtenerPresupuestoVsEjecutado({ ano }).subscribe({
+    //   next: (res) => {
+    //     console.log('obtenerPresupuestoVsEjecutado--------------ok', res);
+    //     // this.cardValue1 = `${res}`; 
+    //   },
+    //   error: (err) => {
+    //     console.error('obtenerPresupuestoVsEjecutado--------------error', err);
+    //   },
+    // });
+    
+    // this.presupuestoService.obtenerPresupuestoVsGastos({ ano }).subscribe({
+    //   next: (res) => {
+    //     console.log('obtenerPresupuestoVsGastos--------------ok', res);
+    //     // this.cardValue1 = `${res}`; 
+    //   },
+    //   error: (err) => {
+    //     console.error('obtenerPresupuestoVsGastos--------------error', err);
+    //   },
+    // });
+
+    // this.presupuestoService.obtenerPresupuestoVigenteVsEjecutado({ ano }).subscribe({
+    //   next: (res) => {
+    //     console.log('obtenerPresupuestoVigenteVsEjecutado--------------ok', res);
+    //     // this.cardValue1 = `${res}`; 
+    //   },
+    //   error: (err) => {
+    //     console.error('obtenerPresupuestoVigenteVsEjecutado--------------error', err);
+    //   },
+    // });
+    
+
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+
 
 
     

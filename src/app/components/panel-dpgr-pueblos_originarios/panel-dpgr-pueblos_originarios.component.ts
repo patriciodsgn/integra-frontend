@@ -1,36 +1,63 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { DpgrService } from '../../services/dpgr.services';
+import { CommonModule } from '@angular/common';
+import { REGIONS } from '../../shared/regions';
+import { JARDINES } from '../../shared/jardines';
 
 @Component({
   selector: 'app-panel-dpgr-pueblos-originarios',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './panel-dpgr-pueblos_originarios.component.html',
   styleUrls: ['./panel-dpgr-pueblos_originarios.component.css'],
 })
 export class PanelDpgrPueblos_originariosComponent implements OnInit {
-  selectedYear = 2023;
+  years: number[] = [2023];
+  selectedYear: number = 2023;
+  regions = REGIONS;
+  selectedRegion: number = 0;
+  jardines = JARDINES;
+  selectedJardin: number = 0;
 
-  constructor(private dpgrService: DpgrService) {}
+  constructor(private dpgrService: DpgrService) { }
 
   ngOnInit(): void {
-    this.loadData(this.selectedYear);
+    this.loadData(this.selectedYear, this.selectedRegion, this.selectedJardin
+    );
   }
 
-  // Manejar cambio de año desde el selector
   onYearChange(event: Event): void {
-    const year = +(event.target as HTMLSelectElement).value; // Convertir a número
-    this.selectedYear = year;
-    this.loadData(this.selectedYear);
+    this.selectedYear = +(event.target as HTMLSelectElement).value;
+    this.loadData(this.selectedYear, this.selectedRegion, this.selectedJardin
+    );
+  }
+
+  onRegionChange(event: Event): void {
+    this.selectedRegion = +(event.target as HTMLSelectElement).value;
+    this.loadData(this.selectedYear, this.selectedRegion, this.selectedJardin
+    );
+  }
+ 
+  onJardinChange(event: Event): void {
+    this.selectedJardin = +(event.target as HTMLSelectElement).value;
+    this.loadData(this.selectedYear, this.selectedRegion, this.selectedJardin
+    );
   }
 
   // Cargar datos y renderizar gráficos
-  public loadData(year: number): void {
-    const codigoRegion = 0;
+  public loadData(
+    year: number,
+    codeRegion: number,
+    codeJardin: number
+  ): void {
+    // const codigoRegion = 0;
 
+    
     // Gráfico de barras horizontales
-    this.dpgrService.getFrecuenciaPueblosOriginarios(year, codigoRegion).subscribe({
+    this.dpgrService.getFrecuenciaPueblosOriginarios(year, codeRegion, codeJardin).subscribe({
       next: (res) => {
         console.log(`Datos del año ${year}:`, res);
         const chartData = this.processData(res.data);
@@ -42,7 +69,7 @@ export class PanelDpgrPueblos_originariosComponent implements OnInit {
     });
 
     // Gráfico circular
-    this.dpgrService.getPorcentajePueblosOriginarios(year, codigoRegion).subscribe({
+    this.dpgrService.getPorcentajePueblosOriginarios(year, codeRegion).subscribe({
       next: (res) => {
         console.log('Datos de porcentaje:', res);
         this.renderPieChart(res.data.detallePueblos);
@@ -51,6 +78,7 @@ export class PanelDpgrPueblos_originariosComponent implements OnInit {
         console.error('Error al cargar:', err);
       },
     });
+
   }
 
   // Procesar los datos agrupando por región

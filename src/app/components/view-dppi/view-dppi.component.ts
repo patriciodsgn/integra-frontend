@@ -65,15 +65,15 @@ export class ViewDppiComponent {
     this.loadData();
   }
 
-  v1: string = 'v1';
-  v2: string = 'v2';
+  v1: string = '-';
+  v2: string = '-';
   
-  v3: string = 'v3';
-  v4: string = 'v4';
-  v5: string = 'v5';
-  v6: string = 'v6';
+  v3: string = '-';
+  v4: string = '-';
+  v5: string = '-';
+  v6: string = '-';
 
-  v7: string = 'v7';
+  v7: string = '-';
 
 
   public loadData(): void {

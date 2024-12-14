@@ -1,15 +1,29 @@
 <div class="p-4">
   <h1 class="text-xl font-bold my-6">DPGR: Nacionalidad</h1>
+
   <div class="mb-4">
-    <label for="year-select" class="block mb-2 font-medium">Selecciona un Año:</label>
-    <select
-      id="year-select"
-      class="border rounded-md px-3 py-2"
-      (change)="onYearChange($event)"
-    >
-      <option value="2023" selected>2023</option>
-    </select>
+    <div class="mb-4">
+      <label for="year-select" class="block mb-2 font-medium">Selecciona un Año:</label>
+      <select id="year-select" class="border rounded-md px-3 py-2" (change)="onYearChange($event)">
+        <option *ngFor="let year of years" [value]="year" [selected]="year === selectedYear">
+          {{ year }}
+        </option>
+      </select>
+      <label for="region-select" class="block mb-2 font-medium">Selecciona una Región:</label>
+      <select id="region-select" class="border rounded-md px-3 py-2" (change)="onRegionChange($event)">
+        <option *ngFor="let region of regions" [value]="region.code" [selected]="region.code === selectedRegion">
+          {{ region.name }}
+        </option>
+      </select>
+      <!-- <label for="jardin-select" class="block mb-2 font-medium">Selecciona un Jardin:</label>
+      <select id="jardin-select" class="border rounded-md px-3 py-2" (change)="onJardinChange($event)">
+        <option *ngFor="let jardin of jardines" [value]="jardin.code" [selected]="jardin.code === selectedJardin">
+          {{ Jardin.name }}
+        </option>
+      </select> -->
+    </div>
   </div>
+
   <div class="grid grid-cols-1 gap-4 h-auto">
     <div id="chart1" class="border border-gray-500 rounded-md h-[2000px]"></div>
     <div id="chart2" class="border border-gray-500 rounded-md h-100"></div>

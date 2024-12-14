@@ -1,22 +1,25 @@
 <div class="p-4">
   <h1 class="text-xl font-bold my-6">DPGR: Sello Verde</h1>
 
-  <!-- Selector de Año -->
   <div class="mb-4">
     <label for="year-select" class="block mb-2 font-medium">Selecciona un Año:</label>
-    <select
-      id="year-select"
-      class="border rounded-md px-3 py-2"
-      (change)="onYearChange($event)"
-    >
-      <option value="2017">2017</option>
-      <option value="2018">2018</option>
-      <option value="2019">2019</option>
-      <option value="2020">2020</option>
-      <option value="2021">2021</option>
-      <option value="2022">2022</option>
-      <option value="2023" selected>2023</option>
+    <select id="year-select" class="border rounded-md px-3 py-2" (change)="onYearChange($event)">
+      <option *ngFor="let year of years" [value]="year" [selected]="year === selectedYear">
+        {{ year }}
+      </option>
     </select>
+    <label for="region-select" class="block mb-2 font-medium">Selecciona una Región:</label>
+    <select id="region-select" class="border rounded-md px-3 py-2" (change)="onRegionChange($event)">
+      <option *ngFor="let region of regions" [value]="region.code" [selected]="region.code === selectedRegion">
+        {{ region.name }}
+      </option>
+    </select>
+    <!-- <label for="jardin-select" class="block mb-2 font-medium">Selecciona un Jardin:</label>
+    <select id="jardin-select" class="border rounded-md px-3 py-2" (change)="onJardinChange($event)">
+      <option *ngFor="let jardin of jardines" [value]="jardin.code" [selected]="jardin.code === selectedJardin">
+        {{ Jardin.name }}
+      </option>
+    </select> -->
   </div>
 
   <!-- Contenedor del Gráfico -->
