@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Importa CommonModule
 import { ElemButtonComponent } from '../elem-button/elem-button.component'; // Importa el botón
 
-// import { PersonasService } from '../../services/personas.services';
+import { IndicadoresService } from '../../services/persona.service';
 
 import { RouterModule } from '@angular/router';
 import { ButtonStateService } from '../../button-state.service';
@@ -60,7 +60,7 @@ export class ViewPersonasComponent {
 
 
 
-  // constructor(private personasService: PersonasService) {}
+  constructor(private personaService: IndicadoresService) {}
 
   ngOnInit(): void {
     this.loadData();
@@ -69,19 +69,20 @@ export class ViewPersonasComponent {
   cardValue1: string = '';
 
   public loadData(): void {
-    const ano = 2023;
+    const mesActual = 2;
+    const anoActual = 2022;
     const codigoRegion = 0;
 
-    // this.personasService.getCantidadTotal(ano, codigoRegion).subscribe({
-    //   next: (res) => {
-    //     this.cardValue1 = `${res.data.cantidadTotal}`;
-    //   },
-    //   error: (err) => {
-    //     console.error('Error al cargar el resumen de necesidades:', err);
-    //   },
-    // });
+    this.personaService.getCompararIndicadores(mesActual, anoActual).subscribe({
+      next: (res) => {
+        this.cardValue1 = `${res}`;
+      },
+      error: (err) => {
+        console.error('Error al cargar el resumen de necesidades:', err);
+      },
+    });
+
+
+
   }
-
-
-
 }

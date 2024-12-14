@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, Input, OnDestroy } from '@angular/core';
 import * as Highcharts from 'highcharts/highmaps';
 import MapModule from 'highcharts/modules/map';
-import * as mapDataCL from '@highcharts/map-collection/countries/cl/cl-all.geo.json';
+//import * as mapDataCL from '@highcharts/map-collection/countries/cl/cl-all.geo.json';
+import mapDataCL from '../../../assets/map/cl-all.geo.json';
+
+
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
@@ -202,58 +205,158 @@ export class RegionMapComponent implements OnInit, OnDestroy {
     //console.log('Iniciando carga de datos...');
     this.initializeDataLoading();
   }
-
   private initializeDataLoading(): void {
-    // Suscribirse al observable de jardines
+    console.group('🚀 [initializeDataLoading]');
+    console.log('Estado inicial:', {
+      hayJardinesData: Boolean(this.jardinesData),
+      longitudJardinesData: this.jardinesData?.length || 0
+    });
+  
     this.subscription = this.regionService.jardines$
       .pipe(
-        filter(jardines => jardines && jardines.length > 0)
+        filter(jardines => {
+          console.group('🔍 [Filter] Evaluación de datos');
+          console.log('Datos recibidos:', {
+            esArray: Array.isArray(jardines),
+            tipo: typeof jardines,
+            valor: jardines,
+            cantidadJardines: jardines?.length || 0
+          });
+  
+          // Verificar estructura de datos
+          if (jardines && jardines.length > 0) {
+            console.log('Muestra del primer jardín:', jardines[0]);
+          }
+  
+          const tieneJardines = jardines && jardines.length > 0;
+          console.log('¿Pasa el filtro?:', tieneJardines);
+          console.groupEnd();
+          return tieneJardines;
+        })
       )
       .subscribe({
         next: (jardines) => {
-          console.log(`Datos actualizados: ${jardines.length} jardines`);
+          console.group('✅ [Subscribe] Datos recibidos');
+          console.log('Cantidad de jardines:', jardines.length);
+          if (jardines.length > 0) {
+            console.log('Estructura del primer jardín:', {
+              ...jardines[0],
+              codReg: this.normalizeRegionCode(jardines[0].codReg)
+            });
+          }
+          console.log('Estado antes de actualizar:', {
+            jardinesDataActual: this.jardinesData.length
+          });
           this.jardinesData = jardines;
+          console.log('Estado después de actualizar:', {
+            jardinesDataNuevo: this.jardinesData.length
+          });
+          console.groupEnd();
+  
           this.initializeMap();
         },
         error: (error) => {
-          console.error('Error en la suscripción:', error);
+          console.group('❌ [Subscribe] Error detectado');
+          console.error('Detalles del error:', {
+            mensaje: error.message,
+            error: error
+          });
+          console.groupEnd();
           this.loading = false;
         }
       });
-
-    // Iniciar la carga de datos
-    this.regionService.fetchAllRegionDataLimitedParallel(17);
+  
+    console.log('⚡ Iniciando carga de datos paralela...');
+    try {
+      this.regionService.fetchAllRegionDataLimitedParallel(17);
+      console.log('✅ Solicitud de carga iniciada correctamente');
+    } catch (error) {
+      console.error('❌ Error al iniciar la carga:', error);
+    }
+    console.groupEnd();
   }
 
   private initializeMap(): void {
+    console.group('🗺️ [initializeMap] Inicialización del mapa');
+    
+    // Debug inicial de datos de jardines
+    console.log('Datos de jardines recibidos:', {
+      total: this.jardinesData.length,
+      muestra: this.jardinesData.map(j => ({
+        codReg: j.codReg,
+        normalizado: this.normalizeRegionCode(j.codReg)
+      }))
+    });
+  
     if (!this.mapContainer || !this.mapContainer.nativeElement) {
-      console.warn('Container del mapa no encontrado');
+      console.warn('⚠️ Container del mapa no encontrado');
+      console.groupEnd();
       return;
     }
   
     if (Highcharts.charts[0]) {
-      console.log('Destruyendo carta existente');
+      console.log('🔄 Destruyendo carta existente');
       Highcharts.charts[0].destroy();
     }
   
     const data = mapDataCL.features.map((feature: any) => {
-      const codReg = this.normalizeRegionCode(feature.properties['hc-key']);
-      const jardinesEnRegion = this.jardinesData.filter(j => 
-        this.normalizeRegionCode(j.codReg) === codReg
-      );
-      const count = jardinesEnRegion.length;
+      const hcKey = feature.properties['hc-key'];
+      const codReg = this.normalizeRegionCode(hcKey);
+      
+    //  console.group(`Procesando región: ${feature.properties.name}`);
+    //  console.log('Códigos de región:', {
+    //    'hc-key': hcKey,
+    //    'códigoNormalizado': codReg,
+    //    'nombreRegión': feature.properties.name
+    //  });
+  
+      const jardinesEnRegion = this.jardinesData.filter(jardin => {
+        const jardinCodReg = this.normalizeRegionCode(jardin.codReg);
+        const regionCode = this.normalizeRegionCode(hcKey);
+        
+        //console.log(`Comparando códigos para ${feature.properties.name}:`, {
+       //   códigoJardín: jardin.codReg,
+       //   jardínNormalizado: jardinCodReg,
+       //   códigoRegión: hcKey,
+       //   regiónNormalizada: regionCode,
+       //   coincide: jardinCodReg === regionCode
+       // });
+        
+        return jardinCodReg === regionCode;
+      });
+  
+      //console.log('Resumen de la región:', {
+     //   región: feature.properties.name,
+     //   jardinesEncontrados: jardinesEnRegion.length,
+     //   muestraJardines: jardinesEnRegion.slice(0, 2)
+     // });
+      console.groupEnd();
   
       return {
         'hc-key': feature.properties['hc-key'],
-        'name': feature.properties['name'],
-        'value': count,
-        'jardines': jardinesEnRegion,
-        'iconUrl': '../../../assets/images/barcos.png', // Ruta relativa a la imagen
+        name: feature.properties['name'],
+        value: jardinesEnRegion.length,
+        jardines: jardinesEnRegion,
+        iconUrl: '../../../assets/images/barcos.png',
         properties: {
           ...feature.properties,
-          totalJardines: count
+          totalJardines: jardinesEnRegion.length
         }
       };
+    });
+  
+    console.log('📊 Resumen final de datos:', {
+      regionesConDatos: data.filter(d => d.value > 0).length,
+      regionesSinDatos: data.filter(d => d.value === 0).length,
+      totalJardinesMapeados: data.reduce((acc, curr) => acc + curr.value, 0),
+      resumenPorRegión: data.map(d => ({
+        región: d.name,
+        jardines: d.value,
+        'hc-key': d['hc-key'],
+        codigoRegion: this.normalizeRegionCode(d['hc-key']), // Agregamos el código normalizado
+        codigoOriginal: d.properties?.['cod_region'] || 'No disponible', // Código original si está disponible
+        resumen: `${d.name} (${this.normalizeRegionCode(d['hc-key'])}): ${d.value} jardines` // Resumen formateado
+      }))
     });
   
     const maxValue = Math.max(...data.map(d => d.value));
@@ -268,7 +371,7 @@ export class RegionMapComponent implements OnInit, OnDestroy {
         style: { fontFamily: 'Arial, sans-serif' },
         events: {
           load: () => {
-            console.log('Mapa cargado completamente');
+            console.log('✅ Mapa cargado completamente');
             this.loading = false;
           }
         }
@@ -351,8 +454,11 @@ export class RegionMapComponent implements OnInit, OnDestroy {
           }
         },
         dataLabels: {
-          enabled: false,
-          format: '{point.name}'
+          enabled: true,
+          format: '{point.name}: {point.value}',
+          style: {
+            fontSize: '10px'
+          }
         },
         allAreas: true,
         data: data,
@@ -361,9 +467,13 @@ export class RegionMapComponent implements OnInit, OnDestroy {
           events: {
             click: (e: any) => {
               const point = e.point;
+              console.log('🖱️ Click en región:', {
+                región: point.name,
+                propiedades: point.properties,
+                datos: point.jardines
+              });
               const regionCode = this.getRegionCode(point.properties['hc-key']);
               if (regionCode) {
-                console.log(`Click en región: ${point.name}`);
                 this.regionService.setRegion(Number(regionCode));
                 this.router.navigate([`/region/${regionCode}`]);
               }
@@ -374,39 +484,85 @@ export class RegionMapComponent implements OnInit, OnDestroy {
     };
   
     this.chart = Highcharts.mapChart(this.mapContainer.nativeElement, this.chartOptions);
+    console.groupEnd();
   }
 
 
 
   private normalizeRegionCode(code: string): string {
-    if (!code) return '';
+    console.group('[normalizeRegionCode]');
+    
+    console.group('Entrada recibida:');
+    console.log({
+      código: code,
+      esVacío: !code,
+      longitudOriginal: code?.length,
+      tipo: typeof code,
+      '[[Prototype]]': 'Object'
+    });
+    console.groupEnd();
+  
+    if (!code) {
+      console.groupEnd();
+      return '';
+    }
+  
     const normalized = code.trim().toLowerCase();
+    
+    console.group('Código normalizado:');
+    console.log({
+      cambios: code !== normalized ? "Sí" : "No",
+      normalizado: normalized,
+      original: code,
+      '[[Prototype]]': 'Object'
+    });
+    console.groupEnd();
   
     // Mapeo bidireccional de códigos
     const codeMap: { [key: string]: string } = {
-      // Códigos numéricos a cl-
-      '15': 'cl-ap',
-      '1': 'cl-ta',
-      '2': 'cl-an',
-      '3': 'cl-at',
-      '4': 'cl-co',
-      '5': 'cl-vs',
-      '6': 'cl-rm',
-      '7': 'cl-li',
-      '8': 'cl-ml',
-      '16': 'cl-nb',
-      '9': 'cl-bi',
-      '10': 'cl-ar',
-      '14': 'cl-lr',
-      '11': 'cl-ll',
-      '12': 'cl-ai',
-      '13': 'cl-ma',
+      // Códigos numéricos según el servicio
+      '15': 'cl-ap',  // Arica y Parinacota
+      '1': 'cl-ta',   // Tarapacá
+      '2': 'cl-an',   // Antofagasta
+      '3': 'cl-at',   // Atacama
+      '4': 'cl-co',   // Coquimbo
+      '5': 'cl-vs',   // Valparaíso
+      '6': 'cl-li',   // O'Higgins
+      '7': 'cl-ml',   // Maule
+      '8': 'cl-bi',   // Biobío
+      '9': 'cl-ar',   // La Araucanía
+      '10': 'cl-ll',  // Los Lagos
+      '11': 'cl-ai',  // Aysén
+      '12': 'cl-ma',  // Magallanes
+      '13': 'cl-rm',  // Metropolitana (corregido)
+      '14': 'cl-lr',  // Los Ríos
+      '16': 'cl-nb',  // Ñuble
   
       // Mapeo de códigos especiales
       'cl-2730': 'cl-ar',  // La Araucanía
       'cl-2740': 'cl-ap',  // Arica y Parinacota
+      'cl-lc': 'cl-rm',    // Las Condes -> Región Metropolitana
+      'lc': 'cl-rm',       // Versión corta
       
-      // Códigos directos
+      // Códigos directos con su equivalente
+      'ml': 'cl-ml',
+      'nb': 'cl-nb',
+      'bi': 'cl-bi',
+      'ar': 'cl-ar',
+      'lr': 'cl-lr',
+      'll': 'cl-ll',
+      'ai': 'cl-ai',
+      'ma': 'cl-ma',
+      'ap': 'cl-ap',
+      'ta': 'cl-ta',
+      'an': 'cl-an',
+      'at': 'cl-at',
+      'co': 'cl-co',
+      'vs': 'cl-vs',
+      'rm': 'cl-rm',
+      'li': 'cl-li',
+      
+      // Asegurar que códigos cl- existentes se mantengan
       'cl-ap': 'cl-ap',
       'cl-ta': 'cl-ta',
       'cl-an': 'cl-an',
@@ -422,11 +578,41 @@ export class RegionMapComponent implements OnInit, OnDestroy {
       'cl-lr': 'cl-lr',
       'cl-ll': 'cl-ll',
       'cl-ai': 'cl-ai',
-      'cl-ma': 'cl-ma'
+      'cl-ma': 'cl-ma',
+  
+      // Mapeos inversos
+      'clap': 'cl-ap',
+      'clta': 'cl-ta',
+      'clan': 'cl-an',
+      'clat': 'cl-at',
+      'clco': 'cl-co',
+      'clvs': 'cl-vs',
+      'clrm': 'cl-rm',
+      'clli': 'cl-li',
+      'clml': 'cl-ml',
+      'clnb': 'cl-nb',
+      'clbi': 'cl-bi',
+      'clar': 'cl-ar',
+      'cllr': 'cl-lr',
+      'clll': 'cl-ll',
+      'clai': 'cl-ai',
+      'clma': 'cl-ma'
     };
   
-    //console.log(`Normalizando código: ${code} -> ${codeMap[normalized] || normalized}`);
-    return codeMap[normalized] || normalized;
+    const result = codeMap[normalized] || normalized;
+    
+    console.group('Resultado del mapeo:');
+    console.log({
+      códigoNormalizado: normalized,
+      encontradoEnMapa: normalized in codeMap,
+      resultadoMapeo: result,
+      usandoFallback: result === normalized,
+      '[[Prototype]]': 'Object'
+    });
+    console.groupEnd();
+  
+    console.groupEnd();
+    return result;
   }
 
   private getRegionCode(hcKey: string): string | null {

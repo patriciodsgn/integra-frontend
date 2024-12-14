@@ -1,57 +1,51 @@
-// Interfaz para agrupar los datos de costos
-export interface CostEvolutionData {
-    success: boolean;
-    data: CostRecord[];         // Array de registros de costos
-    periodo: string;              // Período general de los datos
-    error?: string;  
-}
-
-// Interfaz para la respuesta completa del API
-export interface CostEvolutionResponse {
-    success: boolean;             // Indicador de éxito de la operación
-    data: CostEvolutionData;      // Datos de la evolución de costos
-    params: CostEvolutionParams;  // Parámetros usados en la consulta
-    error?: string;               // Mensaje de error opcional
-}
-
-// Interfaz para el manejo de errores
-export interface ErrorResponse {
-    success: false;
-    message: string;
-    error?: string;               // Detalles adicionales del error en modo desarrollo
-}
-
-// Esta interfaz define la estructura básica de un registro de costo individual
+// Interfaz básica para un registro de evolución de costos
 export interface CostRecord {
-    // El tipo de administración (ej: Adm. Directa, J.S.R., etc.)
-    tipoAdministracion: string;
-    
-    // El período al que corresponden los datos (ej: 2023 (Ene-Dic))
-    periodo: string;
-    
-    // El monto total en miles (número que puede tener decimales)
-    montoTotalMiles: number;
-    
-    // El orden para mostrar en la visualización
-    ordenMuestra: number;
+  tipoAdministracion: string; // Tipo de administración (e.g., Adm. Directa, J.S.R., etc.)
+  periodo: string;            // Periodo correspondiente (e.g., "2023 (Ene-Dic)")
+  montoTotalMiles: number;    // Monto total en miles
+  ordenMuestra: number;       // Orden para visualización
 }
 
-// Interfaz para los parámetros que se pueden enviar en la consulta
+// Datos de evolución de costos agrupados
+export interface CostEvolutionData {
+  success: boolean;       // Indicador de éxito de la operación
+  data: CostRecord[];     // Array de registros de costos
+  periodo: string;        // Período general de los datos
+  error?: string;         // Mensaje de error opcional
+}
+
+// Respuesta completa de evolución de costos
+export interface CostEvolutionResponse {
+  success: boolean;            // Indicador de éxito
+  data: CostEvolutionData;     // Datos de la evolución de costos
+  params: CostEvolutionParams; // Parámetros de consulta
+  error?: string;              // Mensaje de error opcional
+}
+
+// Parámetros opcionales para filtrar evolución de costos
 export interface CostEvolutionParams {
-    // Año para filtrar los datos (opcional)
-    ano?: number;
+  ano?: number; // Año para filtrar (opcional)
 }
 
-// Interfaz genérica para respuestas API
+// Respuesta genérica de la API con genéricos para adaptabilidad
 export interface ApiResponse<T> {
-    data: T;
-    success: boolean;
-    message: string;
+  success: boolean; // Indicador de éxito
+  data: T;          // Datos de respuesta
+  message: string;  // Mensaje descriptivo
+  error?: string;   // Detalles adicionales del error (opcional)
 }
 
-// Interfaz específica para ComparativoCMM
+// Estructura de datos para comparativo CMM
 export interface ComparativoCMM {
-    id: number;
-    descripcion: string;
-    valor: number;
+  codigoRegion: number;  // Código único de la región
+  nombreRegion: string;  // Nombre de la región
+  ano: number;           // Año del dato
+  promedioCMM: number;   // Promedio del CMM para la región y año
+}
+
+// Respuesta con posibles errores
+export interface ErrorResponse {
+  success: false; // Indica que la operación no fue exitosa
+  message: string; // Mensaje de error
+  error?: string;  // Detalles adicionales del error (opcional)
 }

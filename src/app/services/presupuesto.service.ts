@@ -1,5 +1,3 @@
-// services/presupuesto.service.ts
-
 import { Injectable } from '@angular/core';
 import { map} from 'rxjs/operators';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
@@ -29,24 +27,46 @@ export class PresupuestoService {
         console.log('PresupuestoService inicializado con URL:', this.baseUrl);
     }
 
+    private handleError(error: HttpErrorResponse) {
+        console.error('Error en la petición:', {
+            status: error.status,
+            message: error.message,
+            error: error.error
+        });
+        
+        return throwError(() => ({
+            success: false,
+            message: error.error?.message || 'Error en la operación',
+            error: error.error
+        }));
+    }
+
     obtenerDatosTarjetas(params: PresupuestoParams): Observable<ApiResponse<DatosTarjeta[]>> {
         const url = `${this.baseUrl}/obtenerDatosTarjetas`;
-        return this.http.post<ApiResponse<DatosTarjeta[]>>(url, params);
+        return this.http.post<ApiResponse<DatosTarjeta[]>>(url, params).pipe(
+            catchError(this.handleError)
+        );
     }
 
     obtenerFlujoSaldo(params: PresupuestoParams): Observable<ApiResponse<FlujoSaldo>> {
         const url = `${this.baseUrl}/obtenerFlujoSaldo`;
-        return this.http.post<ApiResponse<FlujoSaldo>>(url, params);
+        return this.http.post<ApiResponse<FlujoSaldo>>(url, params).pipe(
+            catchError(this.handleError)
+        );
     }
 
     obtenerGastosVsSaldo(params: PresupuestoParams): Observable<ApiResponse<GastosSaldo[]>> {
         const url = `${this.baseUrl}/obtenerGastosVsSaldo`;
-        return this.http.post<ApiResponse<GastosSaldo[]>>(url, params);
+        return this.http.post<ApiResponse<GastosSaldo[]>>(url, params).pipe(
+            catchError(this.handleError)
+        );
     }
 
     obtenerPorcentajeEjecucionVsSaldo(params: PresupuestoParams): Observable<ApiResponse<PorcentajeEjecucion[]>> {
         const url = `${this.baseUrl}/obtenerPorcentajeEjecucionVsSaldo`;
-        return this.http.post<ApiResponse<PorcentajeEjecucion[]>>(url, params);
+        return this.http.post<ApiResponse<PorcentajeEjecucion[]>>(url, params).pipe(
+            catchError(this.handleError)
+        );
     }
 
     obtenerPresupuestoComprometidoVsEjecutado(params: PresupuestoParams): Observable<ApiResponse<PresupuestoComprometido[]>> {
@@ -55,7 +75,9 @@ export class PresupuestoService {
         console.log('URL:', url);
         console.log('Params:', params);
 
-        return this.http.post<ApiResponse<PresupuestoComprometido[]>>(url, params);
+        return this.http.post<ApiResponse<PresupuestoComprometido[]>>(url, params).pipe(
+            catchError(this.handleError)
+        );
     }
 
     obtenerPresupuestoVsEjecutado(params: PresupuestoParams): Observable<ApiResponse<PresupuestoEjecutado[]>> {
@@ -63,9 +85,9 @@ export class PresupuestoService {
         
         const queryParams = {
             ano: params.ano?.toString() || new Date().getFullYear().toString(),
-            //nombredireccion: params.nombredireccion || null,
-            //rubro: params.rubro || null,
-            //subrubro: params.subrubro || null
+            nombredireccion: params.nombredireccion || null,
+            rubro: params.rubro || null,
+            subrubro: params.subrubro || null
         };
         
         console.log('=== obtenerPresupuestoVsEjecutado ===');
@@ -105,16 +127,22 @@ export class PresupuestoService {
 
     obtenerPresupuestoVsGastos(params: PresupuestoParams): Observable<ApiResponse<PresupuestoGastos[]>> {
         const url = `${this.baseUrl}/obtenerPresupuestoVsGastos`;
-        return this.http.post<ApiResponse<PresupuestoGastos[]>>(url, params);
+        return this.http.post<ApiResponse<PresupuestoGastos[]>>(url, params).pipe(
+            catchError(this.handleError)
+        );
     }
 
     obtenerPresupuestoVigenteVsEjecutado(params: PresupuestoParams): Observable<ApiResponse<PresupuestoVigente[]>> {
         const url = `${this.baseUrl}/presupuestoVigenteVsEjecutado`;
-        return this.http.post<ApiResponse<PresupuestoVigente[]>>(url, params);
+        return this.http.post<ApiResponse<PresupuestoVigente[]>>(url, params).pipe(
+            catchError(this.handleError)
+        );
     }
 
     obtenerAniosEjecucion(): Observable<ApiResponse<AnioEjecucion[]>> {
         const url = `${this.baseUrl}/obtenerAniosEjecucion`;
-        return this.http.get<ApiResponse<AnioEjecucion[]>>(url);
+        return this.http.get<ApiResponse<AnioEjecucion[]>>(url).pipe(
+            catchError(this.handleError)
+        );
     }
 }

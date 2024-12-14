@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { DpgrService } from '../../services/dpgr.services';
+import { CommonModule } from '@angular/common';
+import { REGIONS } from '../../shared/regions';
 
 interface NacionalidadesData {
   [comuna: string]: {
@@ -14,31 +16,40 @@ interface NacionalidadesData {
 @Component({
   selector: 'app-panel-dpgr-nacionalidad',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './panel-dpgr-nacionalidad.component.html',
   styleUrls: ['./panel-dpgr-nacionalidad.component.css'],
 })
 export class PanelDpgrNacionalidadComponent implements OnInit {
-  selectedYear = 2023;
+  years: number[] = [2023];
+  selectedYear: number = 2023;
+  regions = REGIONS;
+  selectedRegion: number = 0;
+
 
   constructor(private dpgrService: DpgrService) {}
 
   ngOnInit(): void {
-    this.loadData(this.selectedYear);
+    this.loadData(this.selectedYear, this.selectedRegion);
   }
 
-  // Manejar cambio de año desde el selector
   onYearChange(event: Event): void {
-    const year = +(event.target as HTMLSelectElement).value;
-    this.selectedYear = year;
-    this.loadData(this.selectedYear);
+    this.selectedYear = +(event.target as HTMLSelectElement).value;
+    this.loadData(this.selectedYear, this.selectedRegion);
+  }
+
+  onRegionChange(event: Event): void {
+    this.selectedRegion = +(event.target as HTMLSelectElement).value;
+    this.loadData(this.selectedYear, this.selectedRegion);
   }
 
   // Cargar y procesar datos
-  public loadData(year: number): void {
+  public loadData(year: number, codeRegion:number): void {
     const codigoRegion = 0;
 
-    this.dpgrService.getNacionalidadPorGeografia(year, codigoRegion).subscribe({
+    this.dpgrService.getNacionalidadPorGeografia(year, codeRegion).subscribe({
       next: (res) => {
         const chartData = this.processGeographyData(res.data);
         this.renderBarChart(chartData, 'chart1');
@@ -46,7 +57,7 @@ export class PanelDpgrNacionalidadComponent implements OnInit {
       error: (err) => console.error('Error al cargar: getNacionalidadPorGeografia', err),
     });
 
-    this.dpgrService.getPorcentajeNacionalidadExtranjera(year, codigoRegion).subscribe({
+    this.dpgrService.getPorcentajeNacionalidadExtranjera(year, codeRegion).subscribe({
       next: (res) => {
         const pieData = this.processNationalityData(res.data.detalleNacionalidades);
         this.renderPieChart(pieData, 'chart2');

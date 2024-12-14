@@ -1,35 +1,47 @@
 import { Component, OnInit } from '@angular/core';
 import * as Highcharts from 'highcharts';
 import { DpgrService } from '../../services/dpgr.services';
+import { CommonModule } from '@angular/common';
+import { REGIONS } from '../../shared/regions';
 
 @Component({
   selector: 'app-panel-dpgr-sello-verde',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule
+  ],
   templateUrl: './panel-dpgr-sello_verde.component.html',
   styleUrls: ['./panel-dpgr-sello_verde.component.css'],
 })
 export class PanelDpgrSello_verdeComponent implements OnInit {
-  selectedYear = 2024;
+
+  years: number[] = [2019, 2020, 2021, 2022, 2023, 2024];
+  selectedYear: number = 2024;
+  regions = REGIONS;
+  selectedRegion: number = 0;
+
+
 
   constructor(private dpgrService: DpgrService) {}
 
   ngOnInit(): void {
-    this.loadData(this.selectedYear);
+    this.loadData(this.selectedYear, this.selectedRegion);
   }
 
-  // Manejar cambio de año desde el selector
   onYearChange(event: Event): void {
-    const year = +(event.target as HTMLSelectElement).value; // Convertir a número
-    this.selectedYear = year;
-    this.loadData(this.selectedYear);
+    this.selectedYear = +(event.target as HTMLSelectElement).value;
+    this.loadData(this.selectedYear, this.selectedRegion);
   }
 
-  // Cargar datos y renderizar el gráfico
-  public loadData(year: number): void {
+  onRegionChange(event: Event): void {
+    this.selectedRegion = +(event.target as HTMLSelectElement).value;
+    this.loadData(this.selectedYear, this.selectedRegion);
+  }
+
+  public loadData(year: number, codeRegion: number): void {
     const codigoRegion = 0;
 
-    this.dpgrService.getTotalJardinesSelloVerde(year, codigoRegion).subscribe({
+    this.dpgrService.getTotalJardinesSelloVerde(year, codeRegion).subscribe({
       next: (res) => {
         console.log(`Datos del año ${year}:`, res.data);
         this.renderChart(res.data);
