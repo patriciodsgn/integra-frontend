@@ -5,7 +5,6 @@
     <div class="bg-transparent">
       <div class="text-left space-y-1">
         <h3 class="text-xl md:text-2xl font-semibold flex items-center text-gray-700">
-          <!-- <fa-icon [icon]="faCalendar" class="mr-2"></fa-icon> -->
           {{ RegionSeleccionada }} / {{ fechaActual }}
         </h3>
         <h6 class="text-sm text-gray-700">Gestión de Datos Estratégicos / Casa Central</h6>
@@ -13,78 +12,60 @@
     </div>
   </div>
 
-
-
   <!-- Tarjetas superiores -->
-  <div class="grid grid-cols-6 items-center justify-center flex-col gap-4 w-full p-4" [style.backgroundColor]="headerColor">
-    <!-- Contenedor principal de tarjetas -->
-    <div class="col-span-5 rounded-xl border border-gray-100 p-4"
-    [style.borderColor]="cardColor"
-    >
-      <!-- Scroll horizontal para móviles -->
-      <div class="flex flex-nowrap gap-4 overflow-x-auto px-2">
-        <!-- Tarjeta principal -->
-        <div class="
-        relative group
-          flex items-center justify-center flex-col p-3" [style.backgroundColor]="headerColor">
-          <img src="assets/images/Mesa de trabajo 51.png" alt="Establecimientos" 
+  <div class="grid grid-cols-6 gap-4 w-full p-4" [style.backgroundColor]="headerColor">
+    <!-- Panel principal que contiene las primeras 6 tarjetas -->
+    <div class="col-span-5 rounded-xl border border-gray-100 p-4" [style.borderColor]="cardColor">
+      <!-- Grid ajustado para mejor distribución -->
+      <div class="grid grid-cols-6 gap-4">
+        <!-- Tarjeta principal de establecimientos -->
+        <div class="relative group flex items-center justify-center flex-col p-3" 
+             [style.backgroundColor]="headerColor">
+          <img src="assets/images/Mesa de trabajo 51.png" 
+               alt="Establecimientos" 
                class="w-12 mb-2" 
                [ngStyle]="{'filter': mapColorsService.getRegionImageFilter(RegionSeleccionada)}" />
-            <div class="text-2xl font-bold">{{ tarjetasSuperiores[0].valor }}</div>
-            <div class="text-sm font-semibold text-center">{{ tarjetasSuperiores[0].titulo }}</div>
-            <span id="" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Datos Integra</span>
+          <div class="text-2xl font-bold">{{ tarjetasSuperiores[0]?.valor || 0 }}</div>
+          <div class="text-sm font-semibold text-center">{{ tarjetasSuperiores[0]?.titulo || 'Establecimientos' }}</div>
+          <span class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">
+            Datos Integra
+          </span>
         </div>
 
-        <!-- Tarjetas de datos -->
-        <div class="grid grid-cols-4 gap-4">
-          <div *ngFor="let tarjeta of tarjetasSuperiores.slice(1, 5)" 
-              class="
-              relative group
-              flex flex-col items-center
-              justify-center p-4 rounded-lg shadow-sm
-              " 
-              [style.backgroundColor]="cardColor"
-              [style.color]="mapColorsService.getRegionTextColor(RegionSeleccionada)">
-            <fa-icon [icon]="tarjeta.icon" class="text-xl mb-2"></fa-icon>
-            <div class="text-lg md:text-xl font-bold">{{ tarjeta.valor }}</div>
-            <div class="text-xs text-center">{{ tarjeta.titulo }}</div>
-            <span id="" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Datos Integra</span>
-
-          </div>
+        <!-- Demás tarjetas del panel principal -->
+        <div *ngFor="let tarjeta of tarjetasSuperiores.slice(1, 6)" 
+             class="relative group flex flex-col items-center justify-center p-3 rounded-lg shadow-sm" 
+             [style.backgroundColor]="cardColor"
+             [style.color]="mapColorsService.getRegionTextColor(RegionSeleccionada)">
+          <fa-icon [icon]="tarjeta?.icon || faHome" class="text-xl mb-2"></fa-icon>
+          <div class="text-lg md:text-xl font-bold">{{ tarjeta?.valor || 0 }}</div>
+          <div class="text-xs text-center">{{ tarjeta?.titulo || 'Sin datos' }}</div>
+          <span class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">
+            Datos Integra
+          </span>
         </div>
       </div>
     </div>
 
-    
-    <!-- Tarjeta Jardín Sobre Ruedas -->
-    <div class="col-span-1 p-4">
-      <div class="
-      relative group
-      flex flex-col items-center justify-center p-4 rounded-lg h-full shadow-sm
-      "
+    <!-- Tarjeta Jardín Sobre Ruedas (mantiene su posición) -->
+    <div class="col-span-1">
+      <div class="relative group flex flex-col items-center justify-center h-full p-4 rounded-lg shadow-sm"
            [style.backgroundColor]="cardColor"
            [style.color]="mapColorsService.getRegionTextColor(RegionSeleccionada)">
         <fa-icon [icon]="faBus" class="text-2xl mb-2"></fa-icon>
-        <div class="text-lg md:text-xl font-bold">{{ tarjetasSuperiores[5].valor }}</div>
-        <div class="text-xs text-center">{{ tarjetasSuperiores[5].titulo }}</div>
-        <span id="" class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">Datos Integra</span>
+        <div class="text-lg md:text-xl font-bold">{{ tarjetasSuperiores[5]?.valor || 0 }}</div>
+        <div class="text-xs text-center">Jardines Sobre Ruedas</div>
+        <span class="absolute opacity-0 group-hover:opacity-100 bg-slate-500 text-white text-xs rounded-xl rounded-tl-[0px] w-[100px] z-50 py-1 px-2 bottom-1 left-1/2 transform -translate-x-1 translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-in-out">
+          Datos Integra
+        </span>
       </div>
     </div>
   </div>
 
-
-
   <!-- Mapa y Panel de Información -->
   <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 p-4">
-
     <!-- Mapa -->
-    <div class="
-      h-[400px] md:h-[500px]
-      border border-gray-400
-      rounded-lg shadow-sm
-      bg-white
-      overflow-hidden
-    ">
+    <div class="h-[400px] md:h-[500px] border border-gray-400 rounded-lg shadow-sm bg-white overflow-hidden">
       <div id="map-container" class="w-full h-full"></div>
     </div>
 
@@ -95,12 +76,15 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div *ngFor="let columna of DistribuirEnColumnas(2)">
             <ng-container *ngFor="let item of columna">
-              <div *ngIf="item.tipo === 'comuna'" class="font-bold text-slate-600 mt-2 first:mt-0">
+              <div *ngIf="item.tipo === 'comuna'" 
+                   class="font-bold mt-2 first:mt-0"
+                   [style.color]="mapColorsService.getRegionDarkColor(RegionSeleccionada)">
                 {{ item.nombre }}
               </div>
               <div *ngIf="item.tipo === 'establecimiento'" class="flex items-start pl-2 py-0.5">
-                <span class="text-slate-400 mr-1">●</span>
-                <span class="text-sm">{{ getModalidadAbreviada(item.modalidad) }} {{ item.nombre }}</span>
+                <span class="mr-1" 
+                      [style.color]="getEstablecimientoColor(item.modalidad, item?.nivel || '')">●</span>
+                <span class="text-sm">{{ getTipoEstablecimiento(item.modalidad, item?.nivel || '') }} {{ item.nombre }}</span>
               </div>
             </ng-container>
           </div>
@@ -109,138 +93,119 @@
     </div>
   </div>
 
-
-
-    <div class="
-      grid
-      grid-cols-1
-      items-start
-      justify-start
-      mt-4
-      p-4
-      w-full">
-      
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
-        <div class="text-1xl font-bold text-slate-900 px-6 py-0 rounded-md">DAFT</div>
-      </div>
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <app-elem-button
-          *ngFor="let button of buttons1; let i = index"
-          (click)="onButtonClick(i)"
-          [eb_icon]="button.eb_icon"
-          [eb_title]="button.eb_title"
-          [eb_subtitle]="button.eb_subtitle"
-          [eb_disable]="button.eb_disable"
-          [eb_bg_color]="button.eb_bg_color"
-          [eb_text_color]="button.eb_text_color"
-          [eb_link]="button.eb_link"
-          [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
-          [class.selected-button]="activeButtonIndex === i"
-        ></app-elem-button>
-      </div>
-      
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
-        <div class="text-1xl font-bold text-slate-900 px-6 py-0 rounded-md">DPGR</div>
-      </div>
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <app-elem-button
-          *ngFor="let button of buttons2; let i = index"
-          (click)="onButtonClick(i)"
-          [eb_icon]="button.eb_icon"
-          [eb_title]="button.eb_title"
-          [eb_subtitle]="button.eb_subtitle"
-          [eb_disable]="button.eb_disable"
-          [eb_bg_color]="button.eb_bg_color"
-          [eb_text_color]="button.eb_text_color"
-          [eb_link]="button.eb_link"
-          [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
-          [class.selected-button]="activeButtonIndex === i"
-        ></app-elem-button>
-      </div>
-
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
-        <div class="text-1xl font-bold text-slate-900 px-6 py-0 rounded-md">DPPI</div>
-      </div>
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <app-elem-button
-          *ngFor="let button of buttons3; let i = index"
-          (click)="onButtonClick(i)"
-          [eb_icon]="button.eb_icon"
-          [eb_title]="button.eb_title"
-          [eb_subtitle]="button.eb_subtitle"
-          [eb_disable]="button.eb_disable"
-          [eb_bg_color]="button.eb_bg_color"
-          [eb_text_color]="button.eb_text_color"
-          [eb_link]="button.eb_link"
-          [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
-          [class.selected-button]="activeButtonIndex === i"
-        ></app-elem-button>
-      </div>
-
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
-        <div class="text-1xl font-bold text-slate-900 px-6 py-0 rounded-md">Educación</div>
-      </div>
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <app-elem-button
-          *ngFor="let button of buttons4; let i = index"
-          (click)="onButtonClick(i)"
-          [eb_icon]="button.eb_icon"
-          [eb_title]="button.eb_title"
-          [eb_subtitle]="button.eb_subtitle"
-          [eb_disable]="button.eb_disable"
-          [eb_bg_color]="button.eb_bg_color"
-          [eb_text_color]="button.eb_text_color"
-          [eb_link]="button.eb_link"
-          [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
-          [class.selected-button]="activeButtonIndex === i"
-        ></app-elem-button>
-      </div>
-
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
-        <div class="text-1xl font-bold text-slate-900 px-6 py-0 rounded-md">Personas</div>
-      </div>
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <app-elem-button
-          *ngFor="let button of buttons5; let i = index"
-          (click)="onButtonClick(i)"
-          [eb_icon]="button.eb_icon"
-          [eb_title]="button.eb_title"
-          [eb_subtitle]="button.eb_subtitle"
-          [eb_disable]="button.eb_disable"
-          [eb_bg_color]="button.eb_bg_color"
-          [eb_text_color]="button.eb_text_color"
-          [eb_link]="button.eb_link"
-          [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
-          [class.selected-button]="activeButtonIndex === i"
-        ></app-elem-button>
-      </div>
-
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
-        <div class="text-1xl font-bold text-slate-900 px-6 py-0 rounded-md">Costos</div>
-      </div>
-      <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        <app-elem-button
-          *ngFor="let button of buttons6; let i = index"
-          (click)="onButtonClick(i)"
-          [eb_icon]="button.eb_icon"
-          [eb_title]="button.eb_title"
-          [eb_subtitle]="button.eb_subtitle"
-          [eb_disable]="button.eb_disable"
-          [eb_bg_color]="button.eb_bg_color"
-          [eb_text_color]="button.eb_text_color"
-          [eb_link]="button.eb_link"
-          [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
-          [class.selected-button]="activeButtonIndex === i"
-        ></app-elem-button>
-      </div>
-
-
-      <!-- <div class="text-1xl w-[200px] font-bold text-slate-900 bg-pink-100 px-6 py-0 rounded-md"></div>
-      <div class="text-1xl w-[200px] font-bold text-slate-900 bg-orange-300 px-6 py-0 rounded-md"></div>
-      <div class="text-1xl w-[200px] font-bold text-slate-900 bg-emerald-200 px-6 py-0 rounded-md"></div> -->
-
+  <div class="grid grid-cols-1 items-start justify-start mt-4 p-4 w-full">
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
+      <div class="text-1xl font-bold text-slate-900 bg-blue-300 px-6 py-0 rounded-md">DAFT</div>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <app-elem-button
+        *ngFor="let button of buttons1; let i = index"
+        (click)="onButtonClick(i)"
+        [eb_icon]="button.eb_icon"
+        [eb_title]="button.eb_title"
+        [eb_subtitle]="button.eb_subtitle"
+        [eb_disable]="button.eb_disable"
+        [eb_bg_color]="button.eb_bg_color"
+        [eb_text_color]="button.eb_text_color"
+        [eb_link]="button.eb_link"
+        [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
+        [class.selected-button]="activeButtonIndex === i"
+      ></app-elem-button>
     </div>
     
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
+      <div class="text-1xl font-bold text-slate-900 bg-cyan-100 px-6 py-0 rounded-md">DPGR</div>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <app-elem-button
+        *ngFor="let button of buttons2; let i = index"
+        (click)="onButtonClick(i)"
+        [eb_icon]="button.eb_icon"
+        [eb_title]="button.eb_title"
+        [eb_subtitle]="button.eb_subtitle"
+        [eb_disable]="button.eb_disable"
+        [eb_bg_color]="button.eb_bg_color"
+        [eb_text_color]="button.eb_text_color"
+        [eb_link]="button.eb_link"
+        [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
+        [class.selected-button]="activeButtonIndex === i"
+      ></app-elem-button>
+    </div>
 
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
+      <div class="text-1xl font-bold text-slate-900 bg-pink-100 px-6 py-0 rounded-md">DPPI</div>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <app-elem-button
+        *ngFor="let button of buttons3; let i = index"
+        (click)="onButtonClick(i)"
+        [eb_icon]="button.eb_icon"
+        [eb_title]="button.eb_title"
+        [eb_subtitle]="button.eb_subtitle"
+        [eb_disable]="button.eb_disable"
+        [eb_bg_color]="button.eb_bg_color"
+        [eb_text_color]="button.eb_text_color"
+        [eb_link]="button.eb_link"
+        [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
+        [class.selected-button]="activeButtonIndex === i"
+      ></app-elem-button>
+    </div>
 
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
+      <div class="text-1xl font-bold text-slate-900 bg-orange-300 px-6 py-0 rounded-md">Educación</div>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <app-elem-button
+        *ngFor="let button of buttons4; let i = index"
+        (click)="onButtonClick(i)"
+        [eb_icon]="button.eb_icon"
+        [eb_title]="button.eb_title"
+        [eb_subtitle]="button.eb_subtitle"
+        [eb_disable]="button.eb_disable"
+        [eb_bg_color]="button.eb_bg_color"
+        [eb_text_color]="button.eb_text_color"
+        [eb_link]="button.eb_link"
+        [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
+        [class.selected-button]="activeButtonIndex === i"
+      ></app-elem-button>
+    </div>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
+      <div class="text-1xl font-bold text-slate-900 bg-emerald-200 px-6 py-0 rounded-md">Personas</div>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <app-elem-button
+        *ngFor="let button of buttons5; let i = index"
+        (click)="onButtonClick(i)"
+        [eb_icon]="button.eb_icon"
+        [eb_title]="button.eb_title"
+        [eb_subtitle]="button.eb_subtitle"
+        [eb_disable]="button.eb_disable"
+        [eb_bg_color]="button.eb_bg_color"
+        [eb_text_color]="button.eb_text_color"
+        [eb_link]="button.eb_link"
+        [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
+        [class.selected-button]="activeButtonIndex === i"
+      ></app-elem-button>
+    </div>
+
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4 pt-4 pb-1">
+      <div class="text-1xl font-bold text-slate-900 bg-yellow-300 px-6 py-0 rounded-md">Costos</div>
+    </div>
+    <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <app-elem-button
+        *ngFor="let button of buttons6; let i = index"
+        (click)="onButtonClick(i)"
+        [eb_icon]="button.eb_icon"
+        [eb_title]="button.eb_title"
+        [eb_subtitle]="button.eb_subtitle"
+        [eb_disable]="button.eb_disable"
+        [eb_bg_color]="button.eb_bg_color"
+        [eb_text_color]="button.eb_text_color"
+        [eb_link]="button.eb_link"
+        [style.filter]="button.eb_disable ? 'grayscale(1)' : 'none'"
+        [class.selected-button]="activeButtonIndex === i"
+      ></app-elem-button>
+    </div>
+  </div>
 </div>

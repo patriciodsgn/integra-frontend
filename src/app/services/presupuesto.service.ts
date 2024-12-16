@@ -85,9 +85,9 @@ export class PresupuestoService {
         
         const queryParams = {
             ano: params.ano?.toString() || new Date().getFullYear().toString(),
-            nombredireccion: params.nombredireccion || null,
-            rubro: params.rubro || null,
-            subrubro: params.subrubro || null
+            nombredireccion: params.nombredireccion || "",
+            rubro: params.rubro || "",
+            subrubro: params.subrubro || ""
         };
         
         console.log('=== obtenerPresupuestoVsEjecutado ===');
