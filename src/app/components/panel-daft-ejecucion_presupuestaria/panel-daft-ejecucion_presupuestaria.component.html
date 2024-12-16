@@ -1,17 +1,125 @@
-<div class="p-4">
+
+<div class="p-4 bg-gray-100 rounded-lg shadow-md flex flex-wrap items-center gap-2">
   
-  <h1 class="text-xl font-bold my-6">
-    DAFT:
-    Ejecucion Presupuestaria
-  </h1>
+  
 
-  <div class="grid grid-cols-2 gap-4 h-auto">
-    <div id="chart1" class="border border-gray-500 rounded-md h-[250px]">panel 1</div>
-    <div id="chart2" class="border border-gray-500 rounded-md h-[250px]">panel 2</div>
-  </div>
-  <div class="grid grid-cols-2 gap-4 h-auto">
-    <div id="chart3" class="border border-gray-500 rounded-md h-[250px]">panel 3</div>
-    <div id="chart4" class="border border-gray-500 rounded-md h-[250px]">panel 3</div>
+  <button 
+    *ngFor="let anio of [2021, 2022, 2023, 2024]"
+    class="px-4 py-2 rounded"
+    [class]="isAnioDisponible(anio) 
+      ? (anioSeleccionado === anio ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700') 
+      : 'bg-gray-300 text-gray-500'"
+    [disabled]="!isAnioDisponible(anio)"
+    (click)="seleccionarAnio(anio)">
+    {{ anio }}
+  </button>
+
+  <!-- Select de Direcciones -->
+<select 
+class="px-4 py-2 border border-gray-300 rounded"
+[(ngModel)]="filtros.direccion">
+<option value="">Seleccione una dirección</option>
+<option 
+    *ngFor="let direccion of direcciones" 
+    [value]="direccion.NombreDireccion">
+    {{ direccion.NombreDireccion }}
+</option>
+</select>
+
+<!-- Select de Rubros -->
+<select 
+class="px-4 py-2 border border-gray-300 rounded"
+[(ngModel)]="filtros.rubro"
+(ngModelChange)="onRubroChange()">
+<option value="">Seleccione un rubro</option>
+<option 
+    *ngFor="let rubro of rubros" 
+    [value]="rubro">
+    {{ rubro }}
+</option>
+</select>
+
+<!-- Select de SubRubros -->
+<select 
+class="px-4 py-2 border border-gray-300 rounded"
+[(ngModel)]="filtros.subRubro"
+[disabled]="!filtros.rubro">
+<option value="">Seleccione un subrubro</option>
+<option 
+    *ngFor="let subRubro of subRubros" 
+    [value]="subRubro.SubRubro">
+    {{ subRubro.SubRubro }}
+</option>
+</select>
+
+  <!-- Botones de acción -->
+  <!-- Botón de filtrado -->
+<button 
+class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+(click)="aplicarFiltros()">
+FILTRAR
+</button>
+  
+  <button class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
+    PDF
+  </button>
+</div>
+
+<!-- Integración en el panel principal -->
+<div class="mt-6 grid grid-cols-3 gap-4">
+  <!-- Presupuesto Vigente vs Ejecutado -->
+  <div class="p-4 bg-white rounded-lg shadow">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions1"
+      style="width: 100%; height: 300px; display: block;">
+    </highcharts-chart>
   </div>
 
+  <!-- Presupuesto Comprometido vs Gastos Ejecutados -->
+  <div class="p-4 bg-white rounded-lg shadow">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions2"
+      style="width: 100%; height: 300px; display: block;">
+    </highcharts-chart>
+  </div>
+
+  <!-- Gastos Ejecutados vs Saldo por Gastar -->
+  <div class="p-4 bg-white rounded-lg shadow">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions3"
+      style="width: 100%; height: 300px; display: block;">
+    </highcharts-chart>
+  </div>
+</div>
+
+<div class="mt-6 grid grid-cols-3 gap-4">
+  <!-- Flujo del saldo por ejecutar -->
+  <div class="p-4 bg-white rounded-lg shadow">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions4"
+      style="width: 100%; height: 300px; display: block;">
+    </highcharts-chart>
+  </div>
+
+  <!-- Porcentaje de Ejecución vs Saldo -->
+  <div class="p-4 bg-white rounded-lg shadow">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions5"
+      style="width: 100%; height: 300px; display: block;">
+    </highcharts-chart>
+  </div>
+
+  <!-- Presupuesto Vigente vs Gastos Ejecutados Histogram -->
+  <div class="p-4 bg-white rounded-lg shadow">
+    <highcharts-chart
+      [Highcharts]="Highcharts"
+      [options]="chartOptions6"
+      style="width: 100%; height: 300px; display: block;">
+    </highcharts-chart>
+  </div>
 </div>

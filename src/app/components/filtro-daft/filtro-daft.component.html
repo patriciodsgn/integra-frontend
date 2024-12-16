@@ -1,0 +1,16 @@
+
+<div class="p-4 bg-gray-100 rounded-lg shadow-md flex flex-wrap items-center gap-2">
+  <button class="px-4 py-2 rounded bg-gray-300 text-gray-500" disabled>2021</button>
+  <button class="px-4 py-2 rounded bg-gray-300 text-gray-500" disabled>2022</button>
+  <button class="px-4 py-2 rounded bg-gray-300 text-gray-500" disabled>2023</button>
+  <button class="px-4 py-2 rounded bg-blue-500 text-white">2024</button>
+  <select class="px-4 py-2 border border-gray-300 rounded"><option>Subdirección de Tecnología</option></select>
+  <input type="date" class="px-4 py-2 border border-gray-300 rounded" />
+  <select class="px-4 py-2 border border-gray-300 rounded"><option>Rubro</option></select>
+  <select class="px-4 py-2 border border-gray-300 rounded"><option>Subrubro</option></select>
+  <button class="px-4 py-2 bg-blue-500 text-white rounded">FILTRAR</button>
+  <button class="px-4 py-2 bg-red-500 text-white rounded">PDF</button>
+</div>
+<div class="mt-4">
+  <highcharts-chart [Highcharts]="Highcharts" [options]="chartOptions" style="width: 100%; height: 400px; display: block;"></highcharts-chart>
+</div>

@@ -87,7 +87,7 @@ export const routes: Routes = [
                 path: 'daft',
                 component: ViewDaftComponent,
                 children: [
-                    {path: 'ejecucion_presupuestaria', loadComponent: () => import('./components/panel-daft-ejecucion_presupuestaria/panel-daft-ejecucion_presupuestaria.component').then( (m) => m.PanelDaftEjecucion_presupuestariaComponent),},
+                    {path: 'ejecucion_presupuestaria', loadComponent: () => import('./components/panel-daft-ejecucion_presupuestaria/panel-daft-ejecucion_presupuestaria.component').then( (m) => m.PanelDaftEjecucionPresupuestariaComponent),},
                     {path: 'saldo_por_ejecutar', loadComponent: () =>import('./components/panel-daft-saldo_por_ejecutar/panel-daft-saldo_por_ejecutar.component').then( (m) => m.PanelDaftSaldo_por_ejecutarComponent),},
                 ],
             },{
