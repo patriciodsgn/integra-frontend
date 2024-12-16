@@ -114,6 +114,7 @@ export interface PresupuestoVigente {
  * Años disponibles para consulta
  */
 export interface AnioEjecucion {
+    anio: any;
     Ano: number;
     Activo?: boolean;
     Descripcion?: string;
