@@ -23,6 +23,7 @@ import * as Highcharts from 'highcharts';
 import { Options } from 'highcharts';
 import { SeriesOptionsType } from 'highcharts';
 import { PresupuestoService } from '../../services/presupuesto.service';
+import { ElemButtonComponent } from '../elem-button/elem-button.component'; // Ajusta la ruta según tu estructura
 import Highcharts3D from 'highcharts/highcharts-3d'
 import { 
   PresupuestoParams, 
@@ -124,9 +125,9 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
   
   buttons6: ButtonData[] = [
     { eb_icon: 'trending_up', eb_title: 'Evolución', eb_subtitle: 'Costos Matrícula', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/evolucion' },
-    // { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
-    // { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
-    // { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
+    { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
+    { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
+    { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
   ];
   presupuestoTotal: number = 0;
   ejecutadoTotal: number = 0;
@@ -247,7 +248,7 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
     //console.log('Buttons2:', this.buttons2);
     this.loadPresupuestoData();
     this.loadPresupuestoResumen();
-    this.obtenerTotalAccidentes();
+    //this.obtenerTotalAccidentes();
     //this.loadTarjetasSuperiores();
     this.loadEstablecimientosData("");
     this.validateButtons();
@@ -278,7 +279,7 @@ export class CustomDashboardInicialComponent implements OnInit, OnDestroy {
         ano: Number(this.currentYear)
       };
 
-      //console.log('=== Inicio de carga de datos presupuestarios ===');
+      console.log('=== Inicio de carga de datos presupuestarios ===');
       console.log('Query Params:', {
         ano: params.ano
       });
@@ -554,6 +555,8 @@ private updateCharts(): void {
       const resumenData = response["getePHomeNacional2"][0];
       this.gastosEjecutados = resumenData.gastos_ejecutados;
       this.saldoPorGastar = resumenData.saldo_por_gastar;
+
+      console.log("gastosEjecutados :", this.gastosEjecutados)
       this.initializeCharts();
     });
   }
@@ -638,7 +641,8 @@ private updateCharts(): void {
     CommonModule, 
     FontAwesomeModule, 
     HttpClientModule,
-    RegionMapModule
+    RegionMapModule,
+    ElemButtonComponent  
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

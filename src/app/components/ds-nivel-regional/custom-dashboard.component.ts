@@ -5,6 +5,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { ElemButtonComponent } from '../elem-button/elem-button.component';
 import { RouterModule } from '@angular/router';
 import { ButtonStateService } from '../../button-state.service';
+
 import { faChild, faBed, faBaby, faPeopleRoof, 
     faCloudSun, faMapMarkedAlt, faBus, 
     faChartLine, faSchool, faUsers, faShieldAlt, 
@@ -22,6 +23,7 @@ import { faChild, faBed, faBaby, faPeopleRoof,
     faCalendarDays,
     faHome,
     faShoppingCart,
+    faBuildingCircleXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import Highcharts from 'highcharts';
 import MapModule from 'highcharts/modules/map';
@@ -47,6 +49,21 @@ import { DashboardStateService } from '../../core/services/dashboard-state.servi
 // Asegúrate de inicializar los módulos de exportación
 ExportingModule(Highcharts);
 OfflineExportingModule(Highcharts);
+
+interface JardinPoint {
+  lat: number;
+  lon: number;
+  datos: {
+    nombreJardin: string;
+    calle: string;
+    codCom: string;
+    jardin: string;
+    modalidad: string;
+    ubicacion: string;
+    director: string;
+    estado: string;
+  };
+}
 
 interface ButtonData {
   eb_icon: string;
@@ -80,6 +97,7 @@ interface ItemLista {
     codigo?: string;
     estado?: string;
     ubicacion?: string;
+    nivel?: string;  // Añadir el campo nivel
    
 }
 interface ItemColumna {
@@ -161,46 +179,42 @@ export class CustomDashboardComponent implements OnInit, OnDestroy {
 
   public buttonStateService = inject(ButtonStateService);
   buttons1: ButtonData[] = [
-    { eb_icon: 'bar_chart', eb_title: 'Ejecución Presupuestaria', eb_subtitle: 'Presupuesto Total', eb_disable: false, eb_bg_color: '#93c5fd', eb_text_color: '#334155', eb_link: '/daft/ejecucion_presupuestaria' },
-    { eb_icon: 'account_balance_wallet', eb_title: 'Saldo por Ejecutar', eb_subtitle: 'Presupuesto Restante', eb_disable: false, eb_bg_color: '#93c5fd', eb_text_color: '#334155', eb_link: '/daft/saldo_por_ejecutar' },
-    { eb_icon: 'savings', eb_title: 'Presupuesto Comprometido', eb_subtitle: 'Fondos Reservados', eb_disable: true, eb_bg_color: '#93c5fd', eb_text_color: '#334155', eb_link: '' },
-    { eb_icon: 'percent', eb_title: 'Porcentaje de Ejecución', eb_subtitle: 'Progreso Financiero', eb_disable: true, eb_bg_color: '#93c5fd', eb_text_color: '#334155', eb_link: '' },
+    { eb_icon: 'bar_chart', eb_title: 'Ejecución Presupuestaria', eb_subtitle: 'Presupuesto Total', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/daft/ejecucion_presupuestaria' },
+    { eb_icon: 'account_balance_wallet', eb_title: 'Saldo por Ejecutar', eb_subtitle: 'Presupuesto Restante', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/daft/saldo_por_ejecutar' },
+    { eb_icon: 'savings', eb_title: 'Presupuesto Comprometido', eb_subtitle: 'Fondos Reservados', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
+    { eb_icon: 'percent', eb_title: 'Porcentaje de Ejecución', eb_subtitle: 'Progreso Financiero', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
   ];
-
   buttons2: ButtonData[] = [
-    { eb_icon: 'favorite', eb_title: 'RO', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#cffafe', eb_text_color: '#334155', eb_link: '/dpgr/ro' },
-    { eb_icon: 'eco', eb_title: 'Sello Verde', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#cffafe', eb_text_color: '#334155', eb_link: '/dpgr/sello_verde' },
-    { eb_icon: 'groups', eb_title: 'Pueblos Originarios', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#cffafe', eb_text_color: '#334155', eb_link: '/dpgr/pueblos_originarios' },
-    { eb_icon: 'public', eb_title: 'Nacionalidad', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#cffafe', eb_text_color: '#334155', eb_link: '/dpgr/nacionalidad' },
+    { eb_icon: 'favorite', eb_title: 'RO', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/ro' },
+    { eb_icon: 'eco', eb_title: 'Sello Verde', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/sello_verde' },
+    { eb_icon: 'groups', eb_title: 'Pueblos Originarios', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/pueblos_originarios' },
+    { eb_icon: 'public', eb_title: 'Nacionalidad', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dpgr/nacionalidad' },
   ];
-
   buttons3: ButtonData[] = [
-    { eb_icon: 'local_hospital', eb_title: 'Accidentes', eb_subtitle: '', eb_disable: false, eb_bg_color: '#fce7f3', eb_text_color: '#334155', eb_link: '/dppi/accidentes' },
-    { eb_icon: 'restaurant', eb_title: 'Situación Nutricional', eb_subtitle: '', eb_disable: false, eb_bg_color: '#fce7f3', eb_text_color: '#334155', eb_link: '/dppi/situacion_nutricional' },
-    { eb_icon: 'child_care', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true, eb_bg_color: '#fce7f3', eb_text_color: '#334155', eb_link: '' },
-    { eb_icon: 'emergency', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true, eb_bg_color: '#fce7f3', eb_text_color: '#334155', eb_link: '' },
+    { eb_icon: 'local_hospital', eb_title: 'Accidentes', eb_subtitle: '', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dppi/accidentes' },
+    { eb_icon: 'restaurant', eb_title: 'Situación Nutricional', eb_subtitle: '', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/dppi/situacion_nutricional' },
+    { eb_icon: 'child_care', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
+    { eb_icon: 'emergency', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '' },
   ];
-
   buttons4: ButtonData[] = [
-    { eb_icon: 'school', eb_title: 'NEE', eb_subtitle: 'Ejemplo', eb_disable: false , eb_bg_color: '#fdba74', eb_text_color: '#334155', eb_link: '/educacion/nee'},
-    { eb_icon: 'person', eb_title: 'ATET', eb_subtitle: 'Ejemplo', eb_disable: false , eb_bg_color: '#fdba74', eb_text_color: '#334155', eb_link: '/educacion/atet'},
-    { eb_icon: 'family_restroom', eb_title: 'Familias', eb_subtitle: 'Data disponible 2025', eb_disable: false, eb_bg_color: '#fdba74', eb_text_color: '#334155', eb_link: '/educacion/familia'},
-    { eb_icon: 'analytics', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true , eb_bg_color: '#fdba74', eb_text_color: '#334155', eb_link: '/'},
+    { eb_icon: 'school', eb_title: 'NEE', eb_subtitle: 'Ejemplo', eb_disable: false , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/educacion/nee'},
+    { eb_icon: 'person', eb_title: 'ATET', eb_subtitle: 'Ejemplo', eb_disable: false , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/educacion/atet'},
+    { eb_icon: 'family_restroom', eb_title: 'Familias', eb_subtitle: 'Data disponible 2025', eb_disable: true , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/'},
+    { eb_icon: 'analytics', eb_title: 'Indicador 1', eb_subtitle: 'Gobierno de datos - En desarrollo', eb_disable: true , eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/'},
+  ];
+  buttons5: ButtonData[] = [
+    { eb_icon: 'sync_alt', eb_title: 'Rotación', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/rotacion' },
+    { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/permanencia' },
+    { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/ausentismo' },
+    { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/personas/planta_contratada' },
+  ];
+  buttons6: ButtonData[] = [
+    { eb_icon: 'sync_alt', eb_title: 'Rotación', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
+    { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
+    { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
+    { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#5eead4', eb_text_color: '#115e59', eb_link: '/costos/' },
   ];
 
-  buttons5: ButtonData[] = [
-    { eb_icon: 'sync_alt', eb_title: 'Rotación', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#a7f3d0', eb_text_color: '#334155', eb_link: '/personas/rotacion' },
-    { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#a7f3d0', eb_text_color: '#334155', eb_link: '/personas/permanencia' },
-    { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#a7f3d0', eb_text_color: '#334155', eb_link: '/personas/ausentismo' },
-    { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#a7f3d0', eb_text_color: '#334155', eb_link: '/personas/planta_contratada' },
-  ];
-  
-  buttons6: ButtonData[] = [
-    { eb_icon: 'trending_up', eb_title: 'Evolución', eb_subtitle: 'Costos Matrícula', eb_disable: false, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/evolucion' },
-    // { eb_icon: 'hourglass_empty', eb_title: 'Permanencia', eb_subtitle: 'Ejemplo', eb_disable: false, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/' },
-    // { eb_icon: 'event_busy', eb_title: 'Ausentismo', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/' },
-    // { eb_icon: 'groups', eb_title: 'Planta Contratada', eb_subtitle: 'Ejemplo', eb_disable: true, eb_bg_color: '#fcd34d', eb_text_color: '#334155', eb_link: '/costos/' },
-  ];
 
   getRegionTextColor(arg0: string) {
     throw new Error('Method not implemented.');
@@ -226,7 +240,7 @@ export class CustomDashboardComponent implements OnInit, OnDestroy {
   //jardinesData: { [region: string]: { [comuna: string]: number } } = {};
   jardinesData: JardinesPorRegionYComuna = {};
   private jardinesAcumulados: Jardin[] = [];
-  
+    
   // Font Awesome icons
   faChild = faChild;
   faBed = faBed;
@@ -252,15 +266,16 @@ export class CustomDashboardComponent implements OnInit, OnDestroy {
   faCog=faCog;
   faBook=faBook;
   faCalendarDays=faCalendarDays;
-  
+  faHome=faHome;
+  faBuildingCircleXmark=faBuildingCircleXmark;
 
   tarjetasSuperiores: TarjetaSuperior[] = [
-    { valor: 20, titulo: 'Establecimientos', icon: faHome },
-    { valor: 14, titulo: 'Salas Cuna y Jardines Infantiles', icon: faBaby },
-    { valor: 2, titulo: 'Jardines Infantiles', icon: faBed },
-    { valor: 2, titulo: 'Salas Cuna', icon: faShoppingCart },
-    { valor: 2, titulo: 'Modalidad No convencional', icon: faChild },
-    { valor: 4, titulo: 'Jardines Sobre Ruedas', icon: faBus },
+    { valor: 0, titulo: 'Establecimientos', icon: faHome },
+    { valor: 0, titulo: 'Salas Cuna y Jardines Infantiles', icon: faBaby },
+    { valor: 0, titulo: 'Jardines Infantiles', icon: faBed },
+    { valor: 0, titulo: 'Salas Cuna', icon: faShoppingCart },
+    { valor: 0, titulo: 'Modalidad No convencional', icon: faChild },
+    { valor: 0, titulo: 'Jardines Sobre Ruedas', icon: faBus },
   ];
 
   tarjetasInferiores: TarjetaItem[] = [
@@ -309,8 +324,55 @@ establecimientosColor: any;
     }
     //console.log('Estado limpiado');
   }
-  
+  private loadEstablecimientosData(regionId: string): void {
+    this.wsAdmSolService.getEstablecimientos(regionId).subscribe({
+        next: (response) => {
+            if (response) {
+                // Actualizar las tarjetas superiores con los datos
+                this.tarjetasSuperiores = [
+                    { 
+                        valor: response.totalEstablecimientos,
+                        titulo: 'Establecimientos',
+                        icon: faHome 
+                    },
+                    { 
+                        valor: response.totalSalaCunaJardin,
+                        titulo: 'Salas Cuna y Jardines Infantiles',
+                        icon: faBaby 
+                    },
+                    { 
+                        valor: response.totalParvulos,
+                        titulo: 'Jardines Infantiles',
+                        icon: faBed 
+                    },
+                    { 
+                        valor: response.totalSalaCuna,
+                        titulo: 'Salas Cuna',
+                        icon: faShoppingCart 
+                    },
+                    { 
+                        valor: response.totalAdmDelegada,
+                        titulo: 'Modalidad No convencional',
+                        icon: faChild 
+                    },
+                    
+                    { 
+                        valor: response.totalSinFuncionamiento,
+                        titulo: 'Sin Funcionamiento',
+                        icon: faBuildingCircleXmark || faBuilding // Usar el ícono que mejor represente establecimientos sin funcionamiento
+                    }
+                ];
+                console.log("response.totalAdmDelegada ", response.totalAdmDelegada);
+                console.log('Datos de establecimientos cargados:', response);
+            }
+        },
+        error: (error) => {
+            console.error('Error al cargar datos de establecimientos:', error);
+        }
+    });
+}
   private setupStorageListener(): void {
+    
     this.storageListener = (event: StorageEvent) => {
       if (event.key === 'regionSeleccionada' || event.key === 'nivelAcceso') {
         // console.log('Cambio detectado en localStorage:', event.key);
@@ -320,7 +382,7 @@ establecimientosColor: any;
 
         if (nivelAcceso === 'nacional') {
           // console.log('Acceso Nacional detectado');
-          this.loadRegionDataFromSidebar(0);
+          //this.loadRegionDataFromSidebar(0);
         } else if (regionData) {
           const region = JSON.parse(regionData);
           // console.log('Nueva región seleccionada:', region);
@@ -343,53 +405,76 @@ establecimientosColor: any;
 
 
   ngOnInit(): void {
-    // Código existente del ngOnInit...
+    // Declaramos codigoRegion al inicio para tenerlo disponible en todo el método
+    let codigoRegion: number | null = null;
+
     this.updateRegionColors();
     this.setRegionColors();
     this.clearState();
-
+    
     // Inicialización con datos del localStorage
     const regionData = localStorage.getItem('regionSeleccionada');
     const nivelAcceso = localStorage.getItem('nivelAcceso');
 
-    if (nivelAcceso === 'nacional') {
-      this.loadRegionDataFromSidebar(0);
-    } else if (regionData) {
-      const region = JSON.parse(regionData);
-      this.loadRegionDataFromSidebar(Number(region.CodigoRegion));
+    // Procesamos los datos de la región
+    if (regionData) {
+        const region = JSON.parse(regionData);
+        codigoRegion = region.CodigoRegion;
+        console.log("codigoRegion:", codigoRegion);
+    } else {
+        console.log('No hay región seleccionada en localStorage');
     }
 
-    // Resto del código existente del ngOnInit...
+    console.log("Region x:", regionData);
+    console.log("nivelAcceso:", nivelAcceso);
+
+    if (nivelAcceso === 'nacional') {
+        codigoRegion = null; // o el valor que corresponda para nivel nacional
+        console.log("Region (nacional):", codigoRegion);
+    }
+
+    // Primera carga de datos si tenemos un codigoRegion
+    if (codigoRegion !== null) {
+        this.loadEstablecimientosData(codigoRegion.toString());
+    }
+    else
+    {}
+      //this.loadEstablecimientosData(" ");
+
+    // Suscripción a cambios de ruta
     this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd),
-      takeUntil(this.destroy$)
+        filter(event => event instanceof NavigationEnd),
+        takeUntil(this.destroy$)
     ).subscribe(() => {
         const regionId = Number(this.route.snapshot.paramMap.get('regionId'));
-        
-        //console.group('Cambio de Navegación Detectado');
-        //console.log('Region ID:', regionId);
-        
-        // Actualizar el estado con la región seleccionada y vista nacional en falso
         this.dashboardState.setRegionalView(regionId);
-        
-        // console.log('Estado del Dashboard:', {
-        //     region: this.dashboardState.selectedRegion,
-        //     vistaNacional: this.dashboardState.vistaNacional
-        // });
-        // console.groupEnd();
-
-        // Cargar datos de la región
         this.loadRegionDataFromSidebar(regionId);
+        this.updatePending = true;
+        console.log('Iniciando carga de región:', regionId);
+
+        try {
+            // Usamos el regionId de la ruta o el codigoRegion según corresponda
+            const regionToLoad = regionId || codigoRegion;
+            if (regionToLoad !== null) {
+                this.loadEstablecimientosData(regionToLoad.toString());
+            }
+        } catch (error) {
+            console.error('Error cargando región:', error);
+        } finally {
+            this.updatePending = false;
+        }
     });
 
-    // Obtener región inicial
+    // Manejo de la región inicial
     const initialRegionId = Number(this.route.snapshot.paramMap.get('regionId'));
     if (!isNaN(initialRegionId)) {
-        //console.log('Carga inicial - región:', initialRegionId);
         this.loadRegionDataFromSidebar(initialRegionId);
-        
-        // Establecer estado inicial
         this.dashboardState.setRegionalView(initialRegionId);
+        
+        // Actualizamos codigoRegion con el valor inicial si es necesario
+        if (codigoRegion === null) {
+            codigoRegion = initialRegionId;
+        }
     }
 }
   // Método seguro para obtener datos del mapa
@@ -483,6 +568,30 @@ private setupMapEventListeners(): void {
 private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
   const jardinesPoints = this.processJardinesPoints();
 
+  // Agrupar jardines por comuna para enumerar
+  const jardinesPorComuna = jardinesPoints.reduce((acc: { [key: string]: JardinPoint[] }, jardin) => {
+    const comunaKey = jardin.datos.codCom;
+    if (!acc[comunaKey]) {
+      acc[comunaKey] = [];
+    }
+    acc[comunaKey].push(jardin);
+    return acc;
+  }, {});
+
+  // Crear marcadores numerados por comuna
+  // Crear marcadores numerados para los jardines
+// Crear marcadores numerados para los jardines
+let numeroGlobal = 1;
+const marcadoresNumerados = Object.values(jardinesPorComuna).flatMap((jardines: JardinPoint[]) => {
+  return jardines.map(jardin => ({
+    ...jardin,
+    numero: numeroGlobal++,
+    lat: jardin.lat,
+    lon: jardin.lon,
+    datos: jardin.datos
+  }));
+});
+
   // Asegurarse de que los colores se apliquen correctamente
   const dataWithColors = seriesData.map(item => ({
     ...item,
@@ -493,14 +602,13 @@ private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
     chart: {
       map: mapData,
       backgroundColor: '#ffffff',
-      height: '500px',
+      height: '800px',
       style: {
         fontFamily: 'Arial, sans-serif'
       },
       animation: {
         duration: 1000
       },
-      
       events: {
         fullscreenOpen: function(this: Highcharts.Chart) {
           const chartDiv = this.container.parentNode as HTMLElement;
@@ -517,26 +625,20 @@ private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
               if (bounds) {
                 const centerX = (bounds.x1 + bounds.x2) / 2;
                 const centerY = (bounds.y1 + bounds.y2) / 2;
-
                 const padding = 0.1;
                 const containerAspectRatio = chart.chartWidth / chart.chartHeight;
                 const boundsWidth = bounds.x2 - bounds.x1;
                 const boundsHeight = bounds.y2 - bounds.y1;
                 const boundsAspectRatio = boundsWidth / boundsHeight;
-
+  
                 let zoom;
                 if (containerAspectRatio > boundsAspectRatio) {
                   zoom = (chart.chartHeight / boundsHeight) * (1 - padding);
                 } else {
                   zoom = (chart.chartWidth / boundsWidth) * (1 - padding);
                 }
-
-                chart.mapView.setView(
-                  [centerY, centerX],
-                  zoom,
-                  false
-                );
-
+  
+                chart.mapView.setView([centerY, centerX], zoom, false);
                 chart.mapView.minZoom = zoom * 0.5;
                 chart.mapView.maxZoom = zoom * 4;
               }
@@ -550,8 +652,9 @@ private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
     title: {
       text: 'Mapa de ' + this.RegionSeleccionada,
       style: {
+        fontFamily: '"Qsans Semi Bold", "Qsans", sans-serif',
         fontSize: '18px',
-        fontWeight: 'bold'
+        fontWeight: '600'
       }
     },
     mapView: {
@@ -606,16 +709,10 @@ private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
     },
     plotOptions: {
       series: {
-        animation: {
-          duration: 500
-        },
+        animation: { duration: 500 },
         states: {
-          hover: {
-            brightness: 0.1
-          },
-          inactive: {
-            opacity: 1
-          }
+          hover: { brightness: 0.1 },
+          inactive: { opacity: 1 }
         }
       },
       map: {
@@ -623,9 +720,7 @@ private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
         allAreas: true,
         enableMouseTracking: true,
         states: {
-          hover: {
-            brightness: 0.1
-          }
+          hover: { brightness: 0.1 }
         }
       }
     },
@@ -658,67 +753,85 @@ private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
       } as any,
       {
         type: 'mappoint',
-        name: 'Jardines',
-        color: '#FF1493',
-        data: jardinesPoints.map(jardin => ({
-          ...jardin,
-          value: jardin.datos.cantidadJardines  // Asegúrate de que el punto tenga un valor "cantidadJardines"
-        })),
-        marker: {
-          enabled: true,
-          symbol: 'circle',
-          radius: 10,  // Ajusta el tamaño del marcador para que el número sea visible
-          fillColor: '#FF1493',
-          lineWidth: 1,
-          lineColor: '#FFFFFF'
-        },
-        dataLabels: {
-          enabled: true,
-          format: '{point.value}',  // Muestra la cantidad de jardines en cada marcador
-          style: {
-            fontSize: '12px',
-            fontWeight: 'bold',
-            color: '#FFFFFF',
-            textOutline: '1px contrast'
+        name: 'Números',
+        color: 'transparent',
+        data: marcadoresNumerados.map(punto => ({
+          lat: punto.lat,
+          lon: punto.lon,
+          numero: punto.numero,
+          datos: punto.datos,
+          marker: {
+            enabled: true,
+            symbol: 'circle',
+            radius: 14,
+            fillColor: 'white',
+            lineWidth: 2,
+            lineColor: this.cardColor || '#666'
           },
-          align: 'center',
-          verticalAlign: 'middle',
-          inside: true
+          dataLabels: {
+            enabled: true,
+            format: '{point.numero}',
+            style: {
+              fontSize: '11px',
+              fontWeight: 'bold',
+              color: this.cardColor || '#333',
+              textOutline: 'none'
+            },
+            y: 0
+          }
+        })),
+        states: {
+          hover: {
+            enabled: true,
+            halo: { size: 0 }
+          }
         },
         tooltip: {
           headerFormat: '',
           pointFormat: `
-            <div style="padding: 10px; border-radius: 8px; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-              <h4 style="margin: 0 0 8px 0; color: #333;">{point.datos.nombreJardin}</h4>
-              <p style="margin: 4px 0;"><strong>Dirección:</strong> {point.datos.calle}</p>
-              <p style="margin: 4px 0;"><strong>Comuna:</strong> {point.datos.codCom}</p>
-              <p style="margin: 4px 0;"><strong>Director:</strong> {point.datos.director}</p>
-              <p style="margin: 4px 0;"><strong>Código Jardín:</strong> {point.datos.jardin}</p>
-              <p style="margin: 4px 0;"><strong>Modalidad:</strong> {point.datos.modalidad}</p>
-              <p style="margin: 4px 0;"><strong>Estado:</strong> {point.datos.estado}</p>
-              <p style="margin: 4px 0;"><strong>Ubicación:</strong> {point.datos.ubicacion}</p>
+            <div style="
+              background: white;
+              padding: 6px;
+              border-radius: 4px;
+              box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+              width: 120px;
+              text-align: center;
+              border: 1px solid #e2e8f0;
+            ">
+              <div style="
+                background: ${this.cardColor || '#4a5568'};
+                margin: -6px -6px 6px -6px;
+                padding: 4px;
+                border-radius: 3px 3px 0 0;
+              ">
+                <span style="
+                  font-size: 11px;
+                  font-weight: 600;
+                  color: white;
+                ">{point.name}</span>
+              </div>
+        
+              <div style="
+                font-size: 16px;
+                font-weight: bold;
+                color: ${this.cardColor || '#4a5568'};
+                margin-bottom: 1px;
+              ">{point.value}</div>
+              
+              <div style="
+                font-size: 9px;
+                color: #64748b;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              ">Total Jardines</div>
             </div>
-          `
-        },
-        point: {
-          events: {
-            mouseOver: function(this: any) {
-              if (this.graphic) {
-                this.graphic.attr({
-                  r: 12,  // Aumenta el radio al pasar el mouse
-                  fillColor: '#FF69B4'  // Cambia el color al pasar el mouse
-                });
-              }
-            },
-            mouseOut: function(this: any) {
-              if (this.graphic) {
-                this.graphic.attr({
-                  r: 10,  // Restaura el radio original
-                  fillColor: '#FF1493'  // Restaura el color original
-                });
-              }
-            }
-          }
+          `,
+          backgroundColor: 'transparent',
+          borderWidth: 0,
+          shadow: false,
+          useHTML: true,
+          padding: 0,
+          distance: 8
         }
       }
     ],
@@ -730,74 +843,70 @@ private createMapOptions(mapData: any, seriesData: any[]): Highcharts.Options {
 
 
 
-  private processJardinesPoints(): any[] {
-    //console.log('Procesando jardines:', this.JardinesporRegion.length);
-  
+private processJardinesPoints(): any[] {
   const points = this.JardinesporRegion
     .filter(jardin => {
       const hasCoords = jardin.latitud && jardin.longitud;
       if (!hasCoords) {
-        // console.warn('Jardín sin coordenadas:', jardin.nombreJardin);
+        return false;
       }
       return hasCoords;
     })
-    .map(jardin => {
+    .map((jardin, index) => {  // Añadimos el index para la numeración
       try {
         const lat = this.parseCoordinate(jardin.latitud);
         const lon = this.parseCoordinate(jardin.longitud);
 
-        // console.log('Procesando jardín:', {
-        //   nombre: jardin.nombreJardin,
-        //   latitudOriginal: jardin.latitud,
-        //   longitudOriginal: jardin.longitud,
-        //   latitudProcesada: lat,
-        //   longitudProcesada: lon
-        // });
-  
-          // Verificar coordenadas válidas
-          if (isNaN(lat) || isNaN(lon) || !this.isValidCoordinate(lat, lon)) {
-            // console.warn('Coordenadas inválidas para:', jardin.nombreJardin);
-            return null;
-          }
-  
-          return {
-            type: 'mappoint',
+        if (isNaN(lat) || isNaN(lon) || !this.isValidCoordinate(lat, lon)) {
+          return null;
+        }
+
+        return {
+          type: 'mappoint',
           name: jardin.nombreJardin,
           lat: lat,
           lon: lon,
-          coordinates: [lon, lat], // Agregar coordenadas en formato array
+          numero: index + 1,  // Agregamos el número
+          coordinates: [lon, lat],
           marker: {
             enabled: true,
             symbol: 'circle',
-            radius: 4,
-            fillColor: '#FF1493',
-            lineWidth: 1,
-            lineColor: '#FFFFFF'
+            radius: 14,  // Aumentamos el radio para el número
+            fillColor: 'white',
+            lineWidth: 2,
+            lineColor: this.cardColor || '#666'
           },
-            datos: {
-              nombreJardin: jardin.nombreJardin || '',
-              calle: jardin.calle || '',
-              codCom: jardin.codCom || '',
-              jardin: jardin.jardin || '',
-              modalidad: jardin.modalidad || '',
-              ubicacion: jardin.ubicacion || '',
-              director: jardin.director || '',
-              estado: jardin.estado || ''
-            }
-          };
-        } catch (error) {
-          console.error('Error procesando jardín:', jardin.nombreJardin, error);
-          return null;
-        }
-      })
-      .filter(point => point !== null);
-  
-    // Log final de resultados
-    //console.log('Puntos procesados exitosamente:', points.length);
-    //console.log('Muestra de puntos:', points.slice(0, 3));
-  
-    return points;
-  }
+          dataLabels: {
+            enabled: true,
+            format: '{point.numero}',  // Mostramos el número
+            style: {
+              fontSize: '11px',
+              fontWeight: 'bold',
+              color: this.cardColor || '#333',
+              textOutline: 'none'
+            },
+            y: 0
+          },
+          datos: {
+            nombreJardin: jardin.nombreJardin || '',
+            calle: jardin.calle || '',
+            codCom: jardin.codCom || '',
+            jardin: jardin.jardin || '',
+            modalidad: jardin.modalidad || '',
+            ubicacion: jardin.ubicacion || '',
+            director: jardin.director || '',
+            estado: jardin.estado || ''
+          }
+        };
+      } catch (error) {
+        console.error('Error procesando jardín:', jardin.nombreJardin, error);
+        return null;
+      }
+    })
+    .filter(point => point !== null);
+
+  return points;
+}
   // Método corregido para crear el mapa
 private async createMap(mapData: any, seriesData: any[]): Promise<void> {
   return new Promise((resolve) => {
@@ -881,6 +990,22 @@ private async updateMapData(seriesData: any[]): Promise<void> {
     });
   });
 }
+
+getHeaderDotColor(): string {
+  if (!this.headerColor) return '#fefbf8'; // color por defecto
+
+  // Convertir el headerColor a un objeto Color para manipularlo
+  const rgb = this.headerColor.match(/\d+/g);
+  if (!rgb) return '#fefbf8';
+
+  // Crear una versión más oscura del color
+  const darkenAmount = 20; // ajusta este valor para hacer el color más o menos oscuro
+  const r = Math.max(0, Number(rgb[0]) - darkenAmount);
+  const g = Math.max(0, Number(rgb[1]) - darkenAmount);
+  const b = Math.max(0, Number(rgb[2]) - darkenAmount);
+
+  return `rgb(${r}, ${g}, ${b})`;
+}
 private async loadRegionDataFromSidebar(regionId: number) {
   if (this.updatePending) {
     // console.log('Actualización pendiente, esperando...');
@@ -894,7 +1019,17 @@ private async loadRegionDataFromSidebar(regionId: number) {
     // Limpiar datos anteriores
     this.jardinesAcumulados = [];
     this.JardinesporRegion = [];
+    const regionData = {
+      CodigoRegion: regionId,
+      NombreRegion: this.getRegionNameById(regionId)
+    };
+    localStorage.setItem('regionSeleccionada', JSON.stringify(regionData));
 
+    console.log('💾 Datos guardados en localStorage:', {
+      datosGuardados: regionData,
+      datosRecuperados: JSON.parse(localStorage.getItem('regionSeleccionada') || '{}')
+    });
+    this.loadEstablecimientosData(regionId.toString());
     // Esperar a que los datos se carguen
     await new Promise<void>((resolve, reject) => {
       let attempts = 0;
@@ -921,14 +1056,33 @@ private async loadRegionDataFromSidebar(regionId: number) {
       checkData();
     });
 
-    // console.log('Datos cargados:', {
-    //   totalJardines: this.JardinesporRegion.length,
-    //   primerosJardines: this.JardinesporRegion.slice(0, 3).map(j => ({
-    //     nombre: j.nombreJardin,
-    //     comuna: j.comuna,
-    //     coords: [j.latitud, j.longitud]
-    //   }))
-    // });
+     console.log('Datos cargados:', {
+       totalJardines: this.JardinesporRegion.length,
+       primerosJardines: this.JardinesporRegion.slice(0, 12).map(j => ({
+         nombre: j.nombreJardin,
+         comuna: j.comuna,
+         coords: [j.latitud, j.longitud],
+         codReg: j.codReg,
+         region: j.region,
+//         codCom: j.codCom,
+         jardin: j.jardin,
+         nombreJardin: j.nombreJardin,
+         estado: j.estado,
+         codMod: j.codMod,
+         modalidad: j.modalidad,
+//         ubicacion: j.ubicacion,
+//         latitud: j.latitud,
+//         longitud: j.longitud,
+//         calle: j.calle,
+//         rbd: j.rbd,
+         cniv: j.cniv,
+         niv: j.niv,
+         gru: j.gru,
+         cap: j.cap
+
+
+       }))
+     });
 
     // Cargar datos del mapa
     const mapDataUrl = this.getGeoJsonUrl(regionId);
@@ -969,40 +1123,88 @@ private applyColors(headerColor: string, cardColor: string): void {
 
 
 private loadData(region: string, offset: string = ''): void {
-  // console.log(`Cargando datos para región ${region}, offset: ${offset}`);
-  
   if (!offset) {
     this.jardinesAcumulados = [];
   }
 
   this.wsAdmSolService.getData(region, offset).subscribe({
     next: (fields) => {
+      console.group('🌐 Respuesta del Servicio - Region:', region);
+      console.log('XML Raw:', fields);
+
       try {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(fields, 'text/xml');
         
         const solmasElement = xmlDoc.getElementsByTagName('SOLMAS')[0];
         const solmas = solmasElement ? solmasElement.textContent?.trim() : '';
-        
-        // console.log('SOLMAS:', solmas);
+        console.log('📑 SOLMAS:', { solmas });
 
         const soloutElement = xmlDoc.getElementsByTagName('SOLOUT')[0];
         if (!soloutElement) {
+          console.error('❌ No se encontró SOLOUT');
           throw new Error('No se encontró el elemento SOLOUT');
         }
 
         const jsonContent = soloutElement.textContent;
         if (!jsonContent) {
+          console.error('❌ SOLOUT está vacío');
           throw new Error('SOLOUT está vacío');
         }
+
+        console.log('📄 JSON Content:', jsonContent);
 
         const jsonData = JSON.parse(jsonContent);
         const dataArray = Array.isArray(jsonData) ? jsonData : [jsonData];
         
-        // console.log(`Procesando ${dataArray.length} jardines`);
+        console.log('📊 Datos Procesados:', {
+          totalRegistros: dataArray.length,
+          primerRegistro: dataArray[0],
+          ejemploJor_Niv: dataArray[0]?.Jor_Niv,
+          codigoRegion: dataArray[0]?.CodReg,
+          region: dataArray[0]?.Region
+        });
 
-        dataArray.forEach(item => {
-          const primerJorNiv = item.Jor_Niv && item.Jor_Niv.length > 0 ? item.Jor_Niv[0] : null;
+        dataArray.forEach((item, index) => {
+          // Log de datos por jardín
+          console.group(`🏫 Jardín ${index + 1}/${dataArray.length}`);
+          console.log('Datos Básicos:', {
+            codigo: item.CodReg,
+            region: item.Region,
+            comuna: item.Comuna,
+            nombre: item.Nombre_Jardin,
+            modalidad: item.Modalidad
+          });
+
+          let nivelFinal = '';
+          let cnivFinal = '';
+
+          if (Array.isArray(item.Jor_Niv) && item.Jor_Niv.length > 0) {
+            console.log('📚 Niveles:', {
+              total: item.Jor_Niv.length,
+              detalle: item.Jor_Niv
+            });
+
+            const nivelesPriorizados = item.Jor_Niv.sort((a: any, b: any) => {
+              const prioridades: { [key: string]: number } = {
+                'SALA CUNA MAYOR': 1,
+                'SALA CUNA': 2,
+                'HETEROGENEO': 3
+              };
+              return (prioridades[a.Niv] || 999) - (prioridades[b.Niv] || 999);
+            });
+
+            const nivelPrincipal = nivelesPriorizados[0];
+            nivelFinal = nivelPrincipal.Niv || '';
+            cnivFinal = nivelPrincipal.Cniv || '';
+
+            console.log('📊 Niveles Priorizados:', {
+              todos: nivelesPriorizados.map((n: any) => n.Niv),
+              seleccionado: nivelFinal
+            });
+          } else {
+            console.log('⚠️ Sin información de niveles');
+          }
 
           const jardin: Jardin = {
             codReg: item.CodReg || '',
@@ -1022,28 +1224,39 @@ private loadData(region: string, offset: string = ''): void {
             fono_1: item.Fono_1 || '',
             correo: item.Correo || '',
             director: item.Director || '',
-            cjor: primerJorNiv ? primerJorNiv.Cjor || '' : '',
-            jor: primerJorNiv ? primerJorNiv.Jor || '' : '',
-            cniv: primerJorNiv ? primerJorNiv.Cniv || '' : '',
-            niv: primerJorNiv ? primerJorNiv.Niv || '' : '',
-            gru: primerJorNiv ? primerJorNiv.Gru || '' : '',
-            cap: primerJorNiv ? primerJorNiv.Cap || '' : ''
+            cjor: item.Jor_Niv?.[0]?.Cjor || '',
+            jor: item.Jor_Niv?.[0]?.Jor || '',
+            cniv: cnivFinal,
+            niv: nivelFinal,
+            gru: item.Jor_Niv?.[0]?.Gru || '',
+            cap: item.Jor_Niv?.[0]?.Cap || ''
           };
+
+          console.log('✅ Jardín Procesado:', jardin);
+          console.groupEnd();
 
           this.jardinesAcumulados.push(jardin);
         });
 
+        console.log('📈 Resumen Final:', {
+          totalJardines: this.jardinesAcumulados.length,
+          regiones: [...new Set(this.jardinesAcumulados.map(j => j.region))],
+          comunas: [...new Set(this.jardinesAcumulados.map(j => j.comuna))],
+          modalidades: [...new Set(this.jardinesAcumulados.map(j => j.modalidad))]
+        });
+
+        console.groupEnd();
         if (solmas && solmas !== '') {
-          //console.log(`Cargando más datos con offset: ${solmas}`);
           this.loadData(region, solmas);
         } else {
-          //console.log('Carga completa. Actualizando JardinesporRegion');
           this.JardinesporRegion = [...this.jardinesAcumulados];
-          this.updateTarjetasSuperiores()
-          //console.log('Jardines totales:', this.JardinesporRegion.length);
+          console.log('Total jardines cargados:', this.JardinesporRegion.length);
+          console.log('Muestra de niveles:', this.JardinesporRegion.slice(0, 5).map(j => ({
+            nombre: j.nombreJardin,
+            modalidad: j.modalidad,
+            nivel: j.niv
+          })));
         }
-
-
 
       } catch (error) {
         console.error('Error procesando datos:', error);
@@ -1115,6 +1328,26 @@ private processMapData(mapData: any) {
     console.warn('Datos del mapa no válidos');
     return [];
   }
+  // Función para normalizar nombres de comunas (mejorada)
+  const normalizarNombre = (nombre: string): string => {
+    return nombre
+      .trim()
+      .toUpperCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .replace(/\s+/g, " ")  // Normalizar espacios múltiples
+      .replace(/\-/g, " ");  // Reemplazar guiones por espacios
+  };
+  const jardinesPorComuna = this.JardinesporRegion.reduce((acc, jardin) => {
+    const comunaNormalizada = normalizarNombre(jardin.comuna);
+    acc[comunaNormalizada] = (acc[comunaNormalizada] || 0) + 1;
+    return acc;
+  }, {} as { [key: string]: number });
+
+// Debug: mostrar mapeo de nombres
+console.log('Nombres en el mapa:', mapData.features.map((f: any) => 
+  f.properties?.['Comuna']
+));
   // console.log('Debug O\'Higgins:', {
   //   regionSeleccionada: this.RegionSeleccionada,
   //   normalizedRegion: this.RegionSeleccionada.normalize('NFD').replace(/[\u0300-\u036f]/g, ''),
@@ -1127,19 +1360,27 @@ private processMapData(mapData: any) {
   return mapData.features.map((f: any) => {
     try {
       const nombreComuna = f.properties?.['Comuna'] || '';
+      const nombreComunaNormalizado = normalizarNombre(nombreComuna);
       const color = this.mapColorsService.getCommuneColor(this.RegionSeleccionada, nombreComuna);
+      
+      // Intentar encontrar la coincidencia más cercana
+      const cantidadJardines = jardinesPorComuna[nombreComunaNormalizado] || 
+                              jardinesPorComuna[nombreComuna.toUpperCase()] || 
+                              0;
 
-      if (!color) {
-        console.warn(`No se encontró color para la comuna: ${nombreComuna} en la región: ${this.RegionSeleccionada}`);
-      }
+      console.log(`Comuna ${nombreComuna} (${nombreComunaNormalizado}): ${cantidadJardines} jardines`);
+
       return {
         'hc-key': nombreComuna,
         name: nombreComuna,
-        cantidadJardines: f.properties?.['CantidadJardines'] || 0,
+        cantidadJardines: cantidadJardines,
         codigoComuna: f.properties?.['CodCom'] || '',
-        value: f.properties?.['CantidadJardines'] || 0,
-        color: color || '#E6F3FF',  // Color por defecto si no se encuentra
-        properties: f.properties
+        value: cantidadJardines,
+        color: color || '#E6F3FF',
+        properties: {
+          ...f.properties,
+          cantidadJardines: cantidadJardines
+        }
       };
     } catch (error) {
       console.error('Error procesando feature del mapa:', error);
@@ -1400,7 +1641,7 @@ private logCoordinateStatus(): void {
             chart: {
               map: mapData,
               backgroundColor: '#ffffff',
-              height: '400px',
+              height: '500px',
               style: { fontFamily: 'Arial, sans-serif' },
               animation: { duration: 1000 }
             },
@@ -1435,29 +1676,175 @@ private logCoordinateStatus(): void {
               useHTML: true,
               formatter: function(this: Highcharts.TooltipFormatterContextObject): string {
                 const point = this.point as any;
-            
                 if (point.series.type === 'mappoint') {
                   return `
-                    <div style="padding: 10px; border-radius: 8px; background: white; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-                      <div style="display: flex; align-items: center; gap: 10px;">
-                        <div style="width: 24px; height: 24px; background-image: url('assets/images/Integra-Palmundo-32.png'); background-size: cover;"></div>
-                        <h4 style="margin: 0; color: #333;">${point.datos.nombreJardin || ''}</h4>
+                    <div style="
+                      background: linear-gradient(145deg, white, #f8fafc);
+                      padding: 15px;
+                      border-radius: 12px;
+                      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+                      min-width: 300px;
+                      border: 2px solid ${ '#e0e0e0'};
+                    ">
+                      <div style="
+                        background: ${'#4a5568'};
+                        margin: -15px -15px 15px -15px;
+                        padding: 15px;
+                        border-radius: 10px 10px 0 0;
+                        display: flex;
+                        align-items: center;
+                        gap: 12px;
+                      ">
+                        <div style="
+                          width: 32px;
+                          height: 32px;
+                          background-image: url('assets/images/Integra-Palmundo-32.png');
+                          background-size: cover;
+                          border: 2px solid rgba(255,255,255,0.3);
+                          border-radius: 6px;
+                        "></div>
+                        <h4 style="
+                          margin: 0;
+                          color: white;
+                          font-size: 16px;
+                          font-weight: bold;
+                          text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+                        ">${point.datos.nombreJardin || ''}</h4>
                       </div>
-                      <hr style="margin: 10px 0; border-color: #eee;">
-                      <p><strong>Dirección:</strong> ${point.datos.calle || ''}</p>
-                      <p><strong>Comuna:</strong> ${point.datos.codCom || ''}</p>
-                      <p><strong>Director:</strong> ${point.datos.director || ''}</p>
-                      <p><strong>Código Jardín:</strong> ${point.datos.jardin || ''}</p>
-                      <p><strong>Modalidad:</strong> ${point.datos.modalidad || ''}</p>
-                      <p><strong>Estado:</strong> ${point.datos.estado || ''}</p>
-                      <p><strong>Ubicación:</strong> ${point.datos.ubicacion || ''}</p>
+            
+                      <div style="display: grid; gap: 8px;">
+                        <div class="info-row" style="
+                          display: flex;
+                          justify-content: space-between;
+                          padding: 10px;
+                          background: #f8fafc;
+                          border-radius: 6px;
+                          border: 1px solid #e2e8f0;
+                        ">
+                          <span style="color: #64748b;">Dirección</span>
+                          <strong>${point.datos.calle || ''}</strong>
+                        </div>
+            
+                        <div class="info-row" style="
+                          display: flex;
+                          justify-content: space-between;
+                          padding: 10px;
+                          background: white;
+                          border-radius: 6px;
+                          border: 1px solid #e2e8f0;
+                        ">
+                          <span style="color: #64748b;">Comuna</span>
+                          <strong style="color: ${"#242424"}">${point.datos.codCom || ''}</strong>
+                        </div>
+            
+                        <div class="info-row" style="
+                          display: flex;
+                          justify-content: space-between;
+                          padding: 10px;
+                          background: #f8fafc;
+                          border-radius: 6px;
+                          border: 1px solid #e2e8f0;
+                        ">
+                          <span style="color: #64748b;">Director</span>
+                          <strong>${point.datos.director || ''}</strong>
+                        </div>
+            
+                        <div class="info-row" style="
+                          display: flex;
+                          justify-content: space-between;
+                          padding: 10px;
+                          background: white;
+                          border-radius: 6px;
+                          border: 1px solid #e2e8f0;
+                        ">
+                          <span style="color: #64748b;">Código Jardín</span>
+                          <strong>${point.datos.jardin || ''}</strong>
+                        </div>
+            
+                        <div class="info-row" style="
+                          display: flex;
+                          justify-content: space-between;
+                          padding: 10px;
+                          background: #f8fafc;
+                          border-radius: 6px;
+                          border: 1px solid #e2e8f0;
+                        ">
+                          <span style="color: #64748b;">Modalidad</span>
+                          <strong style="color: ${"#242424"}">${point.datos.modalidad || ''}</strong>
+                        </div>
+            
+                        <div class="info-row" style="
+                          display: flex;
+                          justify-content: space-between;
+                          padding: 10px;
+                          background: white;
+                          border-radius: 6px;
+                          border: 1px solid #e2e8f0;
+                        ">
+                          <span style="color: #64748b;">Estado</span>
+                          <strong>${point.datos.estado || ''}</strong>
+                        </div>
+            
+                        <div class="info-row" style="
+                          display: flex;
+                          justify-content: space-between;
+                          padding: 10px;
+                          background: #f8fafc;
+                          border-radius: 6px;
+                          border: 1px solid #e2e8f0;
+                        ">
+                          <span style="color: #64748b;">Ubicación</span>
+                          <strong>${point.datos.ubicacion || ''}</strong>
+                        </div>
+                      </div>
                     </div>
                   `;
                 } else {
                   return `
-                    <div style="padding: 10px; background: white; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
-                      <h4 style="margin: 0; color: #333;">${point.name || ''}</h4>
-                      <p><strong>Total Jardines:</strong> ${point.value || 0}</p>
+                    <div style="
+                      background: linear-gradient(145deg, white, #f8fafc);
+                      padding: 15px;
+                      border-radius: 12px;
+                      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+                      min-width: 220px;
+                      border: 2px solid ${'#e0e0e0'};
+                    ">
+                      <div style="
+                        background: ${ '#4a5568'};
+                        margin: -15px -15px 15px -15px;
+                        padding: 12px;
+                        border-radius: 10px 10px 0 0;
+                        text-align: center;
+                      ">
+                        <h4 style="
+                          margin: 0;
+                          color: white;
+                          font-size: 16px;
+                          font-weight: bold;
+                          text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+                        ">${point.name || ''}</h4>
+                      </div>
+            
+                      <div style="
+                        background: #f8fafc;
+                        padding: 12px;
+                        border-radius: 8px;
+                        text-align: center;
+                      ">
+                        <div style="
+                          font-size: 32px;
+                          font-weight: bold;
+                          color: ${ '#4a5568'};
+                          margin-bottom: 4px;
+                        ">${point.value || 0}</div>
+                        <div style="
+                          color: #64748b;
+                          font-size: 13px;
+                          font-weight: 500;
+                          text-transform: uppercase;
+                          letter-spacing: 0.5px;
+                        ">Total Jardines</div>
+                      </div>
                     </div>
                   `;
                 }
@@ -1648,8 +2035,9 @@ private logCoordinateStatus(): void {
         title: {
           text: 'Mapa de ' + this.RegionSeleccionada,
           style: {
+            fontFamily: '"Qsans Semi Bold", "Qsans", sans-serif',
             fontSize: '18px',
-            fontWeight: 'bold'
+            fontWeight: '600'
           }
         },
         mapNavigation: {
@@ -1685,21 +2073,65 @@ private logCoordinateStatus(): void {
           showInLegend: false
         }],
         tooltip: {
-          enabled: true,
           headerFormat: '',
           pointFormat: `
-            <div style="text-align: center;">
-              <span style="font-size: 14px; font-weight: bold;">{point.name}</span><br/>
-              <span style="font-size: 12px;">Código Comuna: {point.codigoComuna}</span><br/>
-              <span style="font-size: 12px;">Cantidad de Jardines: {point.value}</span><br/>
+            <div style="
+              background: white;
+              padding: 15px;
+              border-radius: 10px;
+              box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+              min-width: 250px;
+              border: 2px solid ${this.cardColor || '#e0e0e0'};
+            ">
+              <div style="
+                background: ${this.cardColor || '#4a5568'};
+                margin: -15px -15px 15px -15px;
+                padding: 12px;
+                border-radius: 8px 8px 0 0;
+                text-align: center;
+              ">
+                <span style="
+                  font-size: 18px;
+                  font-weight: bold;
+                  color: white;
+                  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+                ">{point.name}</span>
+              </div>
+              
+              <div style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+                background: #f8fafc;
+                border-radius: 8px;
+              ">
+                <div style="text-align: center;">
+                  <div style="
+                    font-size: 32px;
+                    font-weight: bold;
+                    color: ${this.cardColor || '#4a5568'};
+                    margin-bottom: 5px;
+                  ">{point.cantidadJardines}</div>
+                  <div style="
+                    font-size: 14px;
+                    color: #64748b;
+                    font-weight: 500;
+                    text-transform: uppercase;
+                  ">Total Jardines</div>
+                </div>
+              </div>
             </div>
           `,
-          backgroundColor: 'rgba(255, 255, 255, 0.95)',
-          borderWidth: 1,
-          borderColor: '#AAA',
-          borderRadius: 8,
-          shadow: true,
-          useHTML: true
+          backgroundColor: 'transparent',
+          borderWidth: 0,
+          shadow: false,
+          useHTML: true,
+          style: {
+            fontSize: '14px'
+          },
+          padding: 0,
+          distance: 20
         },
         series: [{
           type: 'map',
@@ -1840,8 +2272,9 @@ private logCoordinateStatus(): void {
       title: {
         text: 'Mapa de ' + this.RegionSeleccionada,
         style: {
+          fontFamily: '"Qsans Semi Bold", "Qsans", sans-serif',
           fontSize: '18px',
-          fontWeight: 'bold'
+          fontWeight: '600'
         }
       },
       plotOptions: {
@@ -1905,17 +2338,18 @@ private logCoordinateStatus(): void {
         );
 
         uniqueEstablecimientos
-            .sort((a, b) => a.nombreJardin.localeCompare(b.nombreJardin))
-            .forEach(jardin => {
-                listaCompleta.push({
-                    tipo: 'establecimiento',
-                    nombre: jardin.nombreJardin,
-                    modalidad: jardin.modalidad,
-                    codigo: jardin.jardin,
-                    estado: jardin.estado,
-                    ubicacion: jardin.ubicacion
-                });
+        .sort((a, b) => a.nombreJardin.localeCompare(b.nombreJardin))
+        .forEach(jardin => {
+            listaCompleta.push({
+                tipo: 'establecimiento',
+                nombre: jardin.nombreJardin,
+                modalidad: jardin.modalidad,
+                codigo: jardin.jardin,
+                estado: jardin.estado,
+                ubicacion: jardin.ubicacion,
+                nivel: jardin.niv  // Añadir el nivel
             });
+        });
     }
 
     // Distribuir en columnas de manera uniforme
@@ -1931,18 +2365,105 @@ private logCoordinateStatus(): void {
     return columnas;
 }
 
+getEstablecimientoColor(modalidad: string, nivel: string): string {
+  const baseColor = this.cardColor; // El color base de la región
+  const tipo = this.getTipoEstablecimiento(modalidad, nivel);
+  
+  // Convertir el color base a HSL para poder manipular la luminosidad
+  const rgb = this.hexToRgb(baseColor);
+  const hsl = this.rgbToHsl(rgb.r, rgb.g, rgb.b);
+  
+  // Ajustar la luminosidad según el tipo de establecimiento
+  switch (tipo) {
+    case 'S.C y J.I':
+      return this.adjustBrightness(baseColor, 1); // Color original
+    case 'S.C':
+      return this.adjustBrightness(baseColor, 0.85); // Un poco más oscuro
+    case 'J.I':
+      return this.adjustBrightness(baseColor, 0.7); // Más oscuro aún
+    default:
+      return this.adjustBrightness(baseColor, 0.55); // El más oscuro
+  }
+}
 
-// Añade estos métodos a tu clase CustomDashboardComponent
-getTipoEstablecimiento(modalidad: string): string {
-    console.log("*****modalidad", modalidad );
-    const modalidadUpper = modalidad?.toUpperCase() || '';
-    if (modalidadUpper.includes('SALA CUNA')) return 'SC';
-    if (modalidadUpper.includes('JARDIN INFANTIL')) return 'JI';
-    if (modalidadUpper.includes('PROGRAMA MEJORAMIENTO')) return 'PMI';
-    if (modalidadUpper.includes('ALTERNATIVO')) return 'PA';
-    if (modalidadUpper.includes('FAMILIAR')) return 'PF';
-    if (modalidadUpper.includes('LABORAL')) return 'PL';
-    return 'OT'; // Otros tipos
+// Métodos auxiliares para el manejo de colores
+private hexToRgb(hex: string): { r: number, g: number, b: number } {
+  // Remover el # si existe
+  hex = hex.replace(/^#/, '');
+  
+  // Parsear los componentes
+  const bigint = parseInt(hex, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+
+  return { r, g, b };
+}
+
+private rgbToHsl(r: number, g: number, b: number): { h: number, s: number, l: number } {
+  r /= 255;
+  g /= 255;
+  b /= 255;
+
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  let h = 0, s, l = (max + min) / 2;
+
+  if (max === min) {
+    h = s = 0;
+  } else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    
+    h /= 6;
+  }
+
+  return { h, s, l };
+}
+
+private adjustBrightness(color: string, factor: number): string {
+  const rgb = this.hexToRgb(color);
+  
+  return `rgb(${Math.round(rgb.r * factor)}, ${Math.round(rgb.g * factor)}, ${Math.round(rgb.b * factor)})`;
+}
+getTipoEstablecimiento(modalidad: string, nivel: string): string {
+  //console.log("*modalidad", modalidad, "nivel:", nivel);
+  const modalidadUpper = modalidad?.toUpperCase() || '';
+  const nivelUpper = nivel?.toUpperCase() || '';
+
+  // Caso 1: S.C y J.I con Sala Cuna Mayor
+  if (modalidadUpper.includes('JARDÍN INFANTIL') && nivelUpper.includes('SALA CUNA MAYOR')) {
+      return 'S.C y J.I';
+  }
+
+  // Caso 2: S.C y J.I con SALA CUNA
+  if (modalidadUpper.includes('JARDÍN INFANTIL') && nivelUpper.includes('SALA CUNA')) {
+      return 'S.C y J.I';
+  }
+
+  // Caso 3: S.C con CENTRO PENITENCIARIO
+  if (modalidadUpper.includes('CENTRO PENITENCIARIO') && nivelUpper.includes('SALA CUNA')) {
+      return 'S.C';
+  }
+
+  // Caso 4: S.C con CONVENIO y SALA CUNA MAYOR
+  if (modalidadUpper.includes('CONVENIO') && nivelUpper.includes('SALA CUNA MAYOR')) {
+      return 'S.C';
+  }
+
+  // Caso 5: J.I con HETEROGENEO
+  if (modalidadUpper.includes('JARDÍN INFANTIL') && nivelUpper.includes('HETEROGENEO')) {
+      return 'J.I';
+  }
+
+  // Caso por defecto
+  return 'OT';
 }
 
 getJardinesAgrupadosEnColumnas(): ComunaGroup[] {
@@ -1989,18 +2510,17 @@ getJardinesAgrupadosEnColumnas(): ComunaGroup[] {
 
 
 sortEstablecimientos(establecimientos: Jardin[]): Jardin[] {
-    // Primero los ordena por tipo y luego por nombre
-    return establecimientos.sort((a, b) => {
-        console.log("sortEstablecimientos  a", a.modalidad);
-        console.log("sortEstablecimientos  b", b.modalidad);
-        const tipoA = this.getTipoEstablecimiento(a.modalidad);
-        const tipoB = this.getTipoEstablecimiento(b.modalidad);
-        if (tipoA !== tipoB) {
-            return tipoA.localeCompare(tipoB);
-        }
-        return a.nombreJardin.localeCompare(b.nombreJardin);
-    });
-}  
+  return establecimientos.sort((a, b) => {
+      console.log("sortEstablecimientos a", a.modalidad, a.niv);
+      console.log("sortEstablecimientos b", b.modalidad, b.niv);
+      const tipoA = this.getTipoEstablecimiento(a.modalidad, a.niv);
+      const tipoB = this.getTipoEstablecimiento(b.modalidad, b.niv);
+      if (tipoA !== tipoB) {
+          return tipoA.localeCompare(tipoB);
+      }
+      return a.nombreJardin.localeCompare(b.nombreJardin);
+  });
+}
 // Añade este método a tu clase CustomDashboardComponent
 getJardinesAgrupados(jardines: Jardin[]): Map<string, Jardin[]> {
   const jardinesAgrupados = new Map<string, Jardin[]>();
@@ -2059,12 +2579,12 @@ getModalidadAbreviada(modalidad: string): string {
       7:'/assets/map/clml.geo.json',
       8:'/assets/map/clbi.geo.json',
       9:'/assets/map/clar.geo.json',
-      11:'/assets/map/cllr.geo.json',
+      14:'/assets/map/cllr.geo.json',
       10:'/assets/map/clll.geo.json',
       12:'/assets/map/clay.geo.json',
       13:'/assets/map/clma.geo.json',
       15:'/assets/map/clap.geo.json',
-      14:'/assets/map/cldr.geo.json',
+      //14:'/assets/map/cldr.geo.json',
       16:'/assets/map/clnu.geo.json'
     };
 
@@ -2098,7 +2618,9 @@ getModalidadAbreviada(modalidad: string): string {
       7:'Maule',
       8:'Biobio',
       9:'Araucania',
-      11:'Los Lagos',
+      
+      10:'Los Lagos',
+      //11:'Los Rios',
       12:'Aysén',
       13:'Magallanes',
       14:'Los Ríos',

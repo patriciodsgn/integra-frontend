@@ -54,7 +54,7 @@ export class PanelCostosEvolucionComponent implements OnInit {
 
   // Cargar datos para el gráfico comparativo CMM
   private loadComparativoCMMData(): void {
-    this.costoService.getComparativoCMM().subscribe({
+    this.costoService.getComparativoCMMRegional().subscribe({
       next: (res) => {
         console.log('Datos del comparativo CMM:', res);
         // if (res.data && res.data.length > 0) {
